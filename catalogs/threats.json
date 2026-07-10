@@ -852,7 +852,7 @@
                 }
             ],
             "metadata": [
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "RTOS",
                 "HLOS",
                 "Kernel / Driver"
@@ -915,9 +915,9 @@
                 }
             ],
             "metadata": [
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "Config / Calibration File",
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "XCP / CCP"
             ]
         },
@@ -980,7 +980,7 @@
             "metadata": [
                 "Bootloader",
                 "Secure Boot",
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "Digital Signatures"
             ]
         },
@@ -1207,7 +1207,7 @@
                 }
             ],
             "metadata": [
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "SPI / I2C / I3C",
                 "Diagnostic Pads"
             ]
@@ -1264,7 +1264,7 @@
                 }
             ],
             "metadata": [
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "eFuse / OTP",
                 "Diagnostic Pads"
             ]
@@ -1427,8 +1427,8 @@
                 }
             ],
             "metadata": [
-                "Memory",
-                "Memory",
+                "Flash / RAM / EEPROM",
+                "Flash / RAM / EEPROM",
                 "UDS"
             ]
         },
@@ -1886,7 +1886,7 @@
                 }
             ],
             "metadata": [
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "SoC",
                 "JTAG / cJTAG"
             ]
@@ -1942,7 +1942,7 @@
                 }
             ],
             "metadata": [
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "SPI / I2C / I3C"
             ]
         },
@@ -2392,9 +2392,9 @@
                 }
             ],
             "metadata": [
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "Bootloader",
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "Config / Calibration File"
             ]
         },
@@ -6225,8 +6225,8 @@
                 }
             ],
             "metadata": [
-                "Memory",
-                "Memory",
+                "Flash / RAM / EEPROM",
+                "Flash / RAM / EEPROM",
                 "Passwords / PINs",
                 "Hashes"
             ]
@@ -7344,7 +7344,7 @@
                 }
             ],
             "metadata": [
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "App / Service"
             ]
         },
@@ -7650,7 +7650,7 @@
             "metadata": [
                 "UDS",
                 "DoIP",
-                "Memory"
+                "Flash / RAM / EEPROM"
             ]
         },
         {
@@ -7767,8 +7767,8 @@
                 }
             ],
             "metadata": [
-                "Memory",
-                "Memory"
+                "Flash / RAM / EEPROM",
+                "Flash / RAM / EEPROM"
             ]
         },
         {
@@ -8793,7 +8793,7 @@
             "metadata": [
                 "JTAG / cJTAG",
                 "SWD",
-                "Memory"
+                "Flash / RAM / EEPROM"
             ]
         },
         {

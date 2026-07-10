@@ -213,7 +213,7 @@
             "metadata": [
                 "gRPC / REST",
                 "App / Service",
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "HLOS"
             ],
             "domain": "Infotainment",
@@ -361,7 +361,7 @@
             "name": "OTA Update Orchestration Middleware",
             "description": "Software lifecycle middleware coordinating package download, security verification, signature verification, and flashing choreography across targeting sub-buses.",
             "metadata": [
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "Middleware",
                 "App / Service",
                 "Digital Signatures",
@@ -612,7 +612,7 @@
             "name": "Secure Non-Volatile Storage / Hardware Protected Partition",
             "description": "Protected physical non-volatile system structures hosting core system binaries, persistent operational parameters, and localized encryption manifests.",
             "metadata": [
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "Seeds / RoT Data",
                 "eFuse / OTP",
                 "HSM / SHE"
@@ -2093,7 +2093,7 @@
                 "MCU",
                 "CAN / CAN-FD / CAN-XL",
                 "Sensor / Actuator",
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "App / Service"
             ],
             "domain": "Powertrain",
@@ -2436,7 +2436,7 @@
                 "XCP / CCP",
                 "Sensor / Actuator",
                 "Transceiver / PHY",
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "Config / Calibration File",
                 "HSM / SHE"
             ],
@@ -3086,7 +3086,7 @@
                 "Cellular",
                 "GNSS",
                 "Transceiver / PHY",
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "Bootloader",
                 "RTOS"
             ],
@@ -3314,7 +3314,7 @@
                 "Config / Calibration File",
                 "SPI / I2C / I3C",
                 "HSM / SHE",
-                "Memory"
+                "Flash / RAM / EEPROM"
             ],
             "domain": "ADAS",
             "cybersecurityProperties": [

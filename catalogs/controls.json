@@ -2278,7 +2278,7 @@
             "name": "Hardware-Enforced Domain Isolation",
             "description": "Silicon-level security mechanisms (such as hardware security extensions, memory encryption, or hardware-based privilege separation) that enforce isolated memory spaces and execution states at the physical layer.",
             "metadata": [
-                "Memory"
+                "Flash / RAM / EEPROM"
             ],
             "refines": "C.07",
             "attackFeasibilityReduction": {
@@ -2329,7 +2329,7 @@
             "description": "Secure RAM is a protected memory region within an ECU or SoC that is isolated from the main system. It is used to store sensitive data such as keys or tokens during runtime to prevent memory dumping and side-channel attacks.",
             "metadata": [
                 "SoC",
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "Tokens / API Keys"
             ],
             "refines": "C.07",
@@ -2509,7 +2509,7 @@
             "name": "Trusted Key Management",
             "description": "Trusted Key Management encompasses the secure generation, distribution, storage, rotation, and destruction of cryptographic keys in automotive systems. This is a foundational control refined by specific storage implementations.",
             "metadata": [
-                "Memory"
+                "Flash / RAM / EEPROM"
             ],
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
@@ -2567,7 +2567,7 @@
             "name": "Encrypted Key Storage",
             "description": "Ensures that cryptographic keys are encrypted or cryptographically wrapped when stored on non-volatile storage mediums. This prevents plaintext key extraction via direct logical or physical access to the storage component.",
             "metadata": [
-                "Memory"
+                "Flash / RAM / EEPROM"
             ],
             "refines": "C.08",
             "attackFeasibilityReduction": {
@@ -3518,7 +3518,7 @@
             "name": "Filesystem Encryption",
             "description": "Protects confidentiality of files and directories by encrypting data at rest. Ensures sensitive PII, configurations, or credentials cannot be read if physical storage is dumped or stolen.",
             "metadata": [
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "Config / Calibration File"
             ],
             "attackFeasibilityReduction": {
@@ -3701,7 +3701,7 @@
             "metadata": [
                 "JTAG / cJTAG",
                 "SWD",
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "Diagnostic Pads"
             ],
             "attackFeasibilityReduction": {
@@ -3873,7 +3873,7 @@
             "name": "Software Testing",
             "description": "Systematic process (fuzzing, SAST/DAST, hardware-in-the-loop pen testing) to identify memory corruption, state exhaustion, and logic defects before deployment.",
             "metadata": [
-                "Memory"
+                "Flash / RAM / EEPROM"
             ],
             "refines": "C.16",
             "attackFeasibilityReduction": {
@@ -4038,7 +4038,7 @@
             "name": "Anti-Rollback Protection",
             "description": "Prevents the installation of older, vulnerable firmware versions. Utilizes hardware monotonic counters (e.g., in TPMs/HSMs) or blown eFuses to enforce version minimums.",
             "metadata": [
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "eFuse / OTP",
                 "HSM / SHE",
                 "TPM / SE"
@@ -4264,7 +4264,7 @@
             "name": "Resource Management",
             "description": "Allocates and controls system resources (CPU, Memory, Network) to ensure stability and prevent exhaustion.",
             "metadata": [
-                "Memory"
+                "Flash / RAM / EEPROM"
             ],
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
@@ -4362,7 +4362,7 @@
             "name": "Resource Limiting",
             "description": "Enforces max usage quotas (e.g., Linux Cgroups) to prevent single processes from taking down an ECU's memory or compute availability.",
             "metadata": [
-                "Memory",
+                "Flash / RAM / EEPROM",
                 "HLOS"
             ],
             "refines": "C.18",

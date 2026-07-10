@@ -71,10 +71,10 @@ To support automated threat modeling and graph-based attack path analysis withou
 
 This taxonomy abstracts away hyper-specific technologies into 8 core functional classes, allowing engineers to model legacy E/E architectures, modern Software-Defined Vehicles (SDVs), Advanced Hardware Fault Injection, and Post-Quantum Cryptography (PQC) threats using a single, unified mathematical logic.
 
-This is known internally as the **$8 \times 8 \times 8 \times 80$ Matrix**.
+This is known internally as the **$8 \times 8 \times 8 \times 88$ Matrix**.
 
-* **The Structure ($8 \times 8 \times 8$):** A strictly controlled syntax formatted as **`Action:Class:Domain`**. This mathematically guarantees that graph routing algorithms resolve without infinite loops, allowing legacy ICE architectures and modern SDVs to be modeled with the exact same math.
-* **The Payload ($80$ Tags):** An array of curated Engineering Metadata Tags (`metadata: string[]`). This brings the graph back to engineering reality by specifying the exact protocol, hardware, or mechanism involved (e.g., separating a generic "Network Inject" into specific `[CAN-FD]` vs `[Automotive Ethernet]` vectors).
+* **The Structure ($8 \times 8 \times 8$):** A strictly controlled syntax formatted as **`Action:Class:Domain`**. This mathematically guarantees that graph routing algorithms resolve without infinite loops, allowing legacy ICE architectures and modern SDVs to be modeled with the exact same math. `Domain` additionally accepts a reserved wildcard (`*`) for platform-level capabilities that are not bound to a single domain — see §3 below for matching semantics.
+* **The Payload ($88$ Tags):** An array of curated Engineering Metadata Tags (`metadata: string[]`). This brings the graph back to engineering reality by specifying the exact protocol, hardware, or mechanism involved (e.g., separating a generic "Network Inject" into specific `[CAN-FD]` vs `[Automotive Ethernet]` vectors).
 
 ### 1. ALLOWED ACTIONS (The Verbs)
 
@@ -110,19 +110,22 @@ The action list relies on exactly 8 mutually exclusive attacker operations. This
 * **`Telematics`**: External connectivity and gateway routing.
 * **`Backend`**: OEM or third-party cloud infrastructure and services.
 * **`External`**: Off-board entities (e.g., Mobile Apps, EVSE, Diagnostic Tools, Key Fobs).
+* **`*` (wildcard)**: Reserved for capabilities and assets that are not bound to a single domain — platform-level primitives such as a root of trust, a hypervisor, or a shared secure element that underpin every domain rather than one. This brings the `domain` enum to 9 values in total; 8 are named vehicle domains, and the wildcard is a routing sentinel, not a 9th domain — the "8×8×8" structure is unchanged.
+
+**Wildcard matching in the capability graph:** when the graph engine checks whether a held capability (from a threat's `grants`) satisfies a required capability (in another threat's `requires`, or a control's `denies`/`overriddenBy`), the `domain` field matches if either side is `*`, in addition to an exact match. `action` and `assetClass` never wildcard — they always require an exact match. This keeps the matcher O(1) per comparison and prevents a single capability from silently satisfying every action/class combination in a domain. Where a threat or control genuinely spans several specific actions or classes, use an explicit `OR` condition (`requires`/`overriddenBy`) or list multiple entries (`grants`/`denies`) instead of relying on a wildcard.
 
 ### 4. ALLOWED METADATA (The Engineering Payload)
 
-When defining an Asset, Threat, or Control in the JSON catalogs, engineers must apply the relevant metadata from this $80$-item curated dictionary to ensure AI and UI filters resolve accurately.
+When defining an Asset, Threat, or Control in the JSON catalogs, engineers must apply the relevant metadata from this $88$-item curated dictionary to ensure AI and UI filters resolve accurately.
 
-* **1. In-Vehicle Networking (IVN)**: `CAN / CAN-FD / CAN-XL`, `Automotive Ethernet`, `LIN`, `FlexRay`, `SerDes`, `PCIe`, `SPI / I2C / I3C`, `UART / USART`, `CXPI`, `SENT / PSI5`
-* **2. Wireless & External RF**: `Cellular`, `Wi-Fi`, `Bluetooth / BLE`, `UWB`, `NFC / RFID`, `GNSS`, `LF / RF`, `V2X`, `Satellite`, `mmWave`
-* **3. Data & App Protocols**: `UDS`, `DoIP`, `SOME/IP`, `DDS`, `MQTT / AMQP`, `XCP / CCP`, `J1939 / FMS`, `ISO 15118 / OCPP`, `gRPC / REST`, `LWM2M / OMA-DM`
-* **4. Interfaces & Diagnostics**: `OBD-II`, `JTAG / cJTAG`, `SWD`, `USB`, `HDMI / DisplayPort`, `Audio Jacks / A2B`, `EVSE Plug`, `Trailer Socket`, `Media Slots`, `Diagnostic Pads`
-* **5. Hardware & Silicon**: `MCU`, `MPU`, `SoC`, `HPC / Zonal Controller`, `GPU / NPU`, `Sensor / Actuator`, `Transceiver / PHY`, `Memory`, `FPGA`, `eFuse / OTP`
-* **6. Software Environments**: `RTOS`, `HLOS`, `Hypervisor`, `Container`, `Bootloader`, `Middleware`, `App / Service`, `Kernel / Driver`, `ML Model / Weights`, `Config / Calibration File`
-* **7. Security Mechanisms**: `HSM / SHE`, `TEE`, `TPM / SE`, `SecOC`, `MACsec / IPsec`, `TLS / DTLS`, `Secure Boot`, `TRNG / PRNG`, `PUF`, `IDS / IPS`
-* **8. Cryptographic Assets**: `PKI / Certificates`, `Symmetric Keys`, `Asymmetric Keys`, `Hashes`, `MAC / HMAC / CMAC`, `Digital Signatures`, `Nonces / IVs`, `Passwords / PINs`, `Tokens / API Keys`, `Seeds / RoT Data`
+* **1. In-Vehicle Networking (IVN)**: `CAN / CAN-FD / CAN-XL`, `Automotive Ethernet`, `LIN`, `FlexRay`, `SerDes`, `PCIe`, `SPI / I2C / I3C`, `UART / USART`, `CXPI`, `SENT / PSI5`, `TSN / AVB (Time-Sensitive Networking)`
+* **2. Wireless & External RF**: `Cellular`, `Wi-Fi`, `Bluetooth / BLE`, `UWB`, `NFC / RFID`, `GNSS`, `LF / RF`, `V2X`, `Satellite`, `mmWave`, `RKE / PEPS (Keyless Entry)`
+* **3. Data & App Protocols**: `UDS`, `DoIP`, `SOME/IP`, `DDS`, `MQTT / AMQP`, `XCP / CCP`, `J1939 / FMS`, `ISO 15118 / OCPP`, `gRPC / REST`, `LWM2M / OMA-DM`, `OTA / SOTA / FOTA`
+* **4. Interfaces & Diagnostics**: `OBD-II`, `JTAG / cJTAG`, `SWD`, `USB`, `HDMI / DisplayPort`, `Audio Jacks / A2B`, `EVSE Plug`, `Trailer Socket`, `Media Slots`, `Diagnostic Pads`, `Wireless Charging Interface`
+* **5. Hardware & Silicon**: `MCU`, `MPU`, `SoC`, `HPC / Zonal Controller`, `GPU / NPU`, `Sensor / Actuator`, `Transceiver / PHY`, `Flash / RAM / EEPROM`, `FPGA`, `eFuse / OTP`, `LiDAR / Radar / Camera`
+* **6. Software Environments**: `RTOS`, `HLOS`, `Hypervisor`, `Container`, `Bootloader`, `Middleware`, `App / Service`, `Kernel / Driver`, `ML Model / Weights`, `Config / Calibration File`, `SBOM / Software Composition`
+* **7. Security Mechanisms**: `HSM / SHE`, `TEE`, `TPM / SE`, `SecOC`, `MACsec / IPsec`, `TLS / DTLS`, `Secure Boot`, `TRNG / PRNG`, `PUF`, `IDS / IPS`, `OAuth / OIDC / SAML`
+* **8. Cryptographic Assets**: `PKI / Certificates`, `Symmetric Keys`, `Asymmetric Keys`, `Hashes`, `MAC / HMAC / CMAC`, `Digital Signatures`, `Nonces / IVs`, `Passwords / PINs`, `Tokens / API Keys`, `Seeds / RoT Data`, `Session Keys / Ephemeral Secrets`
 
 ---
 

@@ -32,7 +32,7 @@
         },
         "domain": {
             "type": "string",
-            "description": "The primary vehicle architectural domain.",
+            "description": "The primary vehicle architectural domain. Includes the reserved wildcard \"*\" for assets not bound to a single domain (e.g. platform-level compute, root of trust, hypervisor). When matching capability nodes, \"*\" matches any domain; action and assetClass always require an exact match.",
             "enum": [
                 "Powertrain",
                 "Chassis",
@@ -41,7 +41,8 @@
                 "ADAS",
                 "Telematics",
                 "External",
-                "Backend"
+                "Backend",
+                "*"
             ]
         },
         "metadata": {
@@ -60,6 +61,7 @@
                     "UART / USART",
                     "CXPI",
                     "SENT / PSI5",
+                    "TSN / AVB (Time-Sensitive Networking)",
                     "Cellular",
                     "Wi-Fi",
                     "Bluetooth / BLE",
@@ -70,6 +72,7 @@
                     "V2X",
                     "Satellite",
                     "mmWave",
+                    "RKE / PEPS (Keyless Entry)",
                     "UDS",
                     "DoIP",
                     "SOME/IP",
@@ -80,6 +83,7 @@
                     "ISO 15118 / OCPP",
                     "gRPC / REST",
                     "LWM2M / OMA-DM",
+                    "OTA / SOTA / FOTA",
                     "OBD-II",
                     "JTAG / cJTAG",
                     "SWD",
@@ -90,6 +94,7 @@
                     "Trailer Socket",
                     "Media Slots",
                     "Diagnostic Pads",
+                    "Wireless Charging Interface",
                     "MCU",
                     "MPU",
                     "SoC",
@@ -97,9 +102,10 @@
                     "GPU / NPU",
                     "Sensor / Actuator",
                     "Transceiver / PHY",
-                    "Memory",
+                    "Flash / RAM / EEPROM",
                     "FPGA",
                     "eFuse / OTP",
+                    "LiDAR / Radar / Camera",
                     "RTOS",
                     "HLOS",
                     "Hypervisor",
@@ -110,6 +116,7 @@
                     "Kernel / Driver",
                     "ML Model / Weights",
                     "Config / Calibration File",
+                    "SBOM / Software Composition",
                     "HSM / SHE",
                     "TEE",
                     "TPM / SE",
@@ -120,6 +127,7 @@
                     "TRNG / PRNG",
                     "PUF",
                     "IDS / IPS",
+                    "OAuth / OIDC / SAML",
                     "PKI / Certificates",
                     "Symmetric Keys",
                     "Asymmetric Keys",
@@ -129,7 +137,8 @@
                     "Nonces / IVs",
                     "Passwords / PINs",
                     "Tokens / API Keys",
-                    "Seeds / RoT Data"
+                    "Seeds / RoT Data",
+                    "Session Keys / Ephemeral Secrets"
                 ]
             }
         },
