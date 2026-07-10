@@ -760,10 +760,6 @@
             "description": "An attacker positioned as a man-in-the-middle actively manipulates a TLS/DTLS (or equivalent transport-security) handshake — stripping supported cipher suites from the ClientHello, forcing fallback to a deprecated protocol version (SSLv3, TLS 1.0/1.1), or exploiting cross-protocol/export-grade cryptographic weaknesses in the POODLE, FREAK, Logjam, or DROWN family — to coerce both endpoints into negotiating a version or cipher suite weak enough to break or cryptanalyze. Unlike the RF/PHY jamming-based downgrade modeled in T.08.3 (which forces a wireless interface to fail over from 4G/5G or WPA3 to 2G or WEP), this is a pure protocol-layer manipulation that requires no signal disruption at all, and it applies uniformly to any TLS/DTLS-secured channel in the vehicle's architecture: backend telematics sessions, OTA update distribution, and the ISO 15118 V2G/EVSE charging handshake.",
             "classificationModel": "STRIDE",
             "refines": "T.01",
-            "source": {
-                "name": "RFC 7507 — TLS Fallback Signaling Cipher Suite Value (SCSV) for Preventing Protocol Downgrade Attacks",
-                "url": "https://www.rfc-editor.org/rfc/rfc7507.html"
-            },
             "attackFeasibility": {
                 "attackPotential": {
                     "elapsedTime": {
@@ -1403,10 +1399,6 @@
             "description": "An attacker reflashes or restores an ECU to an older, genuinely OEM-signed firmware or software image that contains a since-patched vulnerability, or directly tampers with the stored version value/rollback counter used to gate installation, without ever forging a signature. Because the replayed image carries a valid signature, Secure Boot's verification step passes without incident — the attack succeeds not by breaking cryptographic trust but by replaying a legitimately trusted artifact that predates a security fix. In the absence of monotonic anti-rollback enforcement (a hardware counter, blown eFuse, or software rollback-index comparison), the reintroduced, previously-patched vulnerability becomes available again for exploitation by a subsequent, independent attack.",
             "classificationModel": "STRIDE",
             "refines": "T.02",
-            "source": {
-                "name": "CVE-2024-28183 — ESP-IDF OTA Anti-Rollback Bypass via TOCTOU",
-                "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-28183"
-            },
             "attackFeasibility": {
                 "attackPotential": {
                     "elapsedTime": {
@@ -2571,10 +2563,6 @@
             "description": "An attacker exploits the CAN controller's built-in error-confinement state machine rather than raw bandwidth exhaustion. By injecting frames sharing the same arbitration ID as a victim ECU's next scheduled transmission and forcing a bit-level conflict (or corrupting the victim's own frame with a jammed dominant bit at the right moment), the attacker repeatedly drives transmit-error-counter (TEC) increments on the victim's CAN controller. Once the TEC exceeds 255, the controller autonomously transitions to the 'bus-off' state per the CAN/ISO 11898-1 error-handling specification and physically disconnects itself from the bus — silently and durably removing a legitimate, uncompromised ECU from the network without transmitting a single flooded frame, and typically without the victim ECU's own software ever detecting the transition.",
             "classificationModel": "STRIDE",
             "refines": "T.05",
-            "source": {
-                "name": "Cho & Shin, \"Error Handling of In-Vehicle Networks Makes Them Vulnerable\" (ACM CCS 2016)",
-                "url": "https://dl.acm.org/doi/10.1145/2976749.2978302"
-            },
             "attackFeasibility": {
                 "attackPotential": {
                     "elapsedTime": {
@@ -3121,10 +3109,6 @@
             "description": "An attacker who holds a valid but unprivileged session with the OEM's owner/companion-app or fleet-management backend API exploits a missing per-request ownership check — commonly an endpoint that trusts a client-supplied, enumerable identifier such as a VIN, dealer ID, or internal vehicle record ID without verifying it belongs to the calling account — to remotely issue unlock, remote-start, horn/light, or location-query commands against, or read PII belonging to, vehicles the attacker does not own. No credential theft, key extraction, or cryptographic bypass is required: the attacker's own account and session are fully legitimate, and the API itself performs the privileged action on the attacker's behalf against the wrong object. This is functionally distinct from T.01.2 (which requires stolen credentials belonging to another account) and from T.04.8 (where an IDOR-class flaw is used only to exfiltrate keys/secrets, not to directly execute commands against another owner's vehicle).",
             "classificationModel": "STRIDE",
             "refines": "T.06",
-            "source": {
-                "name": "Sam Curry et al., \"Web Hackers vs. The Auto Industry\"",
-                "url": "https://samcurry.net/web-hackers-vs-the-auto-industry"
-            },
             "attackFeasibility": {
                 "attackPotential": {
                     "elapsedTime": {
