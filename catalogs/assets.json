@@ -12,7 +12,7 @@
                 "HLOS",
                 "RTOS"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Integrity",
                 "Availability",
@@ -65,7 +65,7 @@
                 "Seeds / RoT Data",
                 "PUF"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Confidentiality",
                 "Integrity",
@@ -115,7 +115,7 @@
                 "SoC",
                 "HLOS"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Integrity",
                 "Availability",
@@ -369,7 +369,7 @@
                 "LWM2M / OMA-DM",
                 "TLS / DTLS"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Integrity",
                 "Availability",
@@ -467,7 +467,7 @@
                 "Automotive Ethernet",
                 "Config / Calibration File"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "partOf": "A.042",
             "cybersecurityProperties": [
                 "Integrity",
@@ -517,7 +517,7 @@
                 "HPC / Zonal Controller",
                 "RTOS"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Integrity",
                 "Availability",
@@ -617,7 +617,7 @@
                 "eFuse / OTP",
                 "HSM / SHE"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Confidentiality",
                 "Integrity",
@@ -667,7 +667,7 @@
                 "TRNG / PRNG",
                 "HSM / SHE"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Confidentiality",
                 "Integrity",
@@ -912,7 +912,7 @@
                 "CAN / CAN-FD / CAN-XL",
                 "SOME/IP"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Integrity",
                 "Availability"
@@ -1109,7 +1109,7 @@
                 "Middleware",
                 "HLOS"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Confidentiality",
                 "Integrity",
@@ -1257,7 +1257,7 @@
                 "Middleware",
                 "App / Service"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Integrity",
                 "Availability",
@@ -1307,7 +1307,7 @@
                 "Kernel / Driver",
                 "HLOS"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Integrity",
                 "Availability",
@@ -1357,7 +1357,7 @@
                 "JTAG / cJTAG",
                 "Symmetric Keys"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Confidentiality",
                 "Integrity"
@@ -1506,7 +1506,7 @@
                 "Hashes",
                 "Digital Signatures"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Integrity",
                 "Authenticity"
@@ -1651,7 +1651,7 @@
                 "SPI / I2C / I3C",
                 "Automotive Ethernet"
             ],
-            "domain": "ADAS",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Integrity",
                 "Availability"
@@ -1749,7 +1749,7 @@
                 "HSM / SHE",
                 "Hashes"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Integrity",
                 "Confidentiality"
@@ -1797,7 +1797,7 @@
                 "Tokens / API Keys",
                 "gRPC / REST"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Confidentiality",
                 "Integrity",
@@ -1899,7 +1899,7 @@
                 "PCIe",
                 "Automotive Ethernet"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Availability",
                 "Integrity"
@@ -2047,7 +2047,7 @@
                 "Automotive Ethernet",
                 "DoIP"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Availability",
                 "Integrity"
@@ -2246,7 +2246,7 @@
                 "Transceiver / PHY",
                 "LIN"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Availability",
                 "Integrity"
@@ -2294,7 +2294,7 @@
                 "RTOS",
                 "CAN / CAN-FD / CAN-XL"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Availability",
                 "Integrity"
@@ -2341,7 +2341,7 @@
                 "Middleware",
                 "MAC / HMAC / CMAC"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Integrity",
                 "Availability"
@@ -2390,7 +2390,7 @@
                 "eFuse / OTP",
                 "Config / Calibration File"
             ],
-            "domain": "Body",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Integrity",
                 "Availability"
@@ -2440,7 +2440,7 @@
                 "Config / Calibration File",
                 "HSM / SHE"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Integrity",
                 "Availability"
@@ -2540,7 +2540,7 @@
                 "MACsec / IPsec",
                 "Symmetric Keys"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Confidentiality",
                 "Integrity",
@@ -2591,7 +2591,7 @@
                 "PKI / Certificates",
                 "Digital Signatures"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Integrity",
                 "Confidentiality"
@@ -2786,7 +2786,7 @@
                 "Middleware",
                 "SecOC"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Integrity",
                 "Availability",
@@ -2836,7 +2836,7 @@
                 "SOME/IP",
                 "MACsec / IPsec"
             ],
-            "domain": "Powertrain",
+            "domain": "*",
             "cybersecurityProperties": [
                 "Integrity",
                 "Availability",
@@ -3196,7 +3196,7 @@
             "name": "In-Vehicle Network Intrusion Detection & Prevention System (IDS/IPS)",
             "description": "Software or hardware-assisted monitoring agent analyzing in-vehicle network traffic (CAN, Automotive Ethernet) for anomalous message patterns, unauthorized frame injection, or statistical deviations indicative of an ongoing cyber attack. Mandated by UNECE WP.29 R155 for type-approved vehicles.",
             "class": "Executable",
-            "domain": "Powertrain",
+            "domain": "*",
             "metadata": [
                 "CAN / CAN-FD / CAN-XL",
                 "Automotive Ethernet",

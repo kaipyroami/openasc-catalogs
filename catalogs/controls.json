@@ -40,12 +40,12 @@
                 {
                     "action": "Intercept",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -53,17 +53,17 @@
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Memory",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
@@ -111,12 +111,12 @@
                 {
                     "action": "Intercept",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -124,17 +124,17 @@
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Memory",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
@@ -185,7 +185,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Telematics"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -198,22 +198,22 @@
                     {
                         "action": "Extract",
                         "assetClass": "Memory",
-                        "domain": "Telematics"
+                        "domain": "*"
                     },
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Telematics"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Telematics"
+                        "domain": "*"
                     },
                     {
                         "action": "Modify",
                         "assetClass": "Crypto",
-                        "domain": "Telematics"
+                        "domain": "*"
                     }
                 ]
             }
@@ -272,7 +272,7 @@
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -280,17 +280,17 @@
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Memory",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
@@ -339,12 +339,12 @@
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Crypto",
-                    "domain": "Backend"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -352,17 +352,17 @@
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Memory",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
@@ -415,7 +415,7 @@
                 {
                     "action": "Modify",
                     "assetClass": "Executable",
-                    "domain": "External"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -423,17 +423,17 @@
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Memory",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
@@ -479,7 +479,7 @@
                 {
                     "action": "Intercept",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Inject",
@@ -541,7 +541,7 @@
                 {
                     "action": "Intercept",
                     "assetClass": "Network",
-                    "domain": "Backend"
+                    "domain": "*"
                 },
                 {
                     "action": "Intercept",
@@ -569,7 +569,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Telematics"
+                        "domain": "*"
                     }
                 ]
             }
@@ -614,7 +614,7 @@
                 {
                     "action": "Disrupt",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -674,12 +674,12 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Backend"
+                        "domain": "*"
                     },
                     {
                         "action": "Modify",
                         "assetClass": "Data",
-                        "domain": "Backend"
+                        "domain": "*"
                     }
                 ]
             }
@@ -722,12 +722,12 @@
                 {
                     "action": "Intercept",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Inject",
                     "assetClass": "Network",
-                    "domain": "Infotainment"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -735,7 +735,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Telematics"
+                        "domain": "*"
                     },
                     {
                         "action": "Modify",
@@ -782,7 +782,7 @@
                 {
                     "action": "Inject",
                     "assetClass": "Interface",
-                    "domain": "ADAS"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
@@ -792,7 +792,7 @@
                 {
                     "action": "Modify",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -850,12 +850,12 @@
                 {
                     "action": "Intercept",
                     "assetClass": "Network",
-                    "domain": "ADAS"
+                    "domain": "*"
                 },
                 {
                     "action": "Inject",
                     "assetClass": "Network",
-                    "domain": "ADAS"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -863,7 +863,7 @@
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "ADAS"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
@@ -873,7 +873,7 @@
                     {
                         "action": "Extract",
                         "assetClass": "Memory",
-                        "domain": "ADAS"
+                        "domain": "*"
                     }
                 ]
             }
@@ -924,7 +924,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Telematics"
+                        "domain": "*"
                     }
                 ]
             }
@@ -975,12 +975,12 @@
                     {
                         "action": "Modify",
                         "assetClass": "Crypto",
-                        "domain": "Telematics"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Telematics"
+                        "domain": "*"
                     }
                 ]
             }
@@ -1032,12 +1032,12 @@
                     {
                         "action": "Modify",
                         "assetClass": "Crypto",
-                        "domain": "Telematics"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Telematics"
+                        "domain": "*"
                     }
                 ]
             }
@@ -1084,7 +1084,7 @@
                 {
                     "action": "Disrupt",
                     "assetClass": "Network",
-                    "domain": "Telematics"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -1092,7 +1092,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Telematics"
+                        "domain": "*"
                     },
                     {
                         "action": "Modify",
@@ -1144,7 +1144,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Backend"
+                        "domain": "*"
                     }
                 ]
             }
@@ -1249,7 +1249,7 @@
                 {
                     "action": "Disrupt",
                     "assetClass": "Executable",
-                    "domain": "Telematics"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -1262,7 +1262,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Telematics"
+                        "domain": "*"
                     }
                 ]
             }
@@ -1311,7 +1311,7 @@
                 {
                     "action": "Inject",
                     "assetClass": "Network",
-                    "domain": "Chassis"
+                    "domain": "*"
                 },
                 {
                     "action": "Disrupt",
@@ -1329,7 +1329,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Telematics"
+                        "domain": "*"
                     }
                 ]
             }
@@ -1369,7 +1369,7 @@
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
@@ -1421,7 +1421,7 @@
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
@@ -1478,7 +1478,7 @@
                 {
                     "action": "Modify",
                     "assetClass": "Data",
-                    "domain": "ADAS"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -1486,7 +1486,7 @@
                     {
                         "action": "Modify",
                         "assetClass": "Data",
-                        "domain": "ADAS"
+                        "domain": "*"
                     }
                 ]
             }
@@ -1526,7 +1526,7 @@
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Body"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -1534,7 +1534,7 @@
                     {
                         "action": "Modify",
                         "assetClass": "Data",
-                        "domain": "Body"
+                        "domain": "*"
                     }
                 ]
             },
@@ -1584,7 +1584,7 @@
                 {
                     "action": "Inject",
                     "assetClass": "Interface",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
@@ -1597,7 +1597,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Telematics"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
@@ -1607,7 +1607,7 @@
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Telematics"
+                        "domain": "*"
                     }
                 ]
             }
@@ -1653,7 +1653,7 @@
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -1666,17 +1666,17 @@
                     {
                         "action": "Extract",
                         "assetClass": "Memory",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             }
@@ -1724,7 +1724,7 @@
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -1732,17 +1732,17 @@
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Memory",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
@@ -1793,7 +1793,7 @@
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -1801,7 +1801,7 @@
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
@@ -1811,12 +1811,12 @@
                     {
                         "action": "Extract",
                         "assetClass": "Memory",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             }
@@ -1880,12 +1880,12 @@
                     {
                         "action": "Extract",
                         "assetClass": "Memory",
-                        "domain": "Telematics"
+                        "domain": "*"
                     },
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Telematics"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
@@ -1939,7 +1939,7 @@
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
@@ -1949,7 +1949,7 @@
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             }
@@ -1998,17 +1998,12 @@
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
-                    },
-                    {
-                        "action": "Extract",
-                        "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             }
@@ -2058,17 +2053,17 @@
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Memory",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
@@ -2119,22 +2114,12 @@
                 {
                     "action": "Inject",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
-                },
-                {
-                    "action": "Inject",
-                    "assetClass": "Network",
-                    "domain": "Chassis"
-                },
-                {
-                    "action": "Inject",
-                    "assetClass": "Network",
-                    "domain": "Body"
+                    "domain": "*"
                 },
                 {
                     "action": "Intercept",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -2142,17 +2127,17 @@
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Modify",
                         "assetClass": "Memory",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             }
@@ -2198,7 +2183,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Memory",
-                    "domain": "Infotainment"
+                    "domain": "*"
                 },
                 {
                     "action": "Elevate",
@@ -2211,7 +2196,7 @@
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Infotainment"
+                        "domain": "*"
                     }
                 ]
             }
@@ -2260,7 +2245,7 @@
                 {
                     "action": "Modify",
                     "assetClass": "Memory",
-                    "domain": "Infotainment"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -2268,7 +2253,7 @@
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Infotainment"
+                        "domain": "*"
                     }
                 ]
             }
@@ -2310,7 +2295,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Memory",
-                    "domain": "Infotainment"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -2318,7 +2303,7 @@
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Infotainment"
+                        "domain": "*"
                     }
                 ]
             }
@@ -2360,12 +2345,12 @@
                 {
                     "action": "Extract",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -2373,7 +2358,7 @@
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             }
@@ -2418,12 +2403,12 @@
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -2431,7 +2416,7 @@
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
@@ -2499,7 +2484,7 @@
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Infotainment"
+                        "domain": "*"
                     }
                 ]
             }
@@ -2539,12 +2524,12 @@
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -2557,7 +2542,7 @@
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             }
@@ -2597,7 +2582,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -2647,12 +2632,12 @@
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -2660,12 +2645,12 @@
                     {
                         "action": "Extract",
                         "assetClass": "Memory",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             }
@@ -2709,7 +2694,7 @@
                 {
                     "action": "Modify",
                     "assetClass": "Executable",
-                    "domain": "Telematics"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
@@ -2722,12 +2707,12 @@
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Telematics"
+                        "domain": "*"
                     },
                     {
                         "action": "Intercept",
                         "assetClass": "Interface",
-                        "domain": "Telematics"
+                        "domain": "External"
                     }
                 ]
             }
@@ -2770,12 +2755,12 @@
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Body"
+                    "domain": "*"
                 },
                 {
                     "action": "Inject",
                     "assetClass": "Interface",
-                    "domain": "Body"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -2783,12 +2768,12 @@
                     {
                         "action": "Extract",
                         "assetClass": "Memory",
-                        "domain": "Body"
+                        "domain": "*"
                     },
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Body"
+                        "domain": "*"
                     }
                 ]
             }
@@ -2829,7 +2814,7 @@
                 {
                     "action": "Modify",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
@@ -2842,7 +2827,7 @@
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             }
@@ -2884,12 +2869,12 @@
                 {
                     "action": "Inject",
                     "assetClass": "Interface",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -2897,7 +2882,7 @@
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             }
@@ -2943,12 +2928,12 @@
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -2956,7 +2941,7 @@
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             }
@@ -3000,7 +2985,7 @@
                 {
                     "action": "Modify",
                     "assetClass": "Data",
-                    "domain": "Infotainment"
+                    "domain": "*"
                 },
                 {
                     "action": "Execute",
@@ -3073,7 +3058,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Backend"
+                        "domain": "*"
                     }
                 ]
             }
@@ -3169,12 +3154,12 @@
                 {
                     "action": "Modify",
                     "assetClass": "Executable",
-                    "domain": "Telematics"
+                    "domain": "*"
                 },
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Telematics"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -3230,12 +3215,12 @@
                     {
                         "action": "Modify",
                         "assetClass": "Data",
-                        "domain": "ADAS"
+                        "domain": "*"
                     },
                     {
                         "action": "Modify",
                         "assetClass": "Executable",
-                        "domain": "ADAS"
+                        "domain": "*"
                     }
                 ]
             }
@@ -3284,7 +3269,7 @@
                     {
                         "action": "Modify",
                         "assetClass": "Crypto",
-                        "domain": "Infotainment"
+                        "domain": "*"
                     },
                     {
                         "action": "Modify",
@@ -3330,7 +3315,7 @@
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -3343,7 +3328,7 @@
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
@@ -3394,12 +3379,12 @@
                     {
                         "action": "Modify",
                         "assetClass": "Crypto",
-                        "domain": "Telematics"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Telematics"
+                        "domain": "*"
                     }
                 ]
             }
@@ -3451,12 +3436,12 @@
                     {
                         "action": "Modify",
                         "assetClass": "Crypto",
-                        "domain": "Infotainment"
+                        "domain": "*"
                     },
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Infotainment"
+                        "domain": "*"
                     }
                 ]
             }
@@ -3495,7 +3480,7 @@
                 {
                     "action": "Modify",
                     "assetClass": "Data",
-                    "domain": "ADAS"
+                    "domain": "*"
                 },
                 {
                     "action": "Execute",
@@ -3562,7 +3547,7 @@
                     {
                         "action": "Extract",
                         "assetClass": "Memory",
-                        "domain": "Infotainment"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
@@ -3620,7 +3605,7 @@
                     {
                         "action": "Extract",
                         "assetClass": "Memory",
-                        "domain": "Infotainment"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
@@ -3666,7 +3651,7 @@
                 {
                     "action": "Execute",
                     "assetClass": "Peripheral",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
@@ -3676,7 +3661,7 @@
                 {
                     "action": "Modify",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -3684,7 +3669,7 @@
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Modify",
@@ -3733,17 +3718,17 @@
                 {
                     "action": "Inject",
                     "assetClass": "Interface",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -3751,12 +3736,12 @@
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
@@ -3809,7 +3794,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Telematics"
+                        "domain": "*"
                     },
                     {
                         "action": "Modify",
@@ -3906,7 +3891,7 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Telematics"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -4005,7 +3990,7 @@
                 {
                     "action": "Modify",
                     "assetClass": "Executable",
-                    "domain": "Telematics"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -4018,17 +4003,17 @@
                     {
                         "action": "Modify",
                         "assetClass": "Crypto",
-                        "domain": "Telematics"
+                        "domain": "*"
                     },
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Telematics"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Telematics"
+                        "domain": "*"
                     }
                 ]
             }
@@ -4084,7 +4069,7 @@
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             }
@@ -4123,7 +4108,7 @@
                 {
                     "action": "Modify",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -4131,12 +4116,12 @@
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Modify",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
@@ -4182,7 +4167,7 @@
                 {
                     "action": "Modify",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -4190,7 +4175,7 @@
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
@@ -4236,7 +4221,7 @@
                 {
                     "action": "Modify",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -4244,12 +4229,12 @@
                     {
                         "action": "Extract",
                         "assetClass": "Memory",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
@@ -4292,12 +4277,12 @@
                 {
                     "action": "Disrupt",
                     "assetClass": "Memory",
-                    "domain": "Infotainment"
+                    "domain": "*"
                 },
                 {
                     "action": "Disrupt",
                     "assetClass": "Compute",
-                    "domain": "Infotainment"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -4344,7 +4329,7 @@
                 {
                     "action": "Disrupt",
                     "assetClass": "Compute",
-                    "domain": "ADAS"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -4392,12 +4377,12 @@
                 {
                     "action": "Disrupt",
                     "assetClass": "Memory",
-                    "domain": "Telematics"
+                    "domain": "*"
                 },
                 {
                     "action": "Disrupt",
                     "assetClass": "Compute",
-                    "domain": "Telematics"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -4405,7 +4390,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Telematics"
+                        "domain": "*"
                     }
                 ]
             }
@@ -4450,7 +4435,7 @@
                 {
                     "action": "Inject",
                     "assetClass": "Interface",
-                    "domain": "Body"
+                    "domain": "*"
                 },
                 {
                     "action": "Inject",
@@ -4463,12 +4448,12 @@
                     {
                         "action": "Modify",
                         "assetClass": "Crypto",
-                        "domain": "Body"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             }
@@ -4513,7 +4498,7 @@
                 {
                     "action": "Modify",
                     "assetClass": "Executable",
-                    "domain": "Telematics"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -4521,12 +4506,12 @@
                     {
                         "action": "Modify",
                         "assetClass": "Memory",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             }
@@ -4565,7 +4550,7 @@
                 {
                     "action": "Disrupt",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -4612,12 +4597,12 @@
                 {
                     "action": "Disrupt",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Disrupt",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -4625,7 +4610,7 @@
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
@@ -4678,7 +4663,7 @@
                 {
                     "action": "Modify",
                     "assetClass": "Data",
-                    "domain": "ADAS"
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -4691,12 +4676,12 @@
                     {
                         "action": "Modify",
                         "assetClass": "Crypto",
-                        "domain": "Backend"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Telematics"
+                        "domain": "*"
                     }
                 ]
             }

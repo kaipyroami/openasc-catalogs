@@ -34,12 +34,12 @@
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -47,7 +47,12 @@
                 {
                     "action": "Modify",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
+                },
+                {
+                    "action": "Elevate",
+                    "assetClass": "Executable",
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -206,7 +211,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
@@ -219,12 +224,12 @@
                 {
                     "action": "Modify",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -271,12 +276,12 @@
                     {
                         "action": "Modify",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -284,7 +289,7 @@
                 {
                     "action": "Inject",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -392,12 +397,12 @@
                     {
                         "action": "Intercept",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -405,7 +410,7 @@
                 {
                     "action": "Inject",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -548,12 +553,12 @@
                     {
                         "action": "Intercept",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -561,7 +566,7 @@
                 {
                     "action": "Modify",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -601,29 +606,20 @@
                 "Authenticity"
             ],
             "requires": {
-                "OR": [
-                    {
-                        "action": "Extract",
-                        "assetClass": "Crypto",
-                        "domain": "External"
-                    },
-                    {
-                        "action": "Extract",
-                        "assetClass": "Crypto",
-                        "domain": "Powertrain"
-                    }
-                ]
+                "action": "Extract",
+                "assetClass": "Crypto",
+                "domain": "*"
             },
             "grants": [
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Inject",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -742,6 +738,11 @@
                     "action": "Modify",
                     "assetClass": "Data",
                     "domain": "Powertrain"
+                },
+                {
+                    "action": "Modify",
+                    "assetClass": "Executable",
+                    "domain": "Powertrain"
                 }
             ],
             "metadata": [
@@ -785,12 +786,12 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -798,7 +799,17 @@
                 {
                     "action": "Modify",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
+                },
+                {
+                    "action": "Modify",
+                    "assetClass": "Executable",
+                    "domain": "*"
+                },
+                {
+                    "action": "Modify",
+                    "assetClass": "Compute",
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -840,7 +851,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -848,7 +859,7 @@
                 {
                     "action": "Modify",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -893,12 +904,12 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -906,12 +917,12 @@
                 {
                     "action": "Modify",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -956,12 +967,12 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -969,12 +980,12 @@
                 {
                     "action": "Modify",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -1018,7 +1029,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -1026,12 +1037,12 @@
                 {
                     "action": "Modify",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -1075,7 +1086,7 @@
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -1083,12 +1094,12 @@
                 {
                     "action": "Modify",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Elevate",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -1132,7 +1143,7 @@
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -1140,12 +1151,12 @@
                 {
                     "action": "Disrupt",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -1190,7 +1201,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -1198,12 +1209,12 @@
                 {
                     "action": "Modify",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -1247,7 +1258,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -1255,12 +1266,12 @@
                 {
                     "action": "Modify",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -1349,12 +1360,12 @@
                     {
                         "action": "Modify",
                         "assetClass": "Data",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -1362,12 +1373,12 @@
                 {
                     "action": "Modify",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -1410,12 +1421,12 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -1423,7 +1434,7 @@
                 {
                     "action": "Modify",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -1521,7 +1532,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -1529,7 +1540,12 @@
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
+                },
+                {
+                    "action": "Extract",
+                    "assetClass": "Crypto",
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -1573,12 +1589,12 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -1586,7 +1602,7 @@
                 {
                     "action": "Intercept",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -1703,12 +1719,12 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Data",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -1760,7 +1776,7 @@
                     {
                         "action": "Intercept",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -1768,7 +1784,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -1816,7 +1832,7 @@
                     {
                         "action": "Intercept",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -1824,7 +1840,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -1869,7 +1885,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -1877,12 +1893,12 @@
                 {
                     "action": "Extract",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -1925,7 +1941,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -1933,12 +1949,12 @@
                 {
                     "action": "Extract",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -2100,12 +2116,12 @@
                     {
                         "action": "Modify",
                         "assetClass": "Data",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -2113,7 +2129,17 @@
                 {
                     "action": "Disrupt",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
+                },
+                {
+                    "action": "Disrupt",
+                    "assetClass": "Network",
+                    "domain": "*"
+                },
+                {
+                    "action": "Disrupt",
+                    "assetClass": "Compute",
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -2156,7 +2182,7 @@
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -2164,7 +2190,7 @@
                 {
                     "action": "Disrupt",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -2206,7 +2232,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -2214,12 +2240,12 @@
                 {
                     "action": "Disrupt",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Disrupt",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -2360,12 +2386,12 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -2373,22 +2399,22 @@
                 {
                     "action": "Modify",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Disrupt",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -2434,12 +2460,12 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -2447,7 +2473,7 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -2491,7 +2517,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -2499,12 +2525,12 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -2550,7 +2576,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -2558,17 +2584,17 @@
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -2612,7 +2638,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -2620,7 +2646,7 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -2666,7 +2692,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -2674,17 +2700,17 @@
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -2733,12 +2759,12 @@
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -2746,12 +2772,12 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Elevate",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -2795,22 +2821,22 @@
                 {
                     "action": "Fault",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Intercept",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Elevate",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -2920,7 +2946,7 @@
                     {
                         "action": "Extract",
                         "assetClass": "Data",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -2928,7 +2954,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -3029,12 +3055,12 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -3042,12 +3068,12 @@
                 {
                     "action": "Intercept",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -3103,12 +3129,12 @@
                 {
                     "action": "Inject",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Inject",
                     "assetClass": "Interface",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -3350,7 +3376,7 @@
                 {
                     "action": "Disrupt",
                     "assetClass": "Interface",
-                    "domain": "Powertrain"
+                    "domain": "Telematics"
                 }
             ],
             "metadata": [
@@ -3405,7 +3431,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -3649,12 +3675,12 @@
                     {
                         "action": "Inject",
                         "assetClass": "Interface",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -3662,12 +3688,12 @@
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -3724,7 +3750,7 @@
                 {
                     "action": "Inject",
                     "assetClass": "Interface",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Execute",
@@ -3864,7 +3890,7 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -4048,12 +4074,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
-                },
-                {
-                    "action": "Extract",
-                    "assetClass": "Crypto",
-                    "domain": "External"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -4100,7 +4121,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -4108,17 +4129,17 @@
                 {
                     "action": "Fault",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Execute",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -4180,12 +4201,7 @@
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
-                },
-                {
-                    "action": "Execute",
-                    "assetClass": "Executable",
-                    "domain": "Infotainment"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -4233,12 +4249,12 @@
                     {
                         "action": "Modify",
                         "assetClass": "Memory",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -4246,12 +4262,12 @@
                 {
                     "action": "Execute",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -4300,7 +4316,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -4308,12 +4324,12 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -4362,7 +4378,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -4370,12 +4386,12 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -4424,12 +4440,12 @@
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -4437,12 +4453,12 @@
                 {
                     "action": "Modify",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -4489,7 +4505,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -4497,12 +4513,12 @@
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -4555,12 +4571,12 @@
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -4568,12 +4584,12 @@
                 {
                     "action": "Modify",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -4625,7 +4641,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Inject",
@@ -4638,7 +4654,7 @@
                 {
                     "action": "Modify",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Disrupt",
@@ -4695,12 +4711,12 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Inject",
                         "assetClass": "Interface",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -4708,7 +4724,7 @@
                 {
                     "action": "Modify",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -4760,7 +4776,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -4768,17 +4784,17 @@
                 {
                     "action": "Modify",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Execute",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -4828,12 +4844,12 @@
                     {
                         "action": "Extract",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Data",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -4841,12 +4857,12 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -4897,7 +4913,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -4905,12 +4921,12 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -4961,7 +4977,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -4969,7 +4985,7 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -5018,7 +5034,7 @@
                     {
                         "action": "Inject",
                         "assetClass": "Interface",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -5026,12 +5042,12 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Execute",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -5083,7 +5099,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -5091,7 +5107,7 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -5140,7 +5156,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -5148,12 +5164,12 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -5204,7 +5220,7 @@
                     {
                         "action": "Fault",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -5212,7 +5228,7 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -5261,7 +5277,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -5269,12 +5285,12 @@
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Elevate",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -5323,7 +5339,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -5331,12 +5347,12 @@
                 {
                     "action": "Modify",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Execute",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -5385,12 +5401,12 @@
                     {
                         "action": "Extract",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Data",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -5398,12 +5414,12 @@
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Elevate",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -5452,7 +5468,7 @@
                     {
                         "action": "Modify",
                         "assetClass": "Data",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -5460,12 +5476,12 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Elevate",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -5515,12 +5531,12 @@
                     {
                         "action": "Modify",
                         "assetClass": "Memory",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -5528,17 +5544,17 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -5586,7 +5602,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -5594,12 +5610,12 @@
                 {
                     "action": "Intercept",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Inject",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -5649,7 +5665,7 @@
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -5657,12 +5673,12 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Elevate",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -5710,12 +5726,12 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -5723,7 +5739,7 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -5771,12 +5787,12 @@
                     {
                         "action": "Extract",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Data",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -5784,12 +5800,12 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -5838,7 +5854,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -5846,7 +5862,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -5897,7 +5913,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -5905,12 +5921,12 @@
                 {
                     "action": "Execute",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -6034,12 +6050,12 @@
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "Infotainment"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "Infotainment"
                 }
             ],
             "metadata": [
@@ -6100,17 +6116,17 @@
                 {
                     "action": "Modify",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "Infotainment"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "Infotainment"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "Infotainment"
                 }
             ],
             "metadata": [
@@ -6156,12 +6172,12 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -6169,12 +6185,12 @@
                 {
                     "action": "Intercept",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -6224,7 +6240,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -6232,7 +6248,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -6281,7 +6297,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -6289,7 +6305,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -6337,7 +6353,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "Infotainment"
                     }
                 ]
             },
@@ -6345,12 +6361,12 @@
                 {
                     "action": "Modify",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "Infotainment"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "Infotainment"
                 }
             ],
             "metadata": [
@@ -6394,7 +6410,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -6402,7 +6418,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -6449,7 +6465,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -6457,7 +6473,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -6502,7 +6518,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -6515,7 +6531,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -6562,7 +6578,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Inject",
@@ -6575,7 +6591,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -6621,7 +6637,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -6629,7 +6645,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -6674,7 +6690,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -6682,12 +6698,12 @@
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -6732,7 +6748,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -6740,7 +6756,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -6785,7 +6801,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -6793,7 +6809,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -6838,7 +6854,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -6846,7 +6862,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -6893,7 +6909,7 @@
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -6901,7 +6917,7 @@
                 {
                     "action": "Execute",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -6949,12 +6965,12 @@
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -6962,12 +6978,12 @@
                 {
                     "action": "Execute",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Memory",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -7016,7 +7032,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -7024,7 +7040,7 @@
                 {
                     "action": "Inject",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -7074,7 +7090,7 @@
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -7082,12 +7098,12 @@
                 {
                     "action": "Execute",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -7139,19 +7155,19 @@
                             {
                                 "action": "Inject",
                                 "assetClass": "Network",
-                                "domain": "Powertrain"
+                                "domain": "*"
                             },
                             {
                                 "action": "Inject",
                                 "assetClass": "Interface",
-                                "domain": "Powertrain"
+                                "domain": "*"
                             }
                         ]
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -7159,12 +7175,12 @@
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Elevate",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -7213,12 +7229,12 @@
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Modify",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -7226,12 +7242,12 @@
                 {
                     "action": "Execute",
                     "assetClass": "Compute",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -7280,12 +7296,12 @@
                     {
                         "action": "Extract",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Data",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -7293,12 +7309,12 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -7345,7 +7361,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -7353,7 +7369,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -7399,7 +7415,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -7467,12 +7483,12 @@
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "Infotainment"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "Infotainment"
                 }
             ],
             "metadata": [
@@ -7518,12 +7534,12 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -7531,12 +7547,12 @@
                 {
                     "action": "Intercept",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -7583,7 +7599,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -7596,7 +7612,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -7643,12 +7659,12 @@
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -7656,12 +7672,12 @@
                 {
                     "action": "Extract",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -7712,7 +7728,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "ADAS"
                     }
                 ]
             },
@@ -7720,12 +7736,22 @@
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "Infotainment"
                 },
                 {
                     "action": "Intercept",
                     "assetClass": "Peripheral",
-                    "domain": "Powertrain"
+                    "domain": "Infotainment"
+                },
+                {
+                    "action": "Extract",
+                    "assetClass": "Data",
+                    "domain": "ADAS"
+                },
+                {
+                    "action": "Intercept",
+                    "assetClass": "Peripheral",
+                    "domain": "ADAS"
                 }
             ],
             "metadata": [
@@ -7772,7 +7798,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -7780,7 +7806,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -7825,7 +7851,7 @@
                     {
                         "action": "Inject",
                         "assetClass": "Interface",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -7892,7 +7918,7 @@
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "Infotainment"
                 }
             ],
             "metadata": [
@@ -7940,7 +7966,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -7948,12 +7974,12 @@
                 {
                     "action": "Modify",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -8014,17 +8040,17 @@
                 {
                     "action": "Inject",
                     "assetClass": "Interface",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Inject",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Intercept",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -8138,7 +8164,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -8197,7 +8223,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Inject",
@@ -8210,7 +8236,7 @@
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -8258,7 +8284,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "OR": [
@@ -8275,7 +8301,7 @@
                 {
                     "action": "Inject",
                     "assetClass": "Interface",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -8325,7 +8351,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -8333,12 +8359,12 @@
                 {
                     "action": "Extract",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -8384,12 +8410,12 @@
                     {
                         "action": "Extract",
                         "assetClass": "Data",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -8508,7 +8534,7 @@
                     {
                         "action": "Extract",
                         "assetClass": "Data",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -8561,12 +8587,12 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Data",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -8622,12 +8648,12 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Data",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -8681,7 +8707,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -8689,7 +8715,7 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
@@ -8745,7 +8771,7 @@
                     {
                         "action": "Extract",
                         "assetClass": "Data",
-                        "domain": "Powertrain"
+                        "domain": "Infotainment"
                     }
                 ]
             },
@@ -8801,7 +8827,7 @@
                     {
                         "action": "Elevate",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -8809,12 +8835,12 @@
                 {
                     "action": "Extract",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Extract",
                     "assetClass": "Crypto",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -8861,12 +8887,12 @@
                     {
                         "action": "Execute",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -8874,12 +8900,12 @@
                 {
                     "action": "Disrupt",
                     "assetClass": "Peripheral",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Execute",
                     "assetClass": "Peripheral",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -9046,12 +9072,12 @@
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Extract",
                         "assetClass": "Crypto",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -9059,12 +9085,12 @@
                 {
                     "action": "Execute",
                     "assetClass": "Peripheral",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Modify",
                     "assetClass": "Data",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -9110,12 +9136,12 @@
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Execute",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -9123,7 +9149,7 @@
                 {
                     "action": "Disrupt",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -9167,12 +9193,12 @@
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Execute",
                         "assetClass": "Executable",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -9180,12 +9206,12 @@
                 {
                     "action": "Disrupt",
                     "assetClass": "Executable",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Disrupt",
                     "assetClass": "Peripheral",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -9233,7 +9259,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -9241,7 +9267,7 @@
                 {
                     "action": "Execute",
                     "assetClass": "Peripheral",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -9288,12 +9314,12 @@
                     {
                         "action": "Intercept",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     },
                     {
                         "action": "Inject",
                         "assetClass": "Network",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -9301,12 +9327,12 @@
                 {
                     "action": "Inject",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 },
                 {
                     "action": "Disrupt",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
@@ -9353,7 +9379,7 @@
                     {
                         "action": "Execute",
                         "assetClass": "Compute",
-                        "domain": "Powertrain"
+                        "domain": "*"
                     }
                 ]
             },
@@ -9361,7 +9387,7 @@
                 {
                     "action": "Inject",
                     "assetClass": "Network",
-                    "domain": "Powertrain"
+                    "domain": "*"
                 }
             ],
             "metadata": [
