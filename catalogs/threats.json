@@ -755,6 +755,75 @@
             ]
         },
         {
+            "id": "T.01.13",
+            "name": "Cryptographic/Transport Protocol Downgrade Attack",
+            "description": "An attacker positioned as a man-in-the-middle actively manipulates a TLS/DTLS (or equivalent transport-security) handshake — stripping supported cipher suites from the ClientHello, forcing fallback to a deprecated protocol version (SSLv3, TLS 1.0/1.1), or exploiting cross-protocol/export-grade cryptographic weaknesses in the POODLE, FREAK, Logjam, or DROWN family — to coerce both endpoints into negotiating a version or cipher suite weak enough to break or cryptanalyze. Unlike the RF/PHY jamming-based downgrade modeled in T.08.3 (which forces a wireless interface to fail over from 4G/5G or WPA3 to 2G or WEP), this is a pure protocol-layer manipulation that requires no signal disruption at all, and it applies uniformly to any TLS/DTLS-secured channel in the vehicle's architecture: backend telematics sessions, OTA update distribution, and the ISO 15118 V2G/EVSE charging handshake.",
+            "classificationModel": "STRIDE",
+            "refines": "T.01",
+            "source": {
+                "name": "RFC 7507 — TLS Fallback Signaling Cipher Suite Value (SCSV) for Preventing Protocol Downgrade Attacks",
+                "url": "https://www.rfc-editor.org/rfc/rfc7507.html"
+            },
+            "attackFeasibility": {
+                "attackPotential": {
+                    "elapsedTime": {
+                        "feasibility": "ET2",
+                        "rationale": "A MITM position combined with scripted handshake manipulation can force a downgrade within a single connection attempt; locating a still-viable weak-cipher fallback path on a well-maintained target takes longer reconnaissance."
+                    },
+                    "specialistExpertise": {
+                        "feasibility": "SE2",
+                        "rationale": "Requires working knowledge of TLS/DTLS handshake internals and the specific cross-protocol cryptanalytic weakness being exploited (e.g., export-grade RSA factoring, SSLv2 Bleichenbacher oracle), not just generic packet interception."
+                    },
+                    "knowledgeOfTheItemOrComponent": {
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires reconnaissance of which legacy protocol versions and cipher suites the specific target endpoint (backend API, OTA server, or EVSE) still accepts."
+                    },
+                    "windowOfOpportunity": {
+                        "feasibility": "WoO2",
+                        "rationale": "Requires an established on-path or on-path-capable MITM position — a compromised Wi-Fi access point, a rogue EVSE, or a backend network vantage point — held for the duration of the handshake."
+                    },
+                    "equipment": {
+                        "feasibility": "Eq1",
+                        "rationale": "Achievable with widely available MITM proxy tooling (mitmproxy, sslstrip derivatives, testssl.sh) run from a laptop; no specialized hardware is required."
+                    }
+                }
+            },
+            "compromises": [
+                "Confidentiality",
+                "Integrity",
+                "Authenticity"
+            ],
+            "requires": {
+                "OR": [
+                    {
+                        "action": "Intercept",
+                        "assetClass": "Network",
+                        "domain": "External"
+                    }
+                ]
+            },
+            "grants": [
+                {
+                    "action": "Extract",
+                    "assetClass": "Crypto",
+                    "domain": "External"
+                },
+                {
+                    "action": "Modify",
+                    "assetClass": "Data",
+                    "domain": "*"
+                }
+            ],
+            "metadata": [
+                "TLS / DTLS",
+                "OTA / SOTA / FOTA",
+                "ISO 15118 / OCPP",
+                "PKI / Certificates",
+                "Session Keys / Ephemeral Secrets"
+            ],
+            "notes": "Generalizes the downgrade pattern beyond the RF/PHY jamming scope of T.08.3 (Downgrade to Insecure Protocols) and beyond the ISO 15118-specific mention in T.01.12 (EV Charging Session Spoofing); this entry models the reusable protocol-layer MITM downgrade mechanism itself, applicable to any TLS/DTLS-secured channel."
+        },
+        {
             "id": "T.02",
             "name": "Tampering",
             "description": "Unauthorized modification of data, code, or hardware within the vehicle system. This is the abstract base class for all tampering and integrity-based threats.",
@@ -1327,6 +1396,78 @@
                 "App / Service",
                 "Kernel / Driver"
             ]
+        },
+        {
+            "id": "T.02.10",
+            "name": "Firmware/Software Version Rollback (Downgrade) Attack",
+            "description": "An attacker reflashes or restores an ECU to an older, genuinely OEM-signed firmware or software image that contains a since-patched vulnerability, or directly tampers with the stored version value/rollback counter used to gate installation, without ever forging a signature. Because the replayed image carries a valid signature, Secure Boot's verification step passes without incident — the attack succeeds not by breaking cryptographic trust but by replaying a legitimately trusted artifact that predates a security fix. In the absence of monotonic anti-rollback enforcement (a hardware counter, blown eFuse, or software rollback-index comparison), the reintroduced, previously-patched vulnerability becomes available again for exploitation by a subsequent, independent attack.",
+            "classificationModel": "STRIDE",
+            "refines": "T.02",
+            "source": {
+                "name": "CVE-2024-28183 — ESP-IDF OTA Anti-Rollback Bypass via TOCTOU",
+                "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-28183"
+            },
+            "attackFeasibility": {
+                "attackPotential": {
+                    "elapsedTime": {
+                        "feasibility": "ET2",
+                        "rationale": "Sourcing or retaining a prior signed image and reflashing it, or overwriting a stored rollback counter, is a short, scriptable operation once write access is available."
+                    },
+                    "specialistExpertise": {
+                        "feasibility": "SE2",
+                        "rationale": "Requires understanding of the target's specific versioning scheme — where the rollback counter is stored and checked, and any TOCTOU window between verification and load — but no cryptographic break is needed."
+                    },
+                    "knowledgeOfTheItemOrComponent": {
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the ECU's prior firmware release history and of exactly how and where the version or rollback-index value is validated and stored."
+                    },
+                    "windowOfOpportunity": {
+                        "feasibility": "WoO2",
+                        "rationale": "Requires either physical/diagnostic flashing access to the target ECU or the ability to inject a malicious 'update' package via the OTA delivery channel."
+                    },
+                    "equipment": {
+                        "feasibility": "Eq1",
+                        "rationale": "A commodity diagnostic flasher or an OTA man-in-the-middle proxy is sufficient; no specialized laboratory equipment is required."
+                    }
+                }
+            },
+            "compromises": [
+                "Integrity"
+            ],
+            "requires": {
+                "OR": [
+                    {
+                        "action": "Elevate",
+                        "assetClass": "Executable",
+                        "domain": "*"
+                    },
+                    {
+                        "action": "Inject",
+                        "assetClass": "Network",
+                        "domain": "*"
+                    },
+                    {
+                        "action": "Modify",
+                        "assetClass": "Memory",
+                        "domain": "*"
+                    }
+                ]
+            },
+            "grants": [
+                {
+                    "action": "Modify",
+                    "assetClass": "Executable",
+                    "domain": "*"
+                }
+            ],
+            "metadata": [
+                "Secure Boot",
+                "Bootloader",
+                "OTA / SOTA / FOTA",
+                "eFuse / OTP",
+                "Flash / RAM / EEPROM"
+            ],
+            "notes": "Threat-side counterpart to C.16.4 (Anti-Rollback Protection) and C.19.1 (Monotonic Counters), both of which mitigate exactly this mechanism. The standard defensive pattern this attack targets is the Android AVB Rollback Index model (monotonic per-partition rollback counters in tamper-evident storage)."
         },
         {
             "id": "T.03",
@@ -2425,6 +2566,70 @@
             ]
         },
         {
+            "id": "T.05.6",
+            "name": "CAN Bus-Off / Error-State Forced Disconnection Attack",
+            "description": "An attacker exploits the CAN controller's built-in error-confinement state machine rather than raw bandwidth exhaustion. By injecting frames sharing the same arbitration ID as a victim ECU's next scheduled transmission and forcing a bit-level conflict (or corrupting the victim's own frame with a jammed dominant bit at the right moment), the attacker repeatedly drives transmit-error-counter (TEC) increments on the victim's CAN controller. Once the TEC exceeds 255, the controller autonomously transitions to the 'bus-off' state per the CAN/ISO 11898-1 error-handling specification and physically disconnects itself from the bus — silently and durably removing a legitimate, uncompromised ECU from the network without transmitting a single flooded frame, and typically without the victim ECU's own software ever detecting the transition.",
+            "classificationModel": "STRIDE",
+            "refines": "T.05",
+            "source": {
+                "name": "Cho & Shin, \"Error Handling of In-Vehicle Networks Makes Them Vulnerable\" (ACM CCS 2016)",
+                "url": "https://dl.acm.org/doi/10.1145/2976749.2978302"
+            },
+            "attackFeasibility": {
+                "attackPotential": {
+                    "elapsedTime": {
+                        "feasibility": "ET2",
+                        "rationale": "Driving enough consecutive TEC increments across the 255-count bus-off threshold on a specific targeted ID takes tens to low hundreds of milliseconds of precisely timed injection — longer than an instantaneous flood, but still well within a single attack session."
+                    },
+                    "specialistExpertise": {
+                        "feasibility": "SE2",
+                        "rationale": "Requires understanding of the CAN error-confinement state machine (error-active/error-passive/bus-off transitions and TEC/REC counting rules), which is materially more specialized than simple frame injection."
+                    },
+                    "knowledgeOfTheItemOrComponent": {
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the victim ECU's specific arbitration ID and transmission schedule to reliably win repeated arbitration collisions against it."
+                    },
+                    "windowOfOpportunity": {
+                        "feasibility": "WoO2",
+                        "rationale": "Requires direct electrical access to the target CAN segment — via OBD-II, an exposed harness splice, or a already-compromised ECU bridging onto the segment."
+                    },
+                    "equipment": {
+                        "feasibility": "Eq1",
+                        "rationale": "A commodity CAN transceiver/interface capable of sub-millisecond frame timing (e.g., a modified USB-CAN adapter) is sufficient; no specialized lab equipment is required."
+                    }
+                }
+            },
+            "compromises": [
+                "Availability"
+            ],
+            "requires": {
+                "OR": [
+                    {
+                        "action": "Inject",
+                        "assetClass": "Network",
+                        "domain": "*"
+                    }
+                ]
+            },
+            "grants": [
+                {
+                    "action": "Disrupt",
+                    "assetClass": "Network",
+                    "domain": "*"
+                },
+                {
+                    "action": "Disrupt",
+                    "assetClass": "Compute",
+                    "domain": "*"
+                }
+            ],
+            "metadata": [
+                "CAN / CAN-FD / CAN-XL",
+                "Transceiver / PHY"
+            ],
+            "notes": "Distinct from the flooding-based Denial of Service modeled in T.05.1 (IVN Bus Flooding) and T.20.4 (CAN Bus Denial of Service, Auto-ISAC ATM-T0068): this attack silently removes a single targeted ECU from the bus via the CAN error-confinement state machine rather than exhausting bus bandwidth, and can succeed with a small fraction of the frames a flood requires."
+        },
+        {
             "id": "T.06",
             "name": "Elevation of Privilege (EoP)",
             "description": "An attacker gains higher access rights than intended, allowing them to perform unauthorized actions, access restricted data, or bypass security boundaries. This is the abstract base class for all privilege escalation attacks.",
@@ -2909,6 +3114,73 @@
                 "Middleware",
                 "IDS / IPS"
             ]
+        },
+        {
+            "id": "T.06.8",
+            "name": "Backend API Broken Object-Level Authorization (BOLA)",
+            "description": "An attacker who holds a valid but unprivileged session with the OEM's owner/companion-app or fleet-management backend API exploits a missing per-request ownership check — commonly an endpoint that trusts a client-supplied, enumerable identifier such as a VIN, dealer ID, or internal vehicle record ID without verifying it belongs to the calling account — to remotely issue unlock, remote-start, horn/light, or location-query commands against, or read PII belonging to, vehicles the attacker does not own. No credential theft, key extraction, or cryptographic bypass is required: the attacker's own account and session are fully legitimate, and the API itself performs the privileged action on the attacker's behalf against the wrong object. This is functionally distinct from T.01.2 (which requires stolen credentials belonging to another account) and from T.04.8 (where an IDOR-class flaw is used only to exfiltrate keys/secrets, not to directly execute commands against another owner's vehicle).",
+            "classificationModel": "STRIDE",
+            "refines": "T.06",
+            "source": {
+                "name": "Sam Curry et al., \"Web Hackers vs. The Auto Industry\"",
+                "url": "https://samcurry.net/web-hackers-vs-the-auto-industry"
+            },
+            "attackFeasibility": {
+                "attackPotential": {
+                    "elapsedTime": {
+                        "feasibility": "ET1",
+                        "rationale": "Once a vulnerable endpoint is identified, iterating over VINs and replaying the unlock/start/locate request is near-instantaneous and fully scriptable."
+                    },
+                    "specialistExpertise": {
+                        "feasibility": "SE1",
+                        "rationale": "Requires only standard web/API testing skills (intercepting proxy, parameter tampering) — no cryptography, reverse engineering, or hardware access is needed."
+                    },
+                    "knowledgeOfTheItemOrComponent": {
+                        "feasibility": "KoIC1",
+                        "rationale": "VINs are printed on the vehicle itself (windshield, door jamb) and are structurally decodable/enumerable; no confidential OEM information is required to obtain one."
+                    },
+                    "windowOfOpportunity": {
+                        "feasibility": "WoO0",
+                        "rationale": "The backend API is continuously reachable over the internet from anywhere in the world; there is no operational time-window constraint on when the attack can be attempted."
+                    },
+                    "equipment": {
+                        "feasibility": "Eq0",
+                        "rationale": "A web browser and a free intercepting proxy (e.g., Burp Suite Community Edition) are sufficient."
+                    }
+                }
+            },
+            "compromises": [
+                "Confidentiality",
+                "Integrity"
+            ],
+            "requires": {
+                "OR": [
+                    {
+                        "action": "Execute",
+                        "assetClass": "Executable",
+                        "domain": "Backend"
+                    }
+                ]
+            },
+            "grants": [
+                {
+                    "action": "Execute",
+                    "assetClass": "Peripheral",
+                    "domain": "Body"
+                },
+                {
+                    "action": "Extract",
+                    "assetClass": "Data",
+                    "domain": "Backend"
+                }
+            ],
+            "metadata": [
+                "gRPC / REST",
+                "OAuth / OIDC / SAML",
+                "Tokens / API Keys",
+                "App / Service"
+            ],
+            "notes": "Corresponds to OWASP API Security Top 10 2023, API1:2023 Broken Object Level Authorization. Real-world precedent: Sam Curry et al.'s 2022 mass-disclosure across roughly 16 OEMs (Kia, Honda, Nissan, Hyundai, BMW, Mercedes-Benz, Ferrari, Toyota, Ford, Porsche, and others), where VIN-keyed API calls alone were sufficient to remotely unlock, start, locate, and flash the lights of vehicles the researchers did not own."
         },
         {
             "id": "T.07",

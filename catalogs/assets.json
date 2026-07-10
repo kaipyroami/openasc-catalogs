@@ -3356,6 +3356,294 @@
                 }
             },
             "class": "Data"
+        },
+        {
+            "id": "A.068",
+            "name": "Event Data Recorder (EDR) / Crash Data Recorder",
+            "description": "Dedicated, tamper-evident non-volatile storage module that captures a fixed pre-crash and post-crash data snapshot — vehicle speed, throttle/brake application, seatbelt status, airbag/restraint deployment, and steering angle — triggered once a crash-severity threshold is met (e.g., a longitudinal or lateral velocity change exceeding 8 km/h within 150 ms, or non-reversible restraint deployment). Once a locking event is recorded, the data is protected against overwrite for the legally mandated retention window and must remain retrievable after an impact of the severity addressed by UN Regulations Nos. 94/95/137. Used for post-incident forensic reconstruction and liability determination under UN R160 (light vehicles), UN R169/EU 2024/2220 (heavy vehicles), and 49 CFR Part 563 (United States). Explicitly named as a tampering target in T.03.1 (Audit Log Tampering and Evasion).",
+            "class": "Memory",
+            "domain": "*",
+            "metadata": [
+                "Flash / RAM / EEPROM",
+                "UDS",
+                "OBD-II",
+                "CAN / CAN-FD / CAN-XL"
+            ],
+            "cybersecurityProperties": [
+                "Confidentiality",
+                "Integrity",
+                "Availability",
+                "Non Repudiation"
+            ],
+            "impact": {
+                "oem": {
+                    "safety": {
+                        "level": "Negligible",
+                        "rationale": "The EDR is a passive recorder; its compromise does not directly enable an unsafe vehicle state, though falsified data can obscure recall-worthy failure patterns from the OEM's post-market surveillance."
+                    },
+                    "financial": {
+                        "level": "Severe",
+                        "rationale": "EDR data is dispositive evidence in product-liability litigation and regulatory crash investigations; tampering or unavailability exposes the OEM to type-approval non-compliance penalties (UN R160/EU 2024/2220) and adverse liability judgments."
+                    },
+                    "operational": {
+                        "level": "Moderate",
+                        "rationale": "Undermines the OEM's post-crash forensic and recall-investigation workflows."
+                    },
+                    "privacy": {
+                        "level": "Moderate",
+                        "rationale": "EDR records are linkable to an identifiable vehicle/owner and are subject to data-protection obligations when retrieved for investigation."
+                    }
+                },
+                "roadUser": {
+                    "safety": {
+                        "level": "None",
+                        "rationale": "The recorder does not participate in real-time vehicle control; its compromise cannot itself cause a crash or unsafe maneuver."
+                    },
+                    "financial": {
+                        "level": "Severe",
+                        "rationale": "A tampered or unavailable EDR record can cause a driver to be wrongly assigned fault in a collision, with direct consequences for insurance liability and legal exposure."
+                    },
+                    "operational": {
+                        "level": "Negligible",
+                        "rationale": "No effect on normal, day-to-day vehicle operation."
+                    },
+                    "privacy": {
+                        "level": "Moderate",
+                        "rationale": "Crash-triggered snapshots reveal driving behavior (speed, braking, belt use) at the time of an incident — sensitive, but limited in scope and duration compared to continuously captured telemetry."
+                    }
+                }
+            },
+            "notes": "Regulatory basis: UN R160 (light vehicles, M1/N1), UN R169/EU 2024/2220 (heavy vehicles, M2/M3/N2/N3), and 49 CFR Part 563 (US). Domain modeled as \"*\" because the recorder aggregates a cross-domain data snapshot (powertrain, chassis, and body signals) rather than serving a single bus segment."
+        },
+        {
+            "id": "A.069",
+            "name": "EV Charging Communication Controller (EVCC)",
+            "description": "Vehicle-side compute module implementing the ISO 15118 communication stack: the SLAC (Signal Level Attenuation Characterization) matching procedure that pairs the vehicle to a specific charging outlet over HomePlug GreenPHY power-line communication, the TLS/PKI-secured session negotiation with the charging station's SECC (Supply Equipment Communication Controller), and the higher-layer V2G/ISO 15118-20 message exchange — charging-parameter negotiation, Plug & Charge authentication, and bidirectional V2G power scheduling. Relays negotiated charging commands and authorization state to the Battery Management System (BMS) and Vehicle Control Unit (VCU). Distinct from A.032 (EVSE Plug & Charge Billing Credentials), which models only the cryptographic contract-certificate artifact; the EVCC is the compute platform that terminates the protocol and enforces — or fails to enforce — what those credentials authorize.",
+            "class": "Compute",
+            "domain": "Powertrain",
+            "metadata": [
+                "ISO 15118 / OCPP",
+                "TLS / DTLS",
+                "PKI / Certificates",
+                "EVSE Plug",
+                "MCU"
+            ],
+            "cybersecurityProperties": [
+                "Integrity",
+                "Availability",
+                "Authenticity"
+            ],
+            "impact": {
+                "oem": {
+                    "safety": {
+                        "level": "Moderate",
+                        "rationale": "A compromised EVCC that mis-relays negotiated charging parameters (voltage/current limits) to the BMS/VCU can drive an unsafe charging condition, for which the OEM bears liability."
+                    },
+                    "financial": {
+                        "level": "Major",
+                        "rationale": "EVCC compromise enabling billing/session fraud or contributing to a safety recall carries direct financial and warranty exposure."
+                    },
+                    "operational": {
+                        "level": "Major",
+                        "rationale": "EVCC failure halts the vehicle's ability to charge, a core function OEMs are contractually and reputationally obligated to support."
+                    },
+                    "privacy": {
+                        "level": "Moderate",
+                        "rationale": "EVCC session logs and Plug & Charge identifiers can reveal charging location and timing patterns tied to a specific vehicle."
+                    }
+                },
+                "roadUser": {
+                    "safety": {
+                        "level": "Moderate",
+                        "rationale": "Malicious manipulation of negotiated charging current/voltage parameters can, in the worst case, contribute to a thermal event at the battery or charge port."
+                    },
+                    "financial": {
+                        "level": "Major",
+                        "rationale": "A compromised EVCC can be leveraged for charging-session or billing fraud, or a bricked EVCC leaves the owner unable to charge — both with direct cost to the owner."
+                    },
+                    "operational": {
+                        "level": "Major",
+                        "rationale": "Loss of EVCC functionality strands an EV without its primary means of refueling."
+                    },
+                    "privacy": {
+                        "level": "Moderate",
+                        "rationale": "Charging-session data reveals the vehicle's location and schedule over time."
+                    }
+                }
+            },
+            "notes": "Distinct from A.032 (EVSE Plug & Charge Billing Credentials), which models only the cryptographic contract-certificate artifact, not the compute platform that terminates the protocol."
+        },
+        {
+            "id": "A.070",
+            "name": "Infotainment USB/Media Port (Physical Interface)",
+            "description": "The physical USB-A/USB-C receptacle(s) in the cabin and the associated host-side media-handling stack: mass-storage and MTP device drivers, the automatic media/file parsers invoked on insertion, and wired CarPlay/Android Auto accessory-mode negotiation. Also serves as the dealer/technician firmware-loading interface for infotainment software updates in some architectures. As a physically exposed, driver/passenger-accessible port with no inherent trust boundary on what is plugged in, it is the entry point named by T.09.4 (Exploit Via Removable Media) and T.19.6 (Removable Media).",
+            "class": "Interface",
+            "domain": "Infotainment",
+            "metadata": [
+                "USB",
+                "Media Slots",
+                "App / Service",
+                "Kernel / Driver"
+            ],
+            "cybersecurityProperties": [
+                "Integrity",
+                "Confidentiality",
+                "Availability"
+            ],
+            "impact": {
+                "oem": {
+                    "safety": {
+                        "level": "Negligible",
+                        "rationale": "Infotainment-domain compromise via USB does not directly reach safety-critical control loops, though a chained pivot through a compromised infotainment gateway is a theoretical secondary concern."
+                    },
+                    "financial": {
+                        "level": "Moderate",
+                        "rationale": "Exploitation typically manifests as warranty claims, reputational damage from demonstrated attacks, or data-exfiltration disclosure costs rather than large-scale fleet liability."
+                    },
+                    "operational": {
+                        "level": "Moderate",
+                        "rationale": "Malware persistence introduced via USB can require a dealer re-flash to fully remediate."
+                    },
+                    "privacy": {
+                        "level": "Major",
+                        "rationale": "USB-based extraction of paired-phone contacts, call/SMS logs, and navigation history synced to infotainment is a well-documented data-exfiltration path with regulatory exposure for the OEM."
+                    }
+                },
+                "roadUser": {
+                    "safety": {
+                        "level": "Negligible",
+                        "rationale": "Direct control-loop impact from an infotainment-only compromise is unlikely, though driver distraction from a manipulated infotainment UI is a secondary concern."
+                    },
+                    "financial": {
+                        "level": "Negligible",
+                        "rationale": "Limited direct financial exposure to the individual road user."
+                    },
+                    "operational": {
+                        "level": "Moderate",
+                        "rationale": "Malware introduced via USB can degrade or crash the infotainment system, disabling navigation, the backup-camera display, or hands-free calling."
+                    },
+                    "privacy": {
+                        "level": "Severe",
+                        "rationale": "The infotainment head unit routinely stores a paired phone's contact list, call history, and messages; USB-based exfiltration exposes this directly to the individual road user."
+                    }
+                }
+            },
+            "notes": "The \"USB\" and \"Media Slots\" metadata tags are already referenced by T.09.4 and T.19.6 but, prior to this entry, were unused across the asset catalog."
+        },
+        {
+            "id": "A.071",
+            "name": "V2X On-Board Unit (OBU)",
+            "description": "Dedicated V2X radio module — a DSRC (IEEE 802.11p) and/or C-V2X (3GPP PC5 sidelink) chipset, an application processor running the V2X message stack (BSM/CAM generation and validation), a positioning co-processor, an IEEE 1609.2/ETSI TS 103 097 security co-processor performing pseudonym-certificate signing and verification, and a dedicated 5.9 GHz antenna — that transmits and receives V2X safety messages (collision warnings, intersection movement assist, road-hazard signaling) to and from other vehicles and roadside infrastructure. Distinct from A.033 (V2X Cooperative ITS Pseudonym Certificates), which is the cryptographic artifact the OBU consumes and produces, and from A.063 (Telematics Control Unit Hardware Platform), whose metadata is scoped to Cellular/GNSS and does not cover the dedicated 802.11p/PC5 radio chain.",
+            "class": "Compute",
+            "domain": "Telematics",
+            "metadata": [
+                "V2X",
+                "PKI / Certificates",
+                "Digital Signatures",
+                "GNSS",
+                "Transceiver / PHY"
+            ],
+            "cybersecurityProperties": [
+                "Integrity",
+                "Availability",
+                "Authenticity"
+            ],
+            "impact": {
+                "oem": {
+                    "safety": {
+                        "level": "Major",
+                        "rationale": "A compromised or spoofing-capable OBU can inject false collision/hazard warnings that trigger unwarranted automated braking or evasive maneuvers in any receiving vehicle, a direct safety liability for the transmitting OEM."
+                    },
+                    "financial": {
+                        "level": "Major",
+                        "rationale": "V2X safety-message integrity failures are tied to regulatory homologation (IEEE 1609.2/ETSI TS 103 097) and carry significant liability and recall exposure."
+                    },
+                    "operational": {
+                        "level": "Moderate",
+                        "rationale": "OBU failure disables cooperative-safety features (intersection movement assist, V2V forward collision warning) without disabling the vehicle itself."
+                    },
+                    "privacy": {
+                        "level": "Moderate",
+                        "rationale": "Even with pseudonym rotation, OBU compromise or misuse can degrade the anonymity set and enable movement tracking."
+                    }
+                },
+                "roadUser": {
+                    "safety": {
+                        "level": "Severe",
+                        "rationale": "The OBU's entire purpose is safety messaging; a spoofed or jammed OBU can directly cause the receiving vehicle or driver to brake, swerve, or fail to react to a genuine hazard."
+                    },
+                    "financial": {
+                        "level": "None",
+                        "rationale": "No material financial exposure to the road user from OBU compromise itself."
+                    },
+                    "operational": {
+                        "level": "Moderate",
+                        "rationale": "Loss of cooperative-awareness features degrades, but does not eliminate, the vehicle's basic drivability."
+                    },
+                    "privacy": {
+                        "level": "Major",
+                        "rationale": "V2X messages broadcast position, speed, and heading in the clear (only the signing identity is pseudonymous); a compromised OBU can undermine the location-privacy protection pseudonym rotation is meant to provide."
+                    }
+                }
+            },
+            "notes": "Distinct from A.033 (V2X Pseudonym Certificates, the crypto artifact) and A.063 (TCU Hardware Platform, scoped to Cellular/GNSS only, with no V2X radio chain)."
+        },
+        {
+            "id": "A.072",
+            "name": "Digital Key UWB/BLE Ranging Anchor Module",
+            "description": "The in-cabin and exterior array of Ultra-Wideband (IEEE 802.15.4z / Car Connectivity Consortium Digital Key 3.0) anchor radios, together with the BLE radios used for initial connection and out-of-band pairing, that perform time-of-flight distance measurement to physically localize and authenticate the proximity of a paired smartphone or digital key credential before authorizing PEPS-style unlock and engine start. This is the ranging hardware itself — the antennas, UWB transceivers, and time-of-flight measurement logic — distinct from A.004 (Vehicle Access Authorization Token), the cryptographic session artifact those distance measurements gate.",
+            "class": "Peripheral",
+            "domain": "Body",
+            "metadata": [
+                "UWB",
+                "Bluetooth / BLE",
+                "Sensor / Actuator",
+                "RKE / PEPS (Keyless Entry)"
+            ],
+            "cybersecurityProperties": [
+                "Integrity",
+                "Availability",
+                "Authenticity"
+            ],
+            "impact": {
+                "oem": {
+                    "safety": {
+                        "level": "Negligible",
+                        "rationale": "The ranging module gates convenience unlock/start, not a safety-critical control loop; its compromise primarily enables theft rather than an unsafe driving condition."
+                    },
+                    "financial": {
+                        "level": "Major",
+                        "rationale": "UWB ranging was adopted specifically to defeat BLE/LF relay-attack theft; a demonstrated bypass undermines the OEM's anti-theft value proposition and marketing claims, with associated warranty and reputational cost."
+                    },
+                    "operational": {
+                        "level": "Moderate",
+                        "rationale": "Ranging-module malfunction can cause nuisance lockouts or failure of passive entry, a common source of dealer service visits."
+                    },
+                    "privacy": {
+                        "level": "None",
+                        "rationale": "The ranging hardware itself does not process or store personally identifiable data beyond transient distance measurements."
+                    }
+                },
+                "roadUser": {
+                    "safety": {
+                        "level": "None",
+                        "rationale": "Compromise of the ranging function does not itself endanger occupants or other road users."
+                    },
+                    "financial": {
+                        "level": "Severe",
+                        "rationale": "A successful relay or distance-spoofing attack against the ranging function results in complete vehicle theft, identical in financial consequence to any other keyless-entry bypass."
+                    },
+                    "operational": {
+                        "level": "Major",
+                        "rationale": "Loss of use of the vehicle following theft, or nuisance failure to unlock/start following ranging-module malfunction."
+                    },
+                    "privacy": {
+                        "level": "None",
+                        "rationale": "No PII is exposed by compromise of the ranging hardware itself."
+                    }
+                }
+            },
+            "notes": "Distinct from A.004 (Vehicle Access Authorization Token), the cryptographic session artifact these ranging measurements gate."
         }
     ]
 }

@@ -552,6 +552,11 @@
                     "action": "Modify",
                     "assetClass": "Executable",
                     "domain": "Backend"
+                },
+                {
+                    "action": "Extract",
+                    "assetClass": "Crypto",
+                    "domain": "External"
                 }
             ],
             "overriddenBy": {
@@ -1333,6 +1338,79 @@
                     }
                 ]
             }
+        },
+        {
+            "id": "C.03.13",
+            "name": "TLS/Cipher Downgrade Prevention & Protocol Version Enforcement",
+            "description": "Enforces a strict minimum negotiable TLS/DTLS protocol version (TLS 1.2 minimum, TLS 1.3 preferred) and an explicit allow-list of strong cipher suites at every backend, OTA, and ISO 15118 V2G/EVSE endpoint, rejecting connection attempts that request deprecated versions (SSLv3, TLS 1.0/1.1) or export-grade/weak ciphers. Implements anti-downgrade signaling — the TLS 1.3 downgrade sentinel value in ServerHello.random and/or RFC 7507's TLS_FALLBACK_SCSV — so an active on-path attacker cannot silently coerce a fallback to a weaker protocol without the fallback being detected and rejected. Combines this with certificate/public-key pinning on high-value channels (OTA distribution, V2G Plug & Charge) so that a downgraded handshake still cannot complete against an attacker-controlled endpoint even if a rogue CA is otherwise trusted.",
+            "metadata": [
+                "TLS / DTLS",
+                "PKI / Certificates",
+                "OTA / SOTA / FOTA",
+                "ISO 15118 / OCPP"
+            ],
+            "refines": "C.03",
+            "attackFeasibilityReduction": {
+                "attackPotentialReduction": {
+                    "elapsedTime": {
+                        "feasibility": "ET3",
+                        "rationale": "Forces the attacker to find an implementation-level bypass (e.g., a client that silently ignores the downgrade sentinel or a pinning misconfiguration) rather than perform a simple handshake manipulation, substantially lengthening the effort required."
+                    },
+                    "specialistExpertise": {
+                        "feasibility": "SE2",
+                        "rationale": "Defeating certificate pinning combined with strict version/cipher enforcement requires either a compromised CA/private key or a genuine implementation flaw, not generic MITM tooling."
+                    },
+                    "knowledgeOfTheItemOrComponent": {
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires detailed knowledge of the specific TLS stack's version-negotiation and pinning implementation to locate an exploitable inconsistency."
+                    },
+                    "windowOfOpportunity": {
+                        "feasibility": "WoO2",
+                        "rationale": "A MITM position alone is no longer sufficient; the position must be held while a separate implementation or trust-chain weakness is located and exploited."
+                    },
+                    "equipment": {
+                        "feasibility": "Eq1",
+                        "rationale": "Still achievable with commodity MITM/proxy tooling once a bypass vector has been identified, but the tooling alone no longer succeeds against a compliant endpoint."
+                    }
+                }
+            },
+            "protects": [
+                "Confidentiality",
+                "Integrity",
+                "Authenticity"
+            ],
+            "denies": [
+                {
+                    "action": "Extract",
+                    "assetClass": "Crypto",
+                    "domain": "External"
+                },
+                {
+                    "action": "Modify",
+                    "assetClass": "Data",
+                    "domain": "*"
+                },
+                {
+                    "action": "Intercept",
+                    "assetClass": "Network",
+                    "domain": "External"
+                }
+            ],
+            "overriddenBy": {
+                "OR": [
+                    {
+                        "action": "Elevate",
+                        "assetClass": "Executable",
+                        "domain": "*"
+                    },
+                    {
+                        "action": "Extract",
+                        "assetClass": "Crypto",
+                        "domain": "Backend"
+                    }
+                ]
+            },
+            "notes": "Directly denies the mechanism modeled by T.01.13 (Cryptographic/Transport Protocol Downgrade Attack)."
         },
         {
             "id": "C.04",
@@ -2947,6 +3025,75 @@
             }
         },
         {
+            "id": "C.08.7",
+            "name": "Secure Manufacturing & Key Provisioning",
+            "description": "Secures the factory-floor injection of initial device identity keys, certificates, and root-of-trust seed material during ECU production: HSM-mediated key generation and injection inside a controlled, access-logged provisioning cell; physical and procedural anti-tamper controls on the production line and test jigs; and cryptographic binding of each injected key set to the device's unique serial number/UID to prevent key reuse or substitution across units. Distinct from C.08.1–C.08.6, which secure keys once they are already resident and operating in a deployed vehicle; this control secures the one-time trust-establishment event that precedes deployment, as required by ISO/SAE 21434 Clause 12 (Production).",
+            "metadata": [
+                "HSM / SHE",
+                "Seeds / RoT Data",
+                "Asymmetric Keys",
+                "PKI / Certificates",
+                "eFuse / OTP"
+            ],
+            "refines": "C.08",
+            "attackFeasibilityReduction": {
+                "attackPotentialReduction": {
+                    "elapsedTime": {
+                        "feasibility": "ET3",
+                        "rationale": "Compromising a controlled, access-logged provisioning line to inject or substitute rogue key material requires sustained insider access or a supply-chain intrusion, not a single visit."
+                    },
+                    "specialistExpertise": {
+                        "feasibility": "SE2",
+                        "rationale": "Requires knowledge of the specific provisioning workflow, HSM key-injection ceremony, and test-jig protocol used on that particular production line."
+                    },
+                    "knowledgeOfTheItemOrComponent": {
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires insider knowledge of the factory provisioning process, which is not publicly documented and varies by Tier-1/OEM."
+                    },
+                    "windowOfOpportunity": {
+                        "feasibility": "WoO3",
+                        "rationale": "The provisioning event happens once per device at a single, physically controlled manufacturing site — an extremely narrow and tightly monitored window compared to attacking a device already in the field."
+                    },
+                    "equipment": {
+                        "feasibility": "Eq2",
+                        "rationale": "Requires either compromising the OEM/Tier-1's HSM-mediated provisioning tooling or gaining physical access to production-line test jigs — not commodity equipment."
+                    }
+                }
+            },
+            "protects": [
+                "Confidentiality",
+                "Integrity",
+                "Authenticity"
+            ],
+            "denies": [
+                {
+                    "action": "Modify",
+                    "assetClass": "Compute",
+                    "domain": "*"
+                },
+                {
+                    "action": "Extract",
+                    "assetClass": "Data",
+                    "domain": "Backend"
+                }
+            ],
+            "overriddenBy": {
+                "OR": [
+                    {
+                        "action": "Extract",
+                        "assetClass": "Crypto",
+                        "domain": "Backend"
+                    },
+                    {
+                        "action": "Elevate",
+                        "assetClass": "Executable",
+                        "domain": "*"
+                    }
+                ]
+            },
+            "notes": "Complements C.08.1–C.08.6 (runtime key storage/rotation) by securing the upstream trust-establishment event. Denies capabilities related to T.01.4 (Counterfeit or Rogue Hardware Integration) and T.09.8 (Supply Chain Compromise)."
+        },
+        {
             "id": "C.09",
             "name": "Access Control",
             "description": "Base mechanism restricting access to resources and operations based on policies or system attributes. Protects against unauthorized logical access and privilege escalation from within the software environment.",
@@ -4057,6 +4204,11 @@
                     "action": "Modify",
                     "assetClass": "Executable",
                     "domain": "Powertrain"
+                },
+                {
+                    "action": "Modify",
+                    "assetClass": "Executable",
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -4073,6 +4225,74 @@
                     }
                 ]
             }
+        },
+        {
+            "id": "C.16.5",
+            "name": "Crypto-Agility / Algorithm Migration Readiness",
+            "description": "The architectural capability to replace a broken, deprecated, or quantum-vulnerable cryptographic algorithm — or to widen a key size — across the fleet via a software/OTA update alone, without a hardware or silicon respin. Achieved through algorithm-negotiation abstraction layers (crypto-provider interfaces that decouple protocol logic from a specific primitive), updatable/pluggable software crypto libraries, and externally configurable key-size and algorithm-selection parameters. Distinct from adopting any single algorithm such as ML-KEM (C.03.7.2) or ML-DSA (C.05.4); this control is the migration capability itself, ensuring the fleet is never permanently locked into a cryptographic primitive that a future cryptanalytic advance — classical or quantum — renders unsafe.",
+            "metadata": [
+                "OTA / SOTA / FOTA",
+                "Asymmetric Keys",
+                "Symmetric Keys",
+                "App / Service"
+            ],
+            "refines": "C.16",
+            "attackFeasibilityReduction": {
+                "attackPotentialReduction": {
+                    "elapsedTime": {
+                        "feasibility": "ET3",
+                        "rationale": "By enabling a fleet-wide OTA rollout of a replacement algorithm once a primitive is publicly broken, this control collapses the exploitation window from the multi-year hardware lifecycle a respin would take down to a single patch cycle, forcing an attacker to weaponize and exploit the break at scale before remediation lands."
+                    },
+                    "specialistExpertise": {
+                        "feasibility": "SE2",
+                        "rationale": "Does not raise the bar to break the underlying primitive itself — that remains whatever the cryptanalysis requires — but it does deny the attacker any durable advantage from having broken it."
+                    },
+                    "knowledgeOfTheItemOrComponent": {
+                        "feasibility": "KoIC1",
+                        "rationale": "The migration abstraction layer is a build/deployment mechanism, not a security boundary the attacker interacts with or needs to study directly."
+                    },
+                    "windowOfOpportunity": {
+                        "feasibility": "WoO2",
+                        "rationale": "Bounds the fleet-wide exposure window after a public cryptographic break to the OEM's OTA remediation cadence rather than leaving it open for the remaining service life of the hardware."
+                    },
+                    "equipment": {
+                        "feasibility": "Eq0",
+                        "rationale": "The control is a software/build-pipeline capability; it introduces no new physical equipment requirement on either the defending or attacking side."
+                    }
+                }
+            },
+            "protects": [
+                "Confidentiality",
+                "Integrity",
+                "Authenticity"
+            ],
+            "denies": [
+                {
+                    "action": "Extract",
+                    "assetClass": "Crypto",
+                    "domain": "*"
+                },
+                {
+                    "action": "Modify",
+                    "assetClass": "Crypto",
+                    "domain": "*"
+                }
+            ],
+            "overriddenBy": {
+                "OR": [
+                    {
+                        "action": "Disrupt",
+                        "assetClass": "Network",
+                        "domain": "*"
+                    },
+                    {
+                        "action": "Elevate",
+                        "assetClass": "Executable",
+                        "domain": "*"
+                    }
+                ]
+            },
+            "notes": "This is the migration capability itself, not an algorithm choice; compare to concrete primitive controls such as C.03.7.2 (ML-KEM) and C.05.4 (ML-DSA)."
         },
         {
             "id": "C.17",
@@ -4621,6 +4841,72 @@
             }
         },
         {
+            "id": "C.20.2",
+            "name": "Redundant Failover for Availability-Critical Functions",
+            "description": "Cross-component and cross-path redundancy — a hot/warm-standby backup ECU, or a redundant network path/secondary gateway route — that lets an availability-critical function (e.g., a braking-relevant CAN segment, a powertrain control loop) gracefully degrade to a safe/reduced mode rather than fail outright when its primary compute node or network path is disrupted by a denial-of-service condition or a hardware fault. Distinct from C.20.1 (a single node's own watchdog-triggered self-reset) and C.18.1/C.18.2 (single-node task scheduling and resource quotas); this control operates at the system level, providing an alternate path when the primary node or link itself becomes unavailable, rather than policing what runs on it.",
+            "metadata": [
+                "CAN / CAN-FD / CAN-XL",
+                "Automotive Ethernet",
+                "HPC / Zonal Controller",
+                "Sensor / Actuator"
+            ],
+            "refines": "C.20",
+            "attackFeasibilityReduction": {
+                "attackPotentialReduction": {
+                    "elapsedTime": {
+                        "feasibility": "ET2",
+                        "rationale": "An attacker must sustain the disruption against both the primary and the redundant path/node simultaneously to achieve total loss of function, roughly doubling the sustained effort required."
+                    },
+                    "specialistExpertise": {
+                        "feasibility": "SE2",
+                        "rationale": "Requires the attacker to identify and independently attack the specific failover path or backup-node topology, which is not always observable from the primary bus alone."
+                    },
+                    "knowledgeOfTheItemOrComponent": {
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires detailed knowledge of the vehicle's specific redundancy architecture — which ECU/path is the standby, and what triggers failover to it."
+                    },
+                    "windowOfOpportunity": {
+                        "feasibility": "WoO2",
+                        "rationale": "A single-point disruption (one bus-off event or one flood) no longer suffices; both paths must be compromised within the failover detection interval."
+                    },
+                    "equipment": {
+                        "feasibility": "Eq1",
+                        "rationale": "Requires the ability to target two independent physical/logical paths at once, typically two injection points rather than one, though still with commodity tooling."
+                    }
+                }
+            },
+            "protects": [
+                "Availability"
+            ],
+            "denies": [
+                {
+                    "action": "Disrupt",
+                    "assetClass": "Network",
+                    "domain": "*"
+                },
+                {
+                    "action": "Disrupt",
+                    "assetClass": "Compute",
+                    "domain": "*"
+                }
+            ],
+            "overriddenBy": {
+                "OR": [
+                    {
+                        "action": "Fault",
+                        "assetClass": "Compute",
+                        "domain": "*"
+                    },
+                    {
+                        "action": "Elevate",
+                        "assetClass": "Executable",
+                        "domain": "*"
+                    }
+                ]
+            },
+            "notes": "Denies the mechanism exploited by T.05.6 (CAN Bus-Off / Error-State Forced Disconnection Attack), and reinforces mitigation of the flooding-based DoS threats T.05.1 and T.20.4."
+        },
+        {
             "id": "C.21",
             "name": "V2X Security (IEEE 1609.2 / ETSI TS 103 097)",
             "description": "Provides cryptographic authentication and pseudonymity for Vehicle-to-Everything (V2X) messages using ECDSA / ECIES over pseudonym certificates managed by a PKI. Prevents spoofed V2I or V2V messages (e.g., fake hazard warnings, ghost vehicles) from being accepted by ADAS or traffic management systems. Aligned with SCMS (US) and CCMS (EU) architectures.",
@@ -4685,6 +4971,75 @@
                     }
                 ]
             }
+        },
+        {
+            "id": "C.22",
+            "name": "Vehicle Security Operations Center (VSOC) & Incident Response",
+            "description": "Fleet-wide, cross-vehicle correlation of security telemetry — aggregating on-vehicle IDS alerts (C.03.10–C.03.12), audit logs (C.15), and backend access logs into a SIEM, enriched with external threat-intelligence feeds — to detect coordinated or fleet-scale attack campaigns that are invisible from any single vehicle's local logs. Provides SOAR-driven (Security Orchestration, Automation and Response) incident response: automated containment actions such as revoking a compromised certificate, quarantining an affected fleet segment from OTA distribution, or forcing targeted re-provisioning, alongside the human-in-the-loop escalation, forensics, and regulator/CSIRT notification workflows mandated by UN R155's post-production monitoring and response requirement. Distinct from C.15 (single-vehicle, on-board event logging) and C.03.10–C.03.12 (single-flow/single-vehicle intrusion detection); this control is the organizational capability that consumes those local signals at fleet scale and acts on them.",
+            "metadata": [
+                "gRPC / REST",
+                "App / Service",
+                "IDS / IPS",
+                "OTA / SOTA / FOTA",
+                "PKI / Certificates"
+            ],
+            "attackFeasibilityReduction": {
+                "attackPotentialReduction": {
+                    "elapsedTime": {
+                        "feasibility": "ET3",
+                        "rationale": "Cross-fleet correlation surfaces low-and-slow or distributed campaigns (e.g., the same exploit rolled out against many vehicles one at a time) that would otherwise stay under any single vehicle's detection threshold, forcing an attacker toward a narrower, faster operational tempo to avoid fleet-level pattern detection."
+                    },
+                    "specialistExpertise": {
+                        "feasibility": "SE2",
+                        "rationale": "Evading fleet-wide correlation requires the attacker to actively vary technique, timing, and targeting across a campaign — a materially higher bar than evading a single vehicle's local IDS."
+                    },
+                    "knowledgeOfTheItemOrComponent": {
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the OEM's specific SIEM correlation rules and SOAR playbooks, which are not externally observable."
+                    },
+                    "windowOfOpportunity": {
+                        "feasibility": "WoO2",
+                        "rationale": "Automated SOAR containment (certificate revocation, OTA quarantine) can react within the SOC's detection-to-response SLA, shrinking the window before a detected technique is blocked fleet-wide."
+                    },
+                    "equipment": {
+                        "feasibility": "Eq0",
+                        "rationale": "SIEM/SOAR correlation is a backend analytics capability; it requires no new physical equipment on either the defending or attacking side."
+                    }
+                }
+            },
+            "protects": [
+                "Confidentiality",
+                "Integrity",
+                "Availability",
+                "Non Repudiation"
+            ],
+            "denies": [
+                {
+                    "action": "Execute",
+                    "assetClass": "Executable",
+                    "domain": "*"
+                },
+                {
+                    "action": "Inject",
+                    "assetClass": "Network",
+                    "domain": "Telematics"
+                }
+            ],
+            "overriddenBy": {
+                "OR": [
+                    {
+                        "action": "Modify",
+                        "assetClass": "Data",
+                        "domain": "Telematics"
+                    },
+                    {
+                        "action": "Elevate",
+                        "assetClass": "Executable",
+                        "domain": "*"
+                    }
+                ]
+            },
+            "notes": "New top-level control category (no parent). Distinct from C.15 (on-board, single-vehicle logging) and C.03.10–C.03.12 (single-flow/single-vehicle intrusion detection); operationalizes the UN R155 post-production monitoring and incident-response mandate at fleet scale."
         }
     ]
 }
