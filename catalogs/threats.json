@@ -3178,7 +3178,8 @@
                 "ML Model / Weights",
                 "GPU / NPU",
                 "Sensor / Actuator"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0005) as T.20.1 (Affect Vehicle Function), modeled independently here under the Manipulate Environment tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.08.2",
@@ -3238,7 +3239,8 @@
             ],
             "metadata": [
                 "Sensor / Actuator"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0004) as T.20.2 (Affect Vehicle Function), modeled independently here under the Manipulate Environment tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.08.3",
@@ -3735,7 +3737,8 @@
                 "Bluetooth / BLE",
                 "USB",
                 "Cellular"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0010) as T.18.1 (Command and Control) and T.19.1 (Exfiltration), modeled independently here under the Initial Access tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.09.2",
@@ -4851,7 +4854,8 @@
                 "Symmetric Keys",
                 "Asymmetric Keys",
                 "PKI / Certificates"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0075) as T.12.8 (Privilege Escalation), T.13.5 (Defense Evasion) and T.16.6 (Lateral Movement), modeled independently here under the Persistence tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.12",
@@ -5155,7 +5159,8 @@
             "metadata": [
                 "TEE",
                 "HSM / SHE"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0027) as T.14.1 (Credential Access), modeled independently here under the Privilege Escalation tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.12.5",
@@ -5406,7 +5411,8 @@
                 "Asymmetric Keys",
                 "Hashes",
                 "Digital Signatures"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0075) as T.11.5 (Persistence), T.13.5 (Defense Evasion) and T.16.6 (Lateral Movement), modeled independently here under the Privilege Escalation tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.13",
@@ -5791,7 +5797,8 @@
                 "Digital Signatures",
                 "MAC / HMAC / CMAC",
                 "Symmetric Keys"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0075) as T.11.5 (Persistence), T.12.8 (Privilege Escalation) and T.16.6 (Lateral Movement), modeled independently here under the Defense Evasion tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.14",
@@ -5911,7 +5918,8 @@
                 "HSM / SHE",
                 "Symmetric Keys",
                 "Asymmetric Keys"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0027) as T.12.4 (Privilege Escalation), modeled independently here under the Credential Access tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.14.2",
@@ -5971,7 +5979,8 @@
             "metadata": [
                 "Cellular",
                 "Tokens / API Keys"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0035) as T.17.1 (Collection), modeled independently here under the Credential Access tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.14.3",
@@ -6036,7 +6045,8 @@
             "metadata": [
                 "App / Service",
                 "Passwords / PINs"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0036) as T.17.2 (Collection), modeled independently here under the Credential Access tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.14.4",
@@ -6172,7 +6182,8 @@
                 "Automotive Ethernet",
                 "Passwords / PINs",
                 "Tokens / API Keys"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0038) as T.17.3 (Collection), modeled independently here under the Credential Access tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.14.6",
@@ -6510,7 +6521,8 @@
             "metadata": [
                 "GNSS",
                 "App / Service"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0043) as T.17.4 (Collection), modeled independently here under the Discovery tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.15.3",
@@ -7294,7 +7306,8 @@
                 "TLS / DTLS",
                 "SecOC",
                 "Symmetric Keys"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0075) as T.11.5 (Persistence), T.12.8 (Privilege Escalation) and T.13.5 (Defense Evasion), modeled independently here under the Lateral Movement tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.17",
@@ -7400,7 +7413,8 @@
             "metadata": [
                 "Cellular",
                 "App / Service"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0035) as T.14.2 (Credential Access), modeled independently here under the Collection tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.17.2",
@@ -7463,7 +7477,8 @@
             ],
             "metadata": [
                 "App / Service"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0036) as T.14.3 (Credential Access), modeled independently here under the Collection tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.17.3",
@@ -7528,7 +7543,8 @@
                 "CAN / CAN-FD / CAN-XL",
                 "Automotive Ethernet",
                 "LIN"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0038) as T.14.5 (Credential Access), modeled independently here under the Collection tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.17.4",
@@ -7586,7 +7602,8 @@
             "metadata": [
                 "GNSS",
                 "App / Service"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0043) as T.15.2 (Discovery), modeled independently here under the Collection tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.17.5",
@@ -8014,7 +8031,8 @@
                 "OBD-II",
                 "Bluetooth / BLE",
                 "Cellular"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0010) as T.09.1 (Initial Access) and T.19.1 (Exfiltration), modeled independently here under the Command and Control tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.18.2",
@@ -8076,7 +8094,8 @@
             ],
             "metadata": [
                 "Cellular"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0062) as T.19.2 (Exfiltration), modeled independently here under the Command and Control tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.18.3",
@@ -8134,7 +8153,8 @@
                 "Cellular",
                 "Wi-Fi",
                 "gRPC / REST"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0063) as T.19.3 (Exfiltration), modeled independently here under the Command and Control tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.18.4",
@@ -8262,7 +8282,8 @@
                 "Wi-Fi",
                 "Bluetooth / BLE",
                 "UWB"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0065) as T.19.4 (Exfiltration), modeled independently here under the Command and Control tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.18.6",
@@ -8324,7 +8345,8 @@
                 "TLS / DTLS",
                 "MACsec / IPsec",
                 "Symmetric Keys"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0066) as T.19.5 (Exfiltration), modeled independently here under the Command and Control tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.19",
@@ -8440,7 +8462,8 @@
             "metadata": [
                 "OBD-II",
                 "Bluetooth / BLE"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0010) as T.09.1 (Initial Access) and T.18.1 (Command and Control), modeled independently here under the Exfiltration tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.19.2",
@@ -8498,7 +8521,8 @@
             ],
             "metadata": [
                 "Cellular"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0062) as T.18.2 (Command and Control), modeled independently here under the Exfiltration tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.19.3",
@@ -8557,7 +8581,8 @@
                 "Wi-Fi",
                 "Cellular",
                 "gRPC / REST"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0063) as T.18.3 (Command and Control), modeled independently here under the Exfiltration tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.19.4",
@@ -8616,7 +8641,8 @@
             "metadata": [
                 "Wi-Fi",
                 "Bluetooth / BLE"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0065) as T.18.5 (Command and Control), modeled independently here under the Exfiltration tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.19.5",
@@ -8673,7 +8699,8 @@
             ],
             "metadata": [
                 "TLS / DTLS"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0066) as T.18.6 (Command and Control), modeled independently here under the Exfiltration tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.19.6",
@@ -8921,7 +8948,8 @@
                 "ML Model / Weights",
                 "GPU / NPU",
                 "Sensor / Actuator"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0005) as T.08.1 (Manipulate Environment), modeled independently here under the Affect Vehicle Function tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.20.2",
@@ -8975,7 +9003,8 @@
             ],
             "metadata": [
                 "Sensor / Actuator"
-            ]
+            ],
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0004) as T.08.2 (Manipulate Environment), modeled independently here under the Affect Vehicle Function tactic with its own capability and feasibility profile."
         },
         {
             "id": "T.20.3",
