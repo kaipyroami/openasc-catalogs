@@ -15,17 +15,19 @@
                 "attackPotentialReduction": {
                     "elapsedTime": {
                         "feasibility": "ET3",
-                        "rationale": "Forces attacker to perform cryptanalysis or side-channel extraction."
+                        "rationale": "Forces the attacker to perform cryptanalysis or side-channel key extraction against the underlying cipher, a sustained effort typically measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE1",
-                        "rationale": "Requires basic understanding of cryptography."
+                        "feasibility": "SE2",
+                        "rationale": "Practical cryptanalysis or side-channel key recovery against a modern symmetric cipher requires genuine applied-cryptography expertise, not casual scripting."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC1",
+                        "rationale": "The specific cipher mode and key-management scheme used by a given implementation are not published, but are discoverable through reverse engineering rather than deeply proprietary."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO0",
+                        "rationale": "Once a ciphertext sample is captured, cryptanalysis or brute-force key search proceeds entirely offline with no further access-window constraint."
                     },
                     "equipment": {
                         "feasibility": "Eq1",
@@ -94,13 +96,16 @@
                         "rationale": "Requires deep knowledge of block cipher implementation and side-channel analysis."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC1",
+                        "rationale": "AES itself is a fully public FIPS-197 standard; defeating a specific deployment requires only implementation-level details (key size, mode, hardware-acceleration leakage) rather than confidential algorithm knowledge."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO0",
+                        "rationale": "Captured ciphertext can be attacked offline at any time; the algorithm's strength does not depend on catching a live window."
                     },
                     "equipment": {
-                        "feasibility": "Eq1"
+                        "feasibility": "Eq1",
+                        "rationale": "Logical brute force is computationally infeasible; recovering the key in practice requires bespoke side-channel equipment (EM probes, oscilloscopes) against the hardware accelerator."
                     }
                 }
             },
@@ -159,13 +164,16 @@
                         "rationale": "High computational complexity for state recovery."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "State recovery or differential attacks against a modern stream cipher require deep applied-cryptography expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC1",
+                        "rationale": "The algorithm is a public IETF standard (RFC 8439); a practical attack requires only knowledge of the implementation's nonce/counter management, not secret algorithm internals."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO0",
+                        "rationale": "As a pure software cipher, captured ciphertext can be analyzed offline at leisure with no access-window constraint."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
@@ -233,24 +241,30 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Recovering a private key or forging a valid handshake against modern asymmetric primitives requires sustained cryptanalytic or implementation-flaw research, typically months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Exploiting padding, parameter, or protocol weaknesses in asymmetric key exchange/signing requires genuine public-key cryptography expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Defeating a specific deployment requires knowledge of the OEM's chosen key sizes, padding scheme, and PKI trust-chain configuration, which is not publicly documented."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "Private-key extraction or mathematical cryptanalysis can largely be pursued offline once public key material is obtained; only implementation-flaw exploitation requires timing against a live exchange."
                     },
                     "equipment": {
-                        "feasibility": "Eq1"
+                        "feasibility": "Eq1",
+                        "rationale": "Commodity MITM/proxy tooling and moderate compute suffice once a cryptographic or implementation weakness is identified."
                     }
                 }
             },
             "protects": [
                 "Confidentiality",
+                "Integrity",
                 "Authenticity"
             ],
             "denies": [
@@ -314,19 +328,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET4"
+                        "feasibility": "ET4",
+                        "rationale": "RSA at automotive-grade key sizes is computationally infeasible to factor within reasonable timeframes."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Padding-oracle or implementation attacks (e.g., Bleichenbacher-style) against RSA require applied-cryptography expertise; direct factoring at automotive key sizes is infeasible."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC1",
+                        "rationale": "RSA is a fully public algorithm; the only implementation-specific knowledge needed is the padding scheme and key size in use, which are moderately restricted rather than confidential."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "The public modulus is available for offline factoring/attack attempts at any time; only oracle-style implementation attacks require live query access to the target."
                     },
                     "equipment": {
-                        "feasibility": "Eq1"
+                        "feasibility": "Eq1",
+                        "rationale": "Commodity high-performance computing supports implementation-flaw attacks; physical key extraction would additionally require side-channel equipment."
                     }
                 }
             },
@@ -385,19 +404,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET4"
+                        "feasibility": "ET4",
+                        "rationale": "Solving the elliptic-curve discrete logarithm problem at automotive-grade curve sizes is computationally infeasible within reasonable timeframes."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Exploiting weak curve parameters, invalid-curve attacks, or nonce reuse against ECC requires deep elliptic-curve cryptography expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC1",
+                        "rationale": "The curve and signature scheme are typically standard/public; only the specific parameter choice and nonce-generation implementation are restricted."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "Public key material can be attacked offline; only invalid-curve or fault-based attacks require live interaction with the target device."
                     },
                     "equipment": {
-                        "feasibility": "Eq1"
+                        "feasibility": "Eq1",
+                        "rationale": "Standard compute suffices for cryptanalysis; side-channel/fault attacks against embedded ECC implementations require bespoke probing equipment."
                     }
                 }
             },
@@ -454,19 +478,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET2"
+                        "feasibility": "ET2",
+                        "rationale": "Represents baseline hygiene (segmentation, monitoring, secure baselines); a proficient attacker can map and probe a modestly hardened network within weeks."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE1"
+                        "feasibility": "SE1",
+                        "rationale": "Basic network reconnaissance and off-the-shelf scanning/exploitation tools suffice against generic baseline controls."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires only moderately restricted knowledge of the network topology, not deep proprietary design detail."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO1",
+                        "rationale": "Baseline controls do not meaningfully restrict access timing; the attacker can probe the network whenever it is reachable."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard IT networking and penetration-testing tools."
                     }
                 }
             },
@@ -516,19 +545,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Exploiting TLS requires either compromising key material or discovering a genuine protocol/implementation weakness, typically taking months of sustained effort."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Exploiting TLS requires either a certificate/key compromise or genuine protocol-level attack expertise (downgrade, implementation CVEs); forward secrecy in TLS 1.3 defeats simple key-obtained-later attacks."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific cipher-suite negotiation, certificate-validation logic, and pinning behavior implemented by the target client/server."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "A live on-path position must be held through the handshake before session keys are established; once complete, forward secrecy closes the window."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Standard MITM/proxy tooling (mitmproxy, custom relays) is sufficient; no specialized hardware is required for a logical attack."
                     }
                 }
             },
@@ -591,19 +625,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET2"
+                        "feasibility": "ET1",
+                        "rationale": "Rate limits are commonly bypassed within days by rotating source identifiers or spreading requests across many origins."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE1",
+                        "rationale": "Evasion via IP/ID rotation or distributed sourcing is a well-known, low-skill technique."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires only the target's rate threshold, discoverable through observation/probing rather than confidential design knowledge."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "The rate-limited interface is continuously reachable whenever the system is operating; no special timing is needed to attempt evasion."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard flooding/scripting tools or a small botnet-for-hire."
                     }
                 }
             },
@@ -648,19 +687,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET2"
+                        "feasibility": "ET2",
+                        "rationale": "Outpacing autoscaling requires sustaining a volumetric attack that exceeds the scaling budget/limits, typically requiring weeks of buildup."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE1"
+                        "feasibility": "SE1",
+                        "rationale": "Volumetric DDoS techniques are widely available and require limited specialist skill."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires knowledge of the backend's scaling limits/budget, which is operational information restricted to the operator, not deeply secret."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "The backend endpoint is continuously reachable while operating; no narrow access window applies."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with commodity load-generation/botnet tooling."
                     }
                 }
             },
@@ -702,19 +746,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET2"
+                        "feasibility": "ET2",
+                        "rationale": "Discovering and exploiting a segmentation gap or bridging misconfiguration is achievable within weeks by a determined attacker."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Requires genuine understanding of the specific VLAN/bus topology to identify a viable pivot point between segments."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC2",
+                        "rationale": "The OEM's specific segmentation architecture and inter-segment gateway rules are proprietary and not published."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "The attacker must first establish a foothold on one segment and pivot before detection, bounding the available window."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Lateral movement uses standard network reconnaissance and pivoting tools once a foothold exists."
                     }
                 }
             },
@@ -763,19 +812,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Exploiting revocation gaps (OCSP soft-fail, CRL propagation lag) to use a compromised credential undetected takes sustained effort to locate and time."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Exploiting revocation gaps (OCSP soft-fail, CRL propagation lag) requires genuine PKI operational expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific revocation-checking behavior (soft-fail vs hard-fail, CRL refresh interval) implemented by the target."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "The attack is only viable within the propagation delay between key compromise and CRL/OCSP update reaching all relying parties."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "A purely logical/protocol-level attack; no specialized hardware is required."
                     }
                 }
             },
@@ -829,16 +883,20 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Compromising MACsec-protected links requires months of sustained effort against either the MKA key-agreement protocol or physical tap-and-extract of the key."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Compromising MACsec requires expertise in the MKA key-agreement protocol or Ethernet frame-level cryptography."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "The specific cipher suite and key-rotation cadence used on the vehicle's Ethernet backbone are proprietary to the OEM's zonal architecture."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "Physical access to the high-speed Ethernet backbone (often behind zonal controllers) is only available during specific service/maintenance windows."
                     },
                     "equipment": {
                         "feasibility": "Eq1",
@@ -896,19 +954,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Breaking the underlying hard math problem for classical key exchange takes sustained effort measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Exchange-substitution or small-subgroup attacks require applied-cryptography protocol expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific exchange parameters and session-establishment flow used by the target implementation."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "The attacker must be positioned to intercept or tamper with the live exchange before session keys are finalized."
                     },
                     "equipment": {
-                        "feasibility": "Eq1"
+                        "feasibility": "Eq1",
+                        "rationale": "Requires network-tap/relay hardware to intercept and manipulate the exchange in real time."
                     }
                 }
             },
@@ -947,19 +1010,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Breaking the discrete-logarithm problem for classical Diffie-Hellman groups at automotive-appropriate sizes takes sustained effort measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "MITM substitution or small-subgroup confinement attacks against unauthenticated DH require protocol-level cryptography expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC1",
+                        "rationale": "DH group parameters are typically drawn from public standards (e.g., RFC 3526); no confidential algorithm knowledge is needed beyond the public transcript."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "A live on-path position is required during the handshake to substitute key material before both sides derive the shared secret."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Standard network MITM tooling is sufficient for classic key-substitution attacks."
                     }
                 }
             },
@@ -1009,10 +1077,12 @@
                         "rationale": "Implementation and analysis of lattice-based KEMs require specialized cryptographic expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC0",
+                        "rationale": "ML-KEM's algorithm and parameter sets are fully public NIST FIPS 203 specifications; no confidential knowledge of a specific implementation is required to mount a cryptanalytic attack, only advanced lattice-cryptography expertise (captured separately)."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO0",
+                        "rationale": "Once the encapsulation ciphertext is captured, lattice-based cryptanalysis proceeds entirely offline with no further access-window constraint."
                     },
                     "equipment": {
                         "feasibility": "Eq2",
@@ -1060,19 +1130,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET2"
+                        "feasibility": "ET2",
+                        "rationale": "Identifying gaps in filter rules or viable protocol-tunneling paths through a gateway firewall typically takes a few weeks of probing."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE1"
+                        "feasibility": "SE2",
+                        "rationale": "As the central automotive gateway (not a generic perimeter box), bypassing its stateful inspection typically requires genuine protocol-tunneling or fragmentation expertise rather than simple rule gaps."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires knowledge of the specific rule set deployed on the gateway, which is operational configuration rather than deep proprietary design."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO1",
+                        "rationale": "The firewall is continuously active whenever the network is powered, so probing can occur at any time the vehicle/backend is reachable."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard network scanning and tunneling tools."
                     }
                 }
             },
@@ -1118,19 +1193,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET2",
+                        "rationale": "A sufficiently large volumetric or slow application-layer attack can exhaust load-balancer capacity within weeks of buildup."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE1"
+                        "feasibility": "SE1",
+                        "rationale": "Basic DDoS/slow-loris techniques are widely documented and require limited specialist skill."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires knowledge of the backend's capacity/health-check thresholds, which is operational rather than confidential."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "The load-balanced endpoint is continuously reachable while the backend is operating."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with commodity load-generation tooling."
                     }
                 }
             },
@@ -1174,21 +1254,22 @@
                         "rationale": "Requires advanced knowledge of IDS evasion (fragmentation, timing)."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires knowledge of the specific detection signatures/thresholds tuned by the SOC, which is restricted operational configuration, not published."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO1",
+                        "rationale": "The network is continuously monitored while operating, so evasion is not tied to a narrow timing window — the technique must work whenever traffic is sent."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Evasion is achieved through traffic-shaping/timing techniques using standard software tools, with no special hardware."
                     }
                 }
             },
             "protects": [
-                "Confidentiality",
                 "Integrity",
-                "Non Repudiation",
-                "Availability"
+                "Non Repudiation"
             ],
             "denies": [
                 {
@@ -1224,19 +1305,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Evading active blocking (not just detection) requires developing genuinely novel evasion techniques or exploiting a blind spot in the IPS's inline decision logic, taking substantially longer than passive IDS evasion."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Requires protocol-ambiguity or fragmentation techniques specifically engineered to defeat inline blocking decisions, not just detection signatures."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires knowledge of the specific IPS's blocking rules and thresholds, which are operationally restricted but not deeply proprietary."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "The IPS is continuously active whenever the network is powered, so the evasion technique is not tied to a narrow timing window."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard traffic-crafting software tools."
                     }
                 }
             },
@@ -1290,16 +1376,20 @@
                         "rationale": "Attacker must craft messages that blend into the normal traffic baseline, requiring deep knowledge of the vehicle's communication matrix (DBC/ARXML)."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Blending malicious CAN/Ethernet traffic into the expected communication-matrix baseline requires genuine expertise in automotive bus protocols and the target's specific timing/frequency profile."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires the vehicle's specific DBC/ARXML communication matrix (message IDs, expected frequency, signal ranges), which is proprietary OEM engineering data, not publicly published."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "The bus is continuously monitored while the vehicle is operating, but injected messages must match the expected timing window to avoid frequency-anomaly flags."
                     },
                     "equipment": {
-                        "feasibility": "Eq1"
+                        "feasibility": "Eq1",
+                        "rationale": "Requires a CAN/Ethernet interface capable of precisely timed frame injection (e.g., programmable CAN transceiver), beyond a basic OBD dongle."
                     }
                 }
             },
@@ -1424,19 +1514,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET2"
+                        "feasibility": "ET2",
+                        "rationale": "As a generic parent control, the specific algorithm strength is not committed; assuming at least a modern hash function, finding a practical collision/preimage takes weeks of targeted compute."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE1"
+                        "feasibility": "SE1",
+                        "rationale": "Generic hash manipulation (e.g., appending garbage, exploiting a weak/legacy choice) requires only modest technical skill."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires knowing which hash function and whether a salt/context value is used, which is restricted implementation detail."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO0",
+                        "rationale": "A captured hash value can be attacked offline (collision search, precomputed tables) with no timing constraint."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard computing hardware and public hash-cracking tools."
                     }
                 }
             },
@@ -1476,19 +1571,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "No practical collision or preimage attack exists against SHA-256/512 at automotive-relevant scale; any progress requires sustained cryptanalytic research."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "No practical collision or preimage attack exists against SHA-256/512; only theoretical cryptanalysis by specialists narrows the security margin."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC0",
+                        "rationale": "SHA-2 is a fully public FIPS 180-4 standard; no confidential knowledge of a specific implementation is needed to attempt cryptanalysis."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO0",
+                        "rationale": "A captured hash digest can be attacked offline indefinitely; there is no live-access constraint."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Cryptanalytic research against SHA-2 uses standard computing resources; no specialized equipment provides a meaningful advantage."
                     }
                 }
             },
@@ -1528,19 +1628,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET4"
+                        "feasibility": "ET4",
+                        "rationale": "The sponge construction underlying SHA-3 has an even larger security margin than SHA-2 against known cryptanalytic techniques, including length-extension."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Analyzing the Keccak sponge construction for exploitable weaknesses requires genuine cryptanalytic expertise, though none is currently known to be practical."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC0",
+                        "rationale": "SHA-3 is a fully public FIPS 202 standard; the sponge construction is documented and requires no confidential implementation knowledge to attack."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO0",
+                        "rationale": "Digests can be analyzed offline at any time once captured."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Standard computing resources suffice for any cryptanalytic attempt."
                     }
                 }
             },
@@ -1584,16 +1689,20 @@
                         "rationale": "Collisions can be generated in seconds using standard IT equipment."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE1"
+                        "feasibility": "SE1",
+                        "rationale": "Publicly available chosen-prefix collision tools (e.g., HashClash) require only modest scripting skill to run."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC0",
+                        "rationale": "MD5 collision generation is a fully public, well-documented technique requiring no knowledge of the specific target implementation."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO0",
+                        "rationale": "A collision can be pre-computed entirely offline before ever interacting with the target system."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable on a standard laptop; no specialized hardware needed."
                     }
                 }
             },
@@ -1632,19 +1741,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Forging a valid signature via cryptanalysis or private-key extraction against a modern signature scheme requires sustained effort measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Requires genuine public-key cryptography expertise to exploit weak randomness, malleability, or implementation flaws in signature verification."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific signature algorithm, key management, and verification-chain configuration used by the OEM, which is not published."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "Once a signed artifact and its public key are available, cryptanalytic or key-extraction attacks largely proceed offline."
                     },
                     "equipment": {
-                        "feasibility": "Eq1"
+                        "feasibility": "Eq1",
+                        "rationale": "Commodity compute supports implementation-flaw exploitation; physical key extraction additionally requires side-channel equipment."
                     }
                 }
             },
@@ -1701,19 +1815,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Exploiting DSA's known sensitivity to nonce reuse or biased randomness to recover the private key takes sustained analysis of collected signatures."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Exploiting DSA's well-known sensitivity to nonce reuse or biased randomness requires genuine applied-cryptography expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC1",
+                        "rationale": "DSA is a public standard; the main implementation-specific knowledge needed is the RNG/nonce-generation approach, which is restricted but not deeply proprietary."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "Signed messages and public keys can be collected and analyzed offline for nonce-reuse patterns without needing continuous live access."
                     },
                     "equipment": {
-                        "feasibility": "Eq1"
+                        "feasibility": "Eq1",
+                        "rationale": "Standard compute suffices for nonce-bias analysis; physical key extraction would additionally require side-channel equipment."
                     }
                 }
             },
@@ -1772,19 +1891,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Recovering the ECDSA private key via nonce-bias analysis or fault injection requires sustained effort collecting and analyzing signatures or physical access."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Exploiting ECDSA nonce reuse, weak curve parameters, or fault-injection to recover the private key requires deep elliptic-curve cryptography expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC1",
+                        "rationale": "The curve and hash-to-scalar mapping are typically standardized/public; only the specific RNG implementation is restricted knowledge."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "Collected signatures can be analyzed offline for nonce bias; only fault-injection attacks require live physical access."
                     },
                     "equipment": {
-                        "feasibility": "Eq1"
+                        "feasibility": "Eq1",
+                        "rationale": "Nonce-bias cryptanalysis needs only standard compute; physical fault injection requires bespoke voltage/clock glitching equipment."
                     }
                 }
             },
@@ -1841,19 +1965,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "EdDSA's deterministic nonces remove the classic randomness-reuse attack path, requiring the attacker to pursue slower fault-based or cryptanalytic routes."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "EdDSA's deterministic nonce generation removes the classic randomness-reuse attack surface, so defeating it requires deeper cryptanalytic or fault-based expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC1",
+                        "rationale": "EdDSA (Ed25519/Ed448) is a fully public standard; only the specific deployment's key management is restricted, non-public information."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO0",
+                        "rationale": "EdDSA's deterministic nonces eliminate the reuse-based attack window; any successful cryptanalysis of collected signatures can proceed entirely offline."
                     },
                     "equipment": {
-                        "feasibility": "Eq1"
+                        "feasibility": "Eq1",
+                        "rationale": "Standard compute suffices for cryptanalysis; extracting the key via physical fault injection requires bespoke glitching equipment."
                     }
                 }
             },
@@ -1919,10 +2048,12 @@
                         "rationale": "Requires advanced knowledge of lattice cryptography and quantum-safe protocols."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC0",
+                        "rationale": "ML-DSA's algorithm and parameter sets are fully public NIST FIPS 204 specifications; no confidential implementation knowledge is required to attempt cryptanalysis."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO0",
+                        "rationale": "Collected signatures can be analyzed entirely offline using publicly known lattice-cryptanalysis techniques, with no live access-window constraint."
                     },
                     "equipment": {
                         "feasibility": "Eq2",
@@ -1985,19 +2116,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET2"
+                        "feasibility": "ET2",
+                        "rationale": "As a generic parent, assuming at least baseline keyed authentication, forging a valid tag without the key takes at least weeks of targeted effort against a shorter/generic construction."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE1"
+                        "feasibility": "SE1",
+                        "rationale": "Basic MAC forgery attempts (e.g., length-extension against improperly constructed schemes) require only moderate skill."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires knowledge of the specific MAC construction and key size used, restricted implementation detail."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO0",
+                        "rationale": "Captured message/MAC pairs can be analyzed offline for forgery weaknesses without further access to the live bus."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard computing and CAN-analysis software."
                     }
                 }
             },
@@ -2044,19 +2180,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "HMAC's construction resists length-extension attacks; forging a valid tag without the key requires breaking the underlying hash function itself, a genuine cryptanalytic undertaking."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "HMAC's resistance to length-extension means forging a valid tag requires breaking the underlying hash function, a genuine cryptanalytic undertaking."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC1",
+                        "rationale": "HMAC is a fully public construction (RFC 2104); the only restricted knowledge is the specific hash function and key length chosen."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO0",
+                        "rationale": "Captured message/tag pairs can be analyzed offline indefinitely; there is no live timing constraint on the cryptanalysis itself."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "A purely computational attack; no specialized equipment improves the odds against a well-implemented HMAC."
                     }
                 }
             },
@@ -2099,19 +2240,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Forging a CMAC tag without the key requires either breaking the underlying block cipher or successfully mounting a side-channel key-recovery campaign, both taking sustained effort."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Forging a CMAC tag requires either breaking the underlying block cipher or exploiting block-cipher side-channel leakage, both requiring genuine cryptographic expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC1",
+                        "rationale": "CMAC is a public NIST SP 800-38B construction; only the underlying block cipher and key size are implementation-specific restricted knowledge."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "Side-channel key extraction requires repeated physical measurements against the live device, imposing a mild but real access constraint beyond pure offline cryptanalysis."
                     },
                     "equipment": {
-                        "feasibility": "Eq1"
+                        "feasibility": "Eq1",
+                        "rationale": "As flagged by its susceptibility to block-cipher side channels in generic hardware, practical key recovery requires oscilloscopes/EM probes rather than pure computation."
                     }
                 }
             },
@@ -2173,10 +2319,12 @@
                         "rationale": "Requires knowledge of AUTOSAR SecOC PDU layout, counter management, and CAN bus tooling."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific AUTOSAR SecOC configuration (Freshness Value length/management, PDU authenticator length, per-ECU key assignment), which is proprietary OEM engineering data not publicly documented."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "Both the live CAN bus (for injection attempts) and the freshness/counter synchronization window must be caught before a forged frame is rejected as stale, moderately bounding the attack window."
                     },
                     "equipment": {
                         "feasibility": "Eq1",
@@ -2230,16 +2378,20 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Breaking TEE isolation, whether via a logical exploit of the secure-monitor interface or basic physical glitching, requires sustained effort measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Breaking TEE isolation via a logical exploit (compromised secure monitor call handling) or basic voltage glitching requires genuine embedded-security expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific TEE OS/secure-monitor implementation (e.g., OP-TEE, proprietary vendor TEE) and its API surface, which is not publicly documented for a given SoC."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "Logical attacks against the TEE's API can be attempted whenever the device is powered on; only physical fault injection meaningfully narrows the window to moments of active secure-operation execution."
                     },
                     "equipment": {
                         "feasibility": "Eq1",
@@ -2292,16 +2444,20 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Finding and weaponizing a logic flaw in the trusted API's Secure Monitor Call handling takes sustained vulnerability-research effort measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Exploiting the enclave runtime via malformed Secure Monitor Calls or logic flaws in the trusted API requires genuine secure-OS exploitation expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires detailed knowledge of the specific enclave runtime's SMC interface and API validation logic, which is vendor-proprietary."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "The SMC interface is reachable whenever the rich OS is running, so logical exploitation is not tied to a narrow timing window."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
@@ -2347,27 +2503,30 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Defeating a silicon-level isolation mechanism through fault injection or decapsulation-based analysis takes sustained lab effort measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE3",
+                        "rationale": "Defeating a silicon-level isolation mechanism requires advanced hardware fault-injection or decapsulation expertise, typically beyond a single specialist's skill set."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific SoC's isolation architecture (e.g., secure/non-secure memory mapping), which is vendor-confidential."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "Physical access to the target chip for fault injection is only available during dedicated bench sessions, not opportunistically in the field."
                     },
                     "equipment": {
                         "feasibility": "Eq2",
-                        "rationale": "Hardware-level bypass of TrustZone typically requires advanced fault injection or SoC decapsulation equipment."
+                        "rationale": "Hardware-level bypass of TrustZone-style isolation typically requires advanced fault injection or SoC decapsulation equipment."
                     }
                 }
             },
             "protects": [
                 "Confidentiality",
-                "Integrity",
-                "Authenticity"
+                "Integrity"
             ],
             "denies": [
                 {
@@ -2399,19 +2558,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Extracting data from protected RAM regions via cold-boot or fault-injection techniques requires sustained physical-attack effort measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Extracting data from protected RAM regions typically requires fault injection or cold-boot style physical attacks, requiring genuine hardware-security expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific SoC's secure-RAM partitioning and access-control configuration, which is not publicly documented."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "Physical access to dump or glitch the RAM is generally only available during dedicated bench sessions with the device open."
                     },
                     "equipment": {
-                        "feasibility": "Eq2"
+                        "feasibility": "Eq2",
+                        "rationale": "Cold-boot or glitch-based RAM extraction requires bespoke physical lab equipment beyond commodity debug tools."
                     }
                 }
             },
@@ -2455,17 +2619,20 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Bypassing hardware-enforced W^X protection via a kernel exploit or fault injection requires sustained effort measured in months."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE2",
                         "rationale": "Bypassing MPU requires a kernel/hypervisor exploit to reconfigure protection regions, or physical fault injection to corrupt the MPU register state."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific MPU/MMU region configuration for the target RTOS/ECU, which is proprietary firmware design detail."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "A kernel-level logical bypass can be attempted whenever the device is running; only physical fault injection meaningfully narrows the timing window."
                     },
                     "equipment": {
                         "feasibility": "Eq1",
@@ -2518,20 +2685,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Finding and weaponizing a hypervisor escape, whether a VMM zero-day or hardware-assisted fault, requires sustained effort measured in months."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE3",
                         "rationale": "Hypervisor escapes require a zero-day in the VMM itself or hardware-assisted fault injection — both demand elite expertise not commonly available."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires deep knowledge of the specific hypervisor/VMM's memory-management and inter-partition communication implementation, which is vendor-proprietary."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "The hypervisor's attack surface (hypercalls, virtual device emulation) is reachable whenever the Infotainment VM is running, without a special timing constraint."
                     },
                     "equipment": {
-                        "feasibility": "Eq1"
+                        "feasibility": "Eq1",
+                        "rationale": "Software-only hypervisor escapes use standard IT equipment; hardware-assisted fault injection would require additional bespoke gear."
                     }
                 }
             },
@@ -2577,19 +2748,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Generic key-management defeat (extraction or unauthorized modification of key material) requires sustained effort in the absence of a specific stronger storage mechanism."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Requires genuine applied-security expertise in key-management practices (rotation, storage, access control) to find and exploit a weakness."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the OEM's specific key lifecycle design (generation, distribution, rotation policy), which is proprietary."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "As a generic/process-level control, logical access to key-management interfaces is not meaningfully time-restricted beyond normal device operation."
                     },
                     "equipment": {
-                        "feasibility": "Eq1"
+                        "feasibility": "Eq1",
+                        "rationale": "Practical key extraction against a generic (non-hardware-rooted) implementation typically requires basic physical access tools (debug probes) beyond pure software."
                     }
                 }
             },
@@ -2636,19 +2812,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Recovering a wrapped key requires either breaking the wrapping cipher or extracting the wrapping key itself, both taking sustained effort."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Recovering a wrapped key requires either breaking the wrapping cipher or extracting the wrapping key itself, both genuine cryptographic engineering tasks."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific key-wrapping scheme and where the wrapping key itself is rooted, which is implementation-proprietary."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "Storage can be dumped and attacked offline once physical/logical access to the medium is obtained, with no further live-access constraint."
                     },
                     "equipment": {
-                        "feasibility": "Eq1"
+                        "feasibility": "Eq1",
+                        "rationale": "Extracting the raw storage image typically requires basic flash/EEPROM read-out equipment."
                     }
                 }
             },
@@ -2684,16 +2865,20 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET4",
+                        "rationale": "A certified automotive HSM is specifically designed to resist logical and moderate physical attack for the vehicle's operational lifetime; practical defeat exceeds a 6-month effort."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE3",
+                        "rationale": "Defeating HSM tamper-resistance (fault injection, differential power analysis) requires a team with both hardware-security and cryptography expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific HSM's command interface, key-slot architecture, and firmware, which is vendor-confidential."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "Physical access for fault-injection attempts is only available during dedicated bench sessions with the ECU removed from the vehicle."
                     },
                     "equipment": {
                         "feasibility": "Eq2",
@@ -2746,16 +2931,20 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Exploiting TPM command-interface flaws or bus-level key extraction requires sustained effort measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Exploiting TPM command interface flaws or bus-level key extraction requires genuine embedded-security expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific PCR measurement chain and TPM command sequence configured by the OEM."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "Bus sniffing between SoC and discrete TPM requires physical access during an active boot/attestation sequence, which is not always accessible in the field."
                     },
                     "equipment": {
                         "feasibility": "Eq1",
@@ -2807,20 +2996,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET4"
+                        "feasibility": "ET4",
+                        "rationale": "Secure elements are specifically designed to thwart physical decapsulation and side-channel analysis for the device's operational lifetime."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE3",
                         "rationale": "Secure elements are specifically designed to thwart physical decapsulation and SCA, requiring elite expertise to crack."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC3",
+                        "rationale": "Defeating a certified secure element's physical countermeasures (active shielding, sensor meshes, redundant computation) requires knowledge of that specific chip's proprietary countermeasure design — information available only to the silicon vendor and not obtainable through generic reverse engineering."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "Physical decapsulation and probing require dedicated lab access to the extracted chip, unavailable during normal in-field opportunities."
                     },
                     "equipment": {
-                        "feasibility": "Eq2"
+                        "feasibility": "Eq2",
+                        "rationale": "Requires FIB/decapsulation and differential-power-analysis lab equipment to attempt physical key extraction."
                     }
                 }
             },
@@ -2868,23 +3061,29 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Altering or extracting from programmed OTP bits requires fault-injection or direct physical modification effort measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Altering programmed OTP bits requires fault-injection or direct physical modification expertise beyond standard embedded exploitation."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific OTP bit layout and what each fuse controls, which is proprietary to the SoC vendor/OEM."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "Physical access to the die for fault injection or direct probing is only available during dedicated bench sessions."
                     },
                     "equipment": {
-                        "feasibility": "Eq2"
+                        "feasibility": "Eq2",
+                        "rationale": "Physically altering OTP-programmed bits typically requires fault-injection or decapsulation-class lab equipment."
                     }
                 }
             },
             "protects": [
+                "Confidentiality",
                 "Integrity",
                 "Authenticity"
             ],
@@ -2922,16 +3121,20 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Physically altering a blown eFuse via FIB requires sustained lab effort measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE3"
+                        "feasibility": "SE3",
+                        "rationale": "Physically altering a blown eFuse via FIB requires a rare combination of semiconductor failure-analysis and reverse-engineering expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific eFuse bank's physical location and bit-mapping on that SoC's die, which is proprietary vendor design data."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "FIB-based physical modification requires the chip to be decapsulated and mounted in a lab, an opportunity unavailable outside a dedicated physical-attack session."
                     },
                     "equipment": {
                         "feasibility": "Eq2",
@@ -2987,10 +3190,12 @@
                         "rationale": "Requires semiconductor-level expertise to characterize and model silicon process variation patterns."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific PUF architecture (SRAM PUF, ring-oscillator PUF, etc.) implemented on that SoC to know what to characterize and model, information not disclosed by the vendor."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "Physical characterization requires the chip to be decapsulated and measured in a controlled lab environment, unavailable during normal field access."
                     },
                     "equipment": {
                         "feasibility": "Eq3",
@@ -3000,6 +3205,7 @@
             },
             "protects": [
                 "Confidentiality",
+                "Integrity",
                 "Authenticity"
             ],
             "denies": [
@@ -3103,23 +3309,29 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET2"
+                        "feasibility": "ET2",
+                        "rationale": "Finding a logic flaw or misconfiguration in a generic access-control implementation typically takes a few weeks of targeted testing."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE1"
+                        "feasibility": "SE1",
+                        "rationale": "Basic privilege-escalation and access-control bypass techniques are well documented and require limited specialist skill for a generic implementation."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires knowledge of the specific access-control policy/configuration in place, which is restricted operational detail rather than deeply proprietary."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO1",
+                        "rationale": "The access-control checks are enforced continuously whenever the system is running, so there is no narrow timing window to exploit."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard software tools; no specialized hardware is required."
                     }
                 }
             },
             "protects": [
+                "Confidentiality",
                 "Integrity",
                 "Authenticity"
             ],
@@ -3163,19 +3375,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET2"
+                        "feasibility": "ET2",
+                        "rationale": "Exploiting role-assignment misconfigurations or role-confusion typically takes a few weeks of targeted probing."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE1"
+                        "feasibility": "SE1",
+                        "rationale": "Exploiting role-assignment misconfigurations or role-confusion is a well-documented technique requiring modest skill."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires knowledge of the specific role hierarchy and permission mapping deployed, which is restricted operational configuration."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO1",
+                        "rationale": "RBAC checks are enforced on every access attempt, so exploitation is not tied to a narrow timing window."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard software/API tooling."
                     }
                 }
             },
@@ -3221,23 +3438,29 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET1"
+                        "feasibility": "ET1",
+                        "rationale": "Local privilege-escalation exploits against standard Unix permission misconfigurations are well documented and quick to apply."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE1"
+                        "feasibility": "SE1",
+                        "rationale": "Local privilege escalation exploiting standard Unix permission misconfigurations is a widely documented, low-skill technique."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires only generic knowledge of common DAC misconfiguration patterns (world-writable files, SUID binaries), not target-specific secrets."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO1",
+                        "rationale": "Once local code execution is achieved, DAC bypass can be attempted at any time without further access constraints."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard shell/scripting tools already present on the target OS."
                     }
                 }
             },
             "protects": [
+                "Confidentiality",
                 "Integrity",
                 "Authenticity"
             ],
@@ -3276,20 +3499,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Bypassing MAC usually requires discovering a zero-day kernel exploit or finding a poorly written policy."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE2",
                         "rationale": "Bypassing MAC usually requires discovering a zero-day kernel exploit or finding a poorly written policy."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires knowledge of the specific policy rules deployed (often more restrictive than public reference policies), but not deeply confidential design information."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO1",
+                        "rationale": "MAC policy is enforced continuously whenever the system runs, so exploitation is not tied to a narrow window."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard software exploitation tools."
                     }
                 }
             },
@@ -3331,19 +3558,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET2"
+                        "feasibility": "ET3",
+                        "rationale": "As a default-deny mechanism, the attacker cannot simply find a gap in coverage as with RBAC/blacklisting; they must smuggle a payload inside an already-approved entity, which takes sustained effort measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE1"
+                        "feasibility": "SE2",
+                        "rationale": "Living-off-the-land abuse of an approved entity (rather than simple evasion) requires genuine understanding of the target's approved toolset and how to weaponize it."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires knowledge of which entities are on the approved list, discoverable through observation of normal operation."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO1",
+                        "rationale": "The whitelist is enforced continuously during operation; no special timing is needed."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard software tooling."
                     }
                 }
             },
@@ -3388,16 +3620,20 @@
                         "rationale": "Modifying a binary to change its hash takes seconds."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE1"
+                        "feasibility": "SE1",
+                        "rationale": "Trivially re-encoding or repacking a known-bad binary to evade a static blacklist requires only modest skill."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC0",
+                        "rationale": "Evading a signature/hash blacklist by trivially modifying the binary is a generic technique requiring no knowledge of the specific blacklist's contents or the target implementation."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO0",
+                        "rationale": "The evasion (re-hashing a malicious binary) can be prepared entirely offline before ever touching the target system."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with any standard file-editing or packing tool."
                     }
                 }
             },
@@ -3437,20 +3673,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET4"
+                        "feasibility": "ET4",
+                        "rationale": "Requires either stealing the OEM signing key or using advanced voltage/clock glitching to skip the verification instruction — both exceed a 6-month practical effort."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE3",
                         "rationale": "Requires either stealing the OEM signing key or using advanced voltage/clock glitching to skip the verification instruction."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC3",
+                        "rationale": "Defeating secure boot requires either the OEM's private signing key (a maximally confidential secret held in a restricted HSM ceremony) or precise knowledge of the SoC's proprietary boot-ROM verification timing to glitch — neither obtainable through public documentation or generic reverse engineering."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "Voltage/clock glitching must be performed during the narrow boot-time verification window, and physical access is typically only available during dedicated bench sessions."
                     },
                     "equipment": {
-                        "feasibility": "Eq2"
+                        "feasibility": "Eq2",
+                        "rationale": "Fault-injection glitching to bypass boot-time signature verification requires bespoke voltage/clock-glitch rigs."
                     }
                 }
             },
@@ -3495,19 +3735,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Tampering with files while evading integrity verification requires sustained effort measured in months to find an unprotected path."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Tampering with files while evading integrity verification (e.g., via TOCTOU races or finding unprotected files) requires genuine systems-security expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of which files/partitions are covered by integrity verification and which are not, information specific to the OEM's build configuration."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "Offline tampering (e.g., via a removed storage medium) can be attempted at leisure without a live timing constraint; detection occurs at next boot/mount."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard flashing/imaging tools once storage access is obtained."
                     }
                 }
             },
@@ -3547,19 +3792,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Bypassing the Merkle-tree verification (e.g., corrupting the root-hash trust anchor) requires sustained effort measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Bypassing the Merkle-tree verification (e.g., corrupting the root hash trust anchor) requires genuine kernel/storage-security expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC1",
+                        "rationale": "dm-verity is a public Linux kernel feature; the only restricted knowledge is where the root hash is anchored (bootloader args, OTP) for this specific device."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "Offline image tampering can be prepared at leisure; the verification only triggers at the next mount/boot, giving no live timing constraint."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard disk-imaging tools once storage access is obtained."
                     }
                 }
             },
@@ -3604,19 +3854,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Corrupting a data block while producing a valid checksum requires sustained effort measured in months to understand and defeat the specific construction."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Corrupting a data block while producing a valid checksum requires understanding the specific checksum/HMAC construction used by dm-integrity."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC1",
+                        "rationale": "dm-integrity is a public Linux kernel feature; only the specific checksum algorithm/mode configured is restricted knowledge."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "Offline tampering can be attempted at leisure once storage access is obtained; detection occurs on next read, not tied to a live window."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard disk-imaging tools."
                     }
                 }
             },
@@ -3656,16 +3911,20 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Bypass requires physical extraction of RAM (cold boot) or advanced SoC decapsulation to find the encryption key, taking sustained effort measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Extracting the filesystem encryption key via cold-boot RAM extraction or SoC decapsulation requires genuine hardware-security expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific key-derivation and storage scheme (e.g., where the master key is rooted) used by the target implementation."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "Once physical possession of the storage/device is obtained, key-extraction attempts can proceed without further live-access constraints."
                     },
                     "equipment": {
                         "feasibility": "Eq1",
@@ -3674,8 +3933,7 @@
                 }
             },
             "protects": [
-                "Confidentiality",
-                "Integrity"
+                "Confidentiality"
             ],
             "denies": [
                 {
@@ -3715,25 +3973,29 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Recovering the LUKS master key via cold-boot RAM extraction or brute-forcing a weak passphrase takes sustained effort measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Recovering the LUKS master key via cold-boot RAM extraction or brute-forcing a weak passphrase requires genuine applied-security expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC1",
+                        "rationale": "dm-crypt/LUKS is a public Linux subsystem; only the specific key-slot configuration and passphrase/key-derivation policy are restricted knowledge."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "Once the device is in the attacker's possession, key-extraction attempts proceed offline without further timing constraints."
                     },
                     "equipment": {
-                        "feasibility": "Eq1"
+                        "feasibility": "Eq1",
+                        "rationale": "Cold-boot RAM extraction or offline brute-forcing requires basic physical memory-dumping equipment beyond pure software."
                     }
                 }
             },
             "protects": [
-                "Confidentiality",
-                "Integrity"
+                "Confidentiality"
             ],
             "denies": [
                 {
@@ -3774,23 +4036,29 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Bypassing UDS SecurityAccess (seed-key algorithm) via reverse engineering or brute-forcing the key derivation takes sustained effort measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Bypassing UDS SecurityAccess (seed-key algorithm) requires genuine reverse-engineering and cryptographic expertise to derive or brute-force the key from the seed."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific seed-key algorithm implemented by the OEM/Tier-1 for that ECU, which is proprietary and not published."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "The diagnostic interface is reachable whenever the vehicle is powered and a diagnostic session is requested; no special timing beyond that is needed."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "A standard OBD-II/DoIP diagnostic interface and PC suffice; no specialized hardware is required for a logical seed-key attack."
                     }
                 }
             },
             "protects": [
+                "Confidentiality",
                 "Integrity",
                 "Authenticity"
             ],
@@ -3839,20 +4107,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Re-enabling disabled JTAG pins or bypassing authenticated debug modes often requires board-level micro-soldering, fault injection, or SoC decapsulation."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE3",
                         "rationale": "Re-enabling disabled JTAG pins or bypassing authenticated debug modes often requires board-level micro-soldering, fault injection, or SoC decapsulation."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific debug-authentication challenge-response scheme or fuse configuration used to lock the port, which is vendor-proprietary."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "Physical access to the board for micro-soldering or fault injection is only available during a dedicated bench session, not opportunistically in the field."
                     },
                     "equipment": {
-                        "feasibility": "Eq2"
+                        "feasibility": "Eq2",
+                        "rationale": "Board-level rework and fault injection require bespoke lab equipment (hot-air rework stations, glitch rigs)."
                     }
                 }
             },
@@ -3908,19 +4180,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET2"
+                        "feasibility": "ET2",
+                        "rationale": "Once privileged access is obtained, scrubbing or falsifying tamper-evident logs without detection takes a few weeks of careful operational tradecraft."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE1"
+                        "feasibility": "SE1",
+                        "rationale": "Basic log tampering or deletion techniques, once privileged access is obtained, require limited specialist skill."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires knowledge of the specific log storage location and format, discoverable through reconnaissance rather than deeply proprietary."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "Once privileged access is obtained, log tampering can be attempted at any time without further access restriction; the control's forensic value is what raises attacker cost, not access timing."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard shell/file-manipulation tools once access is obtained."
                     }
                 }
             },
@@ -3965,16 +4242,20 @@
                         "rationale": "Finding zero-day logic flaws in heavily modeled and reviewed software takes exponentially more time."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Finding a residual zero-day logic flaw that survives threat modeling, secure code review, and CI/CD security gates requires genuine vulnerability-research expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires only generic vulnerability-research knowledge of common weakness classes; no confidential information about the target's internals is needed beyond what's discoverable through black-box testing/binary analysis."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO0",
+                        "rationale": "As a process control shaping what ships, it does not restrict the attacker's window to search for a residual flaw once the software is deployed; the search can proceed offline against a firmware image indefinitely."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Vulnerability research against shipped software is achievable with standard reverse-engineering and fuzzing tools."
                     }
                 }
             },
@@ -4019,13 +4300,16 @@
                         "rationale": "Requires elite exploit development to find chains the automated testing missed."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires generic vulnerability-research knowledge of the target's binary/protocol surface, obtainable through black-box analysis rather than confidential design documents."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO0",
+                        "rationale": "The search for a residual, untested defect can proceed offline against an extracted firmware image at the attacker's own pace, with no live access-window constraint."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard fuzzing and reverse-engineering tooling."
                     }
                 }
             },
@@ -4062,20 +4346,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET2"
+                        "feasibility": "ET2",
+                        "rationale": "Forces the attacker to develop a novel 0-day rather than utilizing off-the-shelf exploit scripts against a known CVE."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE2",
                         "rationale": "Forces the attacker to develop a novel 0-day rather than utilizing off-the-shelf exploit scripts."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires only knowledge of the target's software/component versions (an SBOM query or version-fingerprinting), not confidential source-level detail."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO1",
+                        "rationale": "Once a component is identified as unpatched, exploitation can typically be attempted whenever the target service is reachable, without further timing constraint."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Version fingerprinting and 0-day development use standard reverse-engineering tools."
                     }
                 }
             },
@@ -4113,19 +4401,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Crafting or substituting a firmware image that passes the OTA client's integrity/authenticity checks requires sustained effort measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Crafting or substituting a firmware image that passes the OTA client's integrity/authenticity checks requires genuine cryptographic and update-protocol expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific OTA update protocol, manifest format, and signature-verification chain used by the OEM, which is proprietary."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "The forged/substituted image must be delivered during an active update session before the legitimate update completes, bounding the available window."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "A purely logical/network-level attack against the update mechanism; no specialized hardware is required."
                     }
                 }
             },
@@ -4179,16 +4472,20 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Bypassing a hardware monotonic counter logically or by physical fuse manipulation requires sustained effort measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Bypassing a hardware monotonic counter logically (e.g., counter-check race conditions) requires genuine embedded-security expertise even before resorting to physical fuse manipulation."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific counter/fuse scheme (which HSM/TPM register or eFuse bank enforces the version minimum) used by the target."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "Physical access to decapsulate and alter fuses/NVRAM is only available during a dedicated bench session, not opportunistically."
                     },
                     "equipment": {
                         "feasibility": "Eq2",
@@ -4304,19 +4601,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET2"
+                        "feasibility": "ET2",
+                        "rationale": "As a generic parent, without a committed hardware entropy source, statistical weaknesses in a generic RNG can often be identified within weeks of analysis."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Detecting and exploiting statistical bias in a random-number generator requires genuine applied-cryptography/statistics expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific RNG construction and seeding source used by the target implementation, which is not published."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "Output samples can be collected and analyzed offline for bias without needing continuous live access to the generator."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Statistical analysis of collected output requires only standard computing resources."
                     }
                 }
             },
@@ -4363,19 +4665,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Distinguishing CSPRNG output from true randomness, or compromising the underlying seed, requires sustained effort measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Distinguishing CSPRNG output from true randomness, or compromising the underlying seed, requires genuine applied-cryptography expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific CSPRNG algorithm and how/where its seed is protected, which is implementation-proprietary."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO1",
+                        "rationale": "Output can be collected and analyzed offline; only direct seed-extraction requires live access to the device."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Statistical/cryptanalytic testing of collected output requires only standard computing resources."
                     }
                 }
             },
@@ -4416,20 +4723,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Reducing entropy quality enough to make TRNG output predictable requires sustained physical manipulation of the chip environment."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE2",
                         "rationale": "Requires physical manipulation of the chip environment (e.g., extreme cooling) to reduce entropy generation."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC1",
+                        "rationale": "TRNG entropy-source designs (thermal noise, clock jitter) are commonly documented at a conceptual level; the restricted knowledge needed is the exact physical parameters to manipulate for that SoC."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "Physically manipulating the chip's environment (extreme cooling, voltage manipulation) requires sustained physical access to the device, not available opportunistically in the field."
                     },
                     "equipment": {
-                        "feasibility": "Eq1"
+                        "feasibility": "Eq1",
+                        "rationale": "Environmental manipulation (cooling, voltage) to bias entropy generation requires specialized bench equipment beyond standard IT tools."
                     }
                 }
             },
@@ -4474,19 +4785,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET2"
+                        "feasibility": "ET2",
+                        "rationale": "Crafting a resource-exhaustion condition that evades generic resource management takes a few weeks of targeted testing."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE1"
+                        "feasibility": "SE1",
+                        "rationale": "Basic resource-exhaustion techniques (fork bombs, memory leaks via malformed input) are well documented and require limited specialist skill."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires knowledge of the specific resource limits/quotas configured, restricted operational detail."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO1",
+                        "rationale": "The resource-management logic is active whenever the system is running, so there is no narrow timing window to exploit."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard software tools."
                     }
                 }
             },
@@ -4526,19 +4842,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET2"
+                        "feasibility": "ET2",
+                        "rationale": "Crafting a task that monopolizes CPU time despite the scheduler takes a few weeks of targeted testing against the specific policy."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE1"
+                        "feasibility": "SE1",
+                        "rationale": "Crafting a task that monopolizes CPU time despite the scheduler requires only modest understanding of the specific scheduling policy."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires knowledge of the specific scheduling policy/priority scheme in use, restricted operational configuration."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO1",
+                        "rationale": "The scheduler enforces its policy continuously during operation; exploitation is not tied to a narrow window."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard software tooling."
                     }
                 }
             },
@@ -4574,19 +4895,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET2"
+                        "feasibility": "ET2",
+                        "rationale": "Finding a resource-exhaustion path not covered by the configured cgroup quotas takes a few weeks of targeted testing."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE1"
+                        "feasibility": "SE1",
+                        "rationale": "Finding a resource-exhaustion path not covered by the configured cgroup quotas requires only modest testing effort."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires knowledge of the specific quota configuration and which resource classes are covered, restricted operational detail."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO1",
+                        "rationale": "Cgroup enforcement is continuous during operation; exploitation is not tied to a narrow window."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard software tooling."
                     }
                 }
             },
@@ -4626,19 +4952,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Defeating replay protection (freshness-value prediction, counter desynchronization, or replay-window manipulation) takes sustained effort measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Defeating replay protection (freshness-value prediction, counter desynchronization, or replay-window manipulation) requires genuine protocol-security expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific freshness mechanism (timestamp tolerance, counter window size, nonce scheme) used by the target implementation, which is proprietary."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "A captured legitimate message must be replayed within the implementation's freshness/counter-acceptance window, meaningfully bounding the opportunity."
                     },
                     "equipment": {
-                        "feasibility": "Eq1"
+                        "feasibility": "Eq1",
+                        "rationale": "Capturing and replaying bus traffic with correct timing requires a programmable CAN/network interface beyond a passive sniffer."
                     }
                 }
             },
@@ -4689,19 +5020,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Forcing counter desynchronization or exploiting counter-overflow/reset edge cases takes sustained effort measured in months."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE2"
+                        "feasibility": "SE2",
+                        "rationale": "Forcing counter desynchronization or exploiting counter-overflow/reset edge cases requires genuine protocol-implementation expertise."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of the specific counter width, storage location, and reset/rollover behavior implemented by the target, which is proprietary."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "The attack must occur before the legitimate counter advances past the replayed value, bounding the opportunity to a narrow operational window."
                     },
                     "equipment": {
-                        "feasibility": "Eq1"
+                        "feasibility": "Eq1",
+                        "rationale": "Manipulating or replaying counter-bearing frames with correct timing requires a programmable network interface beyond a passive sniffer."
                     }
                 }
             },
@@ -4746,19 +5082,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET2"
+                        "feasibility": "ET2",
+                        "rationale": "Evading generic health-check thresholds (e.g., staying just under an anomaly trigger) takes a few weeks of targeted tuning."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE1"
+                        "feasibility": "SE1",
+                        "rationale": "Evading generic health-check thresholds (e.g., staying just under an anomaly trigger) requires only modest tuning effort."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC1"
+                        "feasibility": "KoIC1",
+                        "rationale": "Requires knowledge of the specific health-check thresholds/heuristics in use, restricted operational configuration."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO1",
+                        "rationale": "Monitoring runs continuously during operation, so evasion is not tied to a narrow timing window."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard software tooling to characterize and stay under detection thresholds."
                     }
                 }
             },
@@ -4794,19 +5135,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET1"
+                        "feasibility": "ET1",
+                        "rationale": "A watchdog reset is easily triggered or, conversely, easily masked by periodically petting it; this is a well-understood, quickly-defeated timing mechanism."
                     },
                     "specialistExpertise": {
-                        "feasibility": "SE1"
+                        "feasibility": "SE1",
+                        "rationale": "Keeping a malicious process from being caught by the watchdog (by periodically petting it) or exploiting the reset for fault injection requires only modest embedded-systems knowledge."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC1",
+                        "rationale": "Watchdog timer mechanisms are a standard, widely documented embedded design pattern; only the specific timeout interval is restricted, discoverable information."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO1"
+                        "feasibility": "WoO1",
+                        "rationale": "The watchdog is active continuously during operation; timing an attack around it does not require a narrow opportunity window."
                     },
                     "equipment": {
-                        "feasibility": "Eq0"
+                        "feasibility": "Eq0",
+                        "rationale": "Achievable with standard embedded debugging/scripting tools."
                     }
                 }
             },
@@ -4919,20 +5265,24 @@
             "attackFeasibilityReduction": {
                 "attackPotentialReduction": {
                     "elapsedTime": {
-                        "feasibility": "ET3"
+                        "feasibility": "ET3",
+                        "rationale": "Forging valid signed V2X messages requires sustained effort measured in months to obtain or derive usable pseudonym-certificate key material."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE2",
                         "rationale": "Requires knowledge of IEEE 1609.2 certificate structures and ECDSA to forge valid signed V2X messages."
                     },
                     "knowledgeOfTheItemOrComponent": {
-                        "feasibility": "KoIC2"
+                        "feasibility": "KoIC1",
+                        "rationale": "IEEE 1609.2 and ETSI TS 103 097 are public standards; the restricted knowledge needed is the specific pseudonym-certificate rotation policy and trust-list configuration of the target PKI, not the cryptographic scheme itself."
                     },
                     "windowOfOpportunity": {
-                        "feasibility": "WoO2"
+                        "feasibility": "WoO2",
+                        "rationale": "A forged/replayed V2X message must be broadcast and accepted within the tight real-time window ADAS uses to act on it, and pseudonym certificates rotate frequently, bounding the opportunity."
                     },
                     "equipment": {
-                        "feasibility": "Eq1"
+                        "feasibility": "Eq1",
+                        "rationale": "Broadcasting forged V2X messages requires a DSRC/C-V2X radio and signing toolchain beyond standard IT equipment."
                     }
                 }
             },
