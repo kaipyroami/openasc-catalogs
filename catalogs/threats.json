@@ -4078,15 +4078,6 @@
                 "Availability",
                 "Authenticity"
             ],
-            "requires": {
-                "OR": [
-                    {
-                        "action": "Inject",
-                        "assetClass": "Interface",
-                        "domain": "External"
-                    }
-                ]
-            },
             "grants": [
                 {
                     "action": "Inject",
@@ -4152,15 +4143,6 @@
                 "Authenticity",
                 "Availability"
             ],
-            "requires": {
-                "OR": [
-                    {
-                        "action": "Inject",
-                        "assetClass": "Interface",
-                        "domain": "External"
-                    }
-                ]
-            },
             "grants": [
                 {
                     "action": "Inject",
@@ -4228,15 +4210,6 @@
                 "Availability",
                 "Authenticity"
             ],
-            "requires": {
-                "OR": [
-                    {
-                        "action": "Inject",
-                        "assetClass": "Interface",
-                        "domain": "External"
-                    }
-                ]
-            },
             "grants": [
                 {
                     "action": "Disrupt",
@@ -4300,15 +4273,6 @@
                 "Integrity",
                 "Confidentiality"
             ],
-            "requires": {
-                "AND": [
-                    {
-                        "action": "Inject",
-                        "assetClass": "Interface",
-                        "domain": "External"
-                    }
-                ]
-            },
             "grants": [
                 {
                     "action": "Inject",
@@ -4373,15 +4337,6 @@
             "compromises": [
                 "Availability"
             ],
-            "requires": {
-                "AND": [
-                    {
-                        "action": "Inject",
-                        "assetClass": "Interface",
-                        "domain": "External"
-                    }
-                ]
-            },
             "grants": [
                 {
                     "action": "Disrupt",
@@ -4522,15 +4477,6 @@
                 "Authenticity",
                 "Confidentiality"
             ],
-            "requires": {
-                "AND": [
-                    {
-                        "action": "Inject",
-                        "assetClass": "Interface",
-                        "domain": "External"
-                    }
-                ]
-            },
             "grants": [
                 {
                     "action": "Inject",
@@ -4597,15 +4543,6 @@
                 "Authenticity",
                 "Confidentiality"
             ],
-            "requires": {
-                "AND": [
-                    {
-                        "action": "Inject",
-                        "assetClass": "Interface",
-                        "domain": "External"
-                    }
-                ]
-            },
             "grants": [
                 {
                     "action": "Inject",
@@ -4670,15 +4607,6 @@
                 "Authenticity",
                 "Confidentiality"
             ],
-            "requires": {
-                "AND": [
-                    {
-                        "action": "Inject",
-                        "assetClass": "Interface",
-                        "domain": "External"
-                    }
-                ]
-            },
             "grants": [
                 {
                     "action": "Inject",
@@ -4983,15 +4911,6 @@
                 "Integrity",
                 "Authenticity"
             ],
-            "requires": {
-                "AND": [
-                    {
-                        "action": "Inject",
-                        "assetClass": "Interface",
-                        "domain": "External"
-                    }
-                ]
-            },
             "grants": [
                 {
                     "action": "Execute",
@@ -5059,15 +4978,6 @@
                 "Integrity",
                 "Authenticity"
             ],
-            "requires": {
-                "AND": [
-                    {
-                        "action": "Inject",
-                        "assetClass": "Interface",
-                        "domain": "Infotainment"
-                    }
-                ]
-            },
             "grants": [
                 {
                     "action": "Execute",
@@ -5077,6 +4987,16 @@
                 {
                     "action": "Elevate",
                     "assetClass": "Executable",
+                    "domain": "Infotainment"
+                },
+                {
+                    "action": "Extract",
+                    "assetClass": "Interface",
+                    "domain": "Infotainment"
+                },
+                {
+                    "action": "Disrupt",
+                    "assetClass": "Interface",
                     "domain": "Infotainment"
                 }
             ],
@@ -5213,15 +5133,6 @@
                 "Confidentiality",
                 "Authenticity"
             ],
-            "requires": {
-                "OR": [
-                    {
-                        "action": "Inject",
-                        "assetClass": "Interface",
-                        "domain": "External"
-                    }
-                ]
-            },
             "grants": [
                 {
                     "action": "Extract",
@@ -10852,6 +10763,11 @@
             },
             "grants": [
                 {
+                    "action": "Extract",
+                    "assetClass": "Data",
+                    "domain": "Infotainment"
+                },
+                {
                     "action": "Inject",
                     "assetClass": "Interface",
                     "domain": "External"
@@ -11063,15 +10979,6 @@
                 "Authenticity",
                 "Availability"
             ],
-            "requires": {
-                "OR": [
-                    {
-                        "action": "Inject",
-                        "assetClass": "Interface",
-                        "domain": "External"
-                    }
-                ]
-            },
             "grants": [
                 {
                     "action": "Disrupt",
@@ -11139,15 +11046,6 @@
                 "Authenticity",
                 "Availability"
             ],
-            "requires": {
-                "OR": [
-                    {
-                        "action": "Inject",
-                        "assetClass": "Interface",
-                        "domain": "External"
-                    }
-                ]
-            },
             "grants": [
                 {
                     "action": "Disrupt",

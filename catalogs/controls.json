@@ -299,6 +299,11 @@
                     "action": "Execute",
                     "assetClass": "Executable",
                     "domain": "*"
+                },
+                {
+                    "action": "Extract",
+                    "assetClass": "Crypto",
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -380,6 +385,11 @@
                     "action": "Modify",
                     "assetClass": "Crypto",
                     "domain": "*"
+                },
+                {
+                    "action": "Extract",
+                    "assetClass": "Crypto",
+                    "domain": "*"
                 }
             ],
             "overriddenBy": {
@@ -459,6 +469,11 @@
                 {
                     "action": "Modify",
                     "assetClass": "Executable",
+                    "domain": "*"
+                },
+                {
+                    "action": "Extract",
+                    "assetClass": "Crypto",
                     "domain": "*"
                 }
             ],
@@ -3611,6 +3626,7 @@
                 ]
             },
             "unitedNationsRegulation155": [
+                "M9",
                 "M18",
                 "M1"
             ]

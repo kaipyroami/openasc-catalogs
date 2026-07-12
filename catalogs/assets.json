@@ -510,7 +510,7 @@
                     }
                 }
             },
-            "class": "Interface"
+            "class": "Network"
         },
         {
             "id": "A.010",
@@ -679,7 +679,7 @@
                     }
                 }
             },
-            "class": "Interface"
+            "class": "Network"
         },
         {
             "id": "A.013",
@@ -1909,7 +1909,7 @@
                     }
                 }
             },
-            "class": "Interface"
+            "class": "Network"
         },
         {
             "id": "A.035",
@@ -3561,7 +3561,6 @@
             ],
             "cybersecurityProperties": [
                 "Integrity",
-                "Availability",
                 "Authenticity"
             ],
             "impact": {
