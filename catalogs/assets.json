@@ -1258,12 +1258,12 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "Negligible",
-                        "rationale": "Tampered or deleted diagnostic logs can obscure recall-worthy fault patterns from the OEM’s post-market surveillance and root-cause analysis; the logs themselves do not enable an unsafe vehicle state."
+                        "level": "None",
+                        "rationale": "The OEM as an entity has no direct physical safety state; concealment of recall-worthy fault patterns instead elevates the OEM's liability and regulatory exposure, captured under financial impact."
                     },
                     "financial": {
                         "level": "Moderate",
-                        "rationale": "Loss of diagnostic history complicates warranty adjudication and root-cause analysis, raising support costs."
+                        "rationale": "Loss of diagnostic history complicates warranty adjudication and root-cause analysis, and delayed detection of a recall-worthy pattern increases the OEM's liability exposure if an incident occurs before the fault is identified."
                     },
                     "operational": {
                         "level": "Major",
@@ -1985,12 +1985,12 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "Negligible",
-                        "rationale": "A falsified manifest can mask the persistent presence of a known-vulnerable component from OEM configuration audits, delaying a safety-relevant patch; the manifest itself does not actuate any function."
+                        "level": "None",
+                        "rationale": "The OEM as an entity has no direct physical safety state; masking a known-vulnerable component from configuration audits instead elevates the OEM's liability and compliance exposure, captured under financial impact."
                     },
                     "financial": {
                         "level": "Major",
-                        "rationale": "Tampering with manifests destroys configuration management, leading to costly fleet-wide audits and compliance failures."
+                        "rationale": "Tampering with manifests destroys configuration management, leading to costly fleet-wide audits, compliance failures, and elevated liability exposure if a masked vulnerable component contributes to an incident before detection."
                     },
                     "operational": {
                         "level": "Severe",
@@ -2491,12 +2491,12 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "Negligible",
-                        "rationale": "Masked or cleared DTCs can hide systemic component-failure patterns from OEM post-market surveillance, delaying recall action; the data itself has no direct physical safety effect."
+                        "level": "None",
+                        "rationale": "The OEM as an entity has no direct physical safety state; masking systemic component-failure patterns instead delays recall action and elevates the OEM's liability exposure, captured under financial impact."
                     },
                     "financial": {
                         "level": "Major",
-                        "rationale": "Clearing or masking DTCs enables warranty fraud and hides systemic, fleet-wide component failures from the manufacturer."
+                        "rationale": "Clearing or masking DTCs enables warranty fraud and hides systemic, fleet-wide component failures from the manufacturer, directly increasing lawsuit and recall-liability exposure if the concealed pattern contributes to an incident."
                     },
                     "operational": {
                         "level": "Major",
