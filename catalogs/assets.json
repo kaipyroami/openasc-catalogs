@@ -648,16 +648,16 @@
                         "rationale": "API compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe",
-                        "rationale": "API abuse or downtime disrupts fleet operations revenue streams and can trigger contractual SLA penalties."
+                        "level": "Major",
+                        "rationale": "No Fleet-Wide-scale threat in the catalog compromises this interface directly (BOLA-class threats abuse an already-valid session's authorization, they don't breach the gateway itself); realistic exposure is bounded to the API tenant/campaign affected, driving SLA penalties and remediation cost rather than fleet-wide revenue disruption."
                     },
                     "operational": {
-                        "level": "Severe",
-                        "rationale": "API manipulation or denial-of-service states degrade operational visibility across the entire vehicle fleet."
+                        "level": "Major",
+                        "rationale": "Degrades operational visibility for the affected API tenant/campaign rather than the entire fleet simultaneously, absent a demonstrated fleet-wide compromise path to this specific interface."
                     },
                     "privacy": {
                         "level": "Major",
-                        "rationale": "The API carries fleet-wide operational and user data that could be exposed through an authorization flaw."
+                        "rationale": "The API carries operational and user data for the affected tenant/campaign that could be exposed through an authorization flaw, not the full fleet at once absent a demonstrated fleet-wide path to this interface."
                     }
                 },
                 "roadUser": {
@@ -704,8 +704,8 @@
                         "rationale": "NVRAM corruption is reflected in OEM financial/operational exposure (bricked units, warranty), not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe",
-                        "rationale": "Bricking of protected storage across the fleet drives warranty replacement and dealer-service cost."
+                        "level": "Major",
+                        "rationale": "No Fleet-Wide-scale threat reaches Memory-class assets in this catalog (bricking/extraction requires per-device physical or local access); realistic exposure is bounded to the affected batch of devices, driving warranty/service cost rather than fleet-wide replacement."
                     },
                     "operational": {
                         "level": "Severe",
@@ -761,8 +761,8 @@
                         "rationale": "Enclave compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe",
-                        "rationale": "Compromise of the core enclave drops trust verification boundaries, breaking fleet key isolation architectures."
+                        "level": "Major",
+                        "rationale": "No Fleet-Wide-scale threat reaches Compute-class assets in this catalog (TEE compromise requires per-device physical or local access, not a remote/systemic path); realistic exposure is bounded to the affected trust domain's devices, not the full fleet's key-isolation architecture at once."
                     },
                     "operational": {
                         "level": "Major",
@@ -1149,12 +1149,12 @@
                         "rationale": "Sensor-feed compromise is reflected in OEM financial/operational liability exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe",
-                        "rationale": "Safety failures due to blind ADAS systems result in massive litigation and recall costs."
+                        "level": "Major",
+                        "rationale": "No Fleet-Wide-scale threat reaches this Network-class telemetry flow in the catalog; realistic exposure is bounded to the affected vehicle/batch, driving liability and remediation cost proportionate to that scope rather than fleet-wide litigation."
                     },
                     "operational": {
-                        "level": "Severe",
-                        "rationale": "Loss of raw sensor telemetry disables ADAS features fleet-wide until the fault is diagnosed and repaired."
+                        "level": "Major",
+                        "rationale": "Disables ADAS features for the affected vehicle/batch rather than fleet-wide, absent a demonstrated Fleet-Wide-scale path to this telemetry flow."
                     },
                     "privacy": {
                         "level": "None",
@@ -2157,12 +2157,12 @@
                         "rationale": "HPC hardware compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe",
-                        "rationale": "Loss of the central compute platform can idle production-representative validation and drive a costly hardware recall."
+                        "level": "Major",
+                        "rationale": "No Fleet-Wide-scale threat reaches Compute-class assets in this catalog; a hardware-level compromise of this platform requires per-device physical or local access, bounding realistic remediation cost to the affected batch rather than a fleet-wide hardware recall."
                     },
                     "operational": {
-                        "level": "Severe",
-                        "rationale": "The HPC aggregates multiple vehicle functions; its failure disrupts the OEM’s ability to guarantee fleet-wide platform availability."
+                        "level": "Major",
+                        "rationale": "Disrupts the OEM's operational capability for the affected batch of platforms rather than fleet-wide availability, absent a demonstrated Fleet-Wide-scale path to this Compute-class asset."
                     },
                     "privacy": {
                         "level": "None",
@@ -2212,12 +2212,12 @@
                         "rationale": "ADAS hardware compromise is reflected in OEM financial/operational liability exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe",
-                        "rationale": "Loss of ADAS compute hardware exposes the OEM to liability for disabled safety features and a likely hardware recall."
+                        "level": "Major",
+                        "rationale": "No Fleet-Wide-scale threat reaches Compute-class assets in this catalog; realistic liability and remediation exposure is bounded to the affected batch of hardware rather than a fleet-wide recall, absent a demonstrated remote/systemic path to this node."
                     },
                     "operational": {
-                        "level": "Severe",
-                        "rationale": "Requires immediate feature suspension across the fleet until the hardware fault is diagnosed and repaired."
+                        "level": "Major",
+                        "rationale": "Requires feature suspension for the affected batch of vehicles rather than fleet-wide, absent a demonstrated Fleet-Wide-scale path to this Compute-class asset."
                     },
                     "privacy": {
                         "level": "None",
@@ -2327,12 +2327,12 @@
                         "rationale": "Gateway compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe",
-                        "rationale": "A compromised central gateway exposes every domain it connects, driving a platform-wide security remediation and potential recall."
+                        "level": "Major",
+                        "rationale": "No Fleet-Wide-scale threat reaches Compute-class assets in this catalog; realistic remediation exposure is bounded to the affected batch of gateways rather than a platform-wide campaign, absent a demonstrated remote/systemic path to this node."
                     },
                     "operational": {
-                        "level": "Severe",
-                        "rationale": "The gateway is the mandatory relay point between domains; its failure can isolate every non-local ECU from cross-domain communication."
+                        "level": "Major",
+                        "rationale": "Isolates domains from cross-domain communication for the affected vehicle/batch rather than fleet-wide, absent a demonstrated Fleet-Wide-scale path to this Compute-class asset."
                     },
                     "privacy": {
                         "level": "None",
@@ -2439,12 +2439,12 @@
                         "rationale": "Actuation-command compromise is reflected in OEM financial/operational liability exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe",
-                        "rationale": "A demonstrated ability to spoof actuation commands exposes the OEM to severe product-liability and regulatory consequences."
+                        "level": "Major",
+                        "rationale": "No Fleet-Wide-scale threat grants control over this Network-class actuation traffic in the catalog; realistic liability exposure is bounded to the affected vehicle/batch rather than a platform-wide stop-sale, absent a demonstrated remote/systemic path."
                     },
                     "operational": {
-                        "level": "Severe",
-                        "rationale": "Requires immediate investigation and potential stop-sale/recall of the affected platform."
+                        "level": "Major",
+                        "rationale": "Triggers investigation and potential stop-sale for the affected vehicle/batch rather than the full platform, absent a demonstrated Fleet-Wide-scale path to this traffic."
                     },
                     "privacy": {
                         "level": "None",
@@ -2552,12 +2552,12 @@
                         "rationale": "Hub compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe",
-                        "rationale": "A design flaw in a zonal hub would require a fleet-wide hardware or firmware remediation campaign."
+                        "level": "Major",
+                        "rationale": "No Fleet-Wide-scale threat reaches Compute-class assets in this catalog; a zonal-hub design flaw requires a per-device local/physical exploitation path to reach, bounding realistic remediation cost to the affected batch rather than a fleet-wide campaign."
                     },
                     "operational": {
-                        "level": "Severe",
-                        "rationale": "Loss of a zonal hub drops all peripheral I/O for that physical zone across every affected vehicle."
+                        "level": "Major",
+                        "rationale": "Drops peripheral I/O for the affected zone on the affected batch of vehicles rather than every affected vehicle in the fleet simultaneously, absent a demonstrated Fleet-Wide-scale path."
                     },
                     "privacy": {
                         "level": "None",
@@ -2607,8 +2607,8 @@
                         "rationale": "Edge-ECU compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe",
-                        "rationale": "A class-wide vulnerability in edge ECUs can require a large-scale re-flash or hardware campaign across many vehicle functions."
+                        "level": "Major",
+                        "rationale": "No Fleet-Wide-scale threat reaches Compute-class assets in this catalog; a class-wide edge-ECU vulnerability still requires a per-device exploitation path to realize, bounding realistic remediation cost to the affected batch rather than a large-scale campaign across all functions."
                     },
                     "operational": {
                         "level": "Major",
@@ -3338,8 +3338,8 @@
                         "rationale": "Sensor compromise is reflected in OEM financial/operational liability exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe",
-                        "rationale": "Sensor array compromise requires fleet-wide sensor firmware updates or hardware replacement with significant warranty and recall cost exposure."
+                        "level": "Major",
+                        "rationale": "No Fleet-Wide-scale threat reaches this Peripheral-class sensor array in the catalog; realistic remediation cost is bounded to the affected batch of vehicles rather than a fleet-wide firmware/hardware campaign, absent a demonstrated remote/systemic path."
                     },
                     "operational": {
                         "level": "Moderate",
@@ -3398,8 +3398,8 @@
                         "rationale": "A demonstrated actuator-level compromise exposes the OEM to product-liability claims and a hardware recall."
                     },
                     "operational": {
-                        "level": "Severe",
-                        "rationale": "A demonstrated actuator-level compromise exposes the OEM to an immediate stop-sale/recall of the affected hardware."
+                        "level": "Major",
+                        "rationale": "Triggers investigation and potential stop-sale for the affected vehicle/batch rather than an immediate fleet-wide action, absent a demonstrated Fleet-Wide-scale path to this Peripheral-class asset."
                     },
                     "privacy": {
                         "level": "None",
@@ -3511,12 +3511,12 @@
                         "rationale": "TCU compromise is reflected in OEM financial/operational/privacy exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe",
-                        "rationale": "TCU is the primary remote-access vector; its compromise enables large-scale fleet attacks with massive remediation cost."
+                        "level": "Major",
+                        "rationale": "No Fleet-Wide-scale threat reaches Compute-class assets in this catalog; while the TCU is the primary remote-access vector, compromising the hardware platform itself requires a per-device local/physical path, bounding realistic remediation cost to the affected batch rather than large-scale fleet attacks."
                     },
                     "operational": {
-                        "level": "Severe",
-                        "rationale": "Loss of TCU disables all V2C connectivity, OTA updates, eCall, and fleet management functions."
+                        "level": "Major",
+                        "rationale": "Disables V2C connectivity, OTA, eCall, and fleet management for the affected batch of vehicles rather than fleet-wide simultaneously, absent a demonstrated Fleet-Wide-scale path to this Compute-class asset."
                     },
                     "privacy": {
                         "level": "Major",
@@ -3805,8 +3805,8 @@
                         "rationale": "The EDR is a passive recorder; its compromise does not directly enable an unsafe vehicle state, though falsified data can obscure recall-worthy failure patterns from the OEM's post-market surveillance."
                     },
                     "financial": {
-                        "level": "Severe",
-                        "rationale": "EDR data is dispositive evidence in product-liability litigation and regulatory crash investigations; tampering or unavailability exposes the OEM to type-approval non-compliance penalties (UN R160/EU 2024/2220) and adverse liability judgments."
+                        "level": "Major",
+                        "rationale": "No Fleet-Wide-scale threat reaches Memory-class assets in this catalog; EDR tampering/unavailability is realized per-device via physical or local access, so litigation and type-approval exposure is bounded to the affected batch rather than dispositive-evidence loss across the fleet at once."
                     },
                     "operational": {
                         "level": "Moderate",
