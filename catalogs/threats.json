@@ -6,6 +6,7 @@
             "name": "Spoofing",
             "description": "An adversary impersonates a trusted entity (ECU, user, or backend service) to gain unauthorized privileges or inject false data. This is the abstract base class for all spoofing threats.",
             "classificationModel": "STRIDE",
+            "scalability": "Fleet-Wide",
             "attackFeasibility": {
                 "attackPotential": {
                     "elapsedTime": {
@@ -71,6 +72,7 @@
             "name": "Man-in-the-Middle (MitM) Attack",
             "description": "An attacker intercepts and alters communications between two entities without their knowledge, breaking secure channels.",
             "classificationModel": "STRIDE",
+            "scalability": "Fleet-Wide",
             "refines": "T.01",
             "attackFeasibility": {
                 "attackPotential": {
@@ -136,6 +138,7 @@
             "name": "Cloud/App Credential Spoofing",
             "description": "An attacker impersonates a legitimate user by obtaining valid credentials (passwords, PINs, or static tokens), allowing unauthorized access to remote services.",
             "classificationModel": "STRIDE",
+            "scalability": "Fleet-Wide",
             "refines": "T.01",
             "attackFeasibility": {
                 "attackPotential": {
@@ -192,6 +195,7 @@
             "name": "Malicious Firmware Update Deployment",
             "description": "An attacker distributes and successfully installs tampered or unauthorized firmware packages by spoofing the backend or bypassing digital signature verifications.",
             "classificationModel": "STRIDE",
+            "scalability": "Fleet-Wide",
             "refines": "T.01",
             "attackFeasibility": {
                 "attackPotential": {
@@ -261,6 +265,7 @@
             "name": "Counterfeit or Rogue Hardware Integration",
             "description": "Exploitation of the supply chain or physical vehicle access to insert counterfeit or malicious hardware components that successfully bypass component authentication.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.01",
             "attackFeasibility": {
                 "attackPotential": {
@@ -324,6 +329,7 @@
             "name": "Backend and Mobile App Spoofing",
             "description": "An attacker forges information originating from remote external sources to deceive the vehicle into executing unauthorized commands.",
             "classificationModel": "STRIDE",
+            "scalability": "Fleet-Wide",
             "refines": "T.01",
             "attackFeasibility": {
                 "attackPotential": {
@@ -391,6 +397,7 @@
             "name": "In-Vehicle Network (IVN) Spoofing",
             "description": "An attacker with access to the internal vehicle network generates or modifies messages to impersonate legitimate ECUs, bypassing internal trust boundaries.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.01",
             "attackFeasibility": {
                 "attackPotential": {
@@ -454,6 +461,7 @@
             "name": "GNSS/Location Spoofing",
             "description": "An attacker manipulates or falsifies the vehicle's reported location by generating stronger, counterfeit GNSS RF signals.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.01",
             "attackFeasibility": {
                 "attackPotential": {
@@ -502,6 +510,7 @@
             "name": "ADAS Perception Spoofing",
             "description": "An attacker projects false physical signals to trick the ADAS perception layer into detecting phantom objects or ignoring real ones.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.01",
             "attackFeasibility": {
                 "attackPotential": {
@@ -559,6 +568,7 @@
             "name": "Message Replay Attack",
             "description": "Capturing valid network transmissions and retransmitting them later to trick the system into performing an unauthorized action.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.01",
             "attackFeasibility": {
                 "attackPotential": {
@@ -621,6 +631,7 @@
             "name": "Diagnostic Credential Spoofing",
             "description": "An attacker impersonates a technician by obtaining valid credentials (seeds, passwords), allowing unauthorized access to vehicle diagnostic functions.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.01",
             "attackFeasibility": {
                 "attackPotential": {
@@ -679,6 +690,7 @@
             "name": "V2X Safety Message Injection",
             "description": "An attacker broadcasts forged V2X Cooperative Awareness Messages (CAM) or Decentralized Environmental Notification Messages (DENM), spoofing phantom vehicles or false hazard conditions to manipulate ADAS decision logic or mislead the driver.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.01",
             "attackFeasibility": {
                 "attackPotential": {
@@ -738,6 +750,7 @@
             "name": "EV Charging Session Spoofing",
             "description": "An attacker deploys a rogue or tampered EVSE that presents a forged TLS certificate during the ISO 15118 Vehicle-to-Grid (V2G) handshake. Upon a successful TLS downgrade or certificate validation bypass, the attacker can extract the vehicle's contract certificate, manipulate AC/DC charging parameters, or deliver a malicious firmware payload via the update channel.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.01",
             "attackFeasibility": {
                 "attackPotential": {
@@ -808,6 +821,7 @@
             "name": "Cryptographic/Transport Protocol Downgrade Attack",
             "description": "An attacker positioned as a man-in-the-middle actively manipulates a TLS/DTLS (or equivalent transport-security) handshake — stripping supported cipher suites from the ClientHello, forcing fallback to a deprecated protocol version (SSLv3, TLS 1.0/1.1), or exploiting cross-protocol/export-grade cryptographic weaknesses in the POODLE, FREAK, Logjam, or DROWN family — to coerce both endpoints into negotiating a version or cipher suite weak enough to break or cryptanalyze. Unlike the RF/PHY jamming-based downgrade modeled in T.08.3 (which forces a wireless interface to fail over from 4G/5G or WPA3 to 2G or WEP), this is a pure protocol-layer manipulation that requires no signal disruption at all, and it applies uniformly to any TLS/DTLS-secured channel in the vehicle's architecture: backend telematics sessions, OTA update distribution, and the ISO 15118 V2G/EVSE charging handshake.",
             "classificationModel": "STRIDE",
+            "scalability": "Fleet-Wide",
             "refines": "T.01",
             "attackFeasibility": {
                 "attackPotential": {
@@ -873,6 +887,7 @@
             "name": "Tampering",
             "description": "Unauthorized modification of data, code, or hardware within the vehicle system. This is the abstract base class for all tampering and integrity-based threats.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "attackFeasibility": {
                 "attackPotential": {
                     "elapsedTime": {
@@ -942,6 +957,7 @@
             "name": "Runtime Memory/State Tampering",
             "description": "Altering variables, system state, or code while it is actively being processed by the ECU in RAM, bypassing static storage protections (e.g., via buffer overflows).",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.02",
             "attackFeasibility": {
                 "attackPotential": {
@@ -998,6 +1014,7 @@
             "name": "Persistent Storage and Configuration/Calibration Tampering",
             "description": "Unauthorized logical modification of at-rest configuration files, calibration parameters (e.g., ADAS sensor limits, engine torque curves), routing tables, or OS files stored in NVRAM/EEPROM. Allows an attacker to alter vehicle behavior without needing to exploit or rewrite the actual executable firmware.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.02",
             "attackFeasibility": {
                 "attackPotential": {
@@ -1064,6 +1081,7 @@
             "name": "Static Code Alteration",
             "description": "Replacing or modifying the actual software/firmware executables stored on the device. Typically defended by Secure Boot and DM-Verity.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.02",
             "attackFeasibility": {
                 "attackPotential": {
@@ -1131,6 +1149,7 @@
             "name": "Runtime Code/Command Injection",
             "description": "Introducing malicious code or unauthorized system commands into a running application by exploiting input validation flaws (e.g., API payloads, malicious diagnostic requests).",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.02",
             "attackFeasibility": {
                 "attackPotential": {
@@ -1192,6 +1211,7 @@
             "name": "Hardware Fault Injection (Glitching)",
             "description": "Deliberately introducing faults (voltage drops, clock manipulation, EM pulses) to disrupt normal SoC execution, allowing an attacker to skip security checks like Secure Boot or Authentication loops.",
             "classificationModel": "STRIDE",
+            "scalability": "Single Vehicle",
             "refines": "T.02",
             "attackFeasibility": {
                 "attackPotential": {
@@ -1254,6 +1274,7 @@
             "name": "Network Protocol Manipulation / Fuzzing",
             "description": "Exploitation of in-vehicle communication protocols (CAN, Ethernet, UDS) by sending malformed or out-of-spec messages to induce crashes, overflow buffers, or force fallback states.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.02",
             "attackFeasibility": {
                 "attackPotential": {
@@ -1317,6 +1338,7 @@
             "name": "Basic Physical Data Tampering (Exposed Pins)",
             "description": "Gaining physical access to the ECU's PCB to directly modify memory chips utilizing exposed-pin architectures (TSOP, QFP, DIP), requiring significantly lower technical capabilities than hidden-pad packages.",
             "classificationModel": "STRIDE",
+            "scalability": "Single Vehicle",
             "attackFeasibility": {
                 "attackPotential": {
                     "elapsedTime": {
@@ -1377,6 +1399,7 @@
             "name": "Advanced Physical Data Tampering (Hidden Pads)",
             "description": "Gaining physical access to the ECU's PCB to directly modify or rewrite memory chips utilizing hidden-pad architectures (BGA, LGA, WSON), bypassing software-level protections.",
             "classificationModel": "STRIDE",
+            "scalability": "Single Vehicle",
             "attackFeasibility": {
                 "attackPotential": {
                     "elapsedTime": {
@@ -1437,6 +1460,7 @@
             "name": "Remote Code Execution via Telematics/IVI Interface",
             "description": "An attacker exploits an unpatched vulnerability in the vehicle's external wireless stack (Bluetooth BLE, Wi-Fi 802.11, or cellular modem firmware) to gain initial unauthenticated code execution on the Telematics Control Unit (TCU) or IVI head unit without any prior vehicle access.",
             "classificationModel": "STRIDE",
+            "scalability": "Fleet-Wide",
             "refines": "T.02",
             "attackFeasibility": {
                 "attackPotential": {
@@ -1487,6 +1511,7 @@
             "name": "Firmware/Software Version Rollback (Downgrade) Attack",
             "description": "An attacker reflashes or restores an ECU to an older, genuinely OEM-signed firmware or software image that contains a since-patched vulnerability, or directly tampers with the stored version value/rollback counter used to gate installation, without ever forging a signature. Because the replayed image carries a valid signature, Secure Boot's verification step passes without incident — the attack succeeds not by breaking cryptographic trust but by replaying a legitimately trusted artifact that predates a security fix. In the absence of monotonic anti-rollback enforcement (a hardware counter, blown eFuse, or software rollback-index comparison), the reintroduced, previously-patched vulnerability becomes available again for exploitation by a subsequent, independent attack.",
             "classificationModel": "STRIDE",
+            "scalability": "Fleet-Wide",
             "refines": "T.02",
             "attackFeasibility": {
                 "attackPotential": {
@@ -1555,6 +1580,7 @@
             "name": "Repudiation",
             "description": "An entity performs a malicious or unauthorized action and successfully denies having performed it. In an automotive context, this typically involves an attacker masking their tracks by deleting diagnostic logs, or a compromised node successfully denying the origin of a spoofed V2X/backend message. This is the abstract base class for Repudiation.",
             "classificationModel": "STRIDE",
+            "scalability": "Fleet-Wide",
             "attackFeasibility": {
                 "attackPotential": {
                     "elapsedTime": {
@@ -1619,6 +1645,7 @@
             "name": "Audit Log Tampering and Evasion",
             "description": "An attacker modifies, deletes, or floods Diagnostic Trouble Codes (DTCs), crash data recorders (EDR), or security audit logs to cover their tracks. This ensures the attack cannot be traced, analyzed by the SOC, or legally proven.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.03",
             "attackFeasibility": {
                 "attackPotential": {
@@ -1680,6 +1707,7 @@
             "name": "Repudiation of Origin (V2X / Backend)",
             "description": "A node transmits a malicious or malformed message (e.g., a fake V2X safety hazard warning or a rogue OTA command) and successfully denies sending it because the communication channel lacks sufficient non-repudiation controls (e.g., missing digital signatures or shared symmetric keys).",
             "classificationModel": "STRIDE",
+            "scalability": "Fleet-Wide",
             "refines": "T.03",
             "attackFeasibility": {
                 "attackPotential": {
@@ -1742,6 +1770,7 @@
             "name": "Information Disclosure",
             "description": "Unauthorized exposure of sensitive data, such as personal identifiable information (PII), cryptographic keys, IP, or system state. This is the abstract base class for all disclosure and confidentiality threats.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "attackFeasibility": {
                 "attackPotential": {
                     "elapsedTime": {
@@ -1801,6 +1830,7 @@
             "name": "In-Vehicle Network (IVN) Sniffing",
             "description": "Passively capturing unencrypted data exchanged within the vehicle (e.g., CAN, LIN, or Automotive Ethernet traffic) to extract sensitive telemetry, user data, or reverse-engineer command structures.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.04",
             "attackFeasibility": {
                 "attackPotential": {
@@ -1863,6 +1893,7 @@
             "name": "External Communications Interception",
             "description": "An attacker positions themselves on the vehicle's external communication path (e.g., deploying a rogue Wi-Fi AP, cellular IMSI catcher, or BGP route injection) to intercept data transmitted between the vehicle and external entities. Allows the theft of credentials, session tokens, or PII.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.04",
             "attackFeasibility": {
                 "attackPotential": {
@@ -1939,6 +1970,7 @@
             "name": "Unintended Disclosure of PII Data",
             "description": "Exposure of sensitive user data (location history, contacts, biometrics) due to misconfiguration, excessive debug logging, or insecure HMI interfaces in the Infotainment/Telematics domains.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.04",
             "attackFeasibility": {
                 "attackPotential": {
@@ -1998,6 +2030,7 @@
             "name": "Side Channel Analysis (SCA)",
             "description": "Passively exploiting indirect physical leakage — timing variations, power consumption patterns, or electromagnetic emissions — observed during normal cryptographic processing to statistically recover secret key material without physical intervention in circuit operation.",
             "classificationModel": "STRIDE",
+            "scalability": "Single Vehicle",
             "refines": "T.04",
             "attackFeasibility": {
                 "attackPotential": {
@@ -2056,6 +2089,7 @@
             "name": "Differential Fault Analysis (DFA)",
             "description": "Actively inducing precise computational faults in a cryptographic operation — via voltage glitching, clock manipulation, electromagnetic fault injection (EMFI), or laser irradiation — then statistically analyzing the differential between correct and faulty ciphertext outputs to derive the secret key. Unlike SCA, DFA actively disturbs circuit operation rather than passively observing it.",
             "classificationModel": "STRIDE",
+            "scalability": "Single Vehicle",
             "refines": "T.04",
             "attackFeasibility": {
                 "attackPotential": {
@@ -2114,6 +2148,7 @@
             "name": "Advanced Physical Data Extraction (Hidden Pads)",
             "description": "Directly reading data from storage devices or memory chips utilizing hidden-pad architectures (BGA, LGA, WSON) using physical access techniques like X-ray alignment, chip-off, or decapsulation to extract firmware and keys.",
             "classificationModel": "STRIDE",
+            "scalability": "Single Vehicle",
             "refines": "T.04",
             "attackFeasibility": {
                 "attackPotential": {
@@ -2174,6 +2209,7 @@
             "name": "Basic Physical Data Extraction (Exposed Pins)",
             "description": "Directly reading data from memory chips utilizing exposed-pin architectures (TSOP, QFP, DIP) using standard in-circuit clips or basic desoldering to extract firmware. Requires significantly less effort than BGA extraction.",
             "classificationModel": "STRIDE",
+            "scalability": "Single Vehicle",
             "refines": "T.04",
             "attackFeasibility": {
                 "attackPotential": {
@@ -2233,6 +2269,7 @@
             "name": "OEM Backend Credential / Key Extraction",
             "description": "An attacker compromises the OEM's cloud backend through web-application vulnerabilities (SQL injection, insecure object references, credential stuffing against the DevOps pipeline) or insider access to extract cryptographic signing keys, OTA authorization tokens, or fleet-wide symmetric secrets from the backend key management service.",
             "classificationModel": "STRIDE",
+            "scalability": "Fleet-Wide",
             "refines": "T.04",
             "attackFeasibility": {
                 "attackPotential": {
@@ -2282,6 +2319,7 @@
             "name": "Harvest Now, Decrypt Later (HNDL)",
             "description": "A long-horizon quantum threat strategy in which an attacker passively intercepts and stores encrypted vehicle communications today — over V2X, TLS/DTLS-protected telematics channels, or OEM backend links — with the intent of retroactively decrypting them once a Cryptographically Relevant Quantum Computer (CRQC) becomes available. Shor's algorithm enables a CRQC to break classical asymmetric key exchange (RSA, ECDH, ECDSA), rendering all previously captured ciphertext retroactively readable. Beyond confidentiality, HNDL enables 'harvest now, spoof later': stored public-key material allows a quantum-capable adversary to derive corresponding private signing keys, subsequently forging digital signatures on OTA packages, V2X messages, or backend API tokens — enabling injection of malicious commands or unauthorized firmware execution.",
             "classificationModel": "STRIDE",
+            "scalability": "Fleet-Wide",
             "refines": "T.04",
             "attackFeasibility": {
                 "attackPotential": {
@@ -2358,6 +2396,7 @@
             "name": "Denial of Service (DoS)",
             "description": "Disrupting the normal operation of vehicle systems by overwhelming resources, blocking communications, or causing system crashes. This is the abstract base class for all availability threats.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "attackFeasibility": {
                 "attackPotential": {
                     "elapsedTime": {
@@ -2426,6 +2465,7 @@
             "name": "In-Vehicle Network (IVN) Bus Flooding",
             "description": "Injecting excessive high-priority messages (e.g., CAN frame ID 0x000 flooding, Ethernet broadcast storms) to consume available bandwidth, preventing legitimate safety-critical messages from arriving at their destination.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.05",
             "attackFeasibility": {
                 "attackPotential": {
@@ -2481,6 +2521,7 @@
             "name": "Compute Resource Exhaustion",
             "description": "Intentionally consuming excessive system resources on an ECU (CPU cycles, RAM, file descriptors) by exploiting logic flaws, infinite loops, or sending complex continuous inputs, forcing the OS to hang or crash.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.05",
             "attackFeasibility": {
                 "attackPotential": {
@@ -2543,6 +2584,7 @@
             "name": "Wireless RF / GNSS Jamming",
             "description": "Emitting powerful RF noise to interfere with and block the vehicle's wireless reception, disabling location-based services (GNSS), cellular telematics, Bluetooth key fobs, or V2X safety communications.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.05",
             "attackFeasibility": {
                 "attackPotential": {
@@ -2591,6 +2633,7 @@
             "name": "Denial of Wallet (Cloud API Exhaustion)",
             "description": "An attacker targets the OEM's backend infrastructure by generating massive amounts of automated API requests (e.g., querying vehicle status, requesting OTA updates). This forces the cloud infrastructure to auto-scale, incurring massive financial costs for the OEM.",
             "classificationModel": "STRIDE",
+            "scalability": "Fleet-Wide",
             "refines": "T.05",
             "attackFeasibility": {
                 "attackPotential": {
@@ -2647,6 +2690,7 @@
             "description": "An attacker intentionally deletes critical system files, boot configurations, routing tables, or cryptographic keys from persistent storage. This renders the ECU or vehicle network locally inoperable, resulting in a permanent or semi-permanent denial of service without requiring continuous network flooding.",
             "refines": "T.05",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "attackFeasibility": {
                 "attackPotential": {
                     "elapsedTime": {
@@ -2723,6 +2767,7 @@
             "name": "CAN Bus-Off / Error-State Forced Disconnection Attack",
             "description": "An attacker exploits the CAN controller's built-in error-confinement state machine rather than raw bandwidth exhaustion. By injecting frames sharing the same arbitration ID as a victim ECU's next scheduled transmission and forcing a bit-level conflict (or corrupting the victim's own frame with a jammed dominant bit at the right moment), the attacker repeatedly drives transmit-error-counter (TEC) increments on the victim's CAN controller. Once the TEC exceeds 255, the controller autonomously transitions to the 'bus-off' state per the CAN/ISO 11898-1 error-handling specification and physically disconnects itself from the bus — silently and durably removing a legitimate, uncompromised ECU from the network without transmitting a single flooded frame, and typically without the victim ECU's own software ever detecting the transition.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.05",
             "attackFeasibility": {
                 "attackPotential": {
@@ -2783,6 +2828,7 @@
             "name": "Elevation of Privilege (EoP)",
             "description": "An attacker gains higher access rights than intended, allowing them to perform unauthorized actions, access restricted data, or bypass security boundaries. This is the abstract base class for all privilege escalation attacks.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "attackFeasibility": {
                 "attackPotential": {
                     "elapsedTime": {
@@ -2846,6 +2892,7 @@
             "name": "OS / Kernel Privilege Escalation",
             "description": "Exploiting local vulnerabilities (e.g., buffer overflows, race conditions, use-after-free) within the vehicle's Operating System or Kernel to transition from a restricted user space application to root or administrative access.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.06",
             "attackFeasibility": {
                 "attackPotential": {
@@ -2908,6 +2955,7 @@
             "name": "Hypervisor / TEE Breakout",
             "description": "Gaining unauthorized processing capabilities by escaping standard execution environments (Normal World or Guest VM) to access highly protected hardware domains (Secure World, TEE, or Hypervisor root level) running crypto-operations or critical routing.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.06",
             "attackFeasibility": {
                 "attackPotential": {
@@ -2976,6 +3024,7 @@
             "name": "Application / Container Sandbox Breakout",
             "description": "Escaping application sandboxes (e.g., Android Automotive app permissions) or OCI containers (Docker) running on an HPC node. The attacker elevates from a restricted app context to full host OS access.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.06",
             "attackFeasibility": {
                 "attackPotential": {
@@ -3033,6 +3082,7 @@
             "name": "Exploitation of Open Debug Ports (JTAG/UART)",
             "description": "Utilizing unprotected or improperly disabled hardware debug channels left open from the development phase to bypass software restrictions, drop into a root shell, or manually alter execution flow.",
             "classificationModel": "STRIDE",
+            "scalability": "Single Vehicle",
             "refines": "T.06",
             "attackFeasibility": {
                 "attackPotential": {
@@ -3101,6 +3151,7 @@
             "name": "Elevation of Privilege via Misconfiguration",
             "description": "An attacker leverages insecure system configurations, such as default engineering passwords, open Telnet/SSH ports, overly permissive file access controls (DAC), or forgotten debug flags left in production builds, to trivially gain administrative or root access to the system.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.06",
             "attackFeasibility": {
                 "attackPotential": {
@@ -3169,6 +3220,7 @@
             "name": "Physical ECU / Vehicle Access",
             "description": "An attacker gains physical access to vehicle internals (ECU PCB, wiring harness, or OBD-II port), enabling hardware-level attack primitives that cannot be achieved remotely. This is the foundational access condition that roots the physical-access attack chain.",
             "classificationModel": "STRIDE",
+            "scalability": "Single Vehicle",
             "refines": "T.06",
             "attackFeasibility": {
                 "attackPotential": {
@@ -3235,6 +3287,7 @@
             "name": "Cross-Domain Lateral Movement",
             "description": "An attacker with code execution in the Infotainment or Telematics domain exploits a misconfigured or unfiltered central gateway ECU to inject messages directly onto Powertrain-domain bus segments (e.g., CAN-FD) or escalate to host-OS access on an HPC node bridging both domains.",
             "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
             "refines": "T.06",
             "attackFeasibility": {
                 "attackPotential": {
@@ -3299,6 +3352,7 @@
             "name": "Backend API Broken Object-Level Authorization (BOLA)",
             "description": "An attacker who holds a valid but unprivileged session with the OEM's owner/companion-app or fleet-management backend API exploits a missing per-request ownership check — commonly an endpoint that trusts a client-supplied, enumerable identifier such as a VIN, dealer ID, or internal vehicle record ID without verifying it belongs to the calling account — to remotely issue unlock, remote-start, horn/light, or location-query commands against, or read PII belonging to, vehicles the attacker does not own. No credential theft, key extraction, or cryptographic bypass is required: the attacker's own account and session are fully legitimate, and the API itself performs the privileged action on the attacker's behalf against the wrong object. This is functionally distinct from T.01.2 (which requires stolen credentials belonging to another account) and from T.04.8 (where an IDOR-class flaw is used only to exfiltrate keys/secrets, not to directly execute commands against another owner's vehicle).",
             "classificationModel": "STRIDE",
+            "scalability": "Fleet-Wide",
             "refines": "T.06",
             "attackFeasibility": {
                 "attackPotential": {
@@ -3362,6 +3416,7 @@
             "name": "Reconnaissance",
             "description": "The adversary is trying to gather information they can use to plan future operations. Reconnaissance consists of active or passive information gathering to support an attack on the vehicle.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Fleet-Wide",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/tactic/ATM-TA0000"
@@ -3418,6 +3473,7 @@
             "name": "Gather Target Information - from Other",
             "description": "The adversary gathers information by directly targeting sources that do not involve the vehicle itself, such as OEM supply chains, surface/dark web, engineering manuals, or breach reports.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Fleet-Wide",
             "refines": "T.07",
             "source": {
                 "name": "AutoISAC ATM",
@@ -3476,6 +3532,7 @@
             "name": "Gather Target Information - from Vehicle",
             "description": "The adversary gathers information by targeting a vehicle's hardware and/or communication environment to extract firmware, map network topologies, or identify component vulnerabilities.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.07",
             "source": {
                 "name": "AutoISAC ATM",
@@ -3546,6 +3603,7 @@
             "name": "Manipulate Environment",
             "description": "The adversary manipulates the physical environment or RF spectrum surrounding a vehicle to confuse its sensors, intercept traffic, or force degraded operational states.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/tactic/ATM-TA0001"
@@ -3610,6 +3668,7 @@
             "name": "Adversarial Machine Learning",
             "description": "Supplying deceptive inputs (e.g., physically altered stop signs, adversarial noise patches) to cause vehicle perception systems to misclassify objects or respond inappropriately to road conditions.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.08",
             "source": {
                 "name": "AutoISAC ATM",
@@ -3677,6 +3736,7 @@
             "name": "Analog Sensor Attacks",
             "description": "Disrupting availability or spoofing inputs of analog sensors (e.g., shining a laser into a Lidar receiver, transmitting ultrasonic noise) without directly altering the vehicle's mechanics.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.08",
             "source": {
                 "name": "AutoISAC ATM",
@@ -3742,6 +3802,7 @@
             "name": "Downgrade to Insecure Protocols",
             "description": "Jamming modern secure frequencies (e.g., 4G/5G, WPA3) to force the vehicle's wireless interfaces to failover to older, vulnerable legacy protocols (e.g., 2G GSM, WEP) to facilitate eavesdropping.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.08",
             "source": {
                 "name": "AutoISAC ATM",
@@ -3807,6 +3868,7 @@
             "name": "Jamming or Denial of Service",
             "description": "Emitting excessive RF noise to block Wi-Fi, cellular, GPS, or key fobs, preventing the vehicle from communicating with external entities.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.08",
             "source": {
                 "name": "AutoISAC ATM",
@@ -3868,6 +3930,7 @@
             "name": "Manipulate Communication",
             "description": "Intercepting and altering network traffic between the vehicle and a remote server/mobile device (MitM) by exploiting insecure or improperly implemented TLS/encryption schemas.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.08",
             "source": {
                 "name": "AutoISAC ATM",
@@ -3940,6 +4003,7 @@
             "name": "Relay Communications",
             "description": "Relaying RF communications to make a trusted device appear physically closer to the vehicle than it is, bypassing distance-bound security assumptions (e.g., Key Fob PKES relay theft).",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.08",
             "source": {
                 "name": "AutoISAC ATM",
@@ -4006,6 +4070,7 @@
             "name": "Rogue Cellular Base Station",
             "description": "Setting up a malicious cellular eNodeB/femtocell (IMSI Catcher) to trick the vehicle's telematics unit into connecting, allowing eavesdropping or manipulation of backend communications.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.08",
             "source": {
                 "name": "AutoISAC ATM",
@@ -4070,6 +4135,7 @@
             "name": "Rogue Wi-Fi Access Point",
             "description": "Deploying unauthorized Wi-Fi access points to intercept connections from the vehicle's infotainment system or diagnostic interfaces to execute network-based attacks.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.08",
             "source": {
                 "name": "AutoISAC ATM",
@@ -4134,6 +4200,7 @@
             "name": "Initial Access",
             "description": "Adapted from MITRE ATT&CK: The adversary is trying to get into the vehicle network. The initial access tactic represents the vectors adversaries use to gain an initial foothold onto a vehicle.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Fleet-Wide",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/tactic/ATM-TA0002"
@@ -4205,6 +4272,7 @@
             "name": "Aftermarket, Customer, or Dealer Equipment",
             "description": "Adversaries may use aftermarket, customer, or dealer equipment (e.g., paired smartphones, fleet management dongles, dealer diagnostic tools) as an initial access point into the vehicle.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.09",
             "source": {
                 "name": "AutoISAC ATM",
@@ -4273,6 +4341,7 @@
             "name": "Browser Compromise",
             "description": "A browser compromise is when an adversary gains access to a system through a user visiting a website. The user's web browser is targeted for exploitation (e.g., WebKit/V8 engine flaws).",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Fleet-Wide",
             "refines": "T.09",
             "source": {
                 "name": "AutoISAC ATM",
@@ -4345,6 +4414,7 @@
             "name": "Exploit Via Radio Interface",
             "description": "The vehicle may be targeted for exploitation through its interface to cellular networks or other radio interfaces via baseband vulnerabilities or malicious SMS parsing.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Fleet-Wide",
             "refines": "T.09",
             "source": {
                 "name": "AutoISAC ATM",
@@ -4412,6 +4482,7 @@
             "name": "Exploit Via Removable Media",
             "description": "Adversaries may gain initial access by copying malware to removable media (e.g., USB drive) and taking advantage of automatic parsing of files (e.g., media parsers) when inserted.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Single Vehicle",
             "refines": "T.09",
             "source": {
                 "name": "AutoISAC ATM",
@@ -4478,6 +4549,7 @@
             "name": "Malicious App",
             "description": "Malicious applications could be used by adversaries to gain a presence on a vehicle. This includes evading vetting in official stores or distributing via third-party repositories.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Fleet-Wide",
             "refines": "T.09",
             "source": {
                 "name": "AutoISAC ATM",
@@ -4548,6 +4620,7 @@
             "name": "Phishing",
             "description": "Adversaries may send phishing messages to gain access to victim credentials or deploy malicious code. This relies heavily on social engineering the vehicle owner or fleet manager.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Fleet-Wide",
             "refines": "T.09",
             "source": {
                 "name": "AutoISAC ATM",
@@ -4607,6 +4680,7 @@
             "name": "Physical Modification",
             "description": "The adversary can make physical modifications to the vehicle's ECUs, wiring harnesses, or swap out legitimate ECUs for malicious ones to gain initial access.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Single Vehicle",
             "refines": "T.09",
             "source": {
                 "name": "AutoISAC ATM",
@@ -4678,6 +4752,7 @@
             "name": "Supply Chain Compromise",
             "description": "Adversaries may manipulate products or product delivery mechanisms prior to receipt by a final consumer (e.g., compromised OEM software repositories or vendor hardware).",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.09",
             "source": {
                 "name": "AutoISAC ATM",
@@ -4743,6 +4818,7 @@
             "name": "Execution",
             "description": "The adversary is trying to run malicious code. Execution involves infiltrating an ECU's memory space, where it can manipulate data and instructions to carry out unauthorized operations.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/tactic/ATM-TA0003"
@@ -4815,6 +4891,7 @@
             "name": "Command and Scripting Interpreter",
             "description": "Adversaries may abuse command and script interpreters (e.g., Python, Javascript, bash) to execute arbitrary commands, scripts, or binaries within the vehicle's environment.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.10",
             "source": {
                 "name": "AutoISAC ATM",
@@ -4882,6 +4959,7 @@
             "name": "Native API",
             "description": "Adversaries may directly interact with the native OS application programming interface (API) to execute behaviors, calling low-level OS services involving hardware/devices, memory, and processes.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.10",
             "source": {
                 "name": "AutoISAC ATM",
@@ -4949,6 +5027,7 @@
             "name": "Abuse Standard Diagnostic Protocol to Temporarily Modify Execution",
             "description": "Using standard diagnostic protocols to write directly to RAM (e.g., UDS WriteMemoryByAddress). This alters execution flow or overrides sensitive variables without persistent flashing.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.10",
             "source": {
                 "name": "AutoISAC ATM",
@@ -5020,6 +5099,7 @@
             "name": "Persistence",
             "description": "The adversary is trying to maintain their foothold. Persistence consists of techniques that adversaries use to keep access to vehicle systems across restarts, changed credentials, and other interruptions that could cut off their access.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/tactic/ATM-TA0004"
@@ -5086,6 +5166,7 @@
             "name": "Abuse Standard Diagnostic Protocol for Persistence",
             "description": "The adversary can attempt to use standard diagnostic protocols to persist their presence on an ECU. For example, UDS' capabilities for firmware updates and 'download-and-execute' can be abused by an adversary to achieve persistence.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.11",
             "source": {
                 "name": "AutoISAC ATM",
@@ -5160,6 +5241,7 @@
             "name": "Disable Software Update",
             "description": "The adversary may disable or modify an ECU's software update mechanism so that it cannot be used to restore the device to an uncompromised state.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.11",
             "source": {
                 "name": "AutoISAC ATM",
@@ -5230,6 +5312,7 @@
             "name": "Modify OS Kernel, Boot Partition, or System Partition",
             "description": "If an adversary can escalate privileges, they may place malicious code in the system partition, kernel, or bootloader components where it evades detection and persists after device resets.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.11",
             "source": {
                 "name": "AutoISAC ATM",
@@ -5299,6 +5382,7 @@
             "name": "Modify Isolated Execution Environment",
             "description": "Using elevated privileges to place malicious code in the ECU's isolated execution environment (TrustZone, HSM, TEE, etc.) where the code can evade detection and monitor overall device behavior.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.11",
             "source": {
                 "name": "AutoISAC ATM",
@@ -5371,6 +5455,7 @@
             "name": "Compromise Cryptographic Security",
             "description": "Adversaries compromise cryptographic mechanisms (e.g., exploiting weak algorithms, reusing nonces, or poor implementation) to bypass controls, establish persistent communication, or re-sign malicious firmware.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Fleet-Wide",
             "refines": "T.11",
             "source": {
                 "name": "AutoISAC ATM",
@@ -5445,6 +5530,7 @@
             "name": "Privilege Escalation",
             "description": "The adversary is trying to gain higher-level permissions. Privilege Escalation consists of techniques that adversaries use to gain higher-level permissions on an ECU. Common approaches are to take advantage of system weaknesses, misconfigurations, and vulnerabilities.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/tactic/ATM-TA0005"
@@ -5512,6 +5598,7 @@
             "name": "Abuse Elevation Control Mechanism",
             "description": "Adversaries may circumvent mechanisms designed to control elevated privileges to gain higher-level permissions, taking advantage of built-in control mechanisms to escalate privileges on a system.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.12",
             "source": {
                 "name": "AutoISAC ATM",
@@ -5574,6 +5661,7 @@
             "name": "Exploit Co-Located Computing Device for Privilege Escalation",
             "description": "Adversaries may leverage their access on one computing device (e.g., a Wi-Fi/Bluetooth chip) to gain control of the primary operating system running on a separate chip (SoC) within the same ECU.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.12",
             "source": {
                 "name": "AutoISAC ATM",
@@ -5643,6 +5731,7 @@
             "name": "Exploit OS Vulnerability",
             "description": "A malicious app can exploit unpatched vulnerabilities in the operating system to obtain escalated privileges.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.12",
             "source": {
                 "name": "AutoISAC ATM",
@@ -5705,6 +5794,7 @@
             "name": "Exploit Isolated Execution Environment Vulnerability",
             "description": "Exploiting vulnerabilities in code running within an IEE/TEE (TrustZone, HSM, CAAM) to obtain privileges held by the environment, granting access to cryptographic keys or root-level operations.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.12",
             "source": {
                 "name": "AutoISAC ATM",
@@ -5772,6 +5862,7 @@
             "name": "Hardware Fault Injection",
             "description": "Attempting fault injection attacks (voltage/clock glitching) to elevate privileges by flipping bits that control authentication states, bypassing secure boot or debug interfaces.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Single Vehicle",
             "refines": "T.12",
             "source": {
                 "name": "AutoISAC ATM",
@@ -5834,6 +5925,7 @@
             "name": "Process Injection",
             "description": "Injecting code into the address space of a separate live process to evade defenses and potentially elevate privileges by masking execution under a highly-privileged legitimate process.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.12",
             "source": {
                 "name": "AutoISAC ATM",
@@ -5900,6 +5992,7 @@
             "name": "Reprogram Co-Located Computing Device for Privilege Escalation",
             "description": "Elevating privileges by using access on a primary computing device (SoC) to reprogram a secondary microcontroller (e.g., a CAN MCU) on the same ECU.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.12",
             "source": {
                 "name": "AutoISAC ATM",
@@ -5967,6 +6060,7 @@
             "name": "Compromise Cryptographic Security",
             "description": "Compromising cryptographic mechanisms to bypass privilege controls, allowing the attacker to elevate their session or extract keys necessary to authenticate as a higher-level user.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Fleet-Wide",
             "refines": "T.12",
             "source": {
                 "name": "AutoISAC ATM",
@@ -6041,6 +6135,7 @@
             "name": "Defense Evasion",
             "description": "The adversary is attempting to bypass or manipulate security controls. This can include bypassing networking filtering, intrusion detection systems (IDS), and code integrity checks to undermine the protection measures in place.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/tactic/ATM-TA0006"
@@ -6106,6 +6201,7 @@
             "name": "Bypass Code Integrity Protections",
             "description": "Adversaries may seek to circumvent various code integrity protections (e.g., Secure Boot, signature checks) to install unauthorized firmware or software on the device.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.13",
             "source": {
                 "name": "AutoISAC ATM",
@@ -6181,6 +6277,7 @@
             "name": "Bypass Network Filtering",
             "description": "Adversaries may disable or modify network filters (firewalls, routing tables) to bypass controls limiting vehicle network usage, enabling lateral movement.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.13",
             "source": {
                 "name": "AutoISAC ATM",
@@ -6248,6 +6345,7 @@
             "name": "Bypass UDS Security Access",
             "description": "Adversaries defeat the UDS 'Security Access' (0x27) mechanism by exploiting static seed/keys, weak PRNGs, or brute-forcing short secrets to unlock protected diagnostic routines.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.13",
             "source": {
                 "name": "AutoISAC ATM",
@@ -6313,6 +6411,7 @@
             "name": "Bypass Mandatory Access Control",
             "description": "Adversaries defeat MAC mechanisms (SELinux, AppArmor) by finding policy holes or exploiting kernel vulnerabilities, allowing disabled process isolation.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.13",
             "source": {
                 "name": "AutoISAC ATM",
@@ -6379,6 +6478,7 @@
             "name": "Compromise Cryptographic Security",
             "description": "Adversaries exploit cryptographic flaws (weak algorithms, timing leaks, poor padding) to bypass authenticity or confidentiality controls.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Fleet-Wide",
             "refines": "T.13",
             "source": {
                 "name": "AutoISAC ATM",
@@ -6453,6 +6553,7 @@
             "name": "Credential Access",
             "description": "The adversary is trying to steal vehicle network credentials. Credential Access consists of techniques for stealing vehicle network credentials like cryptographic tokens, keys, and passwords.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/tactic/ATM-TA0007"
@@ -6513,6 +6614,7 @@
             "name": "Exploit Isolated Execution Environment Vulnerability",
             "description": "A malicious app or other vector exploits vulnerabilities in a TEE (TrustZone, HSM) to obtain privileges and access cryptographic keys or sensitive data.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.14",
             "source": {
                 "name": "AutoISAC ATM",
@@ -6583,6 +6685,7 @@
             "name": "Capture SMS Message",
             "description": "A malicious application or intercepted baseband captures sensitive data sent via SMS, including authentication credentials or multi-factor authentication codes.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.14",
             "source": {
                 "name": "AutoISAC ATM",
@@ -6649,6 +6752,7 @@
             "name": "Input Capture",
             "description": "Adversaries capture user input via keyloggers or abused accessibility features to obtain credentials or PII from the user.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.14",
             "source": {
                 "name": "AutoISAC ATM",
@@ -6720,6 +6824,7 @@
             "name": "Input Prompt",
             "description": "Adversaries mimic legitimate application prompts (e.g., overlay attacks) to trick the user into entering sensitive account credentials or PII.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.14",
             "source": {
                 "name": "AutoISAC ATM",
@@ -6796,6 +6901,7 @@
             "name": "Network Sniffing",
             "description": "Adversaries sniff vehicle network traffic (CAN, Ethernet) by placing an interface in promiscuous mode or using physical span ports to capture credentials or telemetry.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.14",
             "source": {
                 "name": "AutoISAC ATM",
@@ -6867,6 +6973,7 @@
             "name": "ECU Credential Dumping",
             "description": "Adversaries dump credentials (hashes or clear text passwords) from the operating system or secure enclaves to perform Lateral Movement.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.14",
             "source": {
                 "name": "AutoISAC ATM",
@@ -6929,6 +7036,7 @@
             "name": "Unsecured Credentials",
             "description": "Adversaries search compromised file systems for insecurely stored credentials (plaintext files, bash history, unprotected registry keys) to quickly escalate access.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.14",
             "source": {
                 "name": "AutoISAC ATM",
@@ -6990,6 +7098,7 @@
             "name": "URI Hijacking",
             "description": "Adversaries register malicious Uniform Resource Identifiers (URIs) to intercept sensitive data (e.g., OAuth tokens) passed between legitimate applications during Single Sign-On.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.14",
             "source": {
                 "name": "AutoISAC ATM",
@@ -7055,6 +7164,7 @@
             "name": "Discovery",
             "description": "The adversary is trying to figure out the vehicle environment. Discovery consists of techniques an adversary may use to gain knowledge about a vehicle's systems and its internal network.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/tactic/ATM-TA0008"
@@ -7112,6 +7222,7 @@
             "name": "File and Directory Discovery",
             "description": "Adversaries enumerate files and directories or search specific locations of an ECU for sensitive information within a file system using standard OS utilities (ls, find).",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.15",
             "source": {
                 "name": "AutoISAC ATM",
@@ -7170,6 +7281,7 @@
             "name": "Location Tracking",
             "description": "An adversary could use a malicious or exploited application to surreptitiously track the vehicle's physical location through use of standard operating system APIs.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.15",
             "source": {
                 "name": "AutoISAC ATM",
@@ -7234,6 +7346,7 @@
             "name": "Network Service Scanning",
             "description": "Adversaries attempt to get a listing of services running on a vehicle's ECUs using port scans (e.g., nmap) to identify vulnerable remote software.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.15",
             "source": {
                 "name": "AutoISAC ATM",
@@ -7298,6 +7411,7 @@
             "name": "Process Discovery",
             "description": "Adversaries attempt to get information about running processes on a system to understand defensive software or identify vulnerable processes to inject into.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.15",
             "source": {
                 "name": "AutoISAC ATM",
@@ -7356,6 +7470,7 @@
             "name": "Software Discovery",
             "description": "Adversaries attempt to get a listing of software and software versions installed on a vehicle to cross-reference against known CVEs.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.15",
             "source": {
                 "name": "AutoISAC ATM",
@@ -7419,6 +7534,7 @@
             "name": "System Information Discovery",
             "description": "An adversary attempts to get detailed information about the ECU's operating system and hardware architecture, including patches and hotfixes.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.15",
             "source": {
                 "name": "AutoISAC ATM",
@@ -7477,6 +7593,7 @@
             "name": "System Network Configuration Discovery",
             "description": "Adversaries look for details about the network configuration and settings of systems they access (e.g., using arp, ifconfig, or route tables) to facilitate lateral movement.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.15",
             "source": {
                 "name": "AutoISAC ATM",
@@ -7535,6 +7652,7 @@
             "name": "System Network Connections Discovery",
             "description": "Adversaries attempt to get a listing of active network connections to or from the compromised system to map out adjacent gateways or backends.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.15",
             "source": {
                 "name": "AutoISAC ATM",
@@ -7593,6 +7711,7 @@
             "name": "Lateral Movement",
             "description": "The adversary is trying to move through the vehicle network. Lateral movement consists of techniques that enable an adversary to access and control remote systems on a vehicle network, often traversing boundaries from exposed domains to safety-critical ECUs.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/tactic/ATM-TA0009"
@@ -7653,6 +7772,7 @@
             "name": "Abuse Standard Diagnostic Protocol for Lateral Movement",
             "description": "The adversary abuses standard diagnostic protocols (e.g., UDS 'download and execute' or 'write memory by address') over the internal network to gain code execution on adjacent ECUs.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.16",
             "source": {
                 "name": "AutoISAC ATM",
@@ -7724,6 +7844,7 @@
             "name": "Bridge Vehicle Networks",
             "description": "The adversary modifies an ECU (like a Central Gateway) that possesses multiple network interfaces to bridge networks that would otherwise be strictly separated (e.g., routing Ethernet payloads onto a proprietary CAN bus).",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.16",
             "source": {
                 "name": "AutoISAC ATM",
@@ -7786,6 +7907,7 @@
             "name": "Exploit ECU for Lateral Movement",
             "description": "Adversaries exploit software vulnerabilities (e.g., buffer overflows) in network services running on adjacent ECUs to execute remote code and hop across the vehicle network.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.16",
             "source": {
                 "name": "AutoISAC ATM",
@@ -7854,6 +7976,7 @@
             "name": "Remote Services",
             "description": "Adversaries attempt to log into a service specifically designed to accept remote connections (e.g., Telnet, SSH, VNC) on adjacent ECUs using stolen or default credentials.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.16",
             "source": {
                 "name": "AutoISAC ATM",
@@ -7935,6 +8058,7 @@
             "name": "Reprogram ECU for Lateral Movement",
             "description": "The adversary moves laterally by pushing a malicious firmware update over the internal bus to an adjacent ECU, exploiting flaws in the target's update verification mechanism.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.16",
             "source": {
                 "name": "AutoISAC ATM",
@@ -8007,6 +8131,7 @@
             "name": "Compromise Cryptographic Security",
             "description": "Adversaries compromise cryptographic mechanisms (e.g., sniffing cleartext, breaking weak algorithms) used in intra-vehicle communication to facilitate lateral movement or bypass internal firewalls.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.16",
             "source": {
                 "name": "AutoISAC ATM",
@@ -8081,6 +8206,7 @@
             "name": "Collection",
             "description": "The adversary is trying to gather data of interest to their goal. Collection consists of techniques used to identify and gather information, such as sensitive files, location history, or recordings of in-vehicle audio from a target vehicle prior to exfiltration.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/tactic/ATM-TA0010"
@@ -8138,6 +8264,7 @@
             "name": "Capture SMS Message",
             "description": "A malicious application running on the vehicle platform or an asset on an intercepted channel captures sensitive data sent via SMS, including authentication credentials or multi-factor tokens.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.17",
             "source": {
                 "name": "AutoISAC ATM",
@@ -8197,6 +8324,7 @@
             "name": "Input Capture",
             "description": "Adversaries capture raw user inputs to obtain credentials or other sensitive material by implementing rogue input methods, accessibility service keylogging logging, or direct peripheral polling.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.17",
             "source": {
                 "name": "AutoISAC ATM",
@@ -8265,6 +8393,7 @@
             "name": "Network Sniffing",
             "description": "Adversaries intercept internal vehicle network traffic (CAN, Ethernet) by setting localized interfaces into promiscuous mode or mapping diagnostics to actively harvest authentication data or telematics.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.17",
             "source": {
                 "name": "AutoISAC ATM",
@@ -8335,6 +8464,7 @@
             "name": "Location Tracking",
             "description": "Surreptitiously tracking the vehicle's real-time geographic location or extracting historical telemetry through standard location framework APIs or raw GPS data parsing.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.17",
             "source": {
                 "name": "AutoISAC ATM",
@@ -8399,6 +8529,7 @@
             "name": "Abuse Standard Diagnostic Protocol for Collection",
             "description": "Abusing 'read' routines within standard diagnostic protocols (e.g., UDS ReadMemoryByAddress) over internal networks to dump memory space containing cryptographic variables or proprietary calibrations.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.17",
             "source": {
                 "name": "AutoISAC ATM",
@@ -8468,6 +8599,7 @@
             "name": "Capture Camera or Audio",
             "description": "Adversaries hook into the vehicle's multimedia drivers or physical hardware capture streams to extract cabin microphone audio, video files, or active safety camera feeds.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.17",
             "source": {
                 "name": "AutoISAC ATM",
@@ -8547,6 +8679,7 @@
             "name": "Data from Local System",
             "description": "Adversaries navigate local file systems, databases, or runtime variables via local commands to accumulate target artifacts prior to package offloading.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.17",
             "source": {
                 "name": "AutoISAC ATM",
@@ -8605,6 +8738,7 @@
             "name": "Network Information Discovery",
             "description": "Adversaries query local network chips to map out adjacent devices, active connections, or nearby environmental nodes across Wi-Fi or Bluetooth domains.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.17",
             "source": {
                 "name": "AutoISAC ATM",
@@ -8663,6 +8797,7 @@
             "name": "Screen Capture",
             "description": "Adversaries capture screen renderings from the vehicle's primary display outputs to scrape user telemetry, application logs, input variables, or map details.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.17",
             "source": {
                 "name": "AutoISAC ATM",
@@ -8727,6 +8862,7 @@
             "name": "Command and Control",
             "description": "The adversary is trying to communicate with compromised systems to control them. Command and Control consists of techniques that adversaries may use to communicate with a compromised vehicle and its systems. Adversaries can attempt to mimic normal, expected traffic to avoid detection.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Fleet-Wide",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/tactic/ATM-TA0011"
@@ -8792,6 +8928,7 @@
             "name": "Aftermarket, Customer, or Dealer Equipment",
             "description": "Adversaries may use aftermarket, customer, or dealer equipment as a command-and-control ingress point. Paired devices (smartphones) or third-party OBD-II accessories (insurance dongles) bridge the gap between the attacker's external infrastructure and the internal vehicle network.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.18",
             "source": {
                 "name": "AutoISAC ATM",
@@ -8869,6 +9006,7 @@
             "name": "Cellular Communication",
             "description": "The adversary uses the vehicle's legitimate cellular communication system (e.g., Telematics TCU, SMS) in a post-exploitation environment to fulfill their command and control and exfiltration objectives without needing external hardware.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Fleet-Wide",
             "refines": "T.18",
             "source": {
                 "name": "AutoISAC ATM",
@@ -8935,6 +9073,7 @@
             "name": "Internet Communication",
             "description": "The adversary routes C2 traffic over the compromised ECU's established internet connection (e.g., via standard TCP/UDP web protocols) to communicate with external attacker-controlled infrastructure.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Fleet-Wide",
             "refines": "T.18",
             "source": {
                 "name": "AutoISAC ATM",
@@ -8998,6 +9137,7 @@
             "name": "Receive Only Communication",
             "description": "The adversary uses a receive-only communication channel, such as Radio Data System (RDS) or TPMS broadcasts, to send covert asynchronous 'trigger' commands to malware already dormant on the vehicle.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.18",
             "source": {
                 "name": "AutoISAC ATM",
@@ -9063,6 +9203,7 @@
             "name": "Short Range Wireless Communication",
             "description": "The adversary uses the vehicle's short-range wireless communication capabilities (Bluetooth, Wi-Fi) to establish a C2 channel with an attacker-controlled laptop or rogue access point in physical proximity to the vehicle.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "refines": "T.18",
             "source": {
                 "name": "AutoISAC ATM",
@@ -9134,6 +9275,7 @@
             "name": "Standard Cryptographic Protocol",
             "description": "Adversaries employ strong encryption algorithms (e.g., AES, TLS) embedded directly within their malware to conceal C2 traffic. This allows the traffic to blend in and bypass vehicle Intrusion Detection Systems (IDS) or firewalls without relying on the vehicle's native crypto.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Fleet-Wide",
             "refines": "T.18",
             "source": {
                 "name": "AutoISAC ATM",
@@ -9201,6 +9343,7 @@
             "name": "Exfiltration",
             "description": "The adversary is trying to steal data. Exfiltration consists of techniques that adversaries may use to steal data from the vehicle. Once they've collected data, adversaries often package it to avoid detection while removing it.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Fleet-Wide",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/tactic/ATM-TA0012"
@@ -9264,6 +9407,7 @@
             "name": "Aftermarket, Customer, or Dealer Equipment",
             "description": "Adversaries may exfiltrate data via connected paired devices (smartphones), third-party OBD-II accessories (insurance dongles), or dealer test tools.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/technique/ATM-TA0012/ATM-T0010"
@@ -9328,6 +9472,7 @@
             "name": "Cellular Communication",
             "description": "If available, the adversary uses the vehicle's cellular communication system in a post-exploitation environment to exfiltrate collected data to external servers.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Fleet-Wide",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/technique/ATM-TA0012/ATM-T0062"
@@ -9391,6 +9536,7 @@
             "name": "Internet Communication",
             "description": "The adversary uses a compromised ECU's internet connection (TCP/UDP) to exfiltrate data directly to cloud infrastructure.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Fleet-Wide",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/technique/ATM-TA0012/ATM-T0063"
@@ -9456,6 +9602,7 @@
             "name": "Short Range Wireless Communication",
             "description": "The adversary uses the vehicle's short-range wireless communication capabilities, including Bluetooth and Wi-Fi, to offload data to a nearby attacker-controlled receiver.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/technique/ATM-TA0012/ATM-T0065"
@@ -9520,6 +9667,7 @@
             "name": "Standard Cryptographic Protocol",
             "description": "Adversaries employ a known encryption algorithm embedded in their malware to conceal exfiltration traffic, bypassing network-level DLP (Data Loss Prevention) or IDS.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Fleet-Wide",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/technique/ATM-TA0012/ATM-T0066"
@@ -9583,6 +9731,7 @@
             "name": "Removable Media",
             "description": "Adversaries may attempt to exfiltrate data via a physical medium, such as a USB drive connected to the infotainment system.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Single Vehicle",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/technique/ATM-TA0012/ATM-T0006"
@@ -9646,6 +9795,7 @@
             "name": "Physical Access",
             "description": "Physical access via a JTAG / debug / serial interface could be used to exfiltrate data -- for example, extracting private keys or firmware via memory remanence/cold boot attacks.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Single Vehicle",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/technique/ATM-TA0012/ATM-T0073"
@@ -9710,6 +9860,7 @@
             "name": "Affect Vehicle Function",
             "description": "The adversary is trying to affect vehicle functions and systems, such as propulsion control, airbag deployment, audio, and displays. This is the ultimate impact tactic in the automotive domain.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/tactic/ATM-TA0013"
@@ -9779,6 +9930,7 @@
             "name": "Adversarial Machine Learning",
             "description": "Using adversarial ML techniques to fool models by supplying deceptive input (e.g., altered stop signs) to cause vehicle perception systems to misclassify objects or respond inappropriately.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/technique/ATM-TA0013/ATM-T0005"
@@ -9846,6 +9998,7 @@
             "name": "Analog Sensor Attacks",
             "description": "Using analog sensor attacks to disrupt the availability of vehicle sensors (e.g., shining a laser into a Lidar receiver, transmitting ultrasonic noise).",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/technique/ATM-TA0013/ATM-T0004"
@@ -9906,6 +10059,7 @@
             "name": "Abuse Standard Diagnostic Protocol for Affecting Vehicle Function",
             "description": "The adversary abuses standard diagnostic protocols to actuate vehicle functions, such as using UDS RoutineControl to actuate brakes or WriteMemoryByAddress to alter calibrations.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/technique/ATM-TA0013/ATM-T0067"
@@ -9977,6 +10131,7 @@
             "name": "CAN Bus Denial of Service",
             "description": "Flooding the CAN bus with high-priority messages (e.g., ID 0x000), preventing other ECUs from being able to communicate.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/technique/ATM-TA0013/ATM-T0068"
@@ -10039,6 +10194,7 @@
             "name": "Denial of Service on Vehicle Function",
             "description": "Performing DoS attacks to disrupt vehicle functionality by overwhelming an ECU with a high volume of requests or exploiting service vulnerabilities to cause a crash.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/technique/ATM-TA0013/ATM-T0072"
@@ -10108,6 +10264,7 @@
             "name": "Local Function",
             "description": "Using execution access on a targeted ECU to control the local hardware functions actuated directly by that device (e.g., executing code on a body controller to unlock doors).",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/technique/ATM-TA0013/ATM-T0069"
@@ -10168,6 +10325,7 @@
             "name": "Modify Bus Message",
             "description": "An adversary modifies or suppresses messages sent by another ECU on the internal network by winning arbitration or intercepting the bus logically/physically.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/technique/ATM-TA0013/ATM-T0070"
@@ -10238,6 +10396,7 @@
             "name": "Unintended Vehicle Network Message",
             "description": "Sending unintended messages on the in-vehicle network (e.g., out of sequence, wrong rate, unauthorized parameters) post-escalation to trigger unauthorized physical functions.",
             "classificationModel": "MITRE ATT&CK®",
+            "scalability": "Limited Batch",
             "source": {
                 "name": "AutoISAC ATM",
                 "url": "https://atm.automotiveisac.com/technique/ATM-TA0013/ATM-T0071"

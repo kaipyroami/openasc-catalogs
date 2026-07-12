@@ -121,6 +121,15 @@
             ],
             "description": "The threat classification model this threat belongs to"
         },
+        "scalability": {
+            "type": "string",
+            "enum": [
+                "Single Vehicle",
+                "Limited Batch",
+                "Fleet-Wide"
+            ],
+            "description": "The realistic breadth of exploitation this threat's mechanism supports, independent of any single company's actual fleet size. 'Single Vehicle': requires unique physical possession/access per target and cannot be trivially repeated at scale (e.g. hardware fault injection, JTAG probing). 'Limited Batch': bounded by a specific production run, hardware revision, regional configuration, or backend tenant/segment rather than either a single unit or the full fleet. 'Fleet-Wide': remotely or systemically replicable - the same exploit chain applies identically to every vehicle sharing the vulnerable design, firmware, or protocol, without repeating physical effort per unit. This is distinct from attackFeasibility, which rates attacker effort per instance, not how many vehicles a successful exploit reaches."
+        },
         "source": {
             "type": "object",
             "description": "Source reference for the threat definition",
@@ -295,6 +304,7 @@
         "name",
         "description",
         "classificationModel",
+        "scalability",
         "attackFeasibility",
         "compromises"
     ],
