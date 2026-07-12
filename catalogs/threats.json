@@ -4,7 +4,7 @@
         {
             "id": "T.01",
             "name": "Spoofing",
-            "description": "An adversary impersonates a trusted entity (ECU, user, or backend service) to gain unauthorized privileges or inject false data. This is the abstract base class for all spoofing threats.",
+            "description": "An attacker impersonates a trusted entity (ECU, user, or backend service) to gain unauthorized privileges or inject false data. This is the abstract base class for all spoofing threats.",
             "classificationModel": "STRIDE",
             "scalability": "Fleet-Wide",
             "threatActors": [
@@ -350,7 +350,7 @@
         {
             "id": "T.01.5",
             "name": "Backend and Mobile App Spoofing",
-            "description": "An attacker forges information originating from remote external sources to deceive the vehicle into executing unauthorized commands.",
+            "description": "An attacker who has obtained backend or companion-app authentication material (e.g., stolen API keys or a forged TLS certificate) impersonates the OEM backend or mobile app to inject unauthorized commands into the vehicle over the telematics channel — distinct from T.01.2, which requires stealing an individual user's own login credentials.",
             "classificationModel": "STRIDE",
             "scalability": "Fleet-Wide",
             "threatActors": [
@@ -1820,7 +1820,7 @@
         {
             "id": "T.03.2",
             "name": "Repudiation of Origin (V2X / Backend)",
-            "description": "A node transmits a malicious or malformed message (e.g., a fake V2X safety hazard warning or a rogue OTA command) and successfully denies sending it because the communication channel lacks sufficient non-repudiation controls (e.g., missing digital signatures or shared symmetric keys).",
+            "description": "A node transmits a malicious or malformed message (e.g., a fake V2X safety hazard warning or a rogue OTA command) and successfully denies sending it because the communication channel lacks sufficient non-repudiation controls, such as digital signatures binding the message to a single sender — a shared symmetric MAC alone cannot provide this guarantee, since any party holding the key could have produced it.",
             "classificationModel": "STRIDE",
             "scalability": "Fleet-Wide",
             "threatActors": [
@@ -2100,7 +2100,7 @@
         {
             "id": "T.04.3",
             "name": "Unintended Disclosure of PII Data",
-            "description": "Exposure of sensitive user data (location history, contacts, biometrics) due to misconfiguration, excessive debug logging, or insecure HMI interfaces in the Infotainment/Telematics domains.",
+            "description": "Exposure of sensitive user data (location history, contacts, biometrics) due to misconfiguration, excessive debug logging, or insecure HMI implementations in the Infotainment/Telematics domains.",
             "classificationModel": "STRIDE",
             "scalability": "Limited Batch",
             "threatActors": [
@@ -2471,7 +2471,7 @@
         {
             "id": "T.04.9",
             "name": "Harvest Now, Decrypt Later (HNDL)",
-            "description": "A long-horizon quantum threat strategy in which an attacker passively intercepts and stores encrypted vehicle communications today — over V2X, TLS/DTLS-protected telematics channels, or OEM backend links — with the intent of retroactively decrypting them once a Cryptographically Relevant Quantum Computer (CRQC) becomes available. Shor's algorithm enables a CRQC to break classical asymmetric key exchange (RSA, ECDH, ECDSA), rendering all previously captured ciphertext retroactively readable. Beyond confidentiality, HNDL enables 'harvest now, spoof later': stored public-key material allows a quantum-capable adversary to derive corresponding private signing keys, subsequently forging digital signatures on OTA packages, V2X messages, or backend API tokens — enabling injection of malicious commands or unauthorized firmware execution.",
+            "description": "A long-horizon quantum threat strategy in which an attacker passively intercepts and stores encrypted vehicle communications today — over V2X, TLS/DTLS-protected telematics channels, or OEM backend links — with the intent of retroactively decrypting them once a Cryptographically Relevant Quantum Computer (CRQC) becomes available. Shor's algorithm enables a CRQC to break classical asymmetric key exchange (RSA, ECDH, ECDSA), rendering all previously captured ciphertext retroactively readable. Beyond confidentiality, HNDL enables 'harvest now, spoof later': stored public-key material allows a quantum-capable attacker to derive corresponding private signing keys, subsequently forging digital signatures on OTA packages, V2X messages, or backend API tokens — enabling injection of malicious commands or unauthorized firmware execution.",
             "classificationModel": "STRIDE",
             "scalability": "Fleet-Wide",
             "threatActors": [
