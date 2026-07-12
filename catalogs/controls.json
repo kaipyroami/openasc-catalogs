@@ -73,7 +73,11 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M12",
+                "M24"
+            ]
         },
         {
             "id": "C.01.1",
@@ -147,7 +151,11 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M12",
+                "M24"
+            ]
         },
         {
             "id": "C.01.2",
@@ -224,7 +232,11 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M12",
+                "M24"
+            ]
         },
         {
             "id": "C.02",
@@ -312,7 +324,11 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M10",
+                "M7"
+            ]
         },
         {
             "id": "C.02.1",
@@ -389,7 +405,11 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M10",
+                "M7"
+            ]
         },
         {
             "id": "C.02.2",
@@ -465,7 +485,11 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M10",
+                "M7"
+            ]
         },
         {
             "id": "C.03",
@@ -529,7 +553,11 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M10",
+                "M13"
+            ]
         },
         {
             "id": "C.03.1",
@@ -611,7 +639,11 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M10",
+                "M12"
+            ]
         },
         {
             "id": "C.03.2",
@@ -674,7 +706,10 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M13"
+            ]
         },
         {
             "id": "C.03.3",
@@ -731,7 +766,11 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M3",
+                "M13"
+            ]
         },
         {
             "id": "C.03.4",
@@ -797,7 +836,11 @@
                         "domain": "Telematics"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M23",
+                "M10"
+            ]
         },
         {
             "id": "C.03.5",
@@ -867,7 +910,11 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M7",
+                "M10"
+            ]
         },
         {
             "id": "C.03.6",
@@ -939,7 +986,11 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M10",
+                "M12"
+            ]
         },
         {
             "id": "C.03.7",
@@ -995,7 +1046,11 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M12",
+                "M10"
+            ]
         },
         {
             "id": "C.03.7.1",
@@ -1056,7 +1111,11 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M12",
+                "M10"
+            ]
         },
         {
             "id": "C.03.7.2",
@@ -1115,7 +1174,11 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M12",
+                "M10"
+            ]
         },
         {
             "id": "C.03.8",
@@ -1180,7 +1243,11 @@
                         "domain": "Telematics"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M22",
+                "M13"
+            ]
         },
         {
             "id": "C.03.9",
@@ -1232,7 +1299,11 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M3",
+                "M13"
+            ]
         },
         {
             "id": "C.03.10",
@@ -1291,7 +1362,11 @@
                         "domain": "Telematics"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M2",
+                "M9"
+            ]
         },
         {
             "id": "C.03.11",
@@ -1356,7 +1431,11 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M2",
+                "M13"
+            ]
         },
         {
             "id": "C.03.12",
@@ -1427,7 +1506,11 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M6",
+                "M8"
+            ]
         },
         {
             "id": "C.03.13",
@@ -1500,7 +1583,11 @@
                     }
                 ]
             },
-            "notes": "Directly denies the mechanism modeled by T.01.13 (Cryptographic/Transport Protocol Downgrade Attack)."
+            "notes": "Directly denies the mechanism modeled by T.01.13 (Cryptographic/Transport Protocol Downgrade Attack).",
+            "unitedNationsRegulation155": [
+                "M10",
+                "M23"
+            ]
         },
         {
             "id": "C.04",
@@ -1558,7 +1645,10 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M7"
+            ]
         },
         {
             "id": "C.04.1",
@@ -1615,7 +1705,10 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M7"
+            ]
         },
         {
             "id": "C.04.2",
@@ -1672,7 +1765,10 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M7"
+            ]
         },
         {
             "id": "C.04.3",
@@ -1725,7 +1821,10 @@
                     }
                 ]
             },
-            "notes": "DEPRECATED. MD5 is cryptographically broken: practical chosen-prefix collision attacks are achievable in seconds on commodity hardware (~2^18 operations). This entry exists solely to model legacy system residual risk. Any new design using MD5 for integrity protection violates UN R155 security principles. Migrate immediately to SHA-256 or SHA-3."
+            "notes": "DEPRECATED. MD5 is cryptographically broken: practical chosen-prefix collision attacks are achievable in seconds on commodity hardware (~2^18 operations). This entry exists solely to model legacy system residual risk. Any new design using MD5 for integrity protection violates UN R155 security principles. Migrate immediately to SHA-256 or SHA-3.",
+            "unitedNationsRegulation155": [
+                "M7"
+            ]
         },
         {
             "id": "C.05",
@@ -1802,7 +1901,11 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M10",
+                "M7"
+            ]
         },
         {
             "id": "C.05.1",
@@ -1876,7 +1979,11 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M10",
+                "M7"
+            ]
         },
         {
             "id": "C.05.2",
@@ -1952,7 +2059,11 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M10",
+                "M7"
+            ]
         },
         {
             "id": "C.05.3",
@@ -2026,7 +2137,11 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M10",
+                "M7"
+            ]
         },
         {
             "id": "C.05.4",
@@ -2102,7 +2217,11 @@
                         "domain": "ADAS"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M10",
+                "M7"
+            ]
         },
         {
             "id": "C.06",
@@ -2166,7 +2285,10 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M10"
+            ]
         },
         {
             "id": "C.06.1",
@@ -2225,7 +2347,10 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M10"
+            ]
         },
         {
             "id": "C.06.2",
@@ -2295,7 +2420,10 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M10"
+            ]
         },
         {
             "id": "C.06.3",
@@ -2366,7 +2494,10 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M10"
+            ]
         },
         {
             "id": "C.07",
@@ -2429,7 +2560,11 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M11",
+                "M7"
+            ]
         },
         {
             "id": "C.07.1",
@@ -2490,7 +2625,10 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M7"
+            ]
         },
         {
             "id": "C.07.2",
@@ -2543,7 +2681,11 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M7",
+                "M9"
+            ]
         },
         {
             "id": "C.07.3",
@@ -2603,7 +2745,10 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M11"
+            ]
         },
         {
             "id": "C.07.4",
@@ -2669,7 +2814,11 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M6",
+                "M7"
+            ]
         },
         {
             "id": "C.07.5",
@@ -2736,7 +2885,11 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M23",
+                "M9"
+            ]
         },
         {
             "id": "C.08",
@@ -2799,7 +2952,10 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M11"
+            ]
         },
         {
             "id": "C.08.1",
@@ -2852,7 +3008,10 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M11"
+            ]
         },
         {
             "id": "C.08.2",
@@ -2916,7 +3075,10 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M11"
+            ]
         },
         {
             "id": "C.08.3",
@@ -2982,7 +3144,10 @@
                         "domain": "External"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M11"
+            ]
         },
         {
             "id": "C.08.4",
@@ -3047,7 +3212,10 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M11"
+            ]
         },
         {
             "id": "C.08.5",
@@ -3107,7 +3275,10 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M11"
+            ]
         },
         {
             "id": "C.08.5.1",
@@ -3166,7 +3337,10 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M11"
+            ]
         },
         {
             "id": "C.08.6",
@@ -3228,7 +3402,10 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M11"
+            ]
         },
         {
             "id": "C.08.7",
@@ -3297,7 +3474,11 @@
                     }
                 ]
             },
-            "notes": "Complements C.08.1–C.08.6 (runtime key storage/rotation) by securing the upstream trust-establishment event. Denies capabilities related to T.01.4 (Counterfeit or Rogue Hardware Integration) and T.09.8 (Supply Chain Compromise)."
+            "notes": "Complements C.08.1–C.08.6 (runtime key storage/rotation) by securing the upstream trust-establishment event. Denies capabilities related to T.01.4 (Counterfeit or Rogue Hardware Integration) and T.09.8 (Supply Chain Compromise).",
+            "unitedNationsRegulation155": [
+                "M23",
+                "M11"
+            ]
         },
         {
             "id": "C.09",
@@ -3360,7 +3541,10 @@
                         "domain": "Infotainment"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M9"
+            ]
         },
         {
             "id": "C.09.1",
@@ -3425,7 +3609,11 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M18",
+                "M1"
+            ]
         },
         {
             "id": "C.09.2",
@@ -3484,7 +3672,10 @@
                         "domain": "Infotainment"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M9"
+            ]
         },
         {
             "id": "C.09.3",
@@ -3544,7 +3735,10 @@
                         "domain": "Telematics"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M9"
+            ]
         },
         {
             "id": "C.09.4",
@@ -3602,7 +3796,11 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M7",
+                "M14"
+            ]
         },
         {
             "id": "C.09.5",
@@ -3660,7 +3858,11 @@
                         "domain": "Infotainment"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M7",
+                "M14"
+            ]
         },
         {
             "id": "C.10",
@@ -3723,7 +3925,11 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M6",
+                "M7"
+            ]
         },
         {
             "id": "C.11",
@@ -3779,7 +3985,10 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M7"
+            ]
         },
         {
             "id": "C.11.1",
@@ -3841,7 +4050,10 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M7"
+            ]
         },
         {
             "id": "C.11.2",
@@ -3898,7 +4110,10 @@
                         "domain": "ADAS"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M7"
+            ]
         },
         {
             "id": "C.12",
@@ -3960,7 +4175,10 @@
                         "domain": "Infotainment"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M24"
+            ]
         },
         {
             "id": "C.12.1",
@@ -4022,7 +4240,10 @@
                         "domain": "Infotainment"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M24"
+            ]
         },
         {
             "id": "C.13",
@@ -4092,7 +4313,11 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M7",
+                "M22"
+            ]
         },
         {
             "id": "C.14",
@@ -4168,7 +4393,11 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M8",
+                "M11"
+            ]
         },
         {
             "id": "C.15",
@@ -4226,7 +4455,10 @@
                         "domain": "Telematics"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M19"
+            ]
         },
         {
             "id": "C.16",
@@ -4279,7 +4511,10 @@
                         "domain": "ADAS"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M23"
+            ]
         },
         {
             "id": "C.16.1",
@@ -4333,7 +4568,10 @@
                         "domain": "Telematics"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M23"
+            ]
         },
         {
             "id": "C.16.2",
@@ -4387,7 +4625,11 @@
                         "domain": "Infotainment"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M23",
+                "M21"
+            ]
         },
         {
             "id": "C.16.3",
@@ -4456,7 +4698,10 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M16"
+            ]
         },
         {
             "id": "C.16.4",
@@ -4521,7 +4766,10 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M16"
+            ]
         },
         {
             "id": "C.16.5",
@@ -4589,7 +4837,11 @@
                     }
                 ]
             },
-            "notes": "This is the migration capability itself, not an algorithm choice; compare to concrete primitive controls such as C.03.7.2 (ML-KEM) and C.05.4 (ML-DSA)."
+            "notes": "This is the migration capability itself, not an algorithm choice; compare to concrete primitive controls such as C.03.7.2 (ML-KEM) and C.05.4 (ML-DSA).",
+            "unitedNationsRegulation155": [
+                "M16",
+                "M23"
+            ]
         },
         {
             "id": "C.17",
@@ -4651,7 +4903,10 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M23"
+            ]
         },
         {
             "id": "C.17.1",
@@ -4710,7 +4965,10 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M23"
+            ]
         },
         {
             "id": "C.17.2",
@@ -4773,7 +5031,10 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M23"
+            ]
         },
         {
             "id": "C.18",
@@ -4829,7 +5090,10 @@
                         "domain": "Infotainment"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M13"
+            ]
         },
         {
             "id": "C.18.1",
@@ -4881,7 +5145,10 @@
                         "domain": "ADAS"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M13"
+            ]
         },
         {
             "id": "C.18.2",
@@ -4939,7 +5206,10 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M13"
+            ]
         },
         {
             "id": "C.19",
@@ -5007,7 +5277,10 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M10"
+            ]
         },
         {
             "id": "C.19.1",
@@ -5070,7 +5343,11 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M10",
+                "M16"
+            ]
         },
         {
             "id": "C.20",
@@ -5122,7 +5399,10 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M13"
+            ]
         },
         {
             "id": "C.20.1",
@@ -5184,7 +5464,10 @@
                         "domain": "Powertrain"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M13"
+            ]
         },
         {
             "id": "C.20.2",
@@ -5250,7 +5533,10 @@
                     }
                 ]
             },
-            "notes": "Denies the mechanism exploited by T.05.6 (CAN Bus-Off / Error-State Forced Disconnection Attack), and reinforces mitigation of the flooding-based DoS threats T.05.1 and T.20.4."
+            "notes": "Denies the mechanism exploited by T.05.6 (CAN Bus-Off / Error-State Forced Disconnection Attack), and reinforces mitigation of the flooding-based DoS threats T.05.1 and T.20.4.",
+            "unitedNationsRegulation155": [
+                "M13"
+            ]
         },
         {
             "id": "C.21",
@@ -5320,7 +5606,11 @@
                         "domain": "*"
                     }
                 ]
-            }
+            },
+            "unitedNationsRegulation155": [
+                "M10",
+                "M11"
+            ]
         },
         {
             "id": "C.22",
@@ -5389,7 +5679,11 @@
                     }
                 ]
             },
-            "notes": "New top-level control category (no parent). Distinct from C.15 (on-board, single-vehicle logging) and C.03.10–C.03.12 (single-flow/single-vehicle intrusion detection); operationalizes the UN R155 post-production monitoring and incident-response mandate at fleet scale."
+            "notes": "New top-level control category (no parent). Distinct from C.15 (on-board, single-vehicle logging) and C.03.10–C.03.12 (single-flow/single-vehicle intrusion detection); operationalizes the UN R155 post-production monitoring and incident-response mandate at fleet scale.",
+            "unitedNationsRegulation155": [
+                "M9",
+                "M19"
+            ]
         }
     ]
 }
