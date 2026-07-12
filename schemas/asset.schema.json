@@ -32,7 +32,7 @@
         },
         "domain": {
             "type": "string",
-            "description": "The primary vehicle architectural domain. Includes the reserved wildcard \"*\" for assets not bound to a single domain (e.g. platform-level compute, root of trust, hypervisor). When matching capability nodes, \"*\" matches any domain; action and assetClass always require an exact match.",
+            "description": "The primary vehicle architectural domain. Includes the reserved wildcard \"*\" for assets not bound to a single domain (e.g. platform-level compute, root of trust, hypervisor). When this asset is matched against a threat's or control's CapabilityNode during graph traversal, \"*\" matches any domain; the asset's class always requires an exact match against the node's assetClass.",
             "enum": [
                 "Powertrain",
                 "Chassis",
@@ -145,7 +145,7 @@
         "partOf": {
             "type": "string",
             "pattern": "^A\\.\\d{3}(\\.[1-9]\\d*)*$",
-            "description": "Reference to a parent asset that this asset belongs to or is hosted on. Used for secondary checks."
+            "description": "Reference to a parent asset that this asset belongs to or is hosted on. Not enforced by scripts/validate.js (which performs schema-shape validation only, not cross-entry referential integrity) - unlike refines on threats/controls, this is a free cross-reference and is not required to be a string-prefix of the asset's own id."
         },
         "notes": {
             "type": "string",
@@ -153,7 +153,7 @@
         },
         "cybersecurityProperties": {
             "type": "array",
-            "description": "The CIANA security properties that must be protected for this asset",
+            "description": "The CIAAN security properties (Confidentiality, Integrity, Availability, Authenticity, Non Repudiation - matching this field's own enum order) that must be protected for this asset",
             "items": {
                 "type": "string",
                 "enum": [

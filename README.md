@@ -2,10 +2,10 @@
 
 # OpenASC-Catalogs
 
-OpenASC is an open-source repository of structured threat, control, and asset catalogs. It provides a foundational resource for systematically identifying, assessing, and mitigating security threats in the automotive domain utilizing classification models like STRIDE and MITRE ATT&CK©. OpenASC is designed to actively support the Risk Assessment and TARA processes outlined in Clause 15 of **ISO/SAE 21434** and **UN Regulations No. 155 and No. 156** for cybersecurity management in road vehicles.
+OpenASC is an open-source repository of structured threat, control, and asset catalogs. It provides a foundational resource for systematically identifying, assessing, and mitigating security threats in the automotive domain utilizing classification models like STRIDE and MITRE ATT&CK®. OpenASC is designed to actively support the Risk Assessment and TARA processes outlined in Clause 15 of **ISO/SAE 21434** and the threat/mitigation requirements of **UN Regulation No. 155**. Select controls (Secure Firmware Update, Anti-Rollback Protection, Crypto-Agility) also support the software update management practices required by **UN Regulation No. 156**, though full R156 compliance requires a broader software update management system (SUMS) this catalog does not itself provide.
 
 ## Features
-- **Threat Catalog**: A comprehensive, interconnected list of automotive-specific threats, classified via STRIDE/MITRE ATT&CK and mapped to UN R155 Annex 5 threat categories.
+- **Threat Catalog**: A comprehensive, interconnected list of automotive-specific threats, classified via STRIDE/MITRE ATT&CK® and mapped to UN R155 Annex 5 threat categories.
 - **Control Catalog**: Standardized security controls (cryptographic, hardware, process) mathematically designed to reduce attack feasibility, mapped to UN R155 mitigations.
 - **Asset Catalog**: A detailed physical and logical inventory of the vehicle ecosystem, following different E/E architectures.
 - **Graph-Ready Capability Taxonomy**: Utilizes a strict, Mutually Exclusive and Collectively Exhaustive (MECE) capability syntax (`Action:Class:Domain`) to map dynamic attack paths using `requires`, `grants` (Threats) and `denies`, `overriddenBy` (Controls) for logic gates.
@@ -131,6 +131,8 @@ When defining an Asset, Threat, or Control in the JSON catalogs, engineers must 
 * **7. Security Mechanisms**: `HSM / SHE`, `TEE`, `TPM / SE`, `SecOC`, `MACsec / IPsec`, `TLS / DTLS`, `Secure Boot`, `TRNG / PRNG`, `PUF`, `IDS / IPS`, `OAuth / OIDC / SAML`
 * **8. Cryptographic Assets**: `PKI / Certificates`, `Symmetric Keys`, `Asymmetric Keys`, `Hashes`, `MAC / HMAC / CMAC`, `Digital Signatures`, `Nonces / IVs`, `Passwords / PINs`, `Tokens / API Keys`, `Seeds / RoT Data`, `Session Keys / Ephemeral Secrets`
 
+**A curation tradeoff, stated plainly:** roughly half of these 88 tags bundle 2-3 related technologies into one string (`CAN / CAN-FD / CAN-XL`, `TLS / DTLS`, `MAC / HMAC / CMAC`, etc.) rather than splitting each into its own selectable tag. This keeps the dictionary a curated 88 items instead of exploding past 150, but it means filtering/tagging precision stops at the bundle, not the individual protocol variant — an entry tagged `CAN / CAN-FD / CAN-XL` can't be narrowed to "CAN-FD only" without reading its `description`. If your use case needs finer-grained filtering than a bundle provides, that detail belongs in the entry's `description`, not a new tag.
+
 ---
 
 ## Graph-Ready Schema & Capability Model
@@ -149,10 +151,19 @@ The OpenASC catalog schema is designed to be consumed by the attack graph engine
 * **`denies`**: The `Action:Class:Domain` capabilities this control prevents the attacker from gaining. A control that denies a capability blocks every attack path downstream of it.
 * **`overriddenBy`**: A logical condition expressing what attacker capability would bypass this control entirely. Used to model conditional control effectiveness and defence weaknesses.
 
+### The CIAAN Triad — `compromises` / `protects` / `cybersecurityProperties`
+
+Threats, controls, and assets each carry an array drawn from the same 5-value CIAAN enum (`Confidentiality`, `Integrity`, `Availability`, `Authenticity`, `Non Repudiation`) — but under a different field name per entity type, because the *relationship* to the property differs:
+
+* **Threat `compromises`**: which properties this threat's mechanism actually violates upon success (should agree with what its `grants` capability implies — e.g. a threat granting `Extract:Crypto` should list `Confidentiality`).
+* **Control `protects`**: which properties this control's mechanism actually defends (should agree with its `denies`/`overriddenBy` — a purely detective control like an IDS protects different properties than a purely preventive one).
+* **Asset `cybersecurityProperties`**: which properties this asset inherently *requires* to remain trustworthy, independent of any specific threat or control — the asset's own baseline security requirement.
+
+The enum is shared because the concept (confidentiality, integrity, etc.) is the same; the field name is different because "what a threat breaks," "what a control defends," and "what an asset needs" are three distinct claims, not the same fact restated three times.
+
 ### Attack Potential Scoring
 
-The `attackFeasibility.attackPotential` block on each threat entry follows **ISO/SAE 21434 Annex I Table I.1**. Each of the five components must be assigned one of the following rating keys.
-
+The `attackFeasibility.attackPotential` block on each threat entry (and the mirrored `attackFeasibilityReduction.attackPotentialReduction` block on each control entry) follows **ISO/SAE 21434 Annex I Table I.1**. Each of the five components must be assigned one of the following rating keys — the prefix names the dimension, the number names the tier within it: `ET0`-`ET4` (Elapsed Time, 5 tiers), `SE0`-`SE3` (Specialist Expertise, 4 tiers), `KoIC0`-`KoIC3` (Knowledge of the Item or Component, 4 tiers), `WoO0`-`WoO3` (Window of Opportunity, 4 tiers), `Eq0`-`Eq3` (Equipment, 4 tiers) — lower numbers mean easier-for-the-attacker on threats, and weaker-reduction on controls.
 
 Catalog entries should be rated for the **complete attack scenario** they describe, using the highest plausible value for each component dimension. The platform that consumes these catalogs aggregates component scores, maps them to the ISO 21434 Annex I feasibility level (High / Medium / Low / Very Low), and cross-references with worst-case asset impact through ISO 21434 Table H.8 to produce a final risk rating. The on-device platform processes all data locally — no catalog or asset information is transmitted externally.
 

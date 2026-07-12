@@ -200,7 +200,7 @@
         "refines": {
             "type": "string",
             "pattern": "^C\\.\\d{2}(\\.[1-9]\\d*)*$",
-            "description": "Must equal the parent prefix of id. Used for secondary checks."
+            "description": "Must equal the parent prefix of id. Not enforced by scripts/validate.js (which performs schema-shape validation only, not cross-entry referential integrity) - maintainers are responsible for keeping this consistent with the id hierarchy."
         },
         "protects": {
             "type": "array",

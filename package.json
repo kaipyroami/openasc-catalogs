@@ -1,7 +1,7 @@
 {
     "name": "openasc-catalogs",
     "version": "0.1.0",
-    "description": "Open-source automotive security catalogs assissting in Threat Analysis & Risk Assessment processes",
+    "description": "Open-source automotive security catalogs assisting in Threat Analysis & Risk Assessment processes",
     "main": "index.js",
     "type": "module",
     "scripts": {

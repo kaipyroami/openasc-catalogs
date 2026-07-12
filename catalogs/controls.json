@@ -3753,7 +3753,7 @@
                 "attackPotentialReduction": {
                     "elapsedTime": {
                         "feasibility": "ET3",
-                        "rationale": "As a default-deny mechanism, the attacker cannot simply find a gap in coverage as with RBAC/blacklisting; they must smuggle a payload inside an already-approved entity, which takes sustained effort measured in months."
+                        "rationale": "As a default-deny mechanism, the attacker cannot simply find a gap in coverage as with RBAC/denylisting; they must smuggle a payload inside an already-approved entity, which takes sustained effort measured in months."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE2",
@@ -3765,7 +3765,7 @@
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO1",
-                        "rationale": "The whitelist is enforced continuously during operation; no special timing is needed."
+                        "rationale": "The allowlist is enforced continuously during operation; no special timing is needed."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
@@ -3819,11 +3819,11 @@
                     },
                     "specialistExpertise": {
                         "feasibility": "SE1",
-                        "rationale": "Trivially re-encoding or repacking a known-bad binary to evade a static blacklist requires only modest skill."
+                        "rationale": "Trivially re-encoding or repacking a known-bad binary to evade a static denylist requires only modest skill."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC0",
-                        "rationale": "Evading a signature/hash blacklist by trivially modifying the binary is a generic technique requiring no knowledge of the specific blacklist's contents or the target implementation."
+                        "rationale": "Evading a signature/hash denylist by trivially modifying the binary is a generic technique requiring no knowledge of the specific denylist's contents or the target implementation."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO0",
