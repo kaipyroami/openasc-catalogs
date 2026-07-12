@@ -130,6 +130,22 @@
             ],
             "description": "The realistic breadth of exploitation this threat's mechanism supports, independent of any single company's actual fleet size. 'Single Vehicle': requires unique physical possession/access per target and cannot be trivially repeated at scale (e.g. hardware fault injection, JTAG probing). 'Limited Batch': bounded by a specific production run, hardware revision, regional configuration, or backend tenant/segment rather than either a single unit or the full fleet. 'Fleet-Wide': remotely or systemically replicable - the same exploit chain applies identically to every vehicle sharing the vulnerable design, firmware, or protocol, without repeating physical effort per unit. This is distinct from attackFeasibility, which rates attacker effort per instance, not how many vehicles a successful exploit reaches."
         },
+        "threatActors": {
+            "type": "array",
+            "description": "The class(es) of threat actor realistically capable of and motivated to execute this threat - who, and why - as opposed to attackFeasibility (how hard) or scalability (how far it reaches). Deliberately excludes skill-tier labels like 'script kiddie': attacker sophistication is already captured by attackFeasibility's specialistExpertise/equipment components, so this field is about motivation and access relationship, not capability. Multiple values are expected on most threats.",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "Nation-State / State-Sponsored",
+                    "Organized Cybercrime",
+                    "Hacktivist",
+                    "Insider (Employee / Dealer / Supplier)",
+                    "Vehicle Owner / Authorized User"
+                ]
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        },
         "source": {
             "type": "object",
             "description": "Source reference for the threat definition",
@@ -305,6 +321,7 @@
         "description",
         "classificationModel",
         "scalability",
+        "threatActors",
         "attackFeasibility",
         "compromises"
     ],

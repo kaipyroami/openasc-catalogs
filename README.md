@@ -166,6 +166,18 @@ Every threat also carries a required `scalability` field — `Single Vehicle` | 
 
 This field lives only on threats. A control's relevance to fleet-wide risk and an asset's realistic exposure both inherit scalability transitively via the capability graph — which threats can reach a given control or asset through matching `action:assetClass:domain` triples — rather than needing their own independent copy of this dimension.
 
+### Threat Actors
+
+Every threat also carries a required `threatActors` array (one or more values) capturing *who* would realistically want to execute the threat and *why* — a different axis again from `attackFeasibility` (how hard) and `scalability` (how far it reaches). Deliberately excludes skill-tier labels like "script kiddie": attacker sophistication is already captured by `attackFeasibility`'s `specialistExpertise`/`equipment` components, so this field is about motivation and access relationship, not capability.
+
+* **`Nation-State / State-Sponsored`**: well-resourced, government-directed actors motivated by espionage, strategic disruption, or sabotage. Reserved for genuinely high-sophistication or high-value-target threats (root-of-trust material, supply-chain implants, backend infrastructure at scale) — not applied reflexively to every serious-sounding threat.
+* **`Organized Cybercrime`**: financially motivated — vehicle theft rings, data-for-resale, fraud, extortion. The single most broadly-applicable category, since most threats have some plausible monetization path.
+* **`Hacktivist`**: ideologically/politically motivated, favoring disruptive or visible outcomes over quiet financial gain.
+* **`Insider (Employee / Dealer / Supplier)`**: someone abusing access obtained through an employment, dealership, or supply-chain *relationship* — not simply "an attacker who already has code execution from an earlier step in the chain," which applies equally to external attackers and isn't itself a relationship-based signal.
+* **`Vehicle Owner / Authorized User`**: the vehicle's own legitimate possessor acting against the OEM's (or a regulator's/insurer's) interest — feature-unlock/DRM circumvention, odometer/emissions tampering, insurance/warranty fraud, disabling telemetry, or rolling back firmware to regain a removed feature.
+
+These values converge from ENISA's Threat Landscape and industry threat-intelligence taxonomies (Nation-State, Organized Cybercrime, Hacktivist, Insider), extended with Vehicle Owner/Authorized User — the automotive-domain instantiation of NIST SP 800-30's "customer" adversarial threat-source category. Note that neither ISO/SAE 21434 nor SAE J3061 defines a threat-actor taxonomy of their own — 21434 explicitly routes around this by scoring attack feasibility instead, which this catalog already does; `threatActors` is a deliberate addition beyond the standard's own methodology, not a value drawn from it.
+
 ---
 
 ## Disclosure
