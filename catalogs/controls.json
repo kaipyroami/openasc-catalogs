@@ -736,7 +736,7 @@
         {
             "id": "C.03.4",
             "name": "Network Segmentation",
-            "description": "Divides automotive networks into isolated segments (e.g., VLANs, physical separate buses), limiting the spread of attacks and restricting lateral movement.",
+            "description": "Divides automotive networks into isolated segments (e.g., VLANs, physically separate buses), limiting the spread of attacks and restricting lateral movement.",
             "metadata": [
                 "gRPC / REST",
                 "CAN / CAN-FD / CAN-XL",
@@ -1505,7 +1505,7 @@
         {
             "id": "C.04",
             "name": "Hashing",
-            "description": "Hashing is the process of transforming data into a fixed-size string of characters. Used for verifying firmware integrity, authenticating diagnostic messages, protecting secure boot processes, and ensuring data has not been tampered with.",
+            "description": "Hashing transforms data into a fixed-size digest. Used for verifying firmware and diagnostic-message integrity, supporting secure boot verification, and detecting data tampering. As a keyless mechanism, hashing alone establishes integrity, not sender authentication — that requires pairing it with a secret key (MAC, C.06) or a signature (C.05).",
             "metadata": [
                 "UDS",
                 "Secure Boot",
@@ -2107,7 +2107,7 @@
         {
             "id": "C.06",
             "name": "Message Authentication Codes",
-            "description": "A Message Authentication Code (MAC) is a short piece of information used to authenticate a message and ensure its integrity and authenticity using a shared secret key.",
+            "description": "A Message Authentication Code (MAC) is a short piece of information, computed using a shared secret key, that lets the recipient verify both the integrity and authenticity of a message.",
             "metadata": [
                 "MAC / HMAC / CMAC",
                 "SecOC",
@@ -3548,7 +3548,7 @@
         },
         {
             "id": "C.09.4",
-            "name": "Whitelisting",
+            "name": "Allowlisting",
             "description": "Allows only explicitly approved entities (apps, IPs, CAN IDs) to execute or transmit. Highly effective at preventing unauthorized code execution.",
             "metadata": [
                 "CAN / CAN-FD / CAN-XL",
@@ -3606,7 +3606,7 @@
         },
         {
             "id": "C.09.5",
-            "name": "Blacklisting",
+            "name": "Denylisting",
             "description": "Blocks known malicious entities (e.g., known bad IPs, banned app hashes). Weak control easily bypassed by altering signatures or network addresses.",
             "metadata": [
                 "App / Service",
@@ -3784,7 +3784,7 @@
         {
             "id": "C.11.1",
             "name": "DM-verity (Device Mapper Verity)",
-            "description": "Kernel feature that provides transparent integrity checking of block devices using Merkle trees. Ensures read-only root filesystems cannot be utilized if tampered with offline.",
+            "description": "Kernel feature that provides transparent integrity checking of block devices using Merkle trees. Detects offline tampering of the read-only root filesystem and blocks the tampered image from being mounted.",
             "metadata": [
                 "Kernel / Driver"
             ],
@@ -4834,7 +4834,7 @@
         {
             "id": "C.18.1",
             "name": "Scheduling",
-            "description": "Manages task execution to guarantee real-time performance and prevent CPU hogging by malicious or faulty processes.",
+            "description": "Manages task execution to support real-time performance and prevent CPU hogging by malicious or faulty processes.",
             "metadata": [
                 "App / Service"
             ],
