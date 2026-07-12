@@ -63,6 +63,8 @@ npm run validate:all
 
 To align with ISO/SAE 21434, OpenASC natively separates damage impacts into two distinct stakeholder perspectives: `oem` and `roadUser`, with the capability of adding `thirdPartySupplier`.
 
+**`oem.safety` is structurally almost always `None`.** ISO/SAE 21434's TARA is road-user-centric — an OEM as a corporate entity has no direct physical safety state that a compromise can affect. Whatever safety-adjacent exposure an OEM carries from a safety-relevant compromise is a *consequence* of road-user harm, expressed monetarily (recall costs, liability judgments, regulatory fines) — that belongs in `oem.financial`/`oem.operational`, not a parallel `oem.safety` scale. Rate `oem.safety` as `None` with a one-line rationale pointing to where the real exposure lives, and reserve any non-`None` value for the rare case where the OEM genuinely bears a direct (not consequential) physical safety exposure.
+
 ---
 
 ## Automotive Threat Modeling Taxonomy (Structure vs. Payload)
@@ -153,6 +155,16 @@ The `attackFeasibility.attackPotential` block on each threat entry follows **ISO
 
 
 Catalog entries should be rated for the **complete attack scenario** they describe, using the highest plausible value for each component dimension. The platform that consumes these catalogs aggregates component scores, maps them to the ISO 21434 Annex I feasibility level (High / Medium / Low / Very Low), and cross-references with worst-case asset impact through ISO 21434 Table H.8 to produce a final risk rating. The on-device platform processes all data locally — no catalog or asset information is transmitted externally.
+
+### Scalability
+
+Every threat also carries a required `scalability` field — `Single Vehicle` | `Limited Batch` | `Fleet-Wide` — capturing the realistic breadth of exploitation the threat's *mechanism* supports, independent of any single company's actual fleet size. This is a different axis from `attackFeasibility`, which rates attacker effort *per instance*; `scalability` rates how many vehicles one successful exploit chain reaches without being independently repeated.
+
+* **`Single Vehicle`**: requires unique, per-target physical possession or proximity that must be individually repeated for each additional victim (hardware fault injection, JTAG probing, chip decapsulation). Attacker effort scales linearly with victim count.
+* **`Limited Batch`**: bounded by something narrower than the full fleet but broader than one vehicle — a specific production run, hardware revision, regional configuration, backend tenant/campaign, or an RF-proximity attack (jamming, relay, V2X spoofing) that only reaches whoever is physically in range at the moment of attack. Most MITRE-style follow-on techniques (persistence, discovery, defense evasion, lateral movement) fall here by default, since they operate within an already-compromised vehicle's boundary and inherit their real reach from whichever initial-access threat established that foothold, rather than being an initial-access vector themselves.
+* **`Fleet-Wide`**: remotely or systemically replicable with no proximity or possession requirement — a backend/cloud API flaw, a vulnerability in shared firmware identical across every unit running it, an OTA/update-channel compromise, or a cryptographic weakness in a protocol used fleet-wide.
+
+This field lives only on threats. A control's relevance to fleet-wide risk and an asset's realistic exposure both inherit scalability transitively via the capability graph — which threats can reach a given control or asset through matching `action:assetClass:domain` triples — rather than needing their own independent copy of this dimension.
 
 ---
 
