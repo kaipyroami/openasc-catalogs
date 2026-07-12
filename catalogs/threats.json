@@ -72,6 +72,9 @@
                 "MAC / HMAC / CMAC",
                 "Digital Signatures",
                 "PKI / Certificates"
+            ],
+            "unitedNationsRegulation155": [
+                "4.1"
             ]
         },
         {
@@ -142,6 +145,9 @@
                 "Wi-Fi",
                 "Cellular",
                 "MACsec / IPsec"
+            ],
+            "unitedNationsRegulation155": [
+                "6.2"
             ]
         },
         {
@@ -202,6 +208,9 @@
                 "Passwords / PINs",
                 "Tokens / API Keys",
                 "App / Service"
+            ],
+            "unitedNationsRegulation155": [
+                "20.2"
             ]
         },
         {
@@ -276,6 +285,10 @@
                 "Bootloader",
                 "UDS",
                 "App / Service"
+            ],
+            "unitedNationsRegulation155": [
+                "12.1",
+                "23.1"
             ]
         },
         {
@@ -345,6 +358,10 @@
                 "Transceiver / PHY",
                 "Secure Boot",
                 "HSM / SHE"
+            ],
+            "unitedNationsRegulation155": [
+                "27.1",
+                "32.1"
             ]
         },
         {
@@ -417,6 +434,9 @@
                 "App / Service",
                 "TLS / DTLS",
                 "Tokens / API Keys"
+            ],
+            "unitedNationsRegulation155": [
+                "4.1"
             ]
         },
         {
@@ -485,6 +505,10 @@
                 "LIN",
                 "FlexRay",
                 "SecOC"
+            ],
+            "unitedNationsRegulation155": [
+                "4.1",
+                "11.1"
             ]
         },
         {
@@ -538,6 +562,10 @@
                 "Satellite",
                 "Sensor / Actuator",
                 "LF / RF"
+            ],
+            "unitedNationsRegulation155": [
+                "4.1",
+                "20.4"
             ]
         },
         {
@@ -600,6 +628,9 @@
                 "Sensor / Actuator",
                 "ML Model / Weights",
                 "GPU / NPU"
+            ],
+            "unitedNationsRegulation155": [
+                "16.3"
             ]
         },
         {
@@ -667,6 +698,9 @@
                 "CAN / CAN-FD / CAN-XL",
                 "Automotive Ethernet",
                 "SecOC"
+            ],
+            "unitedNationsRegulation155": [
+                "6.3"
             ]
         },
         {
@@ -730,6 +764,9 @@
                 "DoIP",
                 "Seeds / RoT Data",
                 "Passwords / PINs"
+            ],
+            "unitedNationsRegulation155": [
+                "18.3"
             ]
         },
         {
@@ -794,6 +831,11 @@
                 "GNSS",
                 "GPU / NPU",
                 "ML Model / Weights"
+            ],
+            "unitedNationsRegulation155": [
+                "4.1",
+                "4.2",
+                "11.2"
             ]
         },
         {
@@ -868,6 +910,10 @@
                 "PKI / Certificates",
                 "Asymmetric Keys",
                 "Bootloader"
+            ],
+            "unitedNationsRegulation155": [
+                "4.1",
+                "25.2"
             ]
         },
         {
@@ -938,7 +984,11 @@
                 "PKI / Certificates",
                 "Session Keys / Ephemeral Secrets"
             ],
-            "notes": "Generalizes the downgrade pattern beyond the RF/PHY jamming scope of T.08.3 (Downgrade to Insecure Protocols) and beyond the ISO 15118-specific mention in T.01.12 (EV Charging Session Spoofing); this entry models the reusable protocol-layer MITM downgrade mechanism itself, applicable to any TLS/DTLS-secured channel."
+            "notes": "Generalizes the downgrade pattern beyond the RF/PHY jamming scope of T.08.3 (Downgrade to Insecure Protocols) and beyond the ISO 15118-specific mention in T.01.12 (EV Charging Session Spoofing); this entry models the reusable protocol-layer MITM downgrade mechanism itself, applicable to any TLS/DTLS-secured channel.",
+            "unitedNationsRegulation155": [
+                "6.2",
+                "26.3"
+            ]
         },
         {
             "id": "T.02",
@@ -1013,6 +1063,9 @@
                 "Hashes",
                 "Digital Signatures",
                 "MAC / HMAC / CMAC"
+            ],
+            "unitedNationsRegulation155": [
+                "5.2"
             ]
         },
         {
@@ -1074,6 +1127,9 @@
                 "RTOS",
                 "HLOS",
                 "Kernel / Driver"
+            ],
+            "unitedNationsRegulation155": [
+                "28.1"
             ]
         },
         {
@@ -1145,6 +1201,10 @@
                 "Config / Calibration File",
                 "Flash / RAM / EEPROM",
                 "XCP / CCP"
+            ],
+            "unitedNationsRegulation155": [
+                "5.2",
+                "25.1"
             ]
         },
         {
@@ -1218,6 +1278,9 @@
                 "Secure Boot",
                 "Flash / RAM / EEPROM",
                 "Digital Signatures"
+            ],
+            "unitedNationsRegulation155": [
+                "23.1"
             ]
         },
         {
@@ -1283,6 +1346,9 @@
                 "App / Service",
                 "Middleware",
                 "UDS"
+            ],
+            "unitedNationsRegulation155": [
+                "5.1"
             ]
         },
         {
@@ -1350,6 +1416,9 @@
                 "MCU",
                 "Secure Boot",
                 "Bootloader"
+            ],
+            "unitedNationsRegulation155": [
+                "32.1"
             ]
         },
         {
@@ -1418,6 +1487,10 @@
                 "UDS",
                 "SOME/IP",
                 "Transceiver / PHY"
+            ],
+            "unitedNationsRegulation155": [
+                "11.1",
+                "11.3"
             ]
         },
         {
@@ -1483,6 +1556,9 @@
                 "Flash / RAM / EEPROM",
                 "SPI / I2C / I3C",
                 "Diagnostic Pads"
+            ],
+            "unitedNationsRegulation155": [
+                "32.1"
             ]
         },
         {
@@ -1548,6 +1624,9 @@
                 "Flash / RAM / EEPROM",
                 "eFuse / OTP",
                 "Diagnostic Pads"
+            ],
+            "unitedNationsRegulation155": [
+                "32.1"
             ]
         },
         {
@@ -1604,6 +1683,10 @@
                 "HLOS",
                 "App / Service",
                 "Kernel / Driver"
+            ],
+            "unitedNationsRegulation155": [
+                "5.1",
+                "28.1"
             ]
         },
         {
@@ -1678,7 +1761,11 @@
                 "eFuse / OTP",
                 "Flash / RAM / EEPROM"
             ],
-            "notes": "Threat-side counterpart to C.16.4 (Anti-Rollback Protection) and C.19.1 (Monotonic Counters), both of which mitigate exactly this mechanism. The standard defensive pattern this attack targets is the Android AVB Rollback Index model (monotonic per-partition rollback counters in tamper-evident storage)."
+            "notes": "Threat-side counterpart to C.16.4 (Anti-Rollback Protection) and C.19.1 (Monotonic Counters), both of which mitigate exactly this mechanism. The standard defensive pattern this attack targets is the Android AVB Rollback Index model (monotonic per-partition rollback counters in tamper-evident storage).",
+            "unitedNationsRegulation155": [
+                "12.1",
+                "12.2"
+            ]
         },
         {
             "id": "T.03",
@@ -1749,6 +1836,9 @@
             "metadata": [
                 "Digital Signatures",
                 "PKI / Certificates"
+            ],
+            "unitedNationsRegulation155": [
+                "21.1"
             ]
         },
         {
@@ -1815,6 +1905,10 @@
                 "Flash / RAM / EEPROM",
                 "Flash / RAM / EEPROM",
                 "UDS"
+            ],
+            "unitedNationsRegulation155": [
+                "20.5",
+                "21.1"
             ]
         },
         {
@@ -1882,6 +1976,9 @@
                 "Digital Signatures",
                 "PKI / Certificates",
                 "gRPC / REST"
+            ],
+            "unitedNationsRegulation155": [
+                "26.2"
             ]
         },
         {
@@ -1948,6 +2045,9 @@
                 "Symmetric Keys",
                 "Asymmetric Keys",
                 "TLS / DTLS"
+            ],
+            "unitedNationsRegulation155": [
+                "7.2"
             ]
         },
         {
@@ -2014,6 +2114,9 @@
                 "LIN",
                 "FlexRay",
                 "OBD-II"
+            ],
+            "unitedNationsRegulation155": [
+                "7.1"
             ]
         },
         {
@@ -2095,6 +2198,10 @@
                 "Wi-Fi",
                 "Bluetooth / BLE",
                 "TLS / DTLS"
+            ],
+            "unitedNationsRegulation155": [
+                "6.2",
+                "7.1"
             ]
         },
         {
@@ -2159,6 +2266,9 @@
             "metadata": [
                 "App / Service",
                 "HLOS"
+            ],
+            "unitedNationsRegulation155": [
+                "19.2"
             ]
         },
         {
@@ -2221,6 +2331,9 @@
                 "TRNG / PRNG",
                 "Symmetric Keys",
                 "Asymmetric Keys"
+            ],
+            "unitedNationsRegulation155": [
+                "19.3"
             ]
         },
         {
@@ -2283,6 +2396,10 @@
                 "Symmetric Keys",
                 "Asymmetric Keys",
                 "FPGA"
+            ],
+            "unitedNationsRegulation155": [
+                "19.3",
+                "32.1"
             ]
         },
         {
@@ -2347,6 +2464,11 @@
                 "Flash / RAM / EEPROM",
                 "SoC",
                 "JTAG / cJTAG"
+            ],
+            "unitedNationsRegulation155": [
+                "19.1",
+                "19.3",
+                "32.1"
             ]
         },
         {
@@ -2411,6 +2533,11 @@
             "metadata": [
                 "Flash / RAM / EEPROM",
                 "SPI / I2C / I3C"
+            ],
+            "unitedNationsRegulation155": [
+                "19.1",
+                "19.3",
+                "32.1"
             ]
         },
         {
@@ -2466,6 +2593,10 @@
                 "Tokens / API Keys",
                 "App / Service",
                 "Symmetric Keys"
+            ],
+            "unitedNationsRegulation155": [
+                "3.1",
+                "3.3"
             ]
         },
         {
@@ -2546,6 +2677,9 @@
                 "Digital Signatures",
                 "Cellular",
                 "Tokens / API Keys"
+            ],
+            "unitedNationsRegulation155": [
+                "7.1"
             ]
         },
         {
@@ -2619,6 +2753,9 @@
             "metadata": [
                 "App / Service",
                 "CAN / CAN-FD / CAN-XL"
+            ],
+            "unitedNationsRegulation155": [
+                "8.1"
             ]
         },
         {
@@ -2679,6 +2816,9 @@
                 "CAN / CAN-FD / CAN-XL",
                 "Automotive Ethernet",
                 "Transceiver / PHY"
+            ],
+            "unitedNationsRegulation155": [
+                "24.1"
             ]
         },
         {
@@ -2746,6 +2886,10 @@
                 "HPC / Zonal Controller",
                 "RTOS",
                 "HLOS"
+            ],
+            "unitedNationsRegulation155": [
+                "8.1",
+                "28.1"
             ]
         },
         {
@@ -2800,6 +2944,9 @@
                 "Wi-Fi",
                 "Bluetooth / BLE",
                 "V2X"
+            ],
+            "unitedNationsRegulation155": [
+                "8.1"
             ]
         },
         {
@@ -2860,6 +3007,10 @@
                 "gRPC / REST",
                 "MQTT / AMQP",
                 "App / Service"
+            ],
+            "unitedNationsRegulation155": [
+                "2.1",
+                "8.1"
             ]
         },
         {
@@ -2942,6 +3093,9 @@
                 "Bootloader",
                 "Flash / RAM / EEPROM",
                 "Config / Calibration File"
+            ],
+            "unitedNationsRegulation155": [
+                "5.4"
             ]
         },
         {
@@ -3007,7 +3161,10 @@
                 "CAN / CAN-FD / CAN-XL",
                 "Transceiver / PHY"
             ],
-            "notes": "Distinct from the flooding-based Denial of Service modeled in T.05.1 (IVN Bus Flooding) and T.20.4 (CAN Bus Denial of Service, Auto-ISAC ATM-T0068): this attack silently removes a single targeted ECU from the bus via the CAN error-confinement state machine rather than exhausting bus bandwidth, and can succeed with a small fraction of the frames a flood requires."
+            "notes": "Distinct from the flooding-based Denial of Service modeled in T.05.1 (IVN Bus Flooding) and T.20.4 (CAN Bus Denial of Service, Auto-ISAC ATM-T0068): this attack silently removes a single targeted ECU from the bus via the CAN error-confinement state machine rather than exhausting bus bandwidth, and can succeed with a small fraction of the frames a flood requires.",
+            "unitedNationsRegulation155": [
+                "24.1"
+            ]
         },
         {
             "id": "T.06",
@@ -3077,6 +3234,9 @@
                 "App / Service",
                 "Kernel / Driver",
                 "Hypervisor"
+            ],
+            "unitedNationsRegulation155": [
+                "9.1"
             ]
         },
         {
@@ -3144,6 +3304,10 @@
                 "RTOS",
                 "HLOS",
                 "Kernel / Driver"
+            ],
+            "unitedNationsRegulation155": [
+                "9.1",
+                "28.1"
             ]
         },
         {
@@ -3216,6 +3380,9 @@
                 "Hypervisor",
                 "TEE",
                 "HSM / SHE"
+            ],
+            "unitedNationsRegulation155": [
+                "9.1"
             ]
         },
         {
@@ -3278,6 +3445,10 @@
                 "App / Service",
                 "HLOS",
                 "Middleware"
+            ],
+            "unitedNationsRegulation155": [
+                "9.1",
+                "17.1"
             ]
         },
         {
@@ -3351,6 +3522,9 @@
                 "SWD",
                 "UART / USART",
                 "Diagnostic Pads"
+            ],
+            "unitedNationsRegulation155": [
+                "28.2"
             ]
         },
         {
@@ -3425,6 +3599,10 @@
                 "Passwords / PINs",
                 "App / Service",
                 "Config / Calibration File"
+            ],
+            "unitedNationsRegulation155": [
+                "28.2",
+                "29.1"
             ]
         },
         {
@@ -3496,6 +3674,9 @@
                 "Diagnostic Pads",
                 "MCU",
                 "SoC"
+            ],
+            "unitedNationsRegulation155": [
+                "32.1"
             ]
         },
         {
@@ -3566,6 +3747,9 @@
                 "HPC / Zonal Controller",
                 "Middleware",
                 "IDS / IPS"
+            ],
+            "unitedNationsRegulation155": [
+                "29.2"
             ]
         },
         {
@@ -3634,7 +3818,11 @@
                 "Tokens / API Keys",
                 "App / Service"
             ],
-            "notes": "Corresponds to OWASP API Security Top 10 2023, API1:2023 Broken Object Level Authorization. Real-world precedent: Sam Curry et al.'s 2022 mass-disclosure across roughly 16 OEMs (Kia, Honda, Nissan, Hyundai, BMW, Mercedes-Benz, Ferrari, Toyota, Ford, Porsche, and others), where VIN-keyed API calls alone were sufficient to remotely unlock, start, locate, and flash the lights of vehicles the researchers did not own."
+            "notes": "Corresponds to OWASP API Security Top 10 2023, API1:2023 Broken Object Level Authorization. Real-world precedent: Sam Curry et al.'s 2022 mass-disclosure across roughly 16 OEMs (Kia, Honda, Nissan, Hyundai, BMW, Mercedes-Benz, Ferrari, Toyota, Ford, Porsche, and others), where VIN-keyed API calls alone were sufficient to remotely unlock, start, locate, and flash the lights of vehicles the researchers did not own.",
+            "unitedNationsRegulation155": [
+                "1.2",
+                "19.2"
+            ]
         },
         {
             "id": "T.07",
@@ -3696,6 +3884,9 @@
             ],
             "metadata": [
                 "App / Service"
+            ],
+            "unitedNationsRegulation155": [
+                "7.2"
             ]
         },
         {
@@ -3760,7 +3951,8 @@
             "metadata": [
                 "App / Service",
                 "gRPC / REST"
-            ]
+            ],
+            "unitedNationsRegulation155": []
         },
         {
             "id": "T.07.2",
@@ -3835,6 +4027,10 @@
                 "OBD-II",
                 "JTAG / cJTAG",
                 "UDS"
+            ],
+            "unitedNationsRegulation155": [
+                "7.2",
+                "19.1"
             ]
         },
         {
@@ -3906,6 +4102,9 @@
             "metadata": [
                 "Sensor / Actuator",
                 "LF / RF"
+            ],
+            "unitedNationsRegulation155": [
+                "16.3"
             ]
         },
         {
@@ -3979,7 +4178,10 @@
                 "GPU / NPU",
                 "Sensor / Actuator"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0005) as T.20.1 (Affect Vehicle Function), modeled independently here under the Manipulate Environment tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0005) as T.20.1 (Affect Vehicle Function), modeled independently here under the Manipulate Environment tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "16.3"
+            ]
         },
         {
             "id": "T.08.2",
@@ -4050,7 +4252,10 @@
             "metadata": [
                 "Sensor / Actuator"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0004) as T.20.2 (Affect Vehicle Function), modeled independently here under the Manipulate Environment tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0004) as T.20.2 (Affect Vehicle Function), modeled independently here under the Manipulate Environment tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "16.3"
+            ]
         },
         {
             "id": "T.08.3",
@@ -4120,6 +4325,9 @@
                 "Cellular",
                 "Wi-Fi",
                 "Bluetooth / BLE"
+            ],
+            "unitedNationsRegulation155": [
+                "26.3"
             ]
         },
         {
@@ -4187,6 +4395,9 @@
                 "GNSS",
                 "Bluetooth / BLE",
                 "LF / RF"
+            ],
+            "unitedNationsRegulation155": [
+                "8.1"
             ]
         },
         {
@@ -4264,6 +4475,9 @@
                 "Cellular",
                 "Wi-Fi",
                 "PKI / Certificates"
+            ],
+            "unitedNationsRegulation155": [
+                "6.2"
             ]
         },
         {
@@ -4334,6 +4548,9 @@
                 "Bluetooth / BLE",
                 "UWB",
                 "NFC / RFID"
+            ],
+            "unitedNationsRegulation155": [
+                "16.1"
             ]
         },
         {
@@ -4403,6 +4620,10 @@
             ],
             "metadata": [
                 "Cellular"
+            ],
+            "unitedNationsRegulation155": [
+                "6.2",
+                "7.1"
             ]
         },
         {
@@ -4472,6 +4693,10 @@
             ],
             "metadata": [
                 "Wi-Fi"
+            ],
+            "unitedNationsRegulation155": [
+                "6.2",
+                "7.1"
             ]
         },
         {
@@ -4551,6 +4776,9 @@
                 "USB",
                 "Bluetooth / BLE",
                 "Cellular"
+            ],
+            "unitedNationsRegulation155": [
+                "18.1"
             ]
         },
         {
@@ -4625,7 +4853,11 @@
                 "USB",
                 "Cellular"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0010) as T.18.1 (Command and Control) and T.19.1 (Exfiltration), modeled independently here under the Initial Access tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0010) as T.18.1 (Command and Control) and T.19.1 (Exfiltration), modeled independently here under the Initial Access tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "18.1",
+                "18.3"
+            ]
         },
         {
             "id": "T.09.2",
@@ -4702,6 +4934,9 @@
                 "HLOS",
                 "Wi-Fi",
                 "Cellular"
+            ],
+            "unitedNationsRegulation155": [
+                "28.1"
             ]
         },
         {
@@ -4774,6 +5009,10 @@
                 "Bluetooth / BLE",
                 "Wi-Fi",
                 "Transceiver / PHY"
+            ],
+            "unitedNationsRegulation155": [
+                "5.1",
+                "28.1"
             ]
         },
         {
@@ -4845,6 +5084,10 @@
                 "USB",
                 "Media Slots",
                 "App / Service"
+            ],
+            "unitedNationsRegulation155": [
+                "18.1",
+                "18.2"
             ]
         },
         {
@@ -4921,6 +5164,9 @@
             "metadata": [
                 "App / Service",
                 "HLOS"
+            ],
+            "unitedNationsRegulation155": [
+                "10.1"
             ]
         },
         {
@@ -4986,6 +5232,9 @@
             "metadata": [
                 "App / Service",
                 "Passwords / PINs"
+            ],
+            "unitedNationsRegulation155": [
+                "15.1"
             ]
         },
         {
@@ -5062,6 +5311,9 @@
                 "MCU",
                 "SoC",
                 "Transceiver / PHY"
+            ],
+            "unitedNationsRegulation155": [
+                "32.1"
             ]
         },
         {
@@ -5133,6 +5385,9 @@
             "metadata": [
                 "Bootloader",
                 "App / Service"
+            ],
+            "unitedNationsRegulation155": [
+                "27.1"
             ]
         },
         {
@@ -5210,6 +5465,9 @@
                 "App / Service",
                 "RTOS",
                 "HLOS"
+            ],
+            "unitedNationsRegulation155": [
+                "22.2"
             ]
         },
         {
@@ -5281,6 +5539,9 @@
                 "App / Service",
                 "HLOS",
                 "Middleware"
+            ],
+            "unitedNationsRegulation155": [
+                "22.2"
             ]
         },
         {
@@ -5352,6 +5613,9 @@
                 "Kernel / Driver",
                 "HLOS",
                 "RTOS"
+            ],
+            "unitedNationsRegulation155": [
+                "22.2"
             ]
         },
         {
@@ -5428,6 +5692,9 @@
             "metadata": [
                 "UDS",
                 "DoIP"
+            ],
+            "unitedNationsRegulation155": [
+                "11.3"
             ]
         },
         {
@@ -5500,6 +5767,9 @@
                 "Bootloader",
                 "App / Service",
                 "RTOS"
+            ],
+            "unitedNationsRegulation155": [
+                "5.3"
             ]
         },
         {
@@ -5579,6 +5849,10 @@
                 "Bootloader",
                 "Secure Boot",
                 "Seeds / RoT Data"
+            ],
+            "unitedNationsRegulation155": [
+                "11.3",
+                "12.2"
             ]
         },
         {
@@ -5654,6 +5928,9 @@
                 "App / Service",
                 "Config / Calibration File",
                 "LWM2M / OMA-DM"
+            ],
+            "unitedNationsRegulation155": [
+                "13.1"
             ]
         },
         {
@@ -5728,6 +6005,9 @@
                 "Kernel / Driver",
                 "HLOS",
                 "RTOS"
+            ],
+            "unitedNationsRegulation155": [
+                "5.3"
             ]
         },
         {
@@ -5804,6 +6084,9 @@
                 "TEE",
                 "HSM / SHE",
                 "TPM / SE"
+            ],
+            "unitedNationsRegulation155": [
+                "23.1"
             ]
         },
         {
@@ -5883,7 +6166,11 @@
                 "Asymmetric Keys",
                 "PKI / Certificates"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0075) as T.12.8 (Privilege Escalation), T.13.5 (Defense Evasion) and T.16.6 (Lateral Movement), modeled independently here under the Persistence tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0075) as T.12.8 (Privilege Escalation), T.13.5 (Defense Evasion) and T.16.6 (Lateral Movement), modeled independently here under the Persistence tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "12.4",
+                "26.2"
+            ]
         },
         {
             "id": "T.12",
@@ -5956,6 +6243,9 @@
                 "App / Service",
                 "HLOS",
                 "Kernel / Driver"
+            ],
+            "unitedNationsRegulation155": [
+                "9.1"
             ]
         },
         {
@@ -6023,6 +6313,9 @@
             "metadata": [
                 "App / Service",
                 "HLOS"
+            ],
+            "unitedNationsRegulation155": [
+                "9.1"
             ]
         },
         {
@@ -6096,6 +6389,10 @@
                 "PCIe",
                 "SPI / I2C / I3C",
                 "UART / USART"
+            ],
+            "unitedNationsRegulation155": [
+                "9.1",
+                "29.2"
             ]
         },
         {
@@ -6163,6 +6460,10 @@
                 "HLOS",
                 "RTOS",
                 "Kernel / Driver"
+            ],
+            "unitedNationsRegulation155": [
+                "9.1",
+                "28.1"
             ]
         },
         {
@@ -6235,7 +6536,11 @@
                 "TEE",
                 "HSM / SHE"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0027) as T.14.1 (Credential Access), modeled independently here under the Privilege Escalation tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0027) as T.14.1 (Credential Access), modeled independently here under the Privilege Escalation tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "9.1",
+                "19.3"
+            ]
         },
         {
             "id": "T.12.5",
@@ -6302,6 +6607,9 @@
                 "SoC",
                 "MCU",
                 "Secure Boot"
+            ],
+            "unitedNationsRegulation155": [
+                "32.1"
             ]
         },
         {
@@ -6372,6 +6680,9 @@
                 "HLOS",
                 "App / Service",
                 "Middleware"
+            ],
+            "unitedNationsRegulation155": [
+                "22.2"
             ]
         },
         {
@@ -6444,6 +6755,9 @@
                 "MCU",
                 "SoC",
                 "Bootloader"
+            ],
+            "unitedNationsRegulation155": [
+                "23.1"
             ]
         },
         {
@@ -6523,7 +6837,11 @@
                 "Hashes",
                 "Digital Signatures"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0075) as T.11.5 (Persistence), T.13.5 (Defense Evasion) and T.16.6 (Lateral Movement), modeled independently here under the Privilege Escalation tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0075) as T.11.5 (Persistence), T.13.5 (Defense Evasion) and T.16.6 (Lateral Movement), modeled independently here under the Privilege Escalation tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "19.3",
+                "26.2"
+            ]
         },
         {
             "id": "T.13",
@@ -6594,6 +6912,9 @@
                 "Secure Boot",
                 "IDS / IPS",
                 "App / Service"
+            ],
+            "unitedNationsRegulation155": [
+                "28.1"
             ]
         },
         {
@@ -6675,6 +6996,9 @@
                 "Secure Boot",
                 "Digital Signatures",
                 "Hashes"
+            ],
+            "unitedNationsRegulation155": [
+                "28.1"
             ]
         },
         {
@@ -6746,6 +7070,9 @@
                 "Config / Calibration File",
                 "IDS / IPS",
                 "MACsec / IPsec"
+            ],
+            "unitedNationsRegulation155": [
+                "29.2"
             ]
         },
         {
@@ -6816,6 +7143,10 @@
             "metadata": [
                 "UDS",
                 "Seeds / RoT Data"
+            ],
+            "unitedNationsRegulation155": [
+                "26.1",
+                "26.2"
             ]
         },
         {
@@ -6887,6 +7218,9 @@
             "metadata": [
                 "HLOS",
                 "Kernel / Driver"
+            ],
+            "unitedNationsRegulation155": [
+                "28.1"
             ]
         },
         {
@@ -6966,7 +7300,10 @@
                 "MAC / HMAC / CMAC",
                 "Symmetric Keys"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0075) as T.11.5 (Persistence), T.12.8 (Privilege Escalation) and T.16.6 (Lateral Movement), modeled independently here under the Defense Evasion tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0075) as T.11.5 (Persistence), T.12.8 (Privilege Escalation) and T.16.6 (Lateral Movement), modeled independently here under the Defense Evasion tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "26.2"
+            ]
         },
         {
             "id": "T.14",
@@ -7030,6 +7367,9 @@
                 "Passwords / PINs",
                 "Symmetric Keys",
                 "Tokens / API Keys"
+            ],
+            "unitedNationsRegulation155": [
+                "19.3"
             ]
         },
         {
@@ -7105,7 +7445,11 @@
                 "Symmetric Keys",
                 "Asymmetric Keys"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0027) as T.12.4 (Privilege Escalation), modeled independently here under the Credential Access tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0027) as T.12.4 (Privilege Escalation), modeled independently here under the Credential Access tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "9.1",
+                "19.3"
+            ]
         },
         {
             "id": "T.14.2",
@@ -7175,7 +7519,10 @@
                 "Cellular",
                 "Tokens / API Keys"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0035) as T.17.1 (Collection), modeled independently here under the Credential Access tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0035) as T.17.1 (Collection), modeled independently here under the Credential Access tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "7.1"
+            ]
         },
         {
             "id": "T.14.3",
@@ -7250,7 +7597,10 @@
                 "App / Service",
                 "Passwords / PINs"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0036) as T.17.2 (Collection), modeled independently here under the Credential Access tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0036) as T.17.2 (Collection), modeled independently here under the Credential Access tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "22.2"
+            ]
         },
         {
             "id": "T.14.4",
@@ -7330,6 +7680,9 @@
                 "App / Service",
                 "Passwords / PINs",
                 "HLOS"
+            ],
+            "unitedNationsRegulation155": [
+                "15.1"
             ]
         },
         {
@@ -7405,7 +7758,10 @@
                 "Passwords / PINs",
                 "Tokens / API Keys"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0038) as T.17.3 (Collection), modeled independently here under the Credential Access tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0038) as T.17.3 (Collection), modeled independently here under the Credential Access tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "7.1"
+            ]
         },
         {
             "id": "T.14.6",
@@ -7471,6 +7827,10 @@
                 "Flash / RAM / EEPROM",
                 "Passwords / PINs",
                 "Hashes"
+            ],
+            "unitedNationsRegulation155": [
+                "7.2",
+                "19.3"
             ]
         },
         {
@@ -7537,6 +7897,9 @@
                 "Config / Calibration File",
                 "Passwords / PINs",
                 "Tokens / API Keys"
+            ],
+            "unitedNationsRegulation155": [
+                "7.2"
             ]
         },
         {
@@ -7606,6 +7969,9 @@
             "metadata": [
                 "App / Service",
                 "Tokens / API Keys"
+            ],
+            "unitedNationsRegulation155": [
+                "7.1"
             ]
         },
         {
@@ -7667,6 +8033,9 @@
             "metadata": [
                 "Config / Calibration File",
                 "HLOS"
+            ],
+            "unitedNationsRegulation155": [
+                "7.2"
             ]
         },
         {
@@ -7730,6 +8099,9 @@
             "metadata": [
                 "HLOS",
                 "Config / Calibration File"
+            ],
+            "unitedNationsRegulation155": [
+                "7.2"
             ]
         },
         {
@@ -7798,7 +8170,10 @@
                 "GNSS",
                 "App / Service"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0043) as T.17.4 (Collection), modeled independently here under the Discovery tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0043) as T.17.4 (Collection), modeled independently here under the Discovery tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "19.2"
+            ]
         },
         {
             "id": "T.15.3",
@@ -7867,6 +8242,9 @@
                 "Automotive Ethernet",
                 "SOME/IP",
                 "DDS"
+            ],
+            "unitedNationsRegulation155": [
+                "7.2"
             ]
         },
         {
@@ -7929,6 +8307,9 @@
             "metadata": [
                 "HLOS",
                 "RTOS"
+            ],
+            "unitedNationsRegulation155": [
+                "7.2"
             ]
         },
         {
@@ -7997,6 +8378,9 @@
             "metadata": [
                 "HLOS",
                 "Bootloader"
+            ],
+            "unitedNationsRegulation155": [
+                "7.2"
             ]
         },
         {
@@ -8059,6 +8443,9 @@
             "metadata": [
                 "HLOS",
                 "RTOS"
+            ],
+            "unitedNationsRegulation155": [
+                "7.2"
             ]
         },
         {
@@ -8121,6 +8508,9 @@
             "metadata": [
                 "HLOS",
                 "Automotive Ethernet"
+            ],
+            "unitedNationsRegulation155": [
+                "7.2"
             ]
         },
         {
@@ -8183,6 +8573,9 @@
             "metadata": [
                 "HLOS",
                 "Automotive Ethernet"
+            ],
+            "unitedNationsRegulation155": [
+                "7.2"
             ]
         },
         {
@@ -8248,6 +8641,9 @@
             "metadata": [
                 "CAN / CAN-FD / CAN-XL",
                 "Automotive Ethernet"
+            ],
+            "unitedNationsRegulation155": [
+                "29.2"
             ]
         },
         {
@@ -8323,6 +8719,9 @@
             "metadata": [
                 "UDS",
                 "DoIP"
+            ],
+            "unitedNationsRegulation155": [
+                "11.3"
             ]
         },
         {
@@ -8389,6 +8788,9 @@
                 "Automotive Ethernet",
                 "HPC / Zonal Controller",
                 "MCU"
+            ],
+            "unitedNationsRegulation155": [
+                "29.2"
             ]
         },
         {
@@ -8461,6 +8863,10 @@
                 "DDS",
                 "Automotive Ethernet",
                 "App / Service"
+            ],
+            "unitedNationsRegulation155": [
+                "5.1",
+                "28.1"
             ]
         },
         {
@@ -8546,6 +8952,9 @@
                 "Automotive Ethernet",
                 "App / Service",
                 "Passwords / PINs"
+            ],
+            "unitedNationsRegulation155": [
+                "29.1"
             ]
         },
         {
@@ -8623,6 +9032,9 @@
                 "Bootloader",
                 "UDS",
                 "Digital Signatures"
+            ],
+            "unitedNationsRegulation155": [
+                "12.2"
             ]
         },
         {
@@ -8702,7 +9114,11 @@
                 "SecOC",
                 "Symmetric Keys"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0075) as T.11.5 (Persistence), T.12.8 (Privilege Escalation) and T.13.5 (Defense Evasion), modeled independently here under the Lateral Movement tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0075) as T.11.5 (Persistence), T.12.8 (Privilege Escalation) and T.13.5 (Defense Evasion), modeled independently here under the Lateral Movement tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "7.1",
+                "26.2"
+            ]
         },
         {
             "id": "T.17",
@@ -8763,6 +9179,9 @@
             "metadata": [
                 "Flash / RAM / EEPROM",
                 "App / Service"
+            ],
+            "unitedNationsRegulation155": [
+                "7.2"
             ]
         },
         {
@@ -8826,7 +9245,10 @@
                 "Cellular",
                 "App / Service"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0035) as T.14.2 (Credential Access), modeled independently here under the Collection tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0035) as T.14.2 (Credential Access), modeled independently here under the Collection tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "7.1"
+            ]
         },
         {
             "id": "T.17.2",
@@ -8898,7 +9320,10 @@
             "metadata": [
                 "App / Service"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0036) as T.14.3 (Credential Access), modeled independently here under the Collection tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0036) as T.14.3 (Credential Access), modeled independently here under the Collection tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "22.2"
+            ]
         },
         {
             "id": "T.17.3",
@@ -8972,7 +9397,10 @@
                 "Automotive Ethernet",
                 "LIN"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0038) as T.14.5 (Credential Access), modeled independently here under the Collection tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0038) as T.14.5 (Credential Access), modeled independently here under the Collection tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "7.1"
+            ]
         },
         {
             "id": "T.17.4",
@@ -9040,7 +9468,10 @@
                 "GNSS",
                 "App / Service"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0043) as T.15.2 (Discovery), modeled independently here under the Collection tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0043) as T.15.2 (Discovery), modeled independently here under the Collection tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "19.2"
+            ]
         },
         {
             "id": "T.17.5",
@@ -9114,6 +9545,10 @@
                 "UDS",
                 "DoIP",
                 "Flash / RAM / EEPROM"
+            ],
+            "unitedNationsRegulation155": [
+                "11.3",
+                "19.3"
             ]
         },
         {
@@ -9198,6 +9633,9 @@
                 "Sensor / Actuator",
                 "Audio Jacks / A2B",
                 "HDMI / DisplayPort"
+            ],
+            "unitedNationsRegulation155": [
+                "19.2"
             ]
         },
         {
@@ -9260,6 +9698,9 @@
             "metadata": [
                 "Flash / RAM / EEPROM",
                 "Flash / RAM / EEPROM"
+            ],
+            "unitedNationsRegulation155": [
+                "7.2"
             ]
         },
         {
@@ -9322,6 +9763,9 @@
             "metadata": [
                 "Wi-Fi",
                 "Bluetooth / BLE"
+            ],
+            "unitedNationsRegulation155": [
+                "7.2"
             ]
         },
         {
@@ -9390,6 +9834,9 @@
                 "HDMI / DisplayPort",
                 "App / Service",
                 "HLOS"
+            ],
+            "unitedNationsRegulation155": [
+                "19.2"
             ]
         },
         {
@@ -9460,6 +9907,9 @@
             "metadata": [
                 "Cellular",
                 "Wi-Fi"
+            ],
+            "unitedNationsRegulation155": [
+                "5.5"
             ]
         },
         {
@@ -9542,7 +9992,11 @@
                 "Bluetooth / BLE",
                 "Cellular"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0010) as T.09.1 (Initial Access) and T.19.1 (Exfiltration), modeled independently here under the Command and Control tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0010) as T.09.1 (Initial Access) and T.19.1 (Exfiltration), modeled independently here under the Command and Control tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "18.1",
+                "18.3"
+            ]
         },
         {
             "id": "T.18.2",
@@ -9612,7 +10066,10 @@
             "metadata": [
                 "Cellular"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0062) as T.19.2 (Exfiltration), modeled independently here under the Command and Control tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0062) as T.19.2 (Exfiltration), modeled independently here under the Command and Control tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "5.5"
+            ]
         },
         {
             "id": "T.18.3",
@@ -9679,7 +10136,10 @@
                 "Wi-Fi",
                 "gRPC / REST"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0063) as T.19.3 (Exfiltration), modeled independently here under the Command and Control tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0063) as T.19.3 (Exfiltration), modeled independently here under the Command and Control tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "5.5"
+            ]
         },
         {
             "id": "T.18.4",
@@ -9749,6 +10209,9 @@
             "metadata": [
                 "LF / RF",
                 "Sensor / Actuator"
+            ],
+            "unitedNationsRegulation155": [
+                "5.5"
             ]
         },
         {
@@ -9824,7 +10287,10 @@
                 "Bluetooth / BLE",
                 "UWB"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0065) as T.19.4 (Exfiltration), modeled independently here under the Command and Control tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0065) as T.19.4 (Exfiltration), modeled independently here under the Command and Control tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "5.5"
+            ]
         },
         {
             "id": "T.18.6",
@@ -9895,7 +10361,10 @@
                 "MACsec / IPsec",
                 "Symmetric Keys"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0066) as T.19.5 (Exfiltration), modeled independently here under the Command and Control tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0066) as T.19.5 (Exfiltration), modeled independently here under the Command and Control tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "5.5"
+            ]
         },
         {
             "id": "T.19",
@@ -9964,6 +10433,9 @@
                 "Cellular",
                 "USB",
                 "Bluetooth / BLE"
+            ],
+            "unitedNationsRegulation155": [
+                "7.2"
             ]
         },
         {
@@ -10033,7 +10505,11 @@
                 "OBD-II",
                 "Bluetooth / BLE"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0010) as T.09.1 (Initial Access) and T.18.1 (Command and Control), modeled independently here under the Exfiltration tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0010) as T.09.1 (Initial Access) and T.18.1 (Command and Control), modeled independently here under the Exfiltration tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "18.1",
+                "18.3"
+            ]
         },
         {
             "id": "T.19.2",
@@ -10100,7 +10576,10 @@
             "metadata": [
                 "Cellular"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0062) as T.18.2 (Command and Control), modeled independently here under the Exfiltration tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0062) as T.18.2 (Command and Control), modeled independently here under the Exfiltration tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "7.2"
+            ]
         },
         {
             "id": "T.19.3",
@@ -10169,7 +10648,10 @@
                 "Cellular",
                 "gRPC / REST"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0063) as T.18.3 (Command and Control), modeled independently here under the Exfiltration tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0063) as T.18.3 (Command and Control), modeled independently here under the Exfiltration tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "7.2"
+            ]
         },
         {
             "id": "T.19.4",
@@ -10237,7 +10719,10 @@
                 "Wi-Fi",
                 "Bluetooth / BLE"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0065) as T.18.5 (Command and Control), modeled independently here under the Exfiltration tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0065) as T.18.5 (Command and Control), modeled independently here under the Exfiltration tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "7.2"
+            ]
         },
         {
             "id": "T.19.5",
@@ -10304,7 +10789,10 @@
             "metadata": [
                 "TLS / DTLS"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0066) as T.18.6 (Command and Control), modeled independently here under the Exfiltration tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0066) as T.18.6 (Command and Control), modeled independently here under the Exfiltration tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "7.2"
+            ]
         },
         {
             "id": "T.19.6",
@@ -10372,6 +10860,9 @@
             "metadata": [
                 "USB",
                 "Media Slots"
+            ],
+            "unitedNationsRegulation155": [
+                "18.1"
             ]
         },
         {
@@ -10441,6 +10932,11 @@
                 "JTAG / cJTAG",
                 "SWD",
                 "Flash / RAM / EEPROM"
+            ],
+            "unitedNationsRegulation155": [
+                "19.1",
+                "19.3",
+                "28.2"
             ]
         },
         {
@@ -10517,6 +11013,9 @@
             "metadata": [
                 "Sensor / Actuator",
                 "CAN / CAN-FD / CAN-XL"
+            ],
+            "unitedNationsRegulation155": [
+                "25.1"
             ]
         },
         {
@@ -10590,7 +11089,10 @@
                 "GPU / NPU",
                 "Sensor / Actuator"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0005) as T.08.1 (Manipulate Environment), modeled independently here under the Affect Vehicle Function tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0005) as T.08.1 (Manipulate Environment), modeled independently here under the Affect Vehicle Function tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "16.3"
+            ]
         },
         {
             "id": "T.20.2",
@@ -10656,7 +11158,10 @@
             "metadata": [
                 "Sensor / Actuator"
             ],
-            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0004) as T.08.2 (Manipulate Environment), modeled independently here under the Affect Vehicle Function tactic with its own capability and feasibility profile."
+            "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0004) as T.08.2 (Manipulate Environment), modeled independently here under the Affect Vehicle Function tactic with its own capability and feasibility profile.",
+            "unitedNationsRegulation155": [
+                "16.3"
+            ]
         },
         {
             "id": "T.20.3",
@@ -10733,6 +11238,10 @@
                 "UDS",
                 "DoIP",
                 "CAN / CAN-FD / CAN-XL"
+            ],
+            "unitedNationsRegulation155": [
+                "11.3",
+                "25.1"
             ]
         },
         {
@@ -10800,6 +11309,9 @@
             ],
             "metadata": [
                 "CAN / CAN-FD / CAN-XL"
+            ],
+            "unitedNationsRegulation155": [
+                "24.1"
             ]
         },
         {
@@ -10874,6 +11386,10 @@
                 "CAN / CAN-FD / CAN-XL",
                 "Automotive Ethernet",
                 "MCU"
+            ],
+            "unitedNationsRegulation155": [
+                "24.1",
+                "28.1"
             ]
         },
         {
@@ -10939,6 +11455,9 @@
             "metadata": [
                 "MCU",
                 "Sensor / Actuator"
+            ],
+            "unitedNationsRegulation155": [
+                "16.2"
             ]
         },
         {
@@ -11014,6 +11533,9 @@
             "metadata": [
                 "CAN / CAN-FD / CAN-XL",
                 "Automotive Ethernet"
+            ],
+            "unitedNationsRegulation155": [
+                "11.1"
             ]
         },
         {
@@ -11079,6 +11601,9 @@
             "metadata": [
                 "CAN / CAN-FD / CAN-XL",
                 "Automotive Ethernet"
+            ],
+            "unitedNationsRegulation155": [
+                "11.1"
             ]
         }
     ]
