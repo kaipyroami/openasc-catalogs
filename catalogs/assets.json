@@ -21,32 +21,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Bootloader compromise creates fleet-wide financial/operational exposure (recall, rootkit remediation) rather than a direct physical safety effect on the OEM itself."
                     },
                     "financial": {
                         "level": "Severe",
                         "rationale": "Compromise allows fleet-wide persistent rootkits, requiring massive physical recall and component replacement."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of a trusted boot chain undermines the OEM’s ability to guarantee authentic firmware fleet-wide, halting safe OTA operations until remediated."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Bootloader compromise does not itself expose personal data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Severe",
-                        "rationale": "A compromised bootloader can load malicious firmware into safety-critical ECUs, leading to loss of vehicle control."
+                        "level": "Moderate",
+                        "rationale": "Verifies firmware authenticity at boot; a compromise enables execution of unauthorized firmware but does not itself actuate any vehicle function — the safety effect depends entirely on what a subsequently loaded payload does."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user from a boot-chain compromise."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A corrupted boot chain can leave any ECU it protects unbootable, disabling vehicle functions until serviced."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Bootloader compromise does not itself expose personal data."
                     }
                 }
             },
@@ -74,32 +80,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Key compromise drives OEM financial/operational exposure (forged firmware, cloned modules) rather than a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Severe",
                         "rationale": "Key compromise breaks the trust anchor, allowing attackers to forge legitimate signed firmware updates or clone physical modules."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of the root-of-trust key forces fleet-wide re-provisioning or hardware replacement to restore a trustworthy identity chain."
                     },
                     "privacy": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Key material can be linked to a specific module/vehicle identity, so its disclosure has a privacy dimension for the OEM’s device-identity database."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Severe",
-                        "rationale": "Enables malicious OTA updates to safety-critical components."
+                        "level": "Moderate",
+                        "rationale": "Enables forging of signed firmware or cloning of module identity, which could subsequently be used to target safety-critical ECUs; the key itself does not actuate any function — a further malicious firmware delivery and execution step is required."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Cloned or forged module identities can disrupt the affected vehicle’s ability to complete authenticated operations (e.g., updates, secure sessions)."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Device identity keys are not directly linked to personal data of the vehicle occupant."
                     }
                 }
             },
@@ -124,32 +136,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Kernel compromise is reflected in OEM financial/operational impact (remediation, liability) rather than a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Kernel-level compromise on any node typically necessitates a full re-flash/re-certification of the affected platform across the fleet."
                     },
                     "operational": {
                         "level": "Severe",
                         "rationale": "Kernel compromise causes complete loss of control over the node's behavior."
                     },
                     "privacy": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "A compromised kernel can be leveraged to access any process’s data on that node, including cached user data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Severe",
-                        "rationale": "Kernel panic or hijacking in an RTOS can instantly freeze safety-critical actuator commands."
+                        "level": "Moderate",
+                        "rationale": "The kernel is a generic runtime layer used across both safety-critical and non-safety-critical compute nodes; its compromise can disrupt or halt tasks on that node, but the resulting safety effect depends entirely on which application (if any safety-critical one) is hosted on the affected node."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A crashed or hijacked kernel halts all tasks on that compute node, disabling whatever function it hosts until reset or repair."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct exposure of personal data from a kernel-level fault alone."
                     }
                 }
             },
@@ -174,22 +192,26 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Token compromise drives OEM financial/reputational exposure (theft liability) rather than a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Major",
                         "rationale": "Results in reputational damage and potential liability for easily stolen vehicles."
                     },
                     "operational": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "Drives a rise in warranty/dealer service requests and potential recall campaign for the affected component."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Access tokens do not themselves carry personal data beyond device pairing identifiers."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Unauthorized entry/immobilization override enables vehicle theft but does not itself actuate any function that could injure the occupant or other road users while driving."
                     },
                     "financial": {
                         "level": "Severe",
@@ -200,7 +222,8 @@
                         "rationale": "Loss of primary transportation."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The token itself does not carry personal profile data."
                     }
                 }
             },
@@ -224,13 +247,16 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "PII exposure carries OEM regulatory/financial exposure, not a direct physical safety effect."
                     },
                     "financial": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Data breach notification, regulatory fines, and customer-trust remediation costs following a PII exposure."
                     },
                     "operational": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "Requires incident response, credential rotation for affected users, and potential feature suspension."
                     },
                     "privacy": {
                         "level": "Severe",
@@ -239,13 +265,16 @@
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Exposure of personal data does not itself create a physical safety hazard for the vehicle occupant."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial loss from the data exposure itself, though it may enable downstream identity-theft attempts."
                     },
                     "operational": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct effect on the vehicle’s operation."
                     },
                     "privacy": {
                         "level": "Severe",
@@ -275,32 +304,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Model exfiltration/tampering exposes the OEM to IP loss and liability, not a direct physical safety effect on the OEM itself."
                     },
                     "financial": {
                         "level": "Severe",
                         "rationale": "Exfiltration of proprietary neural network weights represents massive intellectual property loss for the OEM."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A poisoned or reverted model requires fleet-wide OTA redistribution and re-validation before ADAS features can be safely re-enabled."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Model weights do not themselves contain personal data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Severe",
-                        "rationale": "Adversarial modifications or poisoning of model files leads to target misclassification, creating critical safety hazards."
+                        "level": "Moderate",
+                        "rationale": "Poisoned or corrupted weights degrade perception accuracy, which can contribute to a missed-detection event; the model itself does not actuate any function — the effect passes through the separate planning and control logic before reaching a physical outcome."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Degraded perception accuracy can disable or restrict ADAS features until the model is restored."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Model weights do not themselves contain personal data."
                     }
                 }
             },
@@ -326,31 +361,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Trajectory-logic compromise is reflected in OEM financial/operational liability exposure rather than a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A defect or compromise in trajectory planning logic exposes the OEM to product-liability claims and a potential safety recall of the automated-driving feature."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Requires immediate feature suspension and validated patch rollout across the fleet."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Trajectory planning logic does not process personal data."
                     }
                 },
                 "roadUser": {
                     "safety": {
                         "level": "Severe",
-                        "rationale": "Corruption of the trajectory logic directly commands the vehicle into unsafe physical paths."
+                        "rationale": "The algorithm directly computes the lateral/longitudinal control setpoints sent to actuation; corrupting its logic directly commands the vehicle into an unsafe physical path with no further exploitation of another asset required."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A faulted planning algorithm disables the automated-driving feature until restored."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Trajectory planning logic does not process personal data."
                     }
                 }
             },
@@ -378,32 +420,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "OTA compromise translates into OEM financial/operational exposure (mass recall, remediation), not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Severe",
                         "rationale": "Failure of OTA mechanisms prevents the OEM from patching security flaws or deploying feature updates, leading to mass physical recalls."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of the OTA channel removes the OEM’s primary remote remediation path for security and safety patches fleet-wide."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The orchestration middleware itself does not process personal data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Severe",
-                        "rationale": "A compromised OTA orchestrator allows arbitrary code execution across any ECU in the vehicle."
+                        "level": "Moderate",
+                        "rationale": "A compromised orchestrator can push unauthorized code to any ECU it targets, but a further step — crafting and successfully flashing a malicious payload to a specific safety-critical ECU — is required before any physical effect occurs."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A compromised or disabled OTA channel can leave the vehicle unable to receive functional or security updates."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The orchestration middleware itself does not process personal data."
                     }
                 }
             },
@@ -427,17 +475,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Loss of cellular connectivity affects OEM operational/financial telemetry visibility, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "Represents ongoing carrier/service costs and lost telemetry-driven revenue opportunities."
                     },
                     "operational": {
                         "level": "Major",
                         "rationale": "Loss of telemetry data from the fleet."
                     },
                     "privacy": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "The channel carries user and vehicle telemetry that could be intercepted if confidentiality is broken."
                     }
                 },
                 "roadUser": {
@@ -446,13 +497,16 @@
                         "rationale": "Loss of cellular infrastructure breaks automated emergency tracking and safety eCall applications."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Loss of the cellular channel disables remote services (remote start/climate, cloud navigation, fleet telemetry) for the affected vehicle."
                     },
                     "privacy": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "The channel carries location and usage telemetry that could be exposed if confidentiality is broken."
                     }
                 }
             },
@@ -477,31 +531,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Routing/firewall compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of network segmentation integrity requires a fleet-wide security posture review and remediation, with associated liability exposure."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Corrupted routing rules can misdirect or block critical inter-domain traffic fleet-wide."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Routing configuration data does not itself carry personal data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Severe",
-                        "rationale": "Corrupting security rules permits unauthorized lateral movement from low-trust domains to safety-critical target buses."
+                        "level": "Moderate",
+                        "rationale": "Corrupting these rules permits unauthorized lateral movement from low-trust to safety-critical domains, but a further step — actually crafting and injecting malicious messages once that access is gained — is required before any physical effect occurs."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Corrupted routing rules can silently drop or misroute traffic needed for normal vehicle functions."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Routing configuration data does not itself carry personal data."
                     }
                 }
             },
@@ -526,31 +587,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Hypervisor compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A hypervisor-level compromise undermines the isolation guarantees the OEM’s entire consolidated-compute architecture depends on, requiring platform-wide remediation."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of hypervisor integrity can take down every guest partition it hosts on that compute node."
                     },
                     "privacy": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "A hypervisor breakout can expose data from any co-hosted guest partition, including infotainment user data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Severe",
-                        "rationale": "Hypervisor jailbreaks permit an unprivileged OS guest (like Infotainment) to crash or starve real-time safety critical tasks running in adjacent VMs."
+                        "level": "Moderate",
+                        "rationale": "A hypervisor jailbreak can starve or crash adjacent guest partitions, but the resulting safety effect depends on whether a safety-critical task happens to be co-hosted on the same physical node — this is a resource-isolation failure, not itself an actuation of any vehicle function."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A hypervisor fault can crash every guest OS partition running on the affected compute node."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Hypervisor-level compromise alone does not directly expose road-user personal data (that risk sits with the guest OS/app it hosts)."
                     }
                 }
             },
@@ -576,32 +644,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "API compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "API abuse or downtime disrupts fleet operations revenue streams and can trigger contractual SLA penalties."
                     },
                     "operational": {
                         "level": "Severe",
                         "rationale": "API manipulation or denial-of-service states degrade operational visibility across the entire vehicle fleet."
                     },
                     "privacy": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "The API carries fleet-wide operational and user data that could be exposed through an authorization flaw."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The API governs remote convenience/fleet functions rather than real-time vehicle control, so its compromise does not create a direct physical safety effect."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user from API compromise itself."
                     },
                     "operational": {
                         "level": "Major",
                         "rationale": "Loss of remote start, remote climate, or cloud-based navigation capabilities."
                     },
                     "privacy": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "API responses can include the individual vehicle’s operational state and location data."
                     }
                 }
             },
@@ -626,31 +700,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "NVRAM corruption is reflected in OEM financial/operational exposure (bricked units, warranty), not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Bricking of protected storage across the fleet drives warranty replacement and dealer-service cost."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of a node’s protected partition can render that ECU inoperable until re-provisioned."
                     },
                     "privacy": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "The partition can hold cached credentials and encryption manifests tied to the vehicle/owner."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Major",
-                        "rationale": "Corruption of NVRAM can brick ECU operations or load corrupted configuration states during driving."
+                        "level": "Moderate",
+                        "rationale": "Corruption of this generic, cross-domain storage partition can brick the hosting ECU or cause it to load an invalid configuration state, but the resulting safety effect depends on which ECU (safety-critical or not) is affected — the storage fault itself is not an actuation of any vehicle function."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "A bricked or corrupted partition on this generic storage class disables whatever ECU function depends on it, for the affected vehicle."
                     },
                     "privacy": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Cached user credentials or profile fragments stored in this partition could be exposed if confidentiality is broken."
                     }
                 }
             },
@@ -676,31 +757,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Enclave compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Severe",
                         "rationale": "Compromise of the core enclave drops trust verification boundaries, breaking fleet key isolation architectures."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Loss of enclave integrity forces re-keying/re-provisioning of the affected trust domain."
                     },
                     "privacy": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "The enclave processes sensitive key material and can be leveraged to access protected user data if breached."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "The enclave underpins cryptographic trust for the node it serves; its compromise can undermine the authenticity guarantees of downstream safety-relevant operations without itself directly actuating any function."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Loss of enclave availability can disable cryptographic operations the node depends on to function normally."
                     },
                     "privacy": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "The enclave secures sensitive key material that can protect user data; its compromise weakens that protection."
                     }
                 }
             },
@@ -726,32 +814,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Immobilizer-secret compromise is reflected in OEM financial/reputational exposure (theft liability), not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Major",
                         "rationale": "Reputational impact and warranty/insurance claims due to easily bypassed immobilizers."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Drives warranty and anti-theft system redesign costs across the affected platform."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The secret itself is not tied to personal data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Immobilizer bypass enables theft but does not itself create a physical hazard for the occupant or other road users."
                     },
                     "financial": {
                         "level": "Severe",
                         "rationale": "Key theft allows full physical bypass of anti-theft mechanics, enabling vehicle theft."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Vehicle theft following immobilizer bypass results in complete loss of use of the vehicle."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The secret itself is not tied to personal data."
                     }
                 }
             },
@@ -775,31 +869,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "This profile governs comfort-only functions and has no safety pathway for the OEM."
                     },
                     "financial": {
-                        "level": "Negligible"
+                        "level": "Negligible",
+                        "rationale": "Minor customer-service/goodwill cost from incorrect comfort settings."
                     },
                     "operational": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "May generate dealer service requests to reset comfort parameters."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Comfort preferences are low-sensitivity and not linked to identity beyond the vehicle itself."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Comfort parameters (HVAC, seating) have no pathway to a physical safety effect."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure from altered comfort settings."
                     },
                     "operational": {
                         "level": "Moderate",
                         "rationale": "Annoyance due to reset seating or temperature settings."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Comfort preferences reveal minimal personal information."
                     }
                 }
             },
@@ -822,16 +923,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "LIN-bus body/comfort disruption is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "Minor warranty/service costs from malfunctioning body/comfort peripherals."
                     },
                     "operational": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "May require dealer diagnosis of intermittent body/comfort system faults."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "LIN traffic carries switch/actuator status, not personal data."
                     }
                 },
                 "roadUser": {
@@ -840,13 +945,16 @@
                         "rationale": "Potential for minor mechanical pinching (windows/sunroof) if local hardware anti-pinch controls fail simultaneously."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "Disrupted LIN traffic can disable windows, mirrors, or other body/comfort functions."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "LIN traffic carries switch/actuator status, not personal data."
                     }
                 }
             },
@@ -873,16 +981,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Display-rendering compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "Warranty/service cost from display malfunctions and potential regulatory scrutiny of a masked safety-relevant readout."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "A frozen or corrupted cluster display is a customer-facing defect typically requiring immediate dealer remediation."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The rendering application does not itself process personal data."
                     }
                 },
                 "roadUser": {
@@ -891,13 +1003,16 @@
                         "rationale": "Freezing or masking active screen outputs prevents the operator from identifying critical vehicle states or actual road velocities."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Loss of the primary instrument display disrupts normal driving feedback (speed, warnings, gear state)."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The rendering application does not itself process personal data."
                     }
                 }
             },
@@ -924,13 +1039,16 @@
                         "rationale": "Suppression or falsification of safety telltales conceals active fault conditions, preventing driver corrective action and creating OEM liability for withheld safety warnings."
                     },
                     "financial": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Suppressed safety telltales expose the OEM to liability for failing to warn, and potential regulatory non-compliance (FMVSS/UNECE telltale mandates)."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Loss of telltale integrity undermines the OEM’s ability to rely on in-vehicle fault reporting for fleet health monitoring."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Telltale signal flow carries fault-state data, not personal data."
                     }
                 },
                 "roadUser": {
@@ -939,13 +1057,16 @@
                         "rationale": "Spoofing or dropping indicator signals blinds the road user to active platform faults, increasing operational risk profiles."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Suppressed or falsified telltales prevent the driver from being informed of vehicle faults requiring attention."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Telltale signal flow carries fault-state data, not personal data."
                     }
                 }
             },
@@ -969,13 +1090,16 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Pairing-key compromise exposes personal data risk, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "Potential liability/goodwill cost tied to compromised Bluetooth pairing security."
                     },
                     "operational": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "May require a security patch and re-pairing guidance rollout."
                     },
                     "privacy": {
                         "level": "Major",
@@ -984,13 +1108,16 @@
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Pairing-key compromise exposes personal communications data but has no pathway to a physical safety effect."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure from pairing-key compromise."
                     },
                     "operational": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct effect on vehicle operation."
                     },
                     "privacy": {
                         "level": "Major",
@@ -1018,17 +1145,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Sensor-feed compromise is reflected in OEM financial/operational liability exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Severe",
                         "rationale": "Safety failures due to blind ADAS systems result in massive litigation and recall costs."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of raw sensor telemetry disables ADAS features fleet-wide until the fault is diagnosed and repaired."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Raw perception streams (camera/LiDAR/radar) are not linked to personal identity in this pathway."
                     }
                 },
                 "roadUser": {
@@ -1037,13 +1167,16 @@
                         "rationale": "Dropping or corrupting sensor streams blinds automated driving systems, causing failure to react to physical obstacles."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of sensor data disables ADAS/collision-avoidance features for the affected vehicle."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Raw perception streams are not linked to personal identity in this pathway."
                     }
                 }
             },
@@ -1070,16 +1203,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Compromise of this control logic is reflected in OEM financial/operational liability exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A defect or compromise in active-safety control logic exposes the OEM to product-liability claims and a likely safety recall."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Requires immediate feature suspension and validated patch rollout fleet-wide."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "This control logic does not process personal data."
                     }
                 },
                 "roadUser": {
@@ -1088,13 +1225,16 @@
                         "rationale": "Maliciously triggering or disabling this logic can force the vehicle to swerve or fail to brake in emergencies."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A faulted active-safety application disables collision-avoidance/lane-keeping assistance until restored."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "This control logic does not process personal data."
                     }
                 }
             },
@@ -1118,27 +1258,34 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "Negligible",
+                        "rationale": "Tampered or deleted diagnostic logs can obscure recall-worthy fault patterns from the OEM’s post-market surveillance and root-cause analysis; the logs themselves do not enable an unsafe vehicle state."
                     },
                     "financial": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "Loss of diagnostic history complicates warranty adjudication and root-cause analysis, raising support costs."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Diagnostic logs are the OEM’s primary field-failure visibility channel; their loss or corruption degrades fleet health monitoring."
                     },
                     "privacy": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Diagnostic logs frequently capture PII fragments (location, device identifiers) that carry data-protection obligations for the OEM if exposed."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Diagnostic/log data has no pathway to a direct physical safety effect."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "Loss of diagnostic history can delay technicians in diagnosing a road user’s vehicle fault."
                     },
                     "privacy": {
                         "level": "Major",
@@ -1168,27 +1315,34 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Token compromise is reflected in OEM financial/operational/privacy exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Account-takeover incidents drive support costs, fraud liability, and customer-trust remediation."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Requires token revocation, forced re-authentication, and incident response across the affected user base."
                     },
                     "privacy": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Compromised bearer tokens grant access to the linked user’s account data and vehicle location history."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Token compromise enables unauthorized remote convenience commands (unlock, start) but has no pathway to a direct physical safety effect while the vehicle is in motion."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Account takeover can enable unauthorized remote unlock, facilitating theft of the vehicle or its contents."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Account takeover can lock the legitimate owner out of remote vehicle functions."
                     },
                     "privacy": {
                         "level": "Major",
@@ -1216,31 +1370,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Certificate compromise is reflected in OEM financial/operational exposure (false fleet data), not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Severe",
                         "rationale": "Compromising the certificate allows a threat actor to impersonate the vehicle to the cloud, injecting false fleet data."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Impersonation of vehicle identity can corrupt fleet telemetry and operational decision-making at the backend."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "This certificate authenticates the transport channel and does not itself carry personal data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "This certificate secures backend telemetry authentication and has no pathway to a direct physical safety effect."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Certificate compromise can disrupt cloud-dependent services (remote commands, OTA eligibility checks) for the affected vehicle."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "This certificate authenticates the transport channel and does not itself carry personal data."
                     }
                 }
             },
@@ -1266,31 +1427,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Registry compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Hijacked service discovery undermines the OEM’s SOA architecture fleet-wide, requiring urgent remediation and re-certification."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A corrupted registry can misroute inter-process calls across the platform, disrupting many dependent services at once."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The registry itself does not carry personal data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Severe",
-                        "rationale": "Hijacking the SOA registry allows routing safety-critical function calls to malicious ghost services."
+                        "level": "Moderate",
+                        "rationale": "Hijacking the registry can redirect service calls to a malicious endpoint, but a further step — that malicious service actually issuing harmful commands to a safety-critical function — is required before any physical effect occurs."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A corrupted registry can break inter-service communication the vehicle’s features depend on."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The registry itself does not carry personal data."
                     }
                 }
             },
@@ -1316,16 +1484,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Container-breakout compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "A container breakout can compromise co-hosted services, raising incident-response and remediation costs."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Breakout incidents require patching and redeployment of the affected container runtime fleet-wide."
                     },
                     "privacy": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "A breakout can expose data belonging to co-hosted services on the same host."
                     }
                 },
                 "roadUser": {
@@ -1334,13 +1506,16 @@
                         "rationale": "A breakout targets the host OS but remains isolated from physical vehicle control lines."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "A container breakout can disrupt the infotainment or telematics services running in the affected container."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "A container-level breakout targeting the host OS does not itself expose the affected service’s user data (captured under the underlying service assets)."
                     }
                 }
             },
@@ -1365,32 +1540,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Secret compromise is reflected in OEM financial/operational exposure (unauthorized flashing), not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Severe",
                         "rationale": "Extraction of UDS secrets allows unauthorized firmware flashing and parameter manipulation across the platform."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Extracted UDS secrets enable unauthorized diagnostic sessions fleet-wide, undermining the OEM’s ability to control who can modify ECU parameters."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The secret itself does not carry personal data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Severe",
-                        "rationale": "Allows an attacker to actuate brakes or alter steering calibrations while driving."
+                        "level": "Moderate",
+                        "rationale": "Extraction of these secrets grants privileged UDS diagnostic access, but actually altering brake or steering calibration requires a further, separate diagnostic-session exploitation step beyond obtaining the secret itself."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Unauthorized diagnostic access can alter ECU parameters, requiring dealer remediation to restore correct operation."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The secret itself does not carry personal data."
                     }
                 }
             },
@@ -1415,32 +1596,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "API-key compromise is a financial/operational exposure (billing abuse), not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Major",
                         "rationale": "Extraction of hardcoded API keys allows attackers to abuse OEM service quotas, causing massive unexpected cloud billing."
                     },
                     "operational": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "Abuse of leaked keys can force emergency key rotation across the affected service integration."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "These keys authenticate service calls and do not themselves carry personal data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Third-party service API keys have no pathway to a physical safety effect."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
                         "level": "Moderate",
                         "rationale": "Loss of service if the OEM revokes the compromised API key."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "These keys authenticate service calls and do not themselves carry personal data."
                     }
                 }
             },
@@ -1464,31 +1651,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Rolling-code compromise is reflected in OEM financial/reputational exposure (theft liability), not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Cloneable physical keys drive warranty claims and anti-theft system redesign costs."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "May require a fleet-wide rolling-code resynchronization or hardware update campaign."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The seed matrix is not tied to personal data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Rolling-code compromise enables theft but does not itself create a physical hazard for the occupant or other road users."
                     },
                     "financial": {
                         "level": "Severe",
                         "rationale": "Extracting or successfully predicting the seed values enables trivial cloning of physical keys, leading to vehicle theft."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Vehicle theft via key cloning results in complete loss of use of the vehicle."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The seed matrix is not tied to personal data."
                     }
                 }
             },
@@ -1514,30 +1708,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Root-certificate compromise is reflected in OEM financial/operational exposure (fleet-wide re-issuance), not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Compromise of the root of trust forces an emergency re-issuance/re-pinning campaign across the entire fleet."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Until re-pinned, every device trusting this root is exposed to accepting forged OEM-signed software."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The root certificate is a public trust anchor and carries no personal data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Severe"
+                        "level": "Moderate",
+                        "rationale": "Compromise of the root trust anchor could allow a forged certificate chain to make unauthorized firmware appear OEM-signed, but a further step — crafting, signing, and successfully delivering a malicious payload to a specific ECU — is required before any physical effect occurs."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of a trustworthy root anchor can block legitimate signature verification, halting updates for the affected vehicle."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The root certificate is a public trust anchor and carries no personal data."
                     }
                 }
             },
@@ -1562,31 +1764,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Billing-credential compromise is a financial/privacy exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Severe",
                         "rationale": "Credential theft enables widespread automated billing fraud."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Widespread billing fraud requires OEM/CPO reconciliation and credential-revocation campaigns."
                     },
                     "privacy": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Plug & Charge credentials are linkable to a specific vehicle/owner and reveal charging-location and billing history."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Billing-credential compromise enables charging fraud but has no pathway to a direct physical safety effect."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Credential theft can be used to charge sessions to the victim owner’s payment method without authorization."
                     },
                     "operational": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "Fraudulent use or revocation of compromised credentials can leave the owner temporarily unable to auto-authenticate at charging stations."
                     },
                     "privacy": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Charging session data reveals the vehicle owner’s location and travel patterns over time."
                     }
                 }
             },
@@ -1611,16 +1820,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Certificate compromise is reflected in OEM financial/operational exposure and road-user privacy risk, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Spoofed V2X messages traced to the OEM’s certificate chain expose it to liability and homologation scrutiny."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "A compromised pseudonym CA/issuance chain may require revocation and re-provisioning across the fleet."
                     },
                     "privacy": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Failure of the OEM’s pseudonym-issuance process can undermine the anonymity set for its entire fleet, not just one vehicle."
                     }
                 },
                 "roadUser": {
@@ -1629,10 +1842,12 @@
                         "rationale": "Spoofed V2X messages (phantom emergency vehicles, false collision warnings) can trigger sudden braking or evasive maneuvers causing accidents."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "V2X message spoofing does not directly disable the vehicle’s core operation."
                     },
                     "privacy": {
                         "level": "Severe",
@@ -1659,32 +1874,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "GNSS spoofing is reflected in OEM financial/operational liability exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Severe",
                         "rationale": "Collateral liability and brand damage stemming from mass ADAS misbehavior."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Widespread GNSS spoofing incidents can force a fleet-wide restriction of geofenced automated-driving features pending investigation."
                     },
                     "privacy": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Aggregated fleet positioning data is highly sensitive and subject to strict data-protection obligations."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Major",
-                        "rationale": "GNSS spoofing can trick geofenced ADAS features (e.g., highway pilot) into activating in dangerous, unsupported areas."
+                        "level": "Moderate",
+                        "rationale": "Spoofed GNSS position/time can cause a geofence-gated ADAS feature to evaluate an incorrect activation condition, but the feature’s own guard logic and the driver’s ability to override remain intervening factors before any physical effect occurs."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Loss of GNSS accuracy degrades or disables navigation and geofenced automated-driving features."
                     },
                     "privacy": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Live position data reveals the individual road user’s real-time location and travel patterns if exposed."
                     }
                 }
             },
@@ -1710,16 +1931,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "VPN/tunnel compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of the secure telemetry tunnel exposes backend systems to unauthorized access and forces emergency key rotation."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of the VPN tunnel disrupts the OEM’s fleet-wide backend connectivity for management and telemetry."
                     },
                     "privacy": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "The tunnel carries fleet telemetry that may include user and vehicle-linked data."
                     }
                 },
                 "roadUser": {
@@ -1728,13 +1953,16 @@
                         "rationale": "Compromise of telemetry may delay critical remote safety responses."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Loss of the secure tunnel disrupts cloud-dependent features for the affected vehicle."
                     },
                     "privacy": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "The tunnel carries the vehicle’s telemetry and could expose usage/location data if compromised."
                     }
                 }
             },
@@ -1757,17 +1985,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "Negligible",
+                        "rationale": "A falsified manifest can mask the persistent presence of a known-vulnerable component from OEM configuration audits, delaying a safety-relevant patch; the manifest itself does not actuate any function."
                     },
                     "financial": {
                         "level": "Major",
                         "rationale": "Tampering with manifests destroys configuration management, leading to costly fleet-wide audits and compliance failures."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of manifest integrity undermines the OEM’s ability to verify what software is actually running fleet-wide."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The manifest lists software components, not personal data."
                     }
                 },
                 "roadUser": {
@@ -1776,13 +2007,16 @@
                         "rationale": "Could allow a vulnerable component to persist, indirectly increasing safety risks over time."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "A corrupted manifest can cause update verification to fail, blocking legitimate updates for the affected vehicle."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The manifest lists software components, not personal data."
                     }
                 }
             },
@@ -1806,17 +2040,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Entitlement-token bypass is a financial/operational exposure (piracy), not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Severe",
                         "rationale": "Token extraction or bypass leads to massive piracy of post-sale recurring revenue streams."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Feature piracy requires OEM investment in stronger entitlement enforcement and potential retroactive feature lockout campaigns."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Entitlement tokens do not carry personal data."
                     }
                 },
                 "roadUser": {
@@ -1825,13 +2062,16 @@
                         "rationale": "Illegally activating unregulated performance features (like acceleration boosts) alters vehicle dynamics."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user from token misuse."
                     },
                     "operational": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "Illegitimately unlocked features may behave outside their validated operating envelope for that vehicle."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Entitlement tokens do not carry personal data."
                     }
                 }
             },
@@ -1856,32 +2096,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Certificate compromise is reflected in OEM financial/operational exposure (‘god mode’ fleet risk), not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Severe",
                         "rationale": "Loss of these certificates effectively gives threat actors 'god mode' over the entire vehicle fleet."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of these certificates undermines the OEM’s ability to restrict privileged diagnostic access to authorized parties fleet-wide."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The certificates authenticate diagnostic sessions and do not themselves carry personal data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Severe",
-                        "rationale": "Attackers with advanced diagnostic access can actuate physical safety systems remotely."
+                        "level": "Moderate",
+                        "rationale": "These certificates grant privileged diagnostic-tool access; actually reaching a physical safety system still requires a further step of issuing malicious diagnostic commands through that access, rather than the certificate itself producing any effect."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Unauthorized advanced diagnostic access can alter ECU configuration, requiring dealer remediation."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The certificates authenticate diagnostic sessions and do not themselves carry personal data."
                     }
                 }
             },
@@ -1907,31 +2153,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "HPC hardware compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of the central compute platform can idle production-representative validation and drive a costly hardware recall."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "The HPC aggregates multiple vehicle functions; its failure disrupts the OEM’s ability to guarantee fleet-wide platform availability."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The compute platform itself does not directly process personal data (that risk sits with the applications it hosts)."
                     }
                 },
                 "roadUser": {
                     "safety": {
                         "level": "Severe",
-                        "rationale": "The HPC aggregates multiple safety functions; its failure can cascade across braking, steering, and perception."
+                        "rationale": "As the consolidated/central compute platform, this asset directly hosts the braking, steering, and perception control loops as co-located processes rather than merely routing to them elsewhere — unlike a zone-specific hub or generic edge ECU whose function assignment is unspecified, compromising this platform is a direct failure of the safety software itself, not a further exploitation chain."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of the central compute platform disables every function it hosts (braking assist, steering assist, perception) simultaneously."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The compute platform itself does not directly process personal data."
                     }
                 }
             },
@@ -1955,16 +2208,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "ADAS hardware compromise is reflected in OEM financial/operational liability exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of ADAS compute hardware exposes the OEM to liability for disabled safety features and a likely hardware recall."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Requires immediate feature suspension across the fleet until the hardware fault is diagnosed and repaired."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The compute node itself does not directly process personal data."
                     }
                 },
                 "roadUser": {
@@ -1973,13 +2230,16 @@
                         "rationale": "Total loss or compromise of the ADAS hardware instantly disables autonomous driving capabilities and collision avoidance."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of the ADAS compute node disables all automated-driving and collision-avoidance features."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The compute node itself does not directly process personal data."
                     }
                 }
             },
@@ -2005,30 +2265,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Infotainment domain compromise is a financial/privacy exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Infotainment compromise drives warranty/service costs and potential data-breach liability."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Requires patching and potential feature suspension for the affected infotainment platform."
                     },
                     "privacy": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "The domain controller aggregates paired-device data, navigation history, and cloud-account credentials for the vehicle’s users."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Infotainment compromise, isolated to this domain, has no direct pathway to vehicle control functions."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user from infotainment compromise itself."
                     },
                     "operational": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "Infotainment compromise can disable navigation, media, or connected-app features for the affected vehicle."
                     },
                     "privacy": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "The domain controller stores the individual user’s paired-device data, navigation history, and personal media/account access."
                     }
                 }
             },
@@ -2055,16 +2323,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Gateway compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A compromised central gateway exposes every domain it connects, driving a platform-wide security remediation and potential recall."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "The gateway is the mandatory relay point between domains; its failure can isolate every non-local ECU from cross-domain communication."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The gateway forwards traffic and does not itself store personal data."
                     }
                 },
                 "roadUser": {
@@ -2073,13 +2345,16 @@
                         "rationale": "A compromised gateway can arbitrarily inject or block safety-critical messages moving between domains."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of the gateway disconnects domains from one another, disabling any function relying on cross-domain communication."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The gateway forwards traffic and does not itself store personal data."
                     }
                 }
             },
@@ -2104,17 +2379,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "BMS compromise is reflected in OEM financial/operational exposure (battery-fire liability), not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Severe",
                         "rationale": "Massive warranty costs and reputational destruction due to battery fires."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A safety-relevant BMS fault typically triggers an immediate fleet-wide charging restriction or stop-sale pending investigation."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "BMS control logic does not process personal data."
                     }
                 },
                 "roadUser": {
@@ -2123,13 +2401,16 @@
                         "rationale": "Compromise can bypass thermal runaway protections, leading directly to catastrophic battery fires and passenger injury."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A faulted BMS can force a reduced-power or immobilized state to protect the battery pack."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "BMS control logic does not process personal data."
                     }
                 }
             },
@@ -2154,16 +2435,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Actuation-command compromise is reflected in OEM financial/operational liability exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A demonstrated ability to spoof actuation commands exposes the OEM to severe product-liability and regulatory consequences."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Requires immediate investigation and potential stop-sale/recall of the affected platform."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "This traffic carries control setpoints, not personal data."
                     }
                 },
                 "roadUser": {
@@ -2172,13 +2457,16 @@
                         "rationale": "Spoofing or delaying these signals causes unintended acceleration, phantom braking, or loss of steering control."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Disrupting this traffic directly interferes with normal steering, braking, or acceleration response."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "This traffic carries control setpoints, not personal data."
                     }
                 }
             },
@@ -2203,17 +2491,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "Negligible",
+                        "rationale": "Masked or cleared DTCs can hide systemic component-failure patterns from OEM post-market surveillance, delaying recall action; the data itself has no direct physical safety effect."
                     },
                     "financial": {
                         "level": "Major",
                         "rationale": "Clearing or masking DTCs enables warranty fraud and hides systemic, fleet-wide component failures from the manufacturer."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Masked DTCs undermine the OEM’s field-quality monitoring and warranty-cost forecasting."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "DTC/OBD data reflects component health, not personal identity."
                     }
                 },
                 "roadUser": {
@@ -2222,13 +2513,16 @@
                         "rationale": "Suppressing a critical DTC prevents the driver from servicing a failing safety-critical component before it physically breaks."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user from DTC manipulation itself."
                     },
                     "operational": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "Masked DTCs can allow a developing mechanical fault to go unaddressed until it affects normal vehicle operation."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "DTC/OBD data reflects component health, not personal identity."
                     }
                 }
             },
@@ -2254,31 +2548,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Hub compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A design flaw in a zonal hub would require a fleet-wide hardware or firmware remediation campaign."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of a zonal hub drops all peripheral I/O for that physical zone across every affected vehicle."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The hub forwards sensor/actuator traffic and does not itself store personal data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Severe",
-                        "rationale": "Disabling or hijacking a single zonal hub drops all peripheral traffic for an entire quadrant of the vehicle, potentially blinding ADAS or dropping chassis controls."
+                        "level": "Moderate",
+                        "rationale": "This hub concentrates sensor/actuator traffic for one physical zone of the vehicle; disabling it drops that zone’s I/O, but whether the affected zone carries safety-critical (vs. body/comfort) signals is architecture-dependent — this is not uniformly a direct actuation path."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of a zonal hub disables all peripheral functions concentrated in that physical vehicle zone."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The hub forwards sensor/actuator traffic and does not itself store personal data."
                     }
                 }
             },
@@ -2302,31 +2603,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Edge-ECU compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A class-wide vulnerability in edge ECUs can require a large-scale re-flash or hardware campaign across many vehicle functions."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Loss of an edge ECU disables whatever single function it controls until repaired."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "A single-function edge ECU typically does not process personal data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Severe",
-                        "rationale": "Safety severity is highly dependent on whether this edge ECU commands powertrain, chassis, or body elements."
+                        "level": "Moderate",
+                        "rationale": "This asset represents the generic class of single-function edge ECUs used across all domains; the resulting safety effect is entirely dependent on whether the specific instance commands a powertrain/chassis function or a body/comfort one, so Severe cannot be assumed as the default for the class."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Loss of an edge ECU disables the specific function it controls (e.g., a body or comfort feature) until repaired."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "A single-function edge ECU typically does not process personal data."
                     }
                 }
             },
@@ -2349,32 +2657,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Timing-flow compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Severe",
                         "rationale": "Safety-related crashes due to deterministic network failures lead to massive liability."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of network-wide time synchronization can break deterministic task scheduling across every time-sensitive Ethernet service."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Timing data does not carry personal data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Major",
-                        "rationale": "Corrupted gPTP timestamps can cause SecOC authentication failures across the CAN network, disabling active safety system message authentication."
+                        "level": "Moderate",
+                        "rationale": "Corrupted timestamps can trigger SecOC authentication failures that cause safety messages to be dropped; this is a two-step mechanism (timing corruption, then a downstream authentication failure) rather than the timing data itself directly actuating any function."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of time synchronization can cause message-authentication failures that disable dependent vehicle functions."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Timing data does not carry personal data."
                     }
                 }
             },
@@ -2398,31 +2712,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Power-profile compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A demonstrated ability to cut power to vehicle systems exposes the OEM to liability and a likely recall of the affected power-distribution architecture."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Requires immediate investigation and potential stop-sale of the affected zonal power architecture."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Power-distribution configuration does not carry personal data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Severe",
-                        "rationale": "Maliciously modifying power configurations allows an attacker to cut supply currents to critical driving systems mid-transit."
+                        "level": "Moderate",
+                        "rationale": "Modifying this configuration requires prior write access to the eFuse control profile (via a separate compromised access path); once written, it can de-energize a downstream system, but the profile itself is a configuration data asset rather than the real-time actuation signal."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Miscut power configurations can disable any system connected to the affected eFuse channel."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Power-distribution configuration does not carry personal data."
                     }
                 }
             },
@@ -2448,31 +2769,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Calibration-data compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Tampered calibration data exposes the OEM to liability for out-of-spec vehicle behavior and a likely recall."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Requires re-validation and re-flashing of the affected ECU’s calibration set fleet-wide."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Calibration data does not carry personal data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Severe",
-                        "rationale": "Manipulating calibration maps can trigger uncommanded acceleration or blind safety sensors mid-transit."
+                        "level": "Moderate",
+                        "rationale": "Modifying calibration maps requires prior unauthorized write access (via a separate compromised diagnostic/flashing path); once altered, the new thresholds take effect on the next control cycle, but the calibration data itself is a stored parameter set, not the real-time actuation signal."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Altered calibration values can cause the vehicle to behave outside its validated operating envelope."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Calibration data does not carry personal data."
                     }
                 }
             },
@@ -2499,31 +2827,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Debug-token compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Leaked debug tokens undermine the OEM’s ability to gate low-level hardware access, exposing IP and enabling broad tampering."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Requires revocation and re-issuance of the debug-token infrastructure."
                     },
                     "privacy": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "The token-issuance server logs which units were debug-unlocked and by whom, a sensitive operational record."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Severe",
-                        "rationale": "Unlocking hardware debug lines enables full platform compromise, allowing an attacker to actuate driving functions."
+                        "level": "Moderate",
+                        "rationale": "These tokens unlock a physical debug interface; reaching a safety-relevant outcome requires a further, separate exploitation step through that now-open interface — the token itself does not actuate any function."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "An unlocked debug interface can be used to alter or brick the affected ECU."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The token itself does not carry the road user’s personal data."
                     }
                 }
             },
@@ -2549,31 +2884,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Key compromise is reflected in OEM financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of these keys defeats the OEM’s internal network segmentation design fleet-wide, requiring an emergency re-keying campaign."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Requires re-provisioning of authentication keys across every affected ECU."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "These keys authenticate network traffic and do not themselves carry personal data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Severe",
-                        "rationale": "Extraction of these keys completely defeats internal network segmentation, allowing an attacker to seamlessly spoof safety-critical powertrain or chassis messages."
+                        "level": "Moderate",
+                        "rationale": "Extraction of these keys removes the cryptographic barrier to spoofing intra-vehicle traffic, but the attacker must still separately craft and inject the malicious powertrain/chassis message before any physical effect occurs."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of key integrity can cause legitimate authenticated traffic to be rejected, disabling dependent functions."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "These keys authenticate network traffic and do not themselves carry personal data."
                     }
                 }
             },
@@ -2599,28 +2941,34 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Rogue-CA injection is reflected in OEM financial/operational exposure (fleet-wide MITM), not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Severe",
                         "rationale": "Rogue CA injection enables fleet-wide MITM attacks on TLS connections, allowing interception of OTA, V2C, and diagnostic sessions with massive financial and safety consequences."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A rogue CA can intercept OTA, V2C, and diagnostic sessions fleet-wide, forcing an emergency trust-store remediation."
                     },
                     "privacy": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "A rogue CA enables interception of TLS traffic carrying user and vehicle data."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "A rogue CA enables traffic interception but has no pathway to a direct physical safety effect on its own."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user from CA-store compromise itself."
                     },
                     "operational": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "A rogue CA can disrupt or intercept the affected vehicle’s TLS-dependent cloud services."
                     },
                     "privacy": {
                         "level": "Severe",
@@ -2649,16 +2997,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "VCU compromise is reflected in OEM financial/operational liability exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A demonstrated VCU compromise exposes the OEM to severe product-liability claims and a likely recall."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Requires immediate investigation and potential stop-sale of the affected powertrain platform."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "VCU control logic does not process personal data."
                     }
                 },
                 "roadUser": {
@@ -2667,13 +3019,16 @@
                         "rationale": "Compromise of VCU logic causes uncommanded acceleration, immediate loss of propulsion, or destruction of the drivetrain."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A faulted VCU can cause loss of propulsion or an unrequested drivetrain state."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "VCU control logic does not process personal data."
                     }
                 }
             },
@@ -2698,16 +3053,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Chassis control compromise is reflected in OEM financial/operational liability exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A demonstrated ABS/ESP compromise exposes the OEM to severe product-liability claims and a likely recall."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Requires immediate investigation and potential stop-sale of the affected chassis platform."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Chassis control logic does not process personal data."
                     }
                 },
                 "roadUser": {
@@ -2716,13 +3075,16 @@
                         "rationale": "Tampering with this software disables braking capabilities or causes erratic, asymmetrical braking forcing a loss of vehicle control."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A faulted stability-control system can disable ABS/ESP assistance the driver relies on."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Chassis control logic does not process personal data."
                     }
                 }
             },
@@ -2747,30 +3109,38 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Routing-daemon compromise is a financial/operational exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Loss of the routing daemon disrupts cloud command delivery, affecting revenue-generating connected services."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Loss of the routing daemon severs the OEM’s command-and-telemetry path into the vehicle fleet."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The daemon routes commands and telemetry; the sensitive data itself is captured under the relevant data assets it carries."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "This daemon routes cloud commands into the vehicle network; it is a relay for remote convenience functions with no direct physical safety pathway of its own."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Loss of the routing daemon disables remote convenience commands (remote start, lock/unlock) for the affected vehicle."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The daemon routes commands and telemetry rather than storing personal data itself."
                     }
                 }
             },
@@ -2795,16 +3165,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "CAN-flow compromise is reflected in OEM financial/operational liability exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A demonstrated ability to inject/spoof CAN traffic exposes the OEM to severe product-liability and regulatory consequences."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Requires immediate investigation and potential stop-sale of the affected platform’s network architecture."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "CAN traffic carries operational/control data, not personal data, in this pathway."
                     }
                 },
                 "roadUser": {
@@ -2813,13 +3187,16 @@
                         "rationale": "Injecting or starving CAN frames can directly manipulate kinetic actuators or blind the vehicle's internal state monitoring."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Injected or starved CAN frames can disrupt normal operation of any system on the affected bus segment."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "CAN traffic carries operational/control data, not personal data, in this pathway."
                     }
                 }
             },
@@ -2845,16 +3222,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Ethernet-backbone compromise is reflected in OEM financial/operational liability exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A demonstrated ability to disrupt the Ethernet backbone exposes the OEM to severe product-liability and regulatory consequences."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Requires immediate investigation and potential stop-sale of the affected zonal/HPC architecture."
                     },
                     "privacy": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "The backbone carries SOA payloads and sensor data that may include user- or vehicle-linked identifiers."
                     }
                 },
                 "roadUser": {
@@ -2863,13 +3244,16 @@
                         "rationale": "Flooding the Ethernet backbone prevents ADAS perception data from reaching decision nodes, blinding autonomous systems."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Flooding or disrupting the backbone can disable any Ethernet-dependent function, including perception and infotainment."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "This flow carries operational sensor/control data, not personal data, in this pathway."
                     }
                 }
             },
@@ -2893,14 +3277,16 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Backend misconfiguration is a financial/operational/privacy exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Severe",
                         "rationale": "Misconfiguration allows Denial of Wallet attacks (autoscaling exhaustion) or fleet-wide API scraping."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Misconfigured routing or rate limits can take down backend services fleet-wide."
                     },
                     "privacy": {
                         "level": "Severe",
@@ -2909,16 +3295,20 @@
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Backend configuration governs cloud services rather than vehicle control, so it has no pathway to a direct physical safety effect."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Backend disruption can degrade or disable the cloud-dependent features (remote start, navigation) the road user relies on."
                     },
                     "privacy": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Backend misconfiguration can expose the individual road user’s account and telemetry data to unauthorized endpoints."
                     }
                 }
             },
@@ -2944,17 +3334,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Sensor compromise is reflected in OEM financial/operational liability exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Severe",
                         "rationale": "Sensor array compromise requires fleet-wide sensor firmware updates or hardware replacement with significant warranty and recall cost exposure."
                     },
                     "operational": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "Sensor faults typically require dealer recalibration or replacement of the affected unit."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Raw sensor hardware output is not linked to personal identity in this pathway."
                     }
                 },
                 "roadUser": {
@@ -2963,13 +3356,16 @@
                         "rationale": "Compromised or spoofed sensors can cause the vehicle to misinterpret obstacles, leading to collisions."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "Spoofed or degraded sensor input disables or restricts ADAS features for the affected vehicle."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Raw sensor hardware output is not linked to personal identity in this pathway."
                     }
                 }
             },
@@ -2994,16 +3390,20 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Actuator compromise is reflected in OEM financial/operational liability exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "A demonstrated actuator-level compromise exposes the OEM to product-liability claims and a hardware recall."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A demonstrated actuator-level compromise exposes the OEM to an immediate stop-sale/recall of the affected hardware."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Electromechanical actuators do not process personal data."
                     }
                 },
                 "roadUser": {
@@ -3012,13 +3412,16 @@
                         "rationale": "Unauthorized manipulation of acceleration, braking, or steering actuators directly results in fatal vehicle behavior."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Manipulated actuator behavior directly disrupts normal throttle, brake, or steering response."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Electromechanical actuators do not process personal data."
                     }
                 }
             },
@@ -3043,28 +3446,34 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Microphone/camera compromise is a privacy exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Major",
                         "rationale": "Regulatory fines for privacy violations."
                     },
                     "operational": {
-                        "level": "Moderate"
+                        "level": "Moderate",
+                        "rationale": "Requires incident response and potential feature disablement pending a fix."
                     },
                     "privacy": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "Unauthorized microphone/camera access captures highly sensitive in-cabin audio/video of occupants."
                     }
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Eavesdropping via cabin microphones/cameras has no pathway to a physical safety effect."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct effect on vehicle operation."
                     },
                     "privacy": {
                         "level": "Severe",
@@ -3098,7 +3507,8 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "TCU compromise is reflected in OEM financial/operational/privacy exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Severe",
@@ -3119,7 +3529,8 @@
                         "rationale": "TCU is not directly in the control path but provides a remote attack surface that, when chained with CGW vulnerabilities, can reach safety ECUs."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user from TCU compromise itself."
                     },
                     "operational": {
                         "level": "Major",
@@ -3156,7 +3567,8 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Physical diagnostic access is reflected in OEM financial/operational exposure (IP theft, tuning), not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Severe",
@@ -3173,8 +3585,8 @@
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Major",
-                        "rationale": "Vehicle theft, ECU manipulation, or disabling safety systems via the OBD port directly endangers the driver and road users."
+                        "level": "Moderate",
+                        "rationale": "This is a physical access point; reaching a safety-relevant outcome (disabling a safety system, injecting malicious commands) requires a further exploitation step through the exposed protocols (UDS/JTAG/CAN) once physical access is obtained — the port itself does not actuate any function."
                     },
                     "financial": {
                         "level": "Severe",
@@ -3214,7 +3626,8 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "IDS/IPS compromise is reflected in OEM financial/operational exposure (loss of detection capability), not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Major",
@@ -3235,14 +3648,16 @@
                         "rationale": "IDS failure is not immediately safety-impacting but removes detection of in-progress attacks that may escalate to safety-critical systems."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
                         "level": "Moderate",
                         "rationale": "Indirect impact through reduced security posture; direct operational impact on the driver is minimal."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The IDS processes network traffic but does not itself expose the individual road user’s personal data."
                     }
                 }
             }
@@ -3272,7 +3687,8 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "DMS compromise is reflected in OEM financial/operational/privacy exposure, not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Major",
@@ -3289,10 +3705,12 @@
                 },
                 "roadUser": {
                     "safety": {
-                        "level": "Major"
+                        "level": "Major",
+                        "rationale": "DMS is the primary sensor for detecting driver drowsiness, distraction, or impairment that gates L2+ automated-driving safety interventions; spoofing or disabling it directly removes that detection function while the system continues to assume normal driver engagement."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
                         "level": "Moderate",
@@ -3325,7 +3743,8 @@
             "impact": {
                 "oem": {
                     "safety": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "Bitstream compromise is reflected in OEM financial/operational exposure (IP theft, counterfeiting), not a direct physical safety effect on the OEM."
                     },
                     "financial": {
                         "level": "Severe",
@@ -3336,7 +3755,8 @@
                         "rationale": "Cloning of the bitstream enables counterfeit hardware production that bypasses OEM supply chain controls."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The bitstream is hardware configuration logic and does not carry personal data."
                     }
                 },
                 "roadUser": {
@@ -3345,13 +3765,16 @@
                         "rationale": "Modification of the radar or LiDAR preprocessing bitstream corrupts sensor pipeline outputs at the gate level, ahead of any software-layer sanity checks or redundancy mechanisms."
                     },
                     "financial": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "No direct financial exposure to the individual road user."
                     },
                     "operational": {
-                        "level": "Severe"
+                        "level": "Severe",
+                        "rationale": "A corrupted bitstream degrades sensor-fusion input quality, restricting or disabling the ADAS features that depend on it."
                     },
                     "privacy": {
-                        "level": "None"
+                        "level": "None",
+                        "rationale": "The bitstream is hardware configuration logic and does not carry personal data."
                     }
                 }
             },
