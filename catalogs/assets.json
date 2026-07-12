@@ -344,7 +344,7 @@
         {
             "id": "A.007",
             "name": "Automated Driving Trajectory Planning Algorithm",
-            "description": "Decision-making application binaries that ingest sensor fusion telemetry and output core dynamic lateral and longitudinal vehicle control matrices.",
+            "description": "Decision-making application binaries that ingest sensor fusion telemetry and output the lateral and longitudinal control setpoints sent to actuation.",
             "metadata": [
                 "App / Service",
                 "RTOS",
@@ -401,7 +401,7 @@
         {
             "id": "A.008",
             "name": "OTA Update Orchestration Middleware",
-            "description": "Software lifecycle middleware coordinating package download, security verification, signature verification, and flashing choreography across targeting sub-buses.",
+            "description": "Software lifecycle middleware coordinating package download, integrity and signature verification, and flashing choreography across target ECUs and sub-buses.",
             "metadata": [
                 "Flash / RAM / EEPROM",
                 "Middleware",
@@ -627,7 +627,7 @@
         {
             "id": "A.012",
             "name": "OEM & Fleet Operations Back-End API Interface",
-            "description": "Web service gateway patterns allowing the vehicle platform to exchange operational metrics, state configurations, and remote orchestration events with cloud structures.",
+            "description": "Web service gateway (REST/gRPC API) through which the vehicle platform exchanges operational metrics, state configuration, and remote orchestration commands with OEM backend infrastructure.",
             "metadata": [
                 "gRPC / REST",
                 "App / Service",
@@ -797,7 +797,7 @@
         {
             "id": "A.015",
             "name": "Vehicle Immobilization Cryptographic Secret",
-            "description": "Pre-shared master keys or security parameters validated across local coordination boundaries prior to authorizing powertrain system loop activation.",
+            "description": "Pre-shared master keys or security parameters that the immobilizer validates against the key transponder before authorizing powertrain (engine/motor) activation.",
             "metadata": [
                 "HSM / SHE",
                 "Symmetric Keys",
@@ -908,8 +908,8 @@
         },
         {
             "id": "A.017",
-            "name": "Low-Speed Serial Local Interconnect Network (LIN) Bus Data Flow",
-            "description": "Low-frequency master-slave communication interactions managing peripheral interface monitoring, mechanical switches, and window/panel status states.",
+            "name": "LIN Bus Data Flow",
+            "description": "Low-speed, master-slave bus traffic carrying switch, mirror, window, and panel status signals between body-domain nodes.",
             "metadata": [
                 "LIN",
                 "Transceiver / PHY",
@@ -963,7 +963,7 @@
         {
             "id": "A.018",
             "name": "Driver Information Display Rendering Application",
-            "description": "High-priority graphic execution space responsible for rendering vital telemetry arrays (speedometer telemetry, active indicators, power levels) onto vehicle display blocks.",
+            "description": "High-priority graphics application responsible for rendering critical vehicle state information — speed, warning indicators, and power/charge levels — onto the instrument cluster and other vehicle displays.",
             "metadata": [
                 "HDMI / DisplayPort",
                 "App / Service",
@@ -1021,7 +1021,7 @@
         {
             "id": "A.019",
             "name": "Safety-Critical Telltale & Warning Signal Flow",
-            "description": "High-priority vehicle metric network traffic carrying structural fault markers, malfunction indicator states, and dynamic restraint statuses across architectural boundaries.",
+            "description": "High-priority network traffic carrying safety telltale, malfunction-indicator, and restraint-system status signals across architectural domain boundaries.",
             "metadata": [
                 "Middleware",
                 "CAN / CAN-FD / CAN-XL",
@@ -1467,7 +1467,7 @@
         {
             "id": "A.027",
             "name": "Containerized Service Encapsulation Profile",
-            "description": "Encapsulated user-space computing instances (e.g., Docker, LXC) isolating infotainment or telematics software services from the core hypervisor/kernel layers.",
+            "description": "Encapsulated user-space computing instances (e.g., Docker, LXC) isolating infotainment or telematics software services from each other while sharing the underlying host OS kernel.",
             "metadata": [
                 "Hypervisor",
                 "Container",
@@ -2136,7 +2136,7 @@
         {
             "id": "A.039",
             "name": "Central High-Performance Compute (HPC) Platform",
-            "description": "Physical core compute hardware engine housing multi-core asymmetric SoCs, neural processing blocks, and high-speed switching fabrics characteristic of modern Zonal and Consolidated Domain layouts.",
+            "description": "Physical core compute hardware engine housing multi-core asymmetric SoCs, neural processing blocks, and high-speed switching fabrics that consolidate braking, steering, and perception control loops as co-located processes on a single platform, characteristic of modern Zonal and Consolidated Domain architectures.",
             "metadata": [
                 "SoC",
                 "HPC / Zonal Controller",
@@ -2752,7 +2752,7 @@
         {
             "id": "A.050",
             "name": "ECU Calibration Data and Performance Maps",
-            "description": "Dynamic lookup tables and mechanical alignment boundary constraints flashed during servicing or manufacturing. Manages physical thresholds like engine torque output patterns or camera dead-zone pixels.",
+            "description": "Dynamic lookup tables and calibration threshold values flashed during servicing or manufacturing, defining physical operating limits such as engine torque output curves or camera dead-zone pixel boundaries.",
             "metadata": [
                 "XCP / CCP",
                 "Sensor / Actuator",
@@ -3374,7 +3374,7 @@
         {
             "id": "A.061",
             "name": "Powertrain & Chassis Electromechanical Actuators",
-            "description": "Physical edge hardware components (e.g., electronic throttle bodies, brake calipers, steering motors) responsible for actualizing vehicle movement commands.",
+            "description": "Physical edge hardware components (e.g., electronic throttle bodies, brake calipers, steering motors) responsible for actuating vehicle movement commands.",
             "metadata": [
                 "Sensor / Actuator",
                 "Transceiver / PHY",
@@ -3430,7 +3430,7 @@
         {
             "id": "A.062",
             "name": "In-Cabin Microphones & Multimedia Capture Devices",
-            "description": "Physical multimedia peripherals used for voice commands, hands-free calling, and driver monitoring systems.",
+            "description": "Physical multimedia peripherals used for voice commands, hands-free calling, and video conferencing.",
             "metadata": [
                 "Audio Jacks / A2B",
                 "Sensor / Actuator",
@@ -3545,7 +3545,7 @@
         },
         {
             "id": "A.064",
-            "name": "Physical Diagnostic Access Interface (OBD-II Port / JTAG / Debug Pads)",
+            "name": "Physical Diagnostic Access Interface",
             "description": "Physical connectors and test pads providing direct wired access to vehicle networks and ECU debug interfaces. Includes the standardized OBD-II Data Link Connector (DLC), JTAG/SWD boundary-scan pads, and UART console interfaces exposed on PCBs. Primary vector for physical-proximity attacks.",
             "class": "Interface",
             "domain": "External",
@@ -3783,7 +3783,7 @@
         {
             "id": "A.068",
             "name": "Event Data Recorder (EDR) / Crash Data Recorder",
-            "description": "Dedicated, tamper-evident non-volatile storage module that captures a fixed pre-crash and post-crash data snapshot — vehicle speed, throttle/brake application, seatbelt status, airbag/restraint deployment, and steering angle — triggered once a crash-severity threshold is met (e.g., a longitudinal or lateral velocity change exceeding 8 km/h within 150 ms, or non-reversible restraint deployment). Once a locking event is recorded, the data is protected against overwrite for the legally mandated retention window and must remain retrievable after an impact of the severity addressed by UN Regulations Nos. 94/95/137. Used for post-incident forensic reconstruction and liability determination under UN R160 (light vehicles), UN R169/EU 2024/2220 (heavy vehicles), and 49 CFR Part 563 (United States). Explicitly named as a tampering target in T.03.1 (Audit Log Tampering and Evasion).",
+            "description": "Dedicated, tamper-evident non-volatile storage module that captures a fixed pre-crash and post-crash data snapshot — vehicle speed, throttle/brake application, seatbelt status, airbag/restraint deployment, and steering angle — triggered once a crash-severity threshold is met (e.g., a longitudinal or lateral velocity change exceeding 8 km/h within 150 ms, or non-reversible restraint deployment). Once a locking event is recorded, the snapshot is protected against overwrite for the legally mandated retention window, supporting post-incident forensic reconstruction and liability determination — and is consequently a frequent target for tampering to conceal fault evidence.",
             "class": "Memory",
             "domain": "*",
             "metadata": [
@@ -3841,7 +3841,7 @@
         {
             "id": "A.069",
             "name": "EV Charging Communication Controller (EVCC)",
-            "description": "Vehicle-side compute module implementing the ISO 15118 communication stack: the SLAC (Signal Level Attenuation Characterization) matching procedure that pairs the vehicle to a specific charging outlet over HomePlug GreenPHY power-line communication, the TLS/PKI-secured session negotiation with the charging station's SECC (Supply Equipment Communication Controller), and the higher-layer V2G/ISO 15118-20 message exchange — charging-parameter negotiation, Plug & Charge authentication, and bidirectional V2G power scheduling. Relays negotiated charging commands and authorization state to the Battery Management System (BMS) and Vehicle Control Unit (VCU). Distinct from A.032 (EVSE Plug & Charge Billing Credentials), which models only the cryptographic contract-certificate artifact; the EVCC is the compute platform that terminates the protocol and enforces — or fails to enforce — what those credentials authorize.",
+            "description": "Vehicle-side compute module implementing the ISO 15118 communication stack: the SLAC (Signal Level Attenuation Characterization) matching procedure that pairs the vehicle to a specific charging outlet over HomePlug GreenPHY power-line communication, the TLS/PKI-secured session negotiation with the charging station's SECC (Supply Equipment Communication Controller), and the higher-layer V2G/ISO 15118-20 message exchange — charging-parameter negotiation, Plug & Charge authentication, and bidirectional V2G power scheduling. Relays negotiated charging commands and authorization state to the Battery Management System (BMS) and Vehicle Control Unit (VCU).",
             "class": "Compute",
             "domain": "Powertrain",
             "metadata": [
@@ -3899,7 +3899,7 @@
         {
             "id": "A.070",
             "name": "Infotainment USB/Media Port (Physical Interface)",
-            "description": "The physical USB-A/USB-C receptacle(s) in the cabin and the associated host-side media-handling stack: mass-storage and MTP device drivers, the automatic media/file parsers invoked on insertion, and wired CarPlay/Android Auto accessory-mode negotiation. Also serves as the dealer/technician firmware-loading interface for infotainment software updates in some architectures. As a physically exposed, driver/passenger-accessible port with no inherent trust boundary on what is plugged in, it is the entry point named by T.09.4 (Exploit Via Removable Media) and T.19.6 (Removable Media).",
+            "description": "The physical USB-A/USB-C receptacle(s) in the cabin and the associated host-side media-handling stack: mass-storage and MTP device drivers, the automatic media/file parsers invoked on insertion, and wired CarPlay/Android Auto accessory-mode negotiation. Also serves as the dealer/technician firmware-loading interface for infotainment software updates in some architectures. As a physically exposed, driver/passenger-accessible port with no inherent trust boundary on what is plugged in, it is a primary vector for removable-media attacks.",
             "class": "Interface",
             "domain": "Infotainment",
             "metadata": [
@@ -3956,7 +3956,7 @@
         {
             "id": "A.071",
             "name": "V2X On-Board Unit (OBU)",
-            "description": "Dedicated V2X radio module — a DSRC (IEEE 802.11p) and/or C-V2X (3GPP PC5 sidelink) chipset, an application processor running the V2X message stack (BSM/CAM generation and validation), a positioning co-processor, an IEEE 1609.2/ETSI TS 103 097 security co-processor performing pseudonym-certificate signing and verification, and a dedicated 5.9 GHz antenna — that transmits and receives V2X safety messages (collision warnings, intersection movement assist, road-hazard signaling) to and from other vehicles and roadside infrastructure. Distinct from A.033 (V2X Cooperative ITS Pseudonym Certificates), which is the cryptographic artifact the OBU consumes and produces, and from A.063 (Telematics Control Unit Hardware Platform), whose metadata is scoped to Cellular/GNSS and does not cover the dedicated 802.11p/PC5 radio chain.",
+            "description": "Dedicated V2X radio module — a DSRC (IEEE 802.11p) and/or C-V2X (3GPP PC5 sidelink) chipset, an application processor running the V2X message stack (BSM/CAM generation and validation), a positioning co-processor, an IEEE 1609.2/ETSI TS 103 097 security co-processor performing pseudonym-certificate signing and verification, and a dedicated 5.9 GHz antenna — that transmits and receives V2X safety messages (collision warnings, intersection movement assist, road-hazard signaling) to and from other vehicles and roadside infrastructure.",
             "class": "Compute",
             "domain": "Telematics",
             "metadata": [
@@ -4014,7 +4014,7 @@
         {
             "id": "A.072",
             "name": "Digital Key UWB/BLE Ranging Anchor Module",
-            "description": "The in-cabin and exterior array of Ultra-Wideband (IEEE 802.15.4z / Car Connectivity Consortium Digital Key 3.0) anchor radios, together with the BLE radios used for initial connection and out-of-band pairing, that perform time-of-flight distance measurement to physically localize and authenticate the proximity of a paired smartphone or digital key credential before authorizing PEPS-style unlock and engine start. This is the ranging hardware itself — the antennas, UWB transceivers, and time-of-flight measurement logic — distinct from A.004 (Vehicle Access Authorization Token), the cryptographic session artifact those distance measurements gate.",
+            "description": "The in-cabin and exterior array of Ultra-Wideband (IEEE 802.15.4z / Car Connectivity Consortium Digital Key 3.0) anchor radios, together with the BLE radios used for initial connection and out-of-band pairing, that perform time-of-flight distance measurement to physically localize and authenticate the proximity of a paired smartphone or digital key credential before authorizing PEPS-style unlock and engine start.",
             "class": "Peripheral",
             "domain": "Body",
             "metadata": [
