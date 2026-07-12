@@ -1753,7 +1753,7 @@
                 "gRPC / REST",
                 "PKI / Certificates",
                 "ISO 15118 / OCPP",
-                "EVSE Plug"
+                "EVSE Plug / Wireless Charging"
             ],
             "domain": "External",
             "cybersecurityProperties": [
@@ -1975,7 +1975,8 @@
             "metadata": [
                 "Config / Calibration File",
                 "HSM / SHE",
-                "Hashes"
+                "Hashes",
+                "SBOM / Software Composition"
             ],
             "domain": "*",
             "cybersecurityProperties": [
@@ -3323,7 +3324,8 @@
                 "Transceiver / PHY",
                 "SerDes",
                 "mmWave",
-                "PCIe"
+                "PCIe",
+                "LiDAR / Radar / Camera"
             ],
             "domain": "ADAS",
             "cybersecurityProperties": [
@@ -3847,7 +3849,7 @@
                 "ISO 15118 / OCPP",
                 "TLS / DTLS",
                 "PKI / Certificates",
-                "EVSE Plug",
+                "EVSE Plug / Wireless Charging",
                 "MCU"
             ],
             "cybersecurityProperties": [

@@ -905,7 +905,7 @@
             ],
             "metadata": [
                 "ISO 15118 / OCPP",
-                "EVSE Plug",
+                "EVSE Plug / Wireless Charging",
                 "TLS / DTLS",
                 "PKI / Certificates",
                 "Asymmetric Keys",
@@ -3442,7 +3442,7 @@
             ],
             "metadata": [
                 "ISO 15118 / OCPP",
-                "EVSE Plug",
+                "EVSE Plug / Wireless Charging",
                 "LF / RF",
                 "Transceiver / PHY"
             ],
@@ -5580,7 +5580,8 @@
             ],
             "metadata": [
                 "Bootloader",
-                "App / Service"
+                "App / Service",
+                "SBOM / Software Composition"
             ],
             "unitedNationsRegulation155": [
                 "27.1"
