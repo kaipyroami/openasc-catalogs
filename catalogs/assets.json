@@ -4066,6 +4066,65 @@
                 }
             },
             "notes": "Distinct from A.004 (Vehicle Access Authorization Token), the cryptographic session artifact these ranging measurements gate."
+        },
+        {
+            "id": "A.073",
+            "name": "In-Cabin Conversational AI / LLM Copilot Interface",
+            "description": "An in-cabin, large-language-model-based voice/chat assistant integrated with vehicle functions (climate control, navigation, messaging, remote-start) via tool-calling/function-calling access that lets it invoke real vehicle commands based on natural-language user intent. Ingests external context — web search results it retrieves on the user's behalf, calendar entries, navigation POI descriptions, and received messages — as part of forming its responses. Distinct from the perception/ADAS machine-learning models hosted on A.040 (tagged `ML Model / Weights`): this is an agentic, tool-calling conversational system that reasons over natural language and unstructured external content to decide which vehicle functions to invoke, not a passive inference model operating on sensor tensors.",
+            "class": "Executable",
+            "domain": "Infotainment",
+            "partOf": "A.041",
+            "metadata": [
+                "LLM / Conversational AI",
+                "App / Service",
+                "gRPC / REST",
+                "Cellular",
+                "Tokens / API Keys"
+            ],
+            "cybersecurityProperties": [
+                "Confidentiality",
+                "Integrity",
+                "Authenticity"
+            ],
+            "impact": {
+                "oem": {
+                    "safety": {
+                        "level": "None",
+                        "rationale": "Per the catalog's OEM-safety methodology, whatever safety-adjacent exposure the OEM carries from a compromised copilot is a consequence of road-user harm, expressed monetarily below (financial/operational) — the OEM itself has no direct physical safety state a compromise can affect."
+                    },
+                    "financial": {
+                        "level": "Major",
+                        "rationale": "A demonstrated prompt-injection exploit that unlocks vehicles or exfiltrates conversation data at scale carries significant liability, recall, and reputational exposure, comparable to other Fleet-Wide-reachable Infotainment-domain compromises."
+                    },
+                    "operational": {
+                        "level": "Major",
+                        "rationale": "Responding to a disclosed jailbreak/injection technique typically forces urgent guardrail patches, tightened tool-calling permission scopes, or temporary suspension of the assistant's vehicle-control functions fleet-wide."
+                    },
+                    "privacy": {
+                        "level": "Moderate",
+                        "rationale": "Conversation transcripts and the external content the assistant ingests (calendar entries, messages) may be logged for model improvement or support, carrying data-protection obligations for the OEM or its LLM backend provider."
+                    }
+                },
+                "roadUser": {
+                    "safety": {
+                        "level": "Moderate",
+                        "rationale": "The assistant's tool-calling can directly actuate door-unlock, climate, and messaging functions without a further exploitation chain, which is a real safety-adjacent risk (e.g. unexpected unlock or distraction while driving). It is rated Moderate rather than Severe because none of its exposed functions reach braking, steering, or powertrain control loops — consistent with how this catalog calibrates other indirect/non-control-loop actuation risks."
+                    },
+                    "financial": {
+                        "level": "Major",
+                        "rationale": "A manipulated assistant that unlocks the vehicle enables theft, and one that sends messages or triggers purchases/subscriptions on the user's behalf enables fraud, both with direct cost to the owner."
+                    },
+                    "operational": {
+                        "level": "Moderate",
+                        "rationale": "Unwanted actions (an unintended unlock, a sent message, a changed climate/navigation setting) disrupt normal use and erode trust in the assistant, without disabling the vehicle itself."
+                    },
+                    "privacy": {
+                        "level": "Severe",
+                        "rationale": "The assistant's conversation history routinely reflects highly personal content — calendar entries, message contents, location intent, and habits inferred from natural-language requests — whose exfiltration is a severe, direct privacy exposure to the individual user."
+                    }
+                }
+            },
+            "notes": "Hosted on A.041 (Cockpit / Infotainment Domain Controller). Relies on A.062 (In-Cabin Microphones) for voice input and A.029 (Third-Party API Keys & Service Credentials) for the outbound calls it makes to external services (web search, navigation POI lookups). Deliberately excludes the `ML Model / Weights` metadata tag to keep this asset distinct from A.040's perception/ADAS inference models — see T.01.14 (LLM/Conversational AI Prompt Injection) for the primary threat this asset introduces."
         }
     ]
 }

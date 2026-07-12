@@ -88,6 +88,7 @@
                     "ML Model / Weights",
                     "Config / Calibration File",
                     "SBOM / Software Composition",
+                    "LLM / Conversational AI",
                     "HSM / SHE",
                     "TEE",
                     "TPM / SE",

@@ -73,10 +73,10 @@ To support automated threat modeling and graph-based attack path analysis withou
 
 This taxonomy abstracts away hyper-specific technologies into 8 core functional classes, allowing engineers to model legacy E/E architectures, modern Software-Defined Vehicles (SDVs), Advanced Hardware Fault Injection, and Post-Quantum Cryptography (PQC) threats using a single, unified mathematical logic.
 
-This is known internally as the **$8 \times 8 \times 8 \times 88$ Matrix**.
+This is known internally as the **$8 \times 8 \times 8 \times 88$ Matrix** (the metadata dictionary has since grown to 89 tags — see §4 — without changing the name of this structural motif).
 
 * **The Structure ($8 \times 8 \times 8$):** A strictly controlled syntax formatted as **`Action:Class:Domain`**. This mathematically guarantees that graph routing algorithms resolve without infinite loops, allowing legacy ICE architectures and modern SDVs to be modeled with the exact same math. `Domain` additionally accepts a reserved wildcard (`*`) for platform-level capabilities that are not bound to a single domain — see §3 below for matching semantics.
-* **The Payload ($88$ Tags):** An array of curated Engineering Metadata Tags (`metadata: string[]`). This brings the graph back to engineering reality by specifying the exact protocol, hardware, or mechanism involved (e.g., separating a generic "Network Inject" into specific `[CAN-FD]` vs `[Automotive Ethernet]` vectors).
+* **The Payload (89 Tags):** An array of curated Engineering Metadata Tags (`metadata: string[]`). This brings the graph back to engineering reality by specifying the exact protocol, hardware, or mechanism involved (e.g., separating a generic "Network Inject" into specific `[CAN-FD]` vs `[Automotive Ethernet]` vectors).
 
 ### 1. ALLOWED ACTIONS (The Verbs)
 
@@ -120,18 +120,18 @@ The action list relies on exactly 8 mutually exclusive attacker operations. This
 
 ### 4. ALLOWED METADATA (The Engineering Payload)
 
-When defining an Asset, Threat, or Control in the JSON catalogs, engineers must apply the relevant metadata from this $88$-item curated dictionary to ensure AI and UI filters resolve accurately.
+When defining an Asset, Threat, or Control in the JSON catalogs, engineers must apply the relevant metadata from this 89-item curated dictionary to ensure AI and UI filters resolve accurately.
 
 * **1. In-Vehicle Networking (IVN)**: `CAN / CAN-FD / CAN-XL`, `Automotive Ethernet`, `LIN`, `FlexRay`, `SerDes`, `PCIe`, `SPI / I2C / I3C`, `UART / USART`, `CXPI`, `SENT / PSI5`, `TSN / AVB (Time-Sensitive Networking)`
 * **2. Wireless & External RF**: `Cellular`, `Wi-Fi`, `Bluetooth / BLE`, `UWB`, `NFC / RFID`, `GNSS`, `LF / RF`, `V2X`, `Satellite`, `mmWave`, `RKE / PEPS (Keyless Entry)`
 * **3. Data & App Protocols**: `UDS`, `DoIP`, `SOME/IP`, `DDS`, `MQTT / AMQP`, `XCP / CCP`, `J1939 / FMS`, `ISO 15118 / OCPP`, `gRPC / REST`, `LWM2M / OMA-DM`, `OTA / SOTA / FOTA`
 * **4. Interfaces & Diagnostics**: `OBD-II`, `JTAG / cJTAG`, `SWD`, `USB`, `HDMI / DisplayPort`, `Audio Jacks / A2B`, `EVSE Plug`, `Trailer Socket`, `Media Slots`, `Diagnostic Pads`, `Wireless Charging Interface`
 * **5. Hardware & Silicon**: `MCU`, `MPU`, `SoC`, `HPC / Zonal Controller`, `GPU / NPU`, `Sensor / Actuator`, `Transceiver / PHY`, `Flash / RAM / EEPROM`, `FPGA`, `eFuse / OTP`, `LiDAR / Radar / Camera`
-* **6. Software Environments**: `RTOS`, `HLOS`, `Hypervisor`, `Container`, `Bootloader`, `Middleware`, `App / Service`, `Kernel / Driver`, `ML Model / Weights`, `Config / Calibration File`, `SBOM / Software Composition`
+* **6. Software Environments**: `RTOS`, `HLOS`, `Hypervisor`, `Container`, `Bootloader`, `Middleware`, `App / Service`, `Kernel / Driver`, `ML Model / Weights`, `Config / Calibration File`, `SBOM / Software Composition`, `LLM / Conversational AI`
 * **7. Security Mechanisms**: `HSM / SHE`, `TEE`, `TPM / SE`, `SecOC`, `MACsec / IPsec`, `TLS / DTLS`, `Secure Boot`, `TRNG / PRNG`, `PUF`, `IDS / IPS`, `OAuth / OIDC / SAML`
 * **8. Cryptographic Assets**: `PKI / Certificates`, `Symmetric Keys`, `Asymmetric Keys`, `Hashes`, `MAC / HMAC / CMAC`, `Digital Signatures`, `Nonces / IVs`, `Passwords / PINs`, `Tokens / API Keys`, `Seeds / RoT Data`, `Session Keys / Ephemeral Secrets`
 
-**A curation tradeoff, stated plainly:** roughly half of these 88 tags bundle 2-3 related technologies into one string (`CAN / CAN-FD / CAN-XL`, `TLS / DTLS`, `MAC / HMAC / CMAC`, etc.) rather than splitting each into its own selectable tag. This keeps the dictionary a curated 88 items instead of exploding past 150, but it means filtering/tagging precision stops at the bundle, not the individual protocol variant — an entry tagged `CAN / CAN-FD / CAN-XL` can't be narrowed to "CAN-FD only" without reading its `description`. If your use case needs finer-grained filtering than a bundle provides, that detail belongs in the entry's `description`, not a new tag.
+**A curation tradeoff, stated plainly:** roughly half of these 89 tags bundle 2-3 related technologies into one string (`CAN / CAN-FD / CAN-XL`, `TLS / DTLS`, `MAC / HMAC / CMAC`, etc.) rather than splitting each into its own selectable tag. This keeps the dictionary a curated 89 items instead of exploding past 150, but it means filtering/tagging precision stops at the bundle, not the individual protocol variant — an entry tagged `CAN / CAN-FD / CAN-XL` can't be narrowed to "CAN-FD only" without reading its `description`. If your use case needs finer-grained filtering than a bundle provides, that detail belongs in the entry's `description`, not a new tag. Group 6 (Software Environments) now holds 12 tags rather than 11, since `LLM / Conversational AI` was appended there rather than forcing a matching addition elsewhere purely to preserve the prior "8 groups of 11" symmetry.
 
 ---
 

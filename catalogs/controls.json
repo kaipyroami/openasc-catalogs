@@ -4860,6 +4860,75 @@
             ]
         },
         {
+            "id": "C.16.6",
+            "name": "Staged/Canary Fleet Rollout with Automatic Rollback",
+            "description": "Deploys OTA updates first to a small canary subset of the fleet, monitoring real-world telemetry, crash, and error-rate signals before progressively expanding to larger rollout waves, combined with dual-bank (A/B) partition updates that automatically revert to the last-known-good image if the new image fails to boot. Contains the blast radius of a bad push — whether malicious (e.g. the fleet-wide firmware propagation modeled by T.01.3) or an unintentional regression — to a small fraction of the fleet rather than the entire install base at once. Distinct from C.16.3 (Secure Firmware Update), which verifies an update's authenticity and integrity before installation, and C.16.4 (Anti-Rollback Protection), which blocks installation of an older, previously-superseded version: neither control limits how far a single authentic, non-downgraded, but nonetheless bad update is allowed to propagate before its effects are observed and stopped. This is standard practice in software-defined-vehicle update architectures.",
+            "metadata": [
+                "OTA / SOTA / FOTA",
+                "Bootloader",
+                "App / Service"
+            ],
+            "refines": "C.16",
+            "attackFeasibilityReduction": {
+                "attackPotentialReduction": {
+                    "elapsedTime": {
+                        "feasibility": "ET2",
+                        "rationale": "An attacker must either compromise the rollout-orchestration control plane directly or successfully evade canary-stage telemetry monitoring for long enough that a bad update advances past the canary gate — achievable with sustained effort but not a quick, single-attempt bypass."
+                    },
+                    "specialistExpertise": {
+                        "feasibility": "SE2",
+                        "rationale": "Requires understanding of the specific staged-rollout orchestration logic and health-check criteria used to gate wave advancement, to either falsify telemetry or force premature advancement to the next wave."
+                    },
+                    "knowledgeOfTheItemOrComponent": {
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires proprietary knowledge of the OEM's specific canary cohort selection, telemetry health thresholds, and rollout-wave cadence — none of which is publicly documented."
+                    },
+                    "windowOfOpportunity": {
+                        "feasibility": "WoO1",
+                        "rationale": "The staged-rollout gate is a persistent architectural feature the attacker can probe and attempt to defeat at any rollout cycle, not a narrow one-time window."
+                    },
+                    "equipment": {
+                        "feasibility": "Eq0",
+                        "rationale": "A purely logical attack against the rollout-orchestration or telemetry pipeline; no specialized hardware is required."
+                    }
+                }
+            },
+            "protects": [
+                "Availability",
+                "Integrity"
+            ],
+            "denies": [
+                {
+                    "action": "Execute",
+                    "assetClass": "Executable",
+                    "domain": "*"
+                },
+                {
+                    "action": "Disrupt",
+                    "assetClass": "Compute",
+                    "domain": "*"
+                }
+            ],
+            "overriddenBy": {
+                "OR": [
+                    {
+                        "action": "Elevate",
+                        "assetClass": "Executable",
+                        "domain": "*"
+                    },
+                    {
+                        "action": "Modify",
+                        "assetClass": "Data",
+                        "domain": "*"
+                    }
+                ]
+            },
+            "notes": "The automatic-rollback half of this control mirrors Android's documented A/B seamless-update behavior: 'If an OTA update is applied but fails to boot, the device will reboot back into the old partition and remains usable.' The staged/canary-wave half is standard SDV fleet-operations practice (cf. Uptane framework deployment guidance and ISO 24089 software update engineering lifecycle management), containing exactly the fleet-wide propagation mechanism modeled by T.01.3 (Malicious Firmware Update Deployment) and the bricking/DoS mechanism modeled by T.05.5/T.05.6. Source: https://source.android.com/docs/core/ota/ab.",
+            "unitedNationsRegulation155": [
+                "M16"
+            ]
+        },
+        {
             "id": "C.17",
             "name": "Cryptographic Randomness Service",
             "description": "Provides unpredictable, uniformly distributed random numbers necessary for generating cryptographic keys, nonces, initialization vectors (IVs), and salts across the platform.",
@@ -5627,6 +5696,67 @@
             "unitedNationsRegulation155": [
                 "M10",
                 "M11"
+            ]
+        },
+        {
+            "id": "C.21.1",
+            "name": "V2X Misbehavior Detection",
+            "description": "Statistical and plausibility-based anomaly detection applied across the full V2X message stream attributable to a given sender or pseudonym-certificate identity — evaluating position/velocity/heading consistency against physical motion constraints, inter-message timing patterns, and cross-correlation against other sensor modalities (onboard radar/camera/LiDAR perception) — to detect both single-identity message forgery and multi-identity Sybil coordination. Distinct from C.21's pseudonym-certificate authentication, which verifies that a message's digital signature is cryptographically valid and traces to a legitimately-issued certificate: a validly-signed message from a legitimately-issued pseudonym certificate can still describe a physically implausible or coordinated-false vehicle state, which signature verification alone cannot detect. Directly denies the mechanism modeled by T.01.15 (V2X Sybil Attack / Multi-Identity Misbehavior) and complements C.21's coverage of T.01.11 (V2X Safety Message Injection).",
+            "metadata": [
+                "V2X",
+                "PKI / Certificates",
+                "GNSS",
+                "IDS / IPS"
+            ],
+            "refines": "C.21",
+            "attackFeasibilityReduction": {
+                "attackPotentialReduction": {
+                    "elapsedTime": {
+                        "feasibility": "ET3",
+                        "rationale": "Crafting a synthetic multi-identity or single-message pattern that evades statistical/behavioral plausibility analysis — rather than merely a validly-signed message — requires sustained refinement measured in months."
+                    },
+                    "specialistExpertise": {
+                        "feasibility": "SE3",
+                        "rationale": "Requires genuine expertise in the specific detector's plausibility thresholds and multi-sensor correlation logic to craft telemetry that evades statistical/behavioral analysis, beyond the protocol-level forgery skill needed to defeat signature verification alone."
+                    },
+                    "knowledgeOfTheItemOrComponent": {
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires proprietary knowledge of the target's specific misbehavior-detection thresholds and correlation logic (which physical-constraint checks it applies and how sensitively), not just the public V2X message format."
+                    },
+                    "windowOfOpportunity": {
+                        "feasibility": "WoO2",
+                        "rationale": "Must sustain a coordinated, physically-plausible pattern across the detector's full observation/analysis window, not just a single instantaneous message — tighter than the one-shot opportunity needed to defeat signature checking alone."
+                    },
+                    "equipment": {
+                        "feasibility": "Eq2",
+                        "rationale": "Requires multiple V2X radio front-ends or an SDR platform capable of modeling several physically-consistent fabricated trajectories simultaneously, beyond a single broadcast radio."
+                    }
+                }
+            },
+            "protects": [
+                "Integrity",
+                "Authenticity"
+            ],
+            "denies": [
+                {
+                    "action": "Inject",
+                    "assetClass": "Peripheral",
+                    "domain": "ADAS"
+                },
+                {
+                    "action": "Modify",
+                    "assetClass": "Data",
+                    "domain": "*"
+                }
+            ],
+            "overriddenBy": {
+                "action": "Elevate",
+                "assetClass": "Executable",
+                "domain": "*"
+            },
+            "notes": "First child control of C.21; C.21 itself previously had no refinements. Denies the same Inject:Peripheral:ADAS capability node T.01.11 and T.01.15 both grant, providing detection-layer coverage that neither C.21's own cryptographic authentication nor any other existing control addresses for the Sybil-specific case. Reference: ETSI TR 103 460 V2.1.1 (2020-10), \"Intelligent Transport Systems (ITS); Security; Pre-standardization study on Misbehaviour Detection\", https://www.etsi.org/deliver/etsi_tr/103400_103499/103460/02.01.01_60/tr_103460v020101p.pdf.",
+            "unitedNationsRegulation155": [
+                "M10"
             ]
         },
         {

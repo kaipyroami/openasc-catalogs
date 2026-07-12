@@ -991,6 +991,155 @@
             ]
         },
         {
+            "id": "T.01.14",
+            "name": "LLM/Conversational AI Prompt Injection",
+            "description": "An attacker embeds malicious natural-language instructions in content the in-cabin LLM copilot (A.073) will ingest while forming a response — a webpage returned by a web search the assistant performs on the user's behalf, a calendar invite, a received message, a navigation POI description, or a crafted voice command spoken within microphone range — causing the assistant to execute an unintended, attacker-directed vehicle function (unlocking doors, sending a message, changing climate/navigation settings, or exfiltrating conversation history) while appearing to the user as ordinary assistant behavior. This is indirect prompt injection per OWASP's LLM01:2025 (ranked the #1 risk in the OWASP Top 10 for LLM Applications). Unlike the catalog's other Inject-action threats, which manipulate a fixed-grammar protocol or API surface (a malformed CAN frame, a forged API call) to trigger a parsing, authentication, or logic flaw, here the 'injection' is semantic: plain natural-language text that exploits the LLM's inability to reliably distinguish trusted user intent from untrusted ingested content sharing the same context window. No malformed message, protocol violation, or memory-corruption primitive is involved — the attack succeeds entirely within the model's normal, correctly functioning natural-language reasoning.",
+            "classificationModel": "STRIDE",
+            "scalability": "Fleet-Wide",
+            "threatActors": [
+                "Nation-State / State-Sponsored",
+                "Organized Cybercrime",
+                "Hacktivist"
+            ],
+            "refines": "T.01",
+            "attackFeasibility": {
+                "attackPotential": {
+                    "elapsedTime": {
+                        "feasibility": "ET1",
+                        "rationale": "Embedding hidden or disguised instructions in a webpage, calendar invite, or message is near-instantaneous once the attacker knows the assistant will ingest that content type; no iterative exploit-chain construction is required."
+                    },
+                    "specialistExpertise": {
+                        "feasibility": "SE1",
+                        "rationale": "Crafting an effective injection payload draws on prompt-engineering skill that is widely documented and practiced; no reverse engineering, cryptography, or memory-safety exploitation is needed."
+                    },
+                    "knowledgeOfTheItemOrComponent": {
+                        "feasibility": "KoIC2",
+                        "rationale": "Reliably bypassing a specific OEM's system-prompt guardrails and tool-calling permission boundaries requires reconnaissance of that assistant's specific behavior — which content sources it ingests and which functions it is willing to call — information that is not publicly documented."
+                    },
+                    "windowOfOpportunity": {
+                        "feasibility": "WoO1",
+                        "rationale": "The poisoned content (a webpage, calendar invite, or message) can sit dormant indefinitely until the user's own query causes the assistant to retrieve and ingest it; no narrow timing window is required from the attacker."
+                    },
+                    "equipment": {
+                        "feasibility": "Eq0",
+                        "rationale": "Publishing a webpage, sending a calendar invite or message, or speaking a voice command requires no specialized hardware or software beyond what is already available to any user."
+                    }
+                }
+            },
+            "compromises": [
+                "Confidentiality",
+                "Integrity",
+                "Authenticity"
+            ],
+            "requires": {
+                "OR": [
+                    {
+                        "action": "Inject",
+                        "assetClass": "Network",
+                        "domain": "External"
+                    }
+                ]
+            },
+            "grants": [
+                {
+                    "action": "Execute",
+                    "assetClass": "Peripheral",
+                    "domain": "Body"
+                },
+                {
+                    "action": "Execute",
+                    "assetClass": "Executable",
+                    "domain": "Infotainment"
+                },
+                {
+                    "action": "Extract",
+                    "assetClass": "Data",
+                    "domain": "Infotainment"
+                }
+            ],
+            "metadata": [
+                "LLM / Conversational AI",
+                "App / Service",
+                "gRPC / REST",
+                "Cellular"
+            ],
+            "notes": "Distinct from the catalog's other Inject-action threats (e.g. T.01.11 V2X message injection, T.02.4 Runtime Code/Command Injection), which manipulate a fixed-grammar protocol or API surface to trigger a parsing, authentication, or memory-safety flaw. Here the payload is unstructured natural language and the vulnerability exploited is the LLM's own reasoning process — there is no malformed message or broken parser to point to. Applies specifically to A.073 (In-Cabin Conversational AI / LLM Copilot Interface); prior to this asset's addition, no catalog entry modeled an in-cabin system with tool-calling access to vehicle functions driven by unstructured natural-language input. UN R155 Annex 5 predates this threat class; no confident primary-source mapping was found, so unitedNationsRegulation155 is left empty rather than guessed. Citation: OWASP Top 10 for LLM Applications 2025, LLM01:2025 Prompt Injection (https://genai.owasp.org/llmrisk/llm01-prompt-injection/).",
+            "unitedNationsRegulation155": []
+        },
+        {
+            "id": "T.01.15",
+            "name": "V2X Sybil Attack / Multi-Identity Misbehavior",
+            "description": "An attacker holds or synthesizes multiple simultaneously-valid V2X pseudonym identities — rather than forging a single message under one identity, as modeled in T.01.11 (V2X Safety Message Injection) — to simulate the presence of many phantom vehicles, artificially inflate perceived traffic density, or synthesize a coordinated false hazard/collision-warning consensus that appears to originate from several independent, legitimately-signed senders at once. Plausibility checks and anomaly filters that evaluate each received message or sender identity in isolation for physical implausibility (e.g. a single vehicle reporting an impossible speed) are defeated by this coordinated multi-identity pattern, since no single message or identity is individually implausible — the inconsistency only emerges when correlating the population of concurrently-active identities against physical and behavioral constraints. Distinct from T.01.11 by the additional prerequisite of controlling or synthesizing multiple concurrent identities, not merely broadcasting one forged message.",
+            "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
+            "threatActors": [
+                "Nation-State / State-Sponsored",
+                "Organized Cybercrime",
+                "Hacktivist"
+            ],
+            "refines": "T.01",
+            "attackFeasibility": {
+                "attackPotential": {
+                    "elapsedTime": {
+                        "feasibility": "ET3",
+                        "rationale": "Obtaining or deriving several concurrently-valid pseudonym certificates — whether by compromising multiple onboard units, exploiting the certificate issuance/rotation policy, or key extraction across several devices — takes sustained effort measured in weeks to months, well beyond the single-session effort needed to forge one message under one identity (T.01.11)."
+                    },
+                    "specialistExpertise": {
+                        "feasibility": "SE2",
+                        "rationale": "Requires working knowledge of the V2X message format and RF broadcast (as in T.01.11) plus an understanding of the target PKI's specific pseudonym-certificate issuance and rotation model (SCMS/CCMS) needed to hold or synthesize multiple concurrently-valid identities without an obvious policy violation."
+                    },
+                    "knowledgeOfTheItemOrComponent": {
+                        "feasibility": "KoIC2",
+                        "rationale": "While the V2X message format itself is public (as in T.01.11), reliably fabricating a physically-plausible multi-identity pattern that evades correlation-based plausibility checks requires knowledge of the target region's specific pseudonym-rotation cadence and certificate-issuance policy, which is not public."
+                    },
+                    "windowOfOpportunity": {
+                        "feasibility": "WoO1",
+                        "rationale": "Requires proximity (DSRC/C-V2X range) or a rogue V2X RSU, identical to T.01.11."
+                    },
+                    "equipment": {
+                        "feasibility": "Eq2",
+                        "rationale": "Broadcasting several concurrent, mutually-consistent identities requires either multiple V2X radio front-ends or a software-defined radio platform capable of modeling several physically-consistent fabricated trajectories simultaneously — more capable equipment than the single V2X radio T.01.11 requires."
+                    }
+                }
+            },
+            "compromises": [
+                "Integrity",
+                "Authenticity"
+            ],
+            "requires": {
+                "AND": [
+                    {
+                        "action": "Intercept",
+                        "assetClass": "Interface",
+                        "domain": "External"
+                    },
+                    {
+                        "action": "Extract",
+                        "assetClass": "Crypto",
+                        "domain": "External"
+                    }
+                ]
+            },
+            "grants": [
+                {
+                    "action": "Inject",
+                    "assetClass": "Peripheral",
+                    "domain": "ADAS"
+                }
+            ],
+            "metadata": [
+                "V2X",
+                "PKI / Certificates",
+                "Digital Signatures",
+                "GNSS",
+                "Asymmetric Keys"
+            ],
+            "notes": "Refines the same parent (T.01) as T.01.11 but models a mechanistically distinct prerequisite: holding or synthesizing multiple concurrently-valid identities (Extract:Crypto:External), not merely broadcasting one forged message. Directly denied by C.21.1 (V2X Misbehavior Detection), which correlates the message stream across identities rather than validating each message's signature in isolation — the gap C.21's pseudonym-certificate authentication alone does not close. Citation: \"Creating a realistic sybil attack dataset for inter-vehicle communication\", Peer-to-Peer Networking and Applications (2025), https://link.springer.com/article/10.1007/s12083-025-02058-w.",
+            "unitedNationsRegulation155": [
+                "4.2"
+            ]
+        },
+        {
             "id": "T.02",
             "name": "Tampering",
             "description": "Unauthorized modification of data, code, or hardware within the vehicle system. This is the abstract base class for all tampering and integrity-based threats.",
@@ -3164,6 +3313,142 @@
             "notes": "Distinct from the flooding-based Denial of Service modeled in T.05.1 (IVN Bus Flooding) and T.20.4 (CAN Bus Denial of Service, Auto-ISAC ATM-T0068): this attack silently removes a single targeted ECU from the bus via the CAN error-confinement state machine rather than exhausting bus bandwidth, and can succeed with a small fraction of the frames a flood requires.",
             "unitedNationsRegulation155": [
                 "24.1"
+            ]
+        },
+        {
+            "id": "T.05.7",
+            "name": "Ransomware / Extortion Attack on Backend Infrastructure",
+            "description": "An attacker who has already gained code-execution access to OEM or fleet backend infrastructure (dealer-management systems, fleet-operations APIs, telematics backend) — for example via T.01.5 (Backend and Mobile App Spoofing) — deploys ransomware to encrypt backend data and systems, rendering fleet operations, OTA update distribution, and remote vehicle services unavailable. Before triggering encryption, the attacker exfiltrates sensitive data (customer PII, vehicle telemetry, proprietary fleet-operations data) to hold as 'double extortion' leverage, threatening public disclosure if the ransom is not paid even if the victim can restore from backup without paying. Distinct from T.05.5 (Denial of Service via Logical Deletion), which models destructive, non-recoverable deletion for its own sake: this threat's mechanism is recoverable-in-principle encryption paired with a parallel data-theft/extortion component, and its objective is financial extraction rather than pure sabotage.",
+            "classificationModel": "STRIDE",
+            "scalability": "Fleet-Wide",
+            "threatActors": [
+                "Organized Cybercrime",
+                "Nation-State / State-Sponsored",
+                "Insider (Employee / Dealer / Supplier)"
+            ],
+            "refines": "T.05",
+            "attackFeasibility": {
+                "attackPotential": {
+                    "elapsedTime": {
+                        "feasibility": "ET2",
+                        "rationale": "Once the code-execution foothold exists, deploying commodity ransomware-as-a-service tooling to encrypt backend data stores and stage exfiltration is achievable within days, given how automated modern ransomware affiliate toolkits are."
+                    },
+                    "specialistExpertise": {
+                        "feasibility": "SE1",
+                        "rationale": "The affiliate deploying the ransomware payload needs only standard IT/network-administration skill; the harder exploit-development work needed to obtain the initial backend foothold is scored on the prerequisite threat (e.g. T.01.5), not here."
+                    },
+                    "knowledgeOfTheItemOrComponent": {
+                        "feasibility": "KoIC2",
+                        "rationale": "Maximizing both the disruption and extortion leverage requires reconnaissance of the specific backend's data topology — identifying which systems host fleet-operations, OTA distribution, and customer PII — which is not public information."
+                    },
+                    "windowOfOpportunity": {
+                        "feasibility": "WoO1",
+                        "rationale": "Once a backend foothold exists, the attacker can move to encryption/exfiltration at a time of their choosing; the main constraint is avoiding detection before the payload completes, not a narrow external timing window."
+                    },
+                    "equipment": {
+                        "feasibility": "Eq0",
+                        "rationale": "Commodity ransomware-as-a-service toolkits, obtainable through dark-web affiliate programs, and standard IT administration tools are sufficient; no specialized equipment is required."
+                    }
+                }
+            },
+            "compromises": [
+                "Availability",
+                "Confidentiality",
+                "Integrity"
+            ],
+            "requires": {
+                "OR": [
+                    {
+                        "action": "Execute",
+                        "assetClass": "Executable",
+                        "domain": "Backend"
+                    }
+                ]
+            },
+            "grants": [
+                {
+                    "action": "Disrupt",
+                    "assetClass": "Executable",
+                    "domain": "Backend"
+                },
+                {
+                    "action": "Modify",
+                    "assetClass": "Data",
+                    "domain": "*"
+                },
+                {
+                    "action": "Extract",
+                    "assetClass": "Data",
+                    "domain": "Backend"
+                }
+            ],
+            "metadata": [
+                "gRPC / REST",
+                "App / Service",
+                "OTA / SOTA / FOTA",
+                "Tokens / API Keys"
+            ],
+            "notes": "Upstream Security's 2026 Global Automotive and Smart Mobility Cybersecurity Report found ransomware-related incidents accounted for 44% of all reported automotive/smart-mobility cybersecurity incidents analyzed for 2025, roughly double the prior year's count. Chains from T.01.5 (Backend and Mobile App Spoofing), whose grants provide the Execute:Executable:Backend foothold this threat requires. Report: https://upstream.auto/reports/global-automotive-cybersecurity-report/.",
+            "unitedNationsRegulation155": [
+                "2.1",
+                "3.3"
+            ]
+        },
+        {
+            "id": "T.05.8",
+            "name": "EV Charging Communication Disruption (Wireless PLC Jamming)",
+            "description": "An attacker wirelessly disrupts the HomePlug GreenPHY power-line-communication signaling between the vehicle's EV Communication Controller (A.069) and the charging station during the ISO 15118/DIN 70121 SLAC (Signal Level Attenuation Characterization) handshake or an active charging session. The attack exploits the CSMA/CA (carrier-sense multiple access with collision avoidance) behavior mandated by the HomePlug GreenPHY standard: transmitting a weak, precisely-timed RF signal that the receiving station's carrier-sense logic interprets as channel activity is sufficient to prevent legitimate session establishment or abort an in-progress charge, without any physical or electrical connection to the vehicle or charging station. Distinct from T.01.12 (EV Charging Session Spoofing, a confidentiality/integrity threat requiring a rogue EVSE and TLS manipulation) and T.01.13 (protocol downgrade, requiring an on-path MITM position): this is a pure availability/DoS threat, requiring no cryptographic capability, no rogue infrastructure, and no wired access — only modest RF equipment operated at range.",
+            "classificationModel": "STRIDE",
+            "scalability": "Limited Batch",
+            "threatActors": [
+                "Organized Cybercrime",
+                "Hacktivist",
+                "Nation-State / State-Sponsored"
+            ],
+            "refines": "T.05",
+            "attackFeasibility": {
+                "attackPotential": {
+                    "elapsedTime": {
+                        "feasibility": "ET1",
+                        "rationale": "Once positioned within range, disrupting the SLAC handshake or aborting an active session is achievable within seconds of transmitting, as demonstrated experimentally against real CCS charging equipment."
+                    },
+                    "specialistExpertise": {
+                        "feasibility": "SE1",
+                        "rationale": "The published Brokenwire methodology and reference tooling make replication straightforward for anyone with basic RF/SDR familiarity; no novel protocol-break or cryptographic expertise is required."
+                    },
+                    "knowledgeOfTheItemOrComponent": {
+                        "feasibility": "KoIC1",
+                        "rationale": "The exploited carrier-sense behavior is a mandatory, publicly documented part of the HomePlug GreenPHY, DIN 70121, and ISO 15118 standards, not proprietary OEM-specific information."
+                    },
+                    "windowOfOpportunity": {
+                        "feasibility": "WoO1",
+                        "rationale": "Requires the attacker to be within RF range of the vehicle or charging station (demonstrated effective up to approximately 47 meters) during the handshake or an active session — a real but modest proximity constraint."
+                    },
+                    "equipment": {
+                        "feasibility": "Eq1",
+                        "rationale": "Demonstrated effective with a sub-1-watt, modestly modified software-defined radio or PLC transceiver; no specialized or expensive laboratory equipment is required."
+                    }
+                }
+            },
+            "compromises": [
+                "Availability"
+            ],
+            "grants": [
+                {
+                    "action": "Disrupt",
+                    "assetClass": "Interface",
+                    "domain": "Powertrain"
+                }
+            ],
+            "metadata": [
+                "ISO 15118 / OCPP",
+                "EVSE Plug",
+                "LF / RF",
+                "Transceiver / PHY"
+            ],
+            "notes": "Real-world precedent: the Brokenwire attack (University of Oxford / armasuisse S+T, NDSS 2023), demonstrated against real Combined Charging System (CCS) equipment at ranges up to ~47 m using under 1 W of transmit power, with implications for a substantial share of the roughly 12 million battery-electric vehicles on the road at time of disclosure. No requires capability is modeled, consistent with T.05.3 (Wireless RF / GNSS Jamming): this is a baseline RF-proximity attack that presupposes no prior compromise. Paper: Kohler, Baker, Strohmeier & Martinovic, \"Brokenwire: Wireless Disruption of CCS Electric Vehicle Charging\", NDSS Symposium 2023, https://www.ndss-symposium.org/wp-content/uploads/2023-251-paper.pdf.",
+            "unitedNationsRegulation155": [
+                "8.1"
             ]
         },
         {
