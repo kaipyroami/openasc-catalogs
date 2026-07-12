@@ -5279,7 +5279,8 @@
                 ]
             },
             "unitedNationsRegulation155": [
-                "M10"
+                "M10",
+                "M20"
             ]
         },
         {
@@ -5683,6 +5684,127 @@
             "unitedNationsRegulation155": [
                 "M9",
                 "M19"
+            ]
+        },
+        {
+            "id": "C.03.14",
+            "name": "Cloud Security Posture Management (CSPM)",
+            "description": "Continuous or scheduled scanning of cloud backend infrastructure — storage bucket permissions, database access policies, IAM role bindings, serverless function permissions, and network security groups — against secure-configuration baselines to detect and remediate misconfigurations before they cause unauthorized data exposure or resource compromise. Distinct from network-layer segmentation (C.03.4), which protects traffic paths, and application-layer access control (C.09), which governs who can authenticate; this targets cloud-platform-native configuration drift itself, per NCSC and OWASP cloud security guidance.",
+            "metadata": [
+                "gRPC / REST",
+                "OAuth / OIDC / SAML",
+                "Tokens / API Keys"
+            ],
+            "refines": "C.03",
+            "attackFeasibilityReduction": {
+                "attackPotentialReduction": {
+                    "elapsedTime": {
+                        "feasibility": "ET2",
+                        "rationale": "A determined attacker scanning for still-unremediated misconfigurations across a large cloud estate needs sustained but not extreme effort — weeks, not months, given scan/remediation cycles leave real windows open."
+                    },
+                    "specialistExpertise": {
+                        "feasibility": "SE1",
+                        "rationale": "Exploiting a missed misconfiguration (an over-permissive IAM role, a public storage bucket) requires standard cloud security knowledge, not deep specialist skill — the hard part is finding the gap, not exploiting it once found."
+                    },
+                    "knowledgeOfTheItemOrComponent": {
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of this specific cloud environment's scan cadence, baseline exceptions, and which resources are excluded from coverage — not public information."
+                    },
+                    "windowOfOpportunity": {
+                        "feasibility": "WoO2",
+                        "rationale": "Exploitation is bounded to the window between a misconfiguration being introduced and the next scan/remediation cycle catching it — meaningfully constrained but not negligible given realistic scan intervals."
+                    },
+                    "equipment": {
+                        "feasibility": "Eq0",
+                        "rationale": "No special equipment is required beyond standard cloud API/console access."
+                    }
+                }
+            },
+            "protects": [
+                "Confidentiality",
+                "Integrity"
+            ],
+            "denies": [
+                {
+                    "action": "Extract",
+                    "assetClass": "Data",
+                    "domain": "Backend"
+                },
+                {
+                    "action": "Extract",
+                    "assetClass": "Crypto",
+                    "domain": "Backend"
+                }
+            ],
+            "overriddenBy": {
+                "action": "Elevate",
+                "assetClass": "Executable",
+                "domain": "Backend"
+            },
+            "unitedNationsRegulation155": [
+                "M4"
+            ]
+        },
+        {
+            "id": "C.09.6",
+            "name": "Data Loss Prevention (DLP)",
+            "description": "Automated scanning of outbound data flows and bulk-export operations from back-end systems for sensitive data patterns (PII, cryptographic material, location history), combined with mandatory approval gates on data-sharing configuration changes and default redaction of sensitive fields in logs and exports. Prevents accidental over-exposure of vehicle or owner data caused by an already-authorized user's own configuration mistake — distinct from RBAC (C.09.1), which restricts who holds access, not what an authorized holder can inadvertently expose.",
+            "metadata": [
+                "gRPC / REST",
+                "App / Service"
+            ],
+            "refines": "C.09",
+            "attackFeasibilityReduction": {
+                "attackPotentialReduction": {
+                    "elapsedTime": {
+                        "feasibility": "ET2",
+                        "rationale": "Identifying an unmonitored export path or a DLP ruleset gap takes sustained reconnaissance of the backend's data flows, not a quick attempt."
+                    },
+                    "specialistExpertise": {
+                        "feasibility": "SE2",
+                        "rationale": "Evading pattern-based DLP detection (e.g. obfuscating or fragmenting sensitive data to avoid signature matches) requires genuine understanding of how the specific DLP tooling classifies data."
+                    },
+                    "knowledgeOfTheItemOrComponent": {
+                        "feasibility": "KoIC2",
+                        "rationale": "Requires knowledge of this backend's specific DLP ruleset and coverage gaps, which is not public information."
+                    },
+                    "windowOfOpportunity": {
+                        "feasibility": "WoO1",
+                        "rationale": "An already-authorized insider-adjacent actor has an ongoing, not narrowly time-bound, opportunity to attempt an unmonitored export."
+                    },
+                    "equipment": {
+                        "feasibility": "Eq0",
+                        "rationale": "No special equipment is required beyond the standard backend tooling the authorized user already has access to."
+                    }
+                }
+            },
+            "protects": [
+                "Confidentiality",
+                "Non Repudiation"
+            ],
+            "denies": [
+                {
+                    "action": "Extract",
+                    "assetClass": "Data",
+                    "domain": "Backend"
+                }
+            ],
+            "overriddenBy": {
+                "OR": [
+                    {
+                        "action": "Elevate",
+                        "assetClass": "Executable",
+                        "domain": "Backend"
+                    },
+                    {
+                        "action": "Modify",
+                        "assetClass": "Executable",
+                        "domain": "Backend"
+                    }
+                ]
+            },
+            "unitedNationsRegulation155": [
+                "M5"
             ]
         }
     ]
