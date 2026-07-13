@@ -61,7 +61,7 @@ npm run validate:all
 
 ## The OpenASC Asset & Impact Methodology
 
-To align with ISO/SAE 21434, OpenASC natively separates damage impacts into two distinct stakeholder perspectives: `oem` and `roadUser`, with the capability of adding `thirdPartySupplier`.
+To align with ISO/SAE 21434, OpenASC natively separates damage impacts into two distinct stakeholder perspectives: `oem` and `roadUser`, with the capability of adding `supplier`.
 
 **`oem.safety` is structurally almost always `None`.** ISO/SAE 21434's TARA is road-user-centric — an OEM as a corporate entity has no direct physical safety state that a compromise can affect. Whatever safety-adjacent exposure an OEM carries from a safety-relevant compromise is a *consequence* of road-user harm, expressed monetarily (recall costs, liability judgments, regulatory fines) — that belongs in `oem.financial`/`oem.operational`, not a parallel `oem.safety` scale. Rate `oem.safety` as `None` with a one-line rationale pointing to where the real exposure lives, and reserve any non-`None` value for the rare case where the OEM genuinely bears a direct (not consequential) physical safety exposure.
 

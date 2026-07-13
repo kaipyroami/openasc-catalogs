@@ -177,7 +177,7 @@
                 "roadUser": {
                     "$ref": "#/$defs/StakeholderImpact"
                 },
-                "thirdPartySupplier": {
+                "supplier": {
                     "$ref": "#/$defs/StakeholderImpact"
                 }
             },
