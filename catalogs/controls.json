@@ -1345,7 +1345,7 @@
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO1",
-                        "rationale": "The network is continuously monitored while operating, so evasion is not tied to a narrow timing window — the technique must work whenever traffic is sent."
+                        "rationale": "The network is continuously monitored while operating, so evasion is not tied to a narrow timing window - the technique must work whenever traffic is sent."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
@@ -1455,7 +1455,7 @@
         {
             "id": "C.03.12",
             "name": "Automotive IVN Intrusion Detection (CAN / Ethernet IDPS)",
-            "description": "Bus-level anomaly detection for in-vehicle networks, monitoring CAN message frequency, timing patterns, unexpected transmitter IDs, and Ethernet payload anomalies against the vehicle's expected communication matrix. Distinct from IP-layer IDS (C.03.10) which targets backend connectivity — this control targets automotive-specific protocol anomalies as required by UN R155 mitigation categories M6 and M8.",
+            "description": "Bus-level anomaly detection for in-vehicle networks, monitoring CAN message frequency, timing patterns, unexpected transmitter IDs, and Ethernet payload anomalies against the vehicle's expected communication matrix. Distinct from IP-layer IDS (C.03.10) which targets backend connectivity - this control targets automotive-specific protocol anomalies as required by UN R155 mitigation categories M6 and M8.",
             "refines": "C.03",
             "metadata": [
                 "CAN / CAN-FD / CAN-XL",
@@ -1530,7 +1530,7 @@
         {
             "id": "C.03.13",
             "name": "TLS/Cipher Downgrade Prevention & Protocol Version Enforcement",
-            "description": "Enforces a strict minimum negotiable TLS/DTLS protocol version (TLS 1.2 minimum, TLS 1.3 preferred) and an explicit allow-list of strong cipher suites at every backend, OTA, and ISO 15118 V2G/EVSE endpoint, rejecting connection attempts that request deprecated versions (SSLv3, TLS 1.0/1.1) or export-grade/weak ciphers. Implements anti-downgrade signaling — the TLS 1.3 downgrade sentinel value in ServerHello.random and/or RFC 7507's TLS_FALLBACK_SCSV — so an active on-path attacker cannot silently coerce a fallback to a weaker protocol without the fallback being detected and rejected. Combines this with certificate/public-key pinning on high-value channels (OTA distribution, V2G Plug & Charge) so that a downgraded handshake still cannot complete against an attacker-controlled endpoint even if a rogue CA is otherwise trusted.",
+            "description": "Enforces a strict minimum negotiable TLS/DTLS protocol version (TLS 1.2 minimum, TLS 1.3 preferred) and an explicit allow-list of strong cipher suites at every backend, OTA, and ISO 15118 V2G/EVSE endpoint, rejecting connection attempts that request deprecated versions (SSLv3, TLS 1.0/1.1) or export-grade/weak ciphers. Implements anti-downgrade signaling - the TLS 1.3 downgrade sentinel value in ServerHello.random and/or RFC 7507's TLS_FALLBACK_SCSV - so an active on-path attacker cannot silently coerce a fallback to a weaker protocol without the fallback being detected and rejected. Combines this with certificate/public-key pinning on high-value channels (OTA distribution, V2G Plug & Charge) so that a downgraded handshake still cannot complete against an attacker-controlled endpoint even if a rogue CA is otherwise trusted.",
             "metadata": [
                 "TLS / DTLS",
                 "PKI / Certificates",
@@ -1607,7 +1607,7 @@
         {
             "id": "C.04",
             "name": "Hashing",
-            "description": "Hashing transforms data into a fixed-size digest. Used for verifying firmware and diagnostic-message integrity, supporting secure boot verification, and detecting data tampering. As a keyless mechanism, hashing alone establishes integrity, not sender authentication — that requires pairing it with a secret key (MAC, C.06) or a signature (C.05).",
+            "description": "Hashing transforms data into a fixed-size digest. Used for verifying firmware and diagnostic-message integrity, supporting secure boot verification, and detecting data tampering. As a keyless mechanism, hashing alone establishes integrity, not sender authentication - that requires pairing it with a secret key (MAC, C.06) or a signature (C.05).",
             "metadata": [
                 "UDS",
                 "Secure Boot",
@@ -2854,7 +2854,7 @@
                     },
                     "specialistExpertise": {
                         "feasibility": "SE3",
-                        "rationale": "Hypervisor escapes require a zero-day in the VMM itself or hardware-assisted fault injection — both demand elite expertise not commonly available."
+                        "rationale": "Hypervisor escapes require a zero-day in the VMM itself or hardware-assisted fault injection - both demand elite expertise not commonly available."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC2",
@@ -3185,7 +3185,7 @@
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC3",
-                        "rationale": "Defeating a certified secure element's physical countermeasures (active shielding, sensor meshes, redundant computation) requires knowledge of that specific chip's proprietary countermeasure design — information available only to the silicon vendor and not obtainable through generic reverse engineering."
+                        "rationale": "Defeating a certified secure element's physical countermeasures (active shielding, sensor meshes, redundant computation) requires knowledge of that specific chip's proprietary countermeasure design - information available only to the silicon vendor and not obtainable through generic reverse engineering."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO2",
@@ -3372,7 +3372,7 @@
                 "attackPotentialReduction": {
                     "elapsedTime": {
                         "feasibility": "ET4",
-                        "rationale": "Cloning a PUF response requires chip decapsulation and advanced physical characterization — infeasible within operational attack windows."
+                        "rationale": "Cloning a PUF response requires chip decapsulation and advanced physical characterization - infeasible within operational attack windows."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE3",
@@ -3450,11 +3450,11 @@
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO3",
-                        "rationale": "The provisioning event happens once per device at a single, physically controlled manufacturing site — an extremely narrow and tightly monitored window compared to attacking a device already in the field."
+                        "rationale": "The provisioning event happens once per device at a single, physically controlled manufacturing site - an extremely narrow and tightly monitored window compared to attacking a device already in the field."
                     },
                     "equipment": {
                         "feasibility": "Eq2",
-                        "rationale": "Requires either compromising the OEM/Tier-1's HSM-mediated provisioning tooling or gaining physical access to production-line test jigs — not commodity equipment."
+                        "rationale": "Requires either compromising the OEM/Tier-1's HSM-mediated provisioning tooling or gaining physical access to production-line test jigs - not commodity equipment."
                     }
                 }
             },
@@ -3892,7 +3892,7 @@
                 "attackPotentialReduction": {
                     "elapsedTime": {
                         "feasibility": "ET4",
-                        "rationale": "Requires either stealing the OEM signing key or using advanced voltage/clock glitching to skip the verification instruction — both exceed a 6-month practical effort."
+                        "rationale": "Requires either stealing the OEM signing key or using advanced voltage/clock glitching to skip the verification instruction - both exceed a 6-month practical effort."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE3",
@@ -3900,7 +3900,7 @@
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC3",
-                        "rationale": "Defeating secure boot requires either the OEM's private signing key (a maximally confidential secret held in a restricted HSM ceremony) or precise knowledge of the SoC's proprietary boot-ROM verification timing to glitch — neither obtainable through public documentation or generic reverse engineering."
+                        "rationale": "Defeating secure boot requires either the OEM's private signing key (a maximally confidential secret held in a restricted HSM ceremony) or precise knowledge of the SoC's proprietary boot-ROM verification timing to glitch - neither obtainable through public documentation or generic reverse engineering."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO2",
@@ -4790,7 +4790,7 @@
         {
             "id": "C.16.5",
             "name": "Crypto-Agility / Algorithm Migration Readiness",
-            "description": "The architectural capability to replace a broken, deprecated, or quantum-vulnerable cryptographic algorithm — or to widen a key size — across the fleet via a software/OTA update alone, without a hardware or silicon respin. Achieved through algorithm-negotiation abstraction layers (crypto-provider interfaces that decouple protocol logic from a specific primitive), updatable/pluggable software crypto libraries, and externally configurable key-size and algorithm-selection parameters. Distinct from adopting any single algorithm such as ML-KEM (C.03.7.2) or ML-DSA (C.05.4); this control is the migration capability itself, ensuring the fleet is never permanently locked into a cryptographic primitive that a future cryptanalytic advance — classical or quantum — renders unsafe.",
+            "description": "The architectural capability to replace a broken, deprecated, or quantum-vulnerable cryptographic algorithm - or to widen a key size - across the fleet via a software/OTA update alone, without a hardware or silicon respin. Achieved through algorithm-negotiation abstraction layers (crypto-provider interfaces that decouple protocol logic from a specific primitive), updatable/pluggable software crypto libraries, and externally configurable key-size and algorithm-selection parameters. Distinct from adopting any single algorithm such as ML-KEM (C.03.7.2) or ML-DSA (C.05.4); this control is the migration capability itself, ensuring the fleet is never permanently locked into a cryptographic primitive that a future cryptanalytic advance - classical or quantum - renders unsafe.",
             "metadata": [
                 "OTA / SOTA / FOTA",
                 "Asymmetric Keys",
@@ -4806,7 +4806,7 @@
                     },
                     "specialistExpertise": {
                         "feasibility": "SE2",
-                        "rationale": "Does not raise the bar to break the underlying primitive itself — that remains whatever the cryptanalysis requires — but it does deny the attacker any durable advantage from having broken it."
+                        "rationale": "Does not raise the bar to break the underlying primitive itself - that remains whatever the cryptanalysis requires - but it does deny the attacker any durable advantage from having broken it."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC1",
@@ -4862,7 +4862,7 @@
         {
             "id": "C.16.6",
             "name": "Staged/Canary Fleet Rollout with Automatic Rollback",
-            "description": "Deploys OTA updates first to a small canary subset of the fleet, monitoring real-world telemetry, crash, and error-rate signals before progressively expanding to larger rollout waves, combined with dual-bank (A/B) partition updates that automatically revert to the last-known-good image if the new image fails to boot. Contains the blast radius of a bad push — whether malicious (e.g. the fleet-wide firmware propagation modeled by T.01.3) or an unintentional regression — to a small fraction of the fleet rather than the entire install base at once. Distinct from C.16.3 (Secure Firmware Update), which verifies an update's authenticity and integrity before installation, and C.16.4 (Anti-Rollback Protection), which blocks installation of an older, previously-superseded version: neither control limits how far a single authentic, non-downgraded, but nonetheless bad update is allowed to propagate before its effects are observed and stopped. This is standard practice in software-defined-vehicle update architectures.",
+            "description": "Deploys OTA updates first to a small canary subset of the fleet, monitoring real-world telemetry, crash, and error-rate signals before progressively expanding to larger rollout waves, combined with dual-bank (A/B) partition updates that automatically revert to the last-known-good image if the new image fails to boot. Contains the blast radius of a bad push - whether malicious (e.g. the fleet-wide firmware propagation modeled by T.01.3) or an unintentional regression - to a small fraction of the fleet rather than the entire install base at once. Distinct from C.16.3 (Secure Firmware Update), which verifies an update's authenticity and integrity before installation, and C.16.4 (Anti-Rollback Protection), which blocks installation of an older, previously-superseded version: neither control limits how far a single authentic, non-downgraded, but nonetheless bad update is allowed to propagate before its effects are observed and stopped. This is standard practice in software-defined-vehicle update architectures.",
             "metadata": [
                 "OTA / SOTA / FOTA",
                 "Bootloader",
@@ -4873,7 +4873,7 @@
                 "attackPotentialReduction": {
                     "elapsedTime": {
                         "feasibility": "ET2",
-                        "rationale": "An attacker must either compromise the rollout-orchestration control plane directly or successfully evade canary-stage telemetry monitoring for long enough that a bad update advances past the canary gate — achievable with sustained effort but not a quick, single-attempt bypass."
+                        "rationale": "An attacker must either compromise the rollout-orchestration control plane directly or successfully evade canary-stage telemetry monitoring for long enough that a bad update advances past the canary gate - achievable with sustained effort but not a quick, single-attempt bypass."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE2",
@@ -4881,7 +4881,7 @@
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC2",
-                        "rationale": "Requires proprietary knowledge of the OEM's specific canary cohort selection, telemetry health thresholds, and rollout-wave cadence — none of which is publicly documented."
+                        "rationale": "Requires proprietary knowledge of the OEM's specific canary cohort selection, telemetry health thresholds, and rollout-wave cadence - none of which is publicly documented."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO1",
@@ -5558,7 +5558,7 @@
         {
             "id": "C.20.2",
             "name": "Redundant Failover for Availability-Critical Functions",
-            "description": "Cross-component and cross-path redundancy — a hot/warm-standby backup ECU, or a redundant network path/secondary gateway route — that lets an availability-critical function (e.g., a braking-relevant CAN segment, a powertrain control loop) gracefully degrade to a safe/reduced mode rather than fail outright when its primary compute node or network path is disrupted by a denial-of-service condition or a hardware fault. Distinct from C.20.1 (a single node's own watchdog-triggered self-reset) and C.18.1/C.18.2 (single-node task scheduling and resource quotas); this control operates at the system level, providing an alternate path when the primary node or link itself becomes unavailable, rather than policing what runs on it.",
+            "description": "Cross-component and cross-path redundancy - a hot/warm-standby backup ECU, or a redundant network path/secondary gateway route - that lets an availability-critical function (e.g., a braking-relevant CAN segment, a powertrain control loop) gracefully degrade to a safe/reduced mode rather than fail outright when its primary compute node or network path is disrupted by a denial-of-service condition or a hardware fault. Distinct from C.20.1 (a single node's own watchdog-triggered self-reset) and C.18.1/C.18.2 (single-node task scheduling and resource quotas); this control operates at the system level, providing an alternate path when the primary node or link itself becomes unavailable, rather than policing what runs on it.",
             "metadata": [
                 "CAN / CAN-FD / CAN-XL",
                 "Automotive Ethernet",
@@ -5578,7 +5578,7 @@
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC2",
-                        "rationale": "Requires detailed knowledge of the vehicle's specific redundancy architecture — which ECU/path is the standby, and what triggers failover to it."
+                        "rationale": "Requires detailed knowledge of the vehicle's specific redundancy architecture - which ECU/path is the standby, and what triggers failover to it."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO2",
@@ -5701,7 +5701,7 @@
         {
             "id": "C.21.1",
             "name": "V2X Misbehavior Detection",
-            "description": "Statistical and plausibility-based anomaly detection applied across the full V2X message stream attributable to a given sender or pseudonym-certificate identity — evaluating position/velocity/heading consistency against physical motion constraints, inter-message timing patterns, and cross-correlation against other sensor modalities (onboard radar/camera/LiDAR perception) — to detect both single-identity message forgery and multi-identity Sybil coordination. Distinct from C.21's pseudonym-certificate authentication, which verifies that a message's digital signature is cryptographically valid and traces to a legitimately-issued certificate: a validly-signed message from a legitimately-issued pseudonym certificate can still describe a physically implausible or coordinated-false vehicle state, which signature verification alone cannot detect. Directly denies the mechanism modeled by T.01.15 (V2X Sybil Attack / Multi-Identity Misbehavior) and complements C.21's coverage of T.01.11 (V2X Safety Message Injection).",
+            "description": "Statistical and plausibility-based anomaly detection applied across the full V2X message stream attributable to a given sender or pseudonym-certificate identity - evaluating position/velocity/heading consistency against physical motion constraints, inter-message timing patterns, and cross-correlation against other sensor modalities (onboard radar/camera/LiDAR perception) - to detect both single-identity message forgery and multi-identity Sybil coordination. Distinct from C.21's pseudonym-certificate authentication, which verifies that a message's digital signature is cryptographically valid and traces to a legitimately-issued certificate: a validly-signed message from a legitimately-issued pseudonym certificate can still describe a physically implausible or coordinated-false vehicle state, which signature verification alone cannot detect. Directly denies the mechanism modeled by T.01.15 (V2X Sybil Attack / Multi-Identity Misbehavior) and complements C.21's coverage of T.01.11 (V2X Safety Message Injection).",
             "metadata": [
                 "V2X",
                 "PKI / Certificates",
@@ -5713,7 +5713,7 @@
                 "attackPotentialReduction": {
                     "elapsedTime": {
                         "feasibility": "ET3",
-                        "rationale": "Crafting a synthetic multi-identity or single-message pattern that evades statistical/behavioral plausibility analysis — rather than merely a validly-signed message — requires sustained refinement measured in months."
+                        "rationale": "Crafting a synthetic multi-identity or single-message pattern that evades statistical/behavioral plausibility analysis - rather than merely a validly-signed message - requires sustained refinement measured in months."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE3",
@@ -5725,7 +5725,7 @@
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO2",
-                        "rationale": "Must sustain a coordinated, physically-plausible pattern across the detector's full observation/analysis window, not just a single instantaneous message — tighter than the one-shot opportunity needed to defeat signature checking alone."
+                        "rationale": "Must sustain a coordinated, physically-plausible pattern across the detector's full observation/analysis window, not just a single instantaneous message - tighter than the one-shot opportunity needed to defeat signature checking alone."
                     },
                     "equipment": {
                         "feasibility": "Eq2",
@@ -5762,7 +5762,7 @@
         {
             "id": "C.22",
             "name": "Vehicle Security Operations Center (VSOC) & Incident Response",
-            "description": "Fleet-wide, cross-vehicle correlation of security telemetry — aggregating on-vehicle IDS alerts (C.03.10–C.03.12), audit logs (C.15), and backend access logs into a SIEM, enriched with external threat-intelligence feeds — to detect coordinated or fleet-scale attack campaigns that are invisible from any single vehicle's local logs. Provides SOAR-driven (Security Orchestration, Automation and Response) incident response: automated containment actions such as revoking a compromised certificate, quarantining an affected fleet segment from OTA distribution, or forcing targeted re-provisioning, alongside the human-in-the-loop escalation, forensics, and regulator/CSIRT notification workflows mandated by UN R155's post-production monitoring and response requirement. Distinct from C.15 (single-vehicle, on-board event logging) and C.03.10–C.03.12 (single-flow/single-vehicle intrusion detection); this control is the organizational capability that consumes those local signals at fleet scale and acts on them.",
+            "description": "Fleet-wide, cross-vehicle correlation of security telemetry - aggregating on-vehicle IDS alerts (C.03.10–C.03.12), audit logs (C.15), and backend access logs into a SIEM, enriched with external threat-intelligence feeds - to detect coordinated or fleet-scale attack campaigns that are invisible from any single vehicle's local logs. Provides SOAR-driven (Security Orchestration, Automation and Response) incident response: automated containment actions such as revoking a compromised certificate, quarantining an affected fleet segment from OTA distribution, or forcing targeted re-provisioning, alongside the human-in-the-loop escalation, forensics, and regulator/CSIRT notification workflows mandated by UN R155's post-production monitoring and response requirement. Distinct from C.15 (single-vehicle, on-board event logging) and C.03.10–C.03.12 (single-flow/single-vehicle intrusion detection); this control is the organizational capability that consumes those local signals at fleet scale and acts on them.",
             "metadata": [
                 "gRPC / REST",
                 "App / Service",
@@ -5778,7 +5778,7 @@
                     },
                     "specialistExpertise": {
                         "feasibility": "SE2",
-                        "rationale": "Evading fleet-wide correlation requires the attacker to actively vary technique, timing, and targeting across a campaign — a materially higher bar than evading a single vehicle's local IDS."
+                        "rationale": "Evading fleet-wide correlation requires the attacker to actively vary technique, timing, and targeting across a campaign - a materially higher bar than evading a single vehicle's local IDS."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC2",
@@ -5835,7 +5835,7 @@
         {
             "id": "C.03.14",
             "name": "Cloud Security Posture Management (CSPM)",
-            "description": "Continuous or scheduled scanning of cloud backend infrastructure — storage bucket permissions, database access policies, IAM role bindings, serverless function permissions, and network security groups — against secure-configuration baselines to detect and remediate misconfigurations before they cause unauthorized data exposure or resource compromise. Distinct from network-layer segmentation (C.03.4), which protects traffic paths, and application-layer access control (C.09), which governs who can authenticate; this targets cloud-platform-native configuration drift itself, per NCSC and OWASP cloud security guidance.",
+            "description": "Continuous or scheduled scanning of cloud backend infrastructure - storage bucket permissions, database access policies, IAM role bindings, serverless function permissions, and network security groups - against secure-configuration baselines to detect and remediate misconfigurations before they cause unauthorized data exposure or resource compromise. Distinct from network-layer segmentation (C.03.4), which protects traffic paths, and application-layer access control (C.09), which governs who can authenticate; this targets cloud-platform-native configuration drift itself, per NCSC and OWASP cloud security guidance.",
             "metadata": [
                 "gRPC / REST",
                 "OAuth / OIDC / SAML",
@@ -5846,19 +5846,19 @@
                 "attackPotentialReduction": {
                     "elapsedTime": {
                         "feasibility": "ET2",
-                        "rationale": "A determined attacker scanning for still-unremediated misconfigurations across a large cloud estate needs sustained but not extreme effort — weeks, not months, given scan/remediation cycles leave real windows open."
+                        "rationale": "A determined attacker scanning for still-unremediated misconfigurations across a large cloud estate needs sustained but not extreme effort - weeks, not months, given scan/remediation cycles leave real windows open."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE1",
-                        "rationale": "Exploiting a missed misconfiguration (an over-permissive IAM role, a public storage bucket) requires standard cloud security knowledge, not deep specialist skill — the hard part is finding the gap, not exploiting it once found."
+                        "rationale": "Exploiting a missed misconfiguration (an over-permissive IAM role, a public storage bucket) requires standard cloud security knowledge, not deep specialist skill - the hard part is finding the gap, not exploiting it once found."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC2",
-                        "rationale": "Requires knowledge of this specific cloud environment's scan cadence, baseline exceptions, and which resources are excluded from coverage — not public information."
+                        "rationale": "Requires knowledge of this specific cloud environment's scan cadence, baseline exceptions, and which resources are excluded from coverage - not public information."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO2",
-                        "rationale": "Exploitation is bounded to the window between a misconfiguration being introduced and the next scan/remediation cycle catching it — meaningfully constrained but not negligible given realistic scan intervals."
+                        "rationale": "Exploitation is bounded to the window between a misconfiguration being introduced and the next scan/remediation cycle catching it - meaningfully constrained but not negligible given realistic scan intervals."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
@@ -5894,7 +5894,7 @@
         {
             "id": "C.09.6",
             "name": "Data Loss Prevention (DLP)",
-            "description": "Automated scanning of outbound data flows and bulk-export operations from back-end systems for sensitive data patterns (PII, cryptographic material, location history), combined with mandatory approval gates on data-sharing configuration changes and default redaction of sensitive fields in logs and exports. Prevents accidental over-exposure of vehicle or owner data caused by an already-authorized user's own configuration mistake — distinct from RBAC (C.09.1), which restricts who holds access, not what an authorized holder can inadvertently expose.",
+            "description": "Automated scanning of outbound data flows and bulk-export operations from back-end systems for sensitive data patterns (PII, cryptographic material, location history), combined with mandatory approval gates on data-sharing configuration changes and default redaction of sensitive fields in logs and exports. Prevents accidental over-exposure of vehicle or owner data caused by an already-authorized user's own configuration mistake - distinct from RBAC (C.09.1), which restricts who holds access, not what an authorized holder can inadvertently expose.",
             "metadata": [
                 "gRPC / REST",
                 "App / Service"

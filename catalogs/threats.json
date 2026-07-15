@@ -18,23 +18,23 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.01.2 (Cloud/App Credential Spoofing) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.01.2 (Cloud/App Credential Spoofing) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.01.2 (Cloud/App Credential Spoofing) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.01.2 (Cloud/App Credential Spoofing) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.01.2 (Cloud/App Credential Spoofing) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.01.2 (Cloud/App Credential Spoofing) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO0, from T.01.2 (Cloud/App Credential Spoofing) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO0, from T.01.2 (Cloud/App Credential Spoofing) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.01.2 (Cloud/App Credential Spoofing) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.01.2 (Cloud/App Credential Spoofing) - the most accessible instantiation of this abstract tactic along this dimension."
                     }
                 }
             },
@@ -367,7 +367,7 @@
         {
             "id": "T.01.5",
             "name": "Backend and Mobile App Spoofing",
-            "description": "An attacker who has obtained backend or companion-app authentication material (e.g., stolen API keys or a forged TLS certificate) impersonates the OEM backend or mobile app to inject unauthorized commands into the vehicle over the telematics channel — distinct from T.01.2, which requires stealing an individual user's own login credentials.",
+            "description": "An attacker who has obtained backend or companion-app authentication material (e.g., stolen API keys or a forged TLS certificate) impersonates the OEM backend or mobile app to inject unauthorized commands into the vehicle over the telematics channel - distinct from T.01.2, which requires stealing an individual user's own login credentials.",
             "classificationModel": "STRIDE",
             "scalability": "Fleet-Wide",
             "threatActors": [
@@ -919,7 +919,7 @@
         {
             "id": "T.01.13",
             "name": "Cryptographic/Transport Protocol Downgrade Attack",
-            "description": "An attacker positioned as a man-in-the-middle actively manipulates a TLS/DTLS (or equivalent transport-security) handshake — stripping supported cipher suites from the ClientHello, forcing fallback to a deprecated protocol version (SSLv3, TLS 1.0/1.1), or exploiting cross-protocol/export-grade cryptographic weaknesses in the POODLE, FREAK, Logjam, or DROWN family — to coerce both endpoints into negotiating a version or cipher suite weak enough to break or cryptanalyze. Unlike the RF/PHY jamming-based downgrade modeled in T.08.3 (which forces a wireless interface to fail over from 4G/5G or WPA3 to 2G or WEP), this is a pure protocol-layer manipulation that requires no signal disruption at all, and it applies uniformly to any TLS/DTLS-secured channel in the vehicle's architecture: backend telematics sessions, OTA update distribution, and the ISO 15118 V2G/EVSE charging handshake.",
+            "description": "An attacker positioned as a man-in-the-middle actively manipulates a TLS/DTLS (or equivalent transport-security) handshake - stripping supported cipher suites from the ClientHello, forcing fallback to a deprecated protocol version (SSLv3, TLS 1.0/1.1), or exploiting cross-protocol/export-grade cryptographic weaknesses in the POODLE, FREAK, Logjam, or DROWN family - to coerce both endpoints into negotiating a version or cipher suite weak enough to break or cryptanalyze. Unlike the RF/PHY jamming-based downgrade modeled in T.08.3 (which forces a wireless interface to fail over from 4G/5G or WPA3 to 2G or WEP), this is a pure protocol-layer manipulation that requires no signal disruption at all, and it applies uniformly to any TLS/DTLS-secured channel in the vehicle's architecture: backend telematics sessions, OTA update distribution, and the ISO 15118 V2G/EVSE charging handshake.",
             "classificationModel": "STRIDE",
             "scalability": "Fleet-Wide",
             "threatActors": [
@@ -943,7 +943,7 @@
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO2",
-                        "rationale": "Requires an established on-path or on-path-capable MITM position — a compromised Wi-Fi access point, a rogue EVSE, or a backend network vantage point — held for the duration of the handshake."
+                        "rationale": "Requires an established on-path or on-path-capable MITM position - a compromised Wi-Fi access point, a rogue EVSE, or a backend network vantage point - held for the duration of the handshake."
                     },
                     "equipment": {
                         "feasibility": "Eq1",
@@ -993,7 +993,7 @@
         {
             "id": "T.01.14",
             "name": "LLM/Conversational AI Prompt Injection",
-            "description": "An attacker embeds malicious natural-language instructions in content the in-cabin LLM copilot (A.073) will ingest while forming a response — a webpage returned by a web search the assistant performs on the user's behalf, a calendar invite, a received message, a navigation POI description, or a crafted voice command spoken within microphone range — causing the assistant to execute an unintended, attacker-directed vehicle function (unlocking doors, sending a message, changing climate/navigation settings, or exfiltrating conversation history) while appearing to the user as ordinary assistant behavior. This is indirect prompt injection per OWASP's LLM01:2025 (ranked the #1 risk in the OWASP Top 10 for LLM Applications). Unlike the catalog's other Inject-action threats, which manipulate a fixed-grammar protocol or API surface (a malformed CAN frame, a forged API call) to trigger a parsing, authentication, or logic flaw, here the 'injection' is semantic: plain natural-language text that exploits the LLM's inability to reliably distinguish trusted user intent from untrusted ingested content sharing the same context window. No malformed message, protocol violation, or memory-corruption primitive is involved — the attack succeeds entirely within the model's normal, correctly functioning natural-language reasoning.",
+            "description": "An attacker embeds malicious natural-language instructions in content the in-cabin LLM copilot (A.073) will ingest while forming a response - a webpage returned by a web search the assistant performs on the user's behalf, a calendar invite, a received message, a navigation POI description, or a crafted voice command spoken within microphone range - causing the assistant to execute an unintended, attacker-directed vehicle function (unlocking doors, sending a message, changing climate/navigation settings, or exfiltrating conversation history) while appearing to the user as ordinary assistant behavior. This is indirect prompt injection per OWASP's LLM01:2025 (ranked the #1 risk in the OWASP Top 10 for LLM Applications). Unlike the catalog's other Inject-action threats, which manipulate a fixed-grammar protocol or API surface (a malformed CAN frame, a forged API call) to trigger a parsing, authentication, or logic flaw, here the 'injection' is semantic: plain natural-language text that exploits the LLM's inability to reliably distinguish trusted user intent from untrusted ingested content sharing the same context window. No malformed message, protocol violation, or memory-corruption primitive is involved - the attack succeeds entirely within the model's normal, correctly functioning natural-language reasoning.",
             "classificationModel": "STRIDE",
             "scalability": "Fleet-Wide",
             "threatActors": [
@@ -1014,7 +1014,7 @@
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC2",
-                        "rationale": "Reliably bypassing a specific OEM's system-prompt guardrails and tool-calling permission boundaries requires reconnaissance of that assistant's specific behavior — which content sources it ingests and which functions it is willing to call — information that is not publicly documented."
+                        "rationale": "Reliably bypassing a specific OEM's system-prompt guardrails and tool-calling permission boundaries requires reconnaissance of that assistant's specific behavior - which content sources it ingests and which functions it is willing to call - information that is not publicly documented."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO1",
@@ -1063,13 +1063,13 @@
                 "gRPC / REST",
                 "Cellular"
             ],
-            "notes": "Distinct from the catalog's other Inject-action threats (e.g. T.01.11 V2X message injection, T.02.4 Runtime Code/Command Injection), which manipulate a fixed-grammar protocol or API surface to trigger a parsing, authentication, or memory-safety flaw. Here the payload is unstructured natural language and the vulnerability exploited is the LLM's own reasoning process — there is no malformed message or broken parser to point to. Applies specifically to A.073 (In-Cabin Conversational AI / LLM Copilot Interface); prior to this asset's addition, no catalog entry modeled an in-cabin system with tool-calling access to vehicle functions driven by unstructured natural-language input. UN R155 Annex 5 predates this threat class; no confident primary-source mapping was found, so unitedNationsRegulation155 is left empty rather than guessed. Citation: OWASP Top 10 for LLM Applications 2025, LLM01:2025 Prompt Injection (https://genai.owasp.org/llmrisk/llm01-prompt-injection/).",
+            "notes": "Distinct from the catalog's other Inject-action threats (e.g. T.01.11 V2X message injection, T.02.4 Runtime Code/Command Injection), which manipulate a fixed-grammar protocol or API surface to trigger a parsing, authentication, or memory-safety flaw. Here the payload is unstructured natural language and the vulnerability exploited is the LLM's own reasoning process - there is no malformed message or broken parser to point to. Applies specifically to A.073 (In-Cabin Conversational AI / LLM Copilot Interface); prior to this asset's addition, no catalog entry modeled an in-cabin system with tool-calling access to vehicle functions driven by unstructured natural-language input. UN R155 Annex 5 predates this threat class; no confident primary-source mapping was found, so unitedNationsRegulation155 is left empty rather than guessed. Citation: OWASP Top 10 for LLM Applications 2025, LLM01:2025 Prompt Injection (https://genai.owasp.org/llmrisk/llm01-prompt-injection/).",
             "unitedNationsRegulation155": []
         },
         {
             "id": "T.01.15",
             "name": "V2X Sybil Attack / Multi-Identity Misbehavior",
-            "description": "An attacker holds or synthesizes multiple simultaneously-valid V2X pseudonym identities — rather than forging a single message under one identity, as modeled in T.01.11 (V2X Safety Message Injection) — to simulate the presence of many phantom vehicles, artificially inflate perceived traffic density, or synthesize a coordinated false hazard/collision-warning consensus that appears to originate from several independent, legitimately-signed senders at once. Plausibility checks and anomaly filters that evaluate each received message or sender identity in isolation for physical implausibility (e.g. a single vehicle reporting an impossible speed) are defeated by this coordinated multi-identity pattern, since no single message or identity is individually implausible — the inconsistency only emerges when correlating the population of concurrently-active identities against physical and behavioral constraints. Distinct from T.01.11 by the additional prerequisite of controlling or synthesizing multiple concurrent identities, not merely broadcasting one forged message.",
+            "description": "An attacker holds or synthesizes multiple simultaneously-valid V2X pseudonym identities - rather than forging a single message under one identity, as modeled in T.01.11 (V2X Safety Message Injection) - to simulate the presence of many phantom vehicles, artificially inflate perceived traffic density, or synthesize a coordinated false hazard/collision-warning consensus that appears to originate from several independent, legitimately-signed senders at once. Plausibility checks and anomaly filters that evaluate each received message or sender identity in isolation for physical implausibility (e.g. a single vehicle reporting an impossible speed) are defeated by this coordinated multi-identity pattern, since no single message or identity is individually implausible - the inconsistency only emerges when correlating the population of concurrently-active identities against physical and behavioral constraints. Distinct from T.01.11 by the additional prerequisite of controlling or synthesizing multiple concurrent identities, not merely broadcasting one forged message.",
             "classificationModel": "STRIDE",
             "scalability": "Limited Batch",
             "threatActors": [
@@ -1082,7 +1082,7 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET3",
-                        "rationale": "Obtaining or deriving several concurrently-valid pseudonym certificates — whether by compromising multiple onboard units, exploiting the certificate issuance/rotation policy, or key extraction across several devices — takes sustained effort measured in weeks to months, well beyond the single-session effort needed to forge one message under one identity (T.01.11)."
+                        "rationale": "Obtaining or deriving several concurrently-valid pseudonym certificates - whether by compromising multiple onboard units, exploiting the certificate issuance/rotation policy, or key extraction across several devices - takes sustained effort measured in weeks to months, well beyond the single-session effort needed to forge one message under one identity (T.01.11)."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE2",
@@ -1098,7 +1098,7 @@
                     },
                     "equipment": {
                         "feasibility": "Eq2",
-                        "rationale": "Broadcasting several concurrent, mutually-consistent identities requires either multiple V2X radio front-ends or a software-defined radio platform capable of modeling several physically-consistent fabricated trajectories simultaneously — more capable equipment than the single V2X radio T.01.11 requires."
+                        "rationale": "Broadcasting several concurrent, mutually-consistent identities requires either multiple V2X radio front-ends or a software-defined radio platform capable of modeling several physically-consistent fabricated trajectories simultaneously - more capable equipment than the single V2X radio T.01.11 requires."
                     }
                 }
             },
@@ -1134,7 +1134,7 @@
                 "GNSS",
                 "Asymmetric Keys"
             ],
-            "notes": "Refines the same parent (T.01) as T.01.11 but models a mechanistically distinct prerequisite: holding or synthesizing multiple concurrently-valid identities (Extract:Crypto:External), not merely broadcasting one forged message. Directly denied by C.21.1 (V2X Misbehavior Detection), which correlates the message stream across identities rather than validating each message's signature in isolation — the gap C.21's pseudonym-certificate authentication alone does not close. Citation: \"Creating a realistic sybil attack dataset for inter-vehicle communication\", Peer-to-Peer Networking and Applications (2025), https://link.springer.com/article/10.1007/s12083-025-02058-w.",
+            "notes": "Refines the same parent (T.01) as T.01.11 but models a mechanistically distinct prerequisite: holding or synthesizing multiple concurrently-valid identities (Extract:Crypto:External), not merely broadcasting one forged message. Directly denied by C.21.1 (V2X Misbehavior Detection), which correlates the message stream across identities rather than validating each message's signature in isolation - the gap C.21's pseudonym-certificate authentication alone does not close. Citation: \"Creating a realistic sybil attack dataset for inter-vehicle communication\", Peer-to-Peer Networking and Applications (2025), https://link.springer.com/article/10.1007/s12083-025-02058-w.",
             "unitedNationsRegulation155": [
                 "4.2"
             ]
@@ -1154,23 +1154,23 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.02.2 (Persistent Storage and Configuration/Calibration Tampering) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.02.2 (Persistent Storage and Configuration/Calibration Tampering) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.02.2 (Persistent Storage and Configuration/Calibration Tampering) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.02.2 (Persistent Storage and Configuration/Calibration Tampering) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC1, from T.02.4 (Runtime Code/Command Injection) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC1, from T.02.4 (Runtime Code/Command Injection) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO1, from T.02.1 (Runtime Memory/State Tampering) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO1, from T.02.1 (Runtime Memory/State Tampering) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.02.1 (Runtime Memory/State Tampering) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.02.1 (Runtime Memory/State Tampering) - the most accessible instantiation of this abstract tactic along this dimension."
                     }
                 }
             },
@@ -1841,7 +1841,7 @@
         {
             "id": "T.02.10",
             "name": "Firmware/Software Version Rollback (Downgrade) Attack",
-            "description": "An attacker reflashes or restores an ECU to an older, genuinely OEM-signed firmware or software image that contains a since-patched vulnerability, or directly tampers with the stored version value/rollback counter used to gate installation, without ever forging a signature. Because the replayed image carries a valid signature, Secure Boot's verification step passes without incident — the attack succeeds not by breaking cryptographic trust but by replaying a legitimately trusted artifact that predates a security fix. In the absence of monotonic anti-rollback enforcement (a hardware counter, blown eFuse, or software rollback-index comparison), the reintroduced, previously-patched vulnerability becomes available again for exploitation by a subsequent, independent attack.",
+            "description": "An attacker reflashes or restores an ECU to an older, genuinely OEM-signed firmware or software image that contains a since-patched vulnerability, or directly tampers with the stored version value/rollback counter used to gate installation, without ever forging a signature. Because the replayed image carries a valid signature, Secure Boot's verification step passes without incident - the attack succeeds not by breaking cryptographic trust but by replaying a legitimately trusted artifact that predates a security fix. In the absence of monotonic anti-rollback enforcement (a hardware counter, blown eFuse, or software rollback-index comparison), the reintroduced, previously-patched vulnerability becomes available again for exploitation by a subsequent, independent attack.",
             "classificationModel": "STRIDE",
             "scalability": "Fleet-Wide",
             "threatActors": [
@@ -1858,7 +1858,7 @@
                     },
                     "specialistExpertise": {
                         "feasibility": "SE2",
-                        "rationale": "Requires understanding of the target's specific versioning scheme — where the rollback counter is stored and checked, and any TOCTOU window between verification and load — but no cryptographic break is needed."
+                        "rationale": "Requires understanding of the target's specific versioning scheme - where the rollback counter is stored and checked, and any TOCTOU window between verification and load - but no cryptographic break is needed."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC2",
@@ -1932,23 +1932,23 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.03.1 (Audit Log Tampering and Evasion) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.03.1 (Audit Log Tampering and Evasion) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.03.1 (Audit Log Tampering and Evasion) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.03.1 (Audit Log Tampering and Evasion) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC1, from T.03.2 (Repudiation of Origin (V2X / Backend)) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC1, from T.03.2 (Repudiation of Origin (V2X / Backend)) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO1, from T.03.1 (Audit Log Tampering and Evasion) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO1, from T.03.1 (Audit Log Tampering and Evasion) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.03.1 (Audit Log Tampering and Evasion) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.03.1 (Audit Log Tampering and Evasion) - the most accessible instantiation of this abstract tactic along this dimension."
                     }
                 }
             },
@@ -2063,7 +2063,7 @@
         {
             "id": "T.03.2",
             "name": "Repudiation of Origin (V2X / Backend)",
-            "description": "A node transmits a malicious or malformed message (e.g., a fake V2X safety hazard warning or a rogue OTA command) and successfully denies sending it because the communication channel lacks sufficient non-repudiation controls, such as digital signatures binding the message to a single sender — a shared symmetric MAC alone cannot provide this guarantee, since any party holding the key could have produced it.",
+            "description": "A node transmits a malicious or malformed message (e.g., a fake V2X safety hazard warning or a rogue OTA command) and successfully denies sending it because the communication channel lacks sufficient non-repudiation controls, such as digital signatures binding the message to a single sender - a shared symmetric MAC alone cannot provide this guarantee, since any party holding the key could have produced it.",
             "classificationModel": "STRIDE",
             "scalability": "Fleet-Wide",
             "threatActors": [
@@ -2146,23 +2146,23 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.04.1 (In-Vehicle Network (IVN) Sniffing) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.04.1 (In-Vehicle Network (IVN) Sniffing) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.04.1 (In-Vehicle Network (IVN) Sniffing) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.04.1 (In-Vehicle Network (IVN) Sniffing) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC1, from T.04.1 (In-Vehicle Network (IVN) Sniffing) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC1, from T.04.1 (In-Vehicle Network (IVN) Sniffing) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO0, from T.04.8 (OEM Backend Credential / Key Extraction) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO0, from T.04.8 (OEM Backend Credential / Key Extraction) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.04.3 (Unintended Disclosure of PII Data) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.04.3 (Unintended Disclosure of PII Data) - the most accessible instantiation of this abstract tactic along this dimension."
                     }
                 }
             },
@@ -2423,7 +2423,7 @@
         {
             "id": "T.04.4",
             "name": "Side Channel Analysis (SCA)",
-            "description": "Passively exploiting indirect physical leakage — timing variations, power consumption patterns, or electromagnetic emissions — observed during normal cryptographic processing to statistically recover secret key material without physical intervention in circuit operation.",
+            "description": "Passively exploiting indirect physical leakage - timing variations, power consumption patterns, or electromagnetic emissions - observed during normal cryptographic processing to statistically recover secret key material without physical intervention in circuit operation.",
             "classificationModel": "STRIDE",
             "scalability": "Single Vehicle",
             "threatActors": [
@@ -2488,7 +2488,7 @@
         {
             "id": "T.04.5",
             "name": "Differential Fault Analysis (DFA)",
-            "description": "Actively inducing precise computational faults in a cryptographic operation — via voltage glitching, clock manipulation, electromagnetic fault injection (EMFI), or laser irradiation — then statistically analyzing the differential between correct and faulty ciphertext outputs to derive the secret key. Unlike SCA, DFA actively disturbs circuit operation rather than passively observing it.",
+            "description": "Actively inducing precise computational faults in a cryptographic operation - via voltage glitching, clock manipulation, electromagnetic fault injection (EMFI), or laser irradiation - then statistically analyzing the differential between correct and faulty ciphertext outputs to derive the secret key. Unlike SCA, DFA actively disturbs circuit operation rather than passively observing it.",
             "classificationModel": "STRIDE",
             "scalability": "Single Vehicle",
             "threatActors": [
@@ -2751,7 +2751,7 @@
         {
             "id": "T.04.9",
             "name": "Harvest Now, Decrypt Later (HNDL)",
-            "description": "A long-horizon quantum threat strategy in which an attacker passively intercepts and stores encrypted vehicle communications today — over V2X, TLS/DTLS-protected telematics channels, or OEM backend links — with the intent of retroactively decrypting them once a Cryptographically Relevant Quantum Computer (CRQC) becomes available. Shor's algorithm enables a CRQC to break classical asymmetric key exchange (RSA, ECDH, ECDSA), rendering all previously captured ciphertext retroactively readable. Beyond confidentiality, HNDL enables 'harvest now, spoof later': stored public-key material allows a quantum-capable attacker to derive corresponding private signing keys, subsequently forging digital signatures on OTA packages, V2X messages, or backend API tokens — enabling injection of malicious commands or unauthorized firmware execution.",
+            "description": "A long-horizon quantum threat strategy in which an attacker passively intercepts and stores encrypted vehicle communications today - over V2X, TLS/DTLS-protected telematics channels, or OEM backend links - with the intent of retroactively decrypting them once a Cryptographically Relevant Quantum Computer (CRQC) becomes available. Shor's algorithm enables a CRQC to break classical asymmetric key exchange (RSA, ECDH, ECDSA), rendering all previously captured ciphertext retroactively readable. Beyond confidentiality, HNDL enables 'harvest now, spoof later': stored public-key material allows a quantum-capable attacker to derive corresponding private signing keys, subsequently forging digital signatures on OTA packages, V2X messages, or backend API tokens - enabling injection of malicious commands or unauthorized firmware execution.",
             "classificationModel": "STRIDE",
             "scalability": "Fleet-Wide",
             "threatActors": [
@@ -2845,23 +2845,23 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.05.1 (In-Vehicle Network (IVN) Bus Flooding) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.05.1 (In-Vehicle Network (IVN) Bus Flooding) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE0, from T.05.3 (Wireless RF / GNSS Jamming) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE0, from T.05.3 (Wireless RF / GNSS Jamming) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.05.3 (Wireless RF / GNSS Jamming) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.05.3 (Wireless RF / GNSS Jamming) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO0, from T.05.4 (Denial of Wallet (Cloud API Exhaustion)) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO0, from T.05.4 (Denial of Wallet (Cloud API Exhaustion)) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.05.2 (Compute Resource Exhaustion) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.05.2 (Compute Resource Exhaustion) - the most accessible instantiation of this abstract tactic along this dimension."
                     }
                 }
             },
@@ -3250,7 +3250,7 @@
         {
             "id": "T.05.6",
             "name": "CAN Bus-Off / Error-State Forced Disconnection Attack",
-            "description": "An attacker exploits the CAN controller's built-in error-confinement state machine rather than raw bandwidth exhaustion. By injecting frames sharing the same arbitration ID as a victim ECU's next scheduled transmission and forcing a bit-level conflict (or corrupting the victim's own frame with a jammed dominant bit at the right moment), the attacker repeatedly drives transmit-error-counter (TEC) increments on the victim's CAN controller. Once the TEC exceeds 255, the controller autonomously transitions to the 'bus-off' state per the CAN/ISO 11898-1 error-handling specification and physically disconnects itself from the bus — silently and durably removing a legitimate, uncompromised ECU from the network without transmitting a single flooded frame, and typically without the victim ECU's own software ever detecting the transition.",
+            "description": "An attacker exploits the CAN controller's built-in error-confinement state machine rather than raw bandwidth exhaustion. By injecting frames sharing the same arbitration ID as a victim ECU's next scheduled transmission and forcing a bit-level conflict (or corrupting the victim's own frame with a jammed dominant bit at the right moment), the attacker repeatedly drives transmit-error-counter (TEC) increments on the victim's CAN controller. Once the TEC exceeds 255, the controller autonomously transitions to the 'bus-off' state per the CAN/ISO 11898-1 error-handling specification and physically disconnects itself from the bus - silently and durably removing a legitimate, uncompromised ECU from the network without transmitting a single flooded frame, and typically without the victim ECU's own software ever detecting the transition.",
             "classificationModel": "STRIDE",
             "scalability": "Limited Batch",
             "threatActors": [
@@ -3262,7 +3262,7 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET2",
-                        "rationale": "Driving enough consecutive TEC increments across the 255-count bus-off threshold on a specific targeted ID takes tens to low hundreds of milliseconds of precisely timed injection — longer than an instantaneous flood, but still well within a single attack session."
+                        "rationale": "Driving enough consecutive TEC increments across the 255-count bus-off threshold on a specific targeted ID takes tens to low hundreds of milliseconds of precisely timed injection - longer than an instantaneous flood, but still well within a single attack session."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE2",
@@ -3274,7 +3274,7 @@
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO2",
-                        "rationale": "Requires direct electrical access to the target CAN segment — via OBD-II, an exposed harness splice, or a already-compromised ECU bridging onto the segment."
+                        "rationale": "Requires direct electrical access to the target CAN segment - via OBD-II, an exposed harness splice, or a already-compromised ECU bridging onto the segment."
                     },
                     "equipment": {
                         "feasibility": "Eq1",
@@ -3318,7 +3318,7 @@
         {
             "id": "T.05.7",
             "name": "Ransomware / Extortion Attack on Backend Infrastructure",
-            "description": "An attacker who has already gained code-execution access to OEM or fleet backend infrastructure (dealer-management systems, fleet-operations APIs, telematics backend) — for example via T.01.5 (Backend and Mobile App Spoofing) — deploys ransomware to encrypt backend data and systems, rendering fleet operations, OTA update distribution, and remote vehicle services unavailable. Before triggering encryption, the attacker exfiltrates sensitive data (customer PII, vehicle telemetry, proprietary fleet-operations data) to hold as 'double extortion' leverage, threatening public disclosure if the ransom is not paid even if the victim can restore from backup without paying. Distinct from T.05.5 (Denial of Service via Logical Deletion), which models destructive, non-recoverable deletion for its own sake: this threat's mechanism is recoverable-in-principle encryption paired with a parallel data-theft/extortion component, and its objective is financial extraction rather than pure sabotage.",
+            "description": "An attacker who has already gained code-execution access to OEM or fleet backend infrastructure (dealer-management systems, fleet-operations APIs, telematics backend) - for example via T.01.5 (Backend and Mobile App Spoofing) - deploys ransomware to encrypt backend data and systems, rendering fleet operations, OTA update distribution, and remote vehicle services unavailable. Before triggering encryption, the attacker exfiltrates sensitive data (customer PII, vehicle telemetry, proprietary fleet-operations data) to hold as 'double extortion' leverage, threatening public disclosure if the ransom is not paid even if the victim can restore from backup without paying. Distinct from T.05.5 (Denial of Service via Logical Deletion), which models destructive, non-recoverable deletion for its own sake: this threat's mechanism is recoverable-in-principle encryption paired with a parallel data-theft/extortion component, and its objective is financial extraction rather than pure sabotage.",
             "classificationModel": "STRIDE",
             "scalability": "Fleet-Wide",
             "threatActors": [
@@ -3339,7 +3339,7 @@
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC2",
-                        "rationale": "Maximizing both the disruption and extortion leverage requires reconnaissance of the specific backend's data topology — identifying which systems host fleet-operations, OTA distribution, and customer PII — which is not public information."
+                        "rationale": "Maximizing both the disruption and extortion leverage requires reconnaissance of the specific backend's data topology - identifying which systems host fleet-operations, OTA distribution, and customer PII - which is not public information."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO1",
@@ -3397,7 +3397,7 @@
         {
             "id": "T.05.8",
             "name": "EV Charging Communication Disruption (Wireless PLC Jamming)",
-            "description": "An attacker wirelessly disrupts the HomePlug GreenPHY power-line-communication signaling between the vehicle's EV Communication Controller (A.069) and the charging station during the ISO 15118/DIN 70121 SLAC (Signal Level Attenuation Characterization) handshake or an active charging session. The attack exploits the CSMA/CA (carrier-sense multiple access with collision avoidance) behavior mandated by the HomePlug GreenPHY standard: transmitting a weak, precisely-timed RF signal that the receiving station's carrier-sense logic interprets as channel activity is sufficient to prevent legitimate session establishment or abort an in-progress charge, without any physical or electrical connection to the vehicle or charging station. Distinct from T.01.12 (EV Charging Session Spoofing, a confidentiality/integrity threat requiring a rogue EVSE and TLS manipulation) and T.01.13 (protocol downgrade, requiring an on-path MITM position): this is a pure availability/DoS threat, requiring no cryptographic capability, no rogue infrastructure, and no wired access — only modest RF equipment operated at range.",
+            "description": "An attacker wirelessly disrupts the HomePlug GreenPHY power-line-communication signaling between the vehicle's EV Communication Controller (A.069) and the charging station during the ISO 15118/DIN 70121 SLAC (Signal Level Attenuation Characterization) handshake or an active charging session. The attack exploits the CSMA/CA (carrier-sense multiple access with collision avoidance) behavior mandated by the HomePlug GreenPHY standard: transmitting a weak, precisely-timed RF signal that the receiving station's carrier-sense logic interprets as channel activity is sufficient to prevent legitimate session establishment or abort an in-progress charge, without any physical or electrical connection to the vehicle or charging station. Distinct from T.01.12 (EV Charging Session Spoofing, a confidentiality/integrity threat requiring a rogue EVSE and TLS manipulation) and T.01.13 (protocol downgrade, requiring an on-path MITM position): this is a pure availability/DoS threat, requiring no cryptographic capability, no rogue infrastructure, and no wired access - only modest RF equipment operated at range.",
             "classificationModel": "STRIDE",
             "scalability": "Limited Batch",
             "threatActors": [
@@ -3422,7 +3422,7 @@
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO1",
-                        "rationale": "Requires the attacker to be within RF range of the vehicle or charging station (demonstrated effective up to approximately 47 meters) during the handshake or an active session — a real but modest proximity constraint."
+                        "rationale": "Requires the attacker to be within RF range of the vehicle or charging station (demonstrated effective up to approximately 47 meters) during the handshake or an active session - a real but modest proximity constraint."
                     },
                     "equipment": {
                         "feasibility": "Eq1",
@@ -3467,23 +3467,23 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.06.4 (Exploitation of Open Debug Ports (JTAG/UART)) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.06.4 (Exploitation of Open Debug Ports (JTAG/UART)) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.06.4 (Exploitation of Open Debug Ports (JTAG/UART)) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.06.4 (Exploitation of Open Debug Ports (JTAG/UART)) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.06.5 (Elevation of Privilege via Misconfiguration) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.06.5 (Elevation of Privilege via Misconfiguration) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO0, from T.06.3 (Application / Container Sandbox Breakout) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO0, from T.06.3 (Application / Container Sandbox Breakout) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.06.1 (OS / Kernel Privilege Escalation) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.06.1 (OS / Kernel Privilege Escalation) - the most accessible instantiation of this abstract tactic along this dimension."
                     }
                 }
             },
@@ -4040,7 +4040,7 @@
         {
             "id": "T.06.8",
             "name": "Backend API Broken Object-Level Authorization (BOLA)",
-            "description": "An attacker who holds a valid but unprivileged session with the OEM's owner/companion-app or fleet-management backend API exploits a missing per-request ownership check — commonly an endpoint that trusts a client-supplied, enumerable identifier such as a VIN, dealer ID, or internal vehicle record ID without verifying it belongs to the calling account — to remotely issue unlock, remote-start, horn/light, or location-query commands against, or read PII belonging to, vehicles the attacker does not own. No credential theft, key extraction, or cryptographic bypass is required: the attacker's own account and session are fully legitimate, and the API itself performs the privileged action on the attacker's behalf against the wrong object. This is functionally distinct from T.01.2 (which requires stolen credentials belonging to another account) and from T.04.8 (where an IDOR-class flaw is used only to exfiltrate keys/secrets, not to directly execute commands against another owner's vehicle).",
+            "description": "An attacker who holds a valid but unprivileged session with the OEM's owner/companion-app or fleet-management backend API exploits a missing per-request ownership check - commonly an endpoint that trusts a client-supplied, enumerable identifier such as a VIN, dealer ID, or internal vehicle record ID without verifying it belongs to the calling account - to remotely issue unlock, remote-start, horn/light, or location-query commands against, or read PII belonging to, vehicles the attacker does not own. No credential theft, key extraction, or cryptographic bypass is required: the attacker's own account and session are fully legitimate, and the API itself performs the privileged action on the attacker's behalf against the wrong object. This is functionally distinct from T.01.2 (which requires stolen credentials belonging to another account) and from T.04.8 (where an IDOR-class flaw is used only to exfiltrate keys/secrets, not to directly execute commands against another owner's vehicle).",
             "classificationModel": "STRIDE",
             "scalability": "Fleet-Wide",
             "threatActors": [
@@ -4056,7 +4056,7 @@
                     },
                     "specialistExpertise": {
                         "feasibility": "SE1",
-                        "rationale": "Requires only standard web/API testing skills (intercepting proxy, parameter tampering) — no cryptography, reverse engineering, or hardware access is needed."
+                        "rationale": "Requires only standard web/API testing skills (intercepting proxy, parameter tampering) - no cryptography, reverse engineering, or hardware access is needed."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC1",
@@ -4128,23 +4128,23 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.07.1 (Gather Target Information - from Other) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.07.1 (Gather Target Information - from Other) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.07.1 (Gather Target Information - from Other) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.07.1 (Gather Target Information - from Other) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.07.1 (Gather Target Information - from Other) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.07.1 (Gather Target Information - from Other) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO0, from T.07.1 (Gather Target Information - from Other) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO0, from T.07.1 (Gather Target Information - from Other) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.07.1 (Gather Target Information - from Other) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.07.1 (Gather Target Information - from Other) - the most accessible instantiation of this abstract tactic along this dimension."
                     }
                 }
             },
@@ -4338,23 +4338,23 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.08.2 (Analog Sensor Attacks) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.08.2 (Analog Sensor Attacks) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE0, from T.08.4 (Jamming or Denial of Service) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE0, from T.08.4 (Jamming or Denial of Service) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.08.2 (Analog Sensor Attacks) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.08.2 (Analog Sensor Attacks) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO1, from T.08.1 (Adversarial Machine Learning) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO1, from T.08.1 (Adversarial Machine Learning) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "equipment": {
                         "feasibility": "Eq1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq1, from T.08.2 (Analog Sensor Attacks) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq1, from T.08.2 (Analog Sensor Attacks) - the most accessible instantiation of this abstract tactic along this dimension."
                     }
                 }
             },
@@ -4933,23 +4933,23 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.09.6 (Phishing) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.09.6 (Phishing) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.09.1 (Aftermarket, Customer, or Dealer Equipment) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.09.1 (Aftermarket, Customer, or Dealer Equipment) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.09.6 (Phishing) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.09.6 (Phishing) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO0, from T.09.3 (Exploit Via Radio Interface) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO0, from T.09.3 (Exploit Via Radio Interface) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.09.1 (Aftermarket, Customer, or Dealer Equipment) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.09.1 (Aftermarket, Customer, or Dealer Equipment) - the most accessible instantiation of this abstract tactic along this dimension."
                     }
                 }
             },
@@ -5605,23 +5605,23 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET2",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET2, from T.10.1 (Command and Scripting Interpreter) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET2, from T.10.1 (Command and Scripting Interpreter) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE2",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE2, from T.10.1 (Command and Scripting Interpreter) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE2, from T.10.1 (Command and Scripting Interpreter) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC1, from T.10.1 (Command and Scripting Interpreter) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC1, from T.10.1 (Command and Scripting Interpreter) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO0, from T.10.2 (Native API) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO0, from T.10.2 (Native API) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.10.1 (Command and Scripting Interpreter) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.10.1 (Command and Scripting Interpreter) - the most accessible instantiation of this abstract tactic along this dimension."
                     }
                 }
             },
@@ -5913,23 +5913,23 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.11.2 (Disable Software Update) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.11.2 (Disable Software Update) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.11.2 (Disable Software Update) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.11.2 (Disable Software Update) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.11.2 (Disable Software Update) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.11.2 (Disable Software Update) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO1, from T.11.2 (Disable Software Update) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO1, from T.11.2 (Disable Software Update) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.11.1 (Abuse Standard Diagnostic Protocol for Persistence) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.11.1 (Abuse Standard Diagnostic Protocol for Persistence) - the most accessible instantiation of this abstract tactic along this dimension."
                     }
                 }
             },
@@ -6388,23 +6388,23 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.12.2 (Exploit Co-Located Computing Device for Privilege Escalation) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.12.2 (Exploit Co-Located Computing Device for Privilege Escalation) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.12.7 (Reprogram Co-Located Computing Device for Privilege Escalation) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.12.7 (Reprogram Co-Located Computing Device for Privilege Escalation) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC1, from T.12.1 (Abuse Elevation Control Mechanism) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC1, from T.12.1 (Abuse Elevation Control Mechanism) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO1, from T.12.1 (Abuse Elevation Control Mechanism) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO1, from T.12.1 (Abuse Elevation Control Mechanism) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.12.1 (Abuse Elevation Control Mechanism) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.12.1 (Abuse Elevation Control Mechanism) - the most accessible instantiation of this abstract tactic along this dimension."
                     }
                 }
             },
@@ -7059,23 +7059,23 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.13.3 (Bypass UDS Security Access) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.13.3 (Bypass UDS Security Access) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.13.3 (Bypass UDS Security Access) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.13.3 (Bypass UDS Security Access) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC1, from T.13.2 (Bypass Network Filtering) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC1, from T.13.2 (Bypass Network Filtering) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO1, from T.13.2 (Bypass Network Filtering) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO1, from T.13.2 (Bypass Network Filtering) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.13.1 (Bypass Code Integrity Protections) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.13.1 (Bypass Code Integrity Protections) - the most accessible instantiation of this abstract tactic along this dimension."
                     }
                 }
             },
@@ -7519,23 +7519,23 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.14.2 (Capture SMS Message) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.14.2 (Capture SMS Message) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.14.2 (Capture SMS Message) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.14.2 (Capture SMS Message) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC1, from T.14.1 (Exploit Isolated Execution Environment Vulnerability) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC1, from T.14.1 (Exploit Isolated Execution Environment Vulnerability) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO1, from T.14.1 (Exploit Isolated Execution Environment Vulnerability) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO1, from T.14.1 (Exploit Isolated Execution Environment Vulnerability) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.14.2 (Capture SMS Message) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.14.2 (Capture SMS Message) - the most accessible instantiation of this abstract tactic along this dimension."
                     }
                 }
             },
@@ -8188,23 +8188,23 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.15.1 (File and Directory Discovery) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.15.1 (File and Directory Discovery) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.15.1 (File and Directory Discovery) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.15.1 (File and Directory Discovery) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.15.2 (Location Tracking) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.15.2 (Location Tracking) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO0, from T.15.1 (File and Directory Discovery) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO0, from T.15.1 (File and Directory Discovery) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.15.1 (File and Directory Discovery) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.15.1 (File and Directory Discovery) - the most accessible instantiation of this abstract tactic along this dimension."
                     }
                 }
             },
@@ -8793,23 +8793,23 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET2",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET2, from T.16.1 (Abuse Standard Diagnostic Protocol for Lateral Movement) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET2, from T.16.1 (Abuse Standard Diagnostic Protocol for Lateral Movement) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE2",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE2, from T.16.1 (Abuse Standard Diagnostic Protocol for Lateral Movement) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE2, from T.16.1 (Abuse Standard Diagnostic Protocol for Lateral Movement) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC1, from T.16.3 (Exploit ECU for Lateral Movement) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC1, from T.16.3 (Exploit ECU for Lateral Movement) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO1, from T.16.1 (Abuse Standard Diagnostic Protocol for Lateral Movement) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO1, from T.16.1 (Abuse Standard Diagnostic Protocol for Lateral Movement) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.16.6 (Compromise Cryptographic Security) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.16.6 (Compromise Cryptographic Security) - the most accessible instantiation of this abstract tactic along this dimension."
                     }
                 }
             },
@@ -9334,23 +9334,23 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.17.1 (Capture SMS Message) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.17.1 (Capture SMS Message) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.17.1 (Capture SMS Message) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.17.1 (Capture SMS Message) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.17.4 (Location Tracking) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.17.4 (Location Tracking) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO0, from T.17.7 (Data from Local System) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO0, from T.17.7 (Data from Local System) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.17.1 (Capture SMS Message) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.17.1 (Capture SMS Message) - the most accessible instantiation of this abstract tactic along this dimension."
                     }
                 }
             },
@@ -10054,23 +10054,23 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.18.2 (Cellular Communication) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.18.2 (Cellular Communication) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.18.1 (Aftermarket, Customer, or Dealer Equipment) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.18.1 (Aftermarket, Customer, or Dealer Equipment) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.18.5 (Short Range Wireless Communication) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.18.5 (Short Range Wireless Communication) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO1, from T.18.2 (Cellular Communication) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO1, from T.18.2 (Cellular Communication) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.18.1 (Aftermarket, Customer, or Dealer Equipment) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.18.1 (Aftermarket, Customer, or Dealer Equipment) - the most accessible instantiation of this abstract tactic along this dimension."
                     }
                 }
             },
@@ -10582,23 +10582,23 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.19.2 (Cellular Communication) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.19.2 (Cellular Communication) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.19.1 (Aftermarket, Customer, or Dealer Equipment) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.19.1 (Aftermarket, Customer, or Dealer Equipment) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.19.3 (Internet Communication) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.19.3 (Internet Communication) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO1, from T.19.2 (Cellular Communication) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO1, from T.19.2 (Cellular Communication) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.19.2 (Cellular Communication) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.19.2 (Cellular Communication) - the most accessible instantiation of this abstract tactic along this dimension."
                     }
                 }
             },
@@ -11161,23 +11161,23 @@
                 "attackPotential": {
                     "elapsedTime": {
                         "feasibility": "ET1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.20.2 (Analog Sensor Attacks) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) elapsed time value found among them is ET1, from T.20.2 (Analog Sensor Attacks) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "specialistExpertise": {
                         "feasibility": "SE1",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.20.2 (Analog Sensor Attacks) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) specialist expertise value found among them is SE1, from T.20.2 (Analog Sensor Attacks) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "knowledgeOfTheItemOrComponent": {
                         "feasibility": "KoIC0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.20.2 (Analog Sensor Attacks) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) knowledge of the item/component value found among them is KoIC0, from T.20.2 (Analog Sensor Attacks) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "windowOfOpportunity": {
                         "feasibility": "WoO0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO0, from T.20.6 (Local Function) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) window of opportunity value found among them is WoO0, from T.20.6 (Local Function) - the most accessible instantiation of this abstract tactic along this dimension."
                     },
                     "equipment": {
                         "feasibility": "Eq0",
-                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.20.5 (Denial of Service on Vehicle Function) — the most accessible instantiation of this abstract tactic along this dimension."
+                        "rationale": "Umbrella rating derived from this category's own children: the lowest-bar (easiest-for-attacker) equipment value found among them is Eq0, from T.20.5 (Denial of Service on Vehicle Function) - the most accessible instantiation of this abstract tactic along this dimension."
                     }
                 }
             },

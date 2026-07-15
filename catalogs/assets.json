@@ -40,7 +40,7 @@
                 "roadUser": {
                     "safety": {
                         "level": "Moderate",
-                        "rationale": "Verifies firmware authenticity at boot; a compromise enables execution of unauthorized firmware but does not itself actuate any vehicle function — the safety effect depends entirely on what a subsequently loaded payload does."
+                        "rationale": "Verifies firmware authenticity at boot; a compromise enables execution of unauthorized firmware but does not itself actuate any vehicle function - the safety effect depends entirely on what a subsequently loaded payload does."
                     },
                     "financial": {
                         "level": "None",
@@ -99,7 +99,7 @@
                 "roadUser": {
                     "safety": {
                         "level": "Moderate",
-                        "rationale": "Enables forging of signed firmware or cloning of module identity, which could subsequently be used to target safety-critical ECUs; the key itself does not actuate any function — a further malicious firmware delivery and execution step is required."
+                        "rationale": "Enables forging of signed firmware or cloning of module identity, which could subsequently be used to target safety-critical ECUs; the key itself does not actuate any function - a further malicious firmware delivery and execution step is required."
                     },
                     "financial": {
                         "level": "None",
@@ -323,7 +323,7 @@
                 "roadUser": {
                     "safety": {
                         "level": "Moderate",
-                        "rationale": "Poisoned or corrupted weights degrade perception accuracy, which can contribute to a missed-detection event; the model itself does not actuate any function — the effect passes through the separate planning and control logic before reaching a physical outcome."
+                        "rationale": "Poisoned or corrupted weights degrade perception accuracy, which can contribute to a missed-detection event; the model itself does not actuate any function - the effect passes through the separate planning and control logic before reaching a physical outcome."
                     },
                     "financial": {
                         "level": "None",
@@ -439,7 +439,7 @@
                 "roadUser": {
                     "safety": {
                         "level": "Moderate",
-                        "rationale": "A compromised orchestrator can push unauthorized code to any ECU it targets, but a further step — crafting and successfully flashing a malicious payload to a specific safety-critical ECU — is required before any physical effect occurs."
+                        "rationale": "A compromised orchestrator can push unauthorized code to any ECU it targets, but a further step - crafting and successfully flashing a malicious payload to a specific safety-critical ECU - is required before any physical effect occurs."
                     },
                     "financial": {
                         "level": "None",
@@ -550,7 +550,7 @@
                 "roadUser": {
                     "safety": {
                         "level": "Moderate",
-                        "rationale": "Corrupting these rules permits unauthorized lateral movement from low-trust to safety-critical domains, but a further step — actually crafting and injecting malicious messages once that access is gained — is required before any physical effect occurs."
+                        "rationale": "Corrupting these rules permits unauthorized lateral movement from low-trust to safety-critical domains, but a further step - actually crafting and injecting malicious messages once that access is gained - is required before any physical effect occurs."
                     },
                     "financial": {
                         "level": "None",
@@ -606,7 +606,7 @@
                 "roadUser": {
                     "safety": {
                         "level": "Moderate",
-                        "rationale": "A hypervisor jailbreak can starve or crash adjacent guest partitions, but the resulting safety effect depends on whether a safety-critical task happens to be co-hosted on the same physical node — this is a resource-isolation failure, not itself an actuation of any vehicle function."
+                        "rationale": "A hypervisor jailbreak can starve or crash adjacent guest partitions, but the resulting safety effect depends on whether a safety-critical task happens to be co-hosted on the same physical node - this is a resource-isolation failure, not itself an actuation of any vehicle function."
                     },
                     "financial": {
                         "level": "None",
@@ -719,7 +719,7 @@
                 "roadUser": {
                     "safety": {
                         "level": "Moderate",
-                        "rationale": "Corruption of this generic, cross-domain storage partition can brick the hosting ECU or cause it to load an invalid configuration state, but the resulting safety effect depends on which ECU (safety-critical or not) is affected — the storage fault itself is not an actuation of any vehicle function."
+                        "rationale": "Corruption of this generic, cross-domain storage partition can brick the hosting ECU or cause it to load an invalid configuration state, but the resulting safety effect depends on which ECU (safety-critical or not) is affected - the storage fault itself is not an actuation of any vehicle function."
                     },
                     "financial": {
                         "level": "None",
@@ -963,7 +963,7 @@
         {
             "id": "A.018",
             "name": "Driver Information Display Rendering Application",
-            "description": "High-priority graphics application responsible for rendering critical vehicle state information — speed, warning indicators, and power/charge levels — onto the instrument cluster and other vehicle displays.",
+            "description": "High-priority graphics application responsible for rendering critical vehicle state information - speed, warning indicators, and power/charge levels - onto the instrument cluster and other vehicle displays.",
             "metadata": [
                 "HDMI / DisplayPort",
                 "App / Service",
@@ -1446,7 +1446,7 @@
                 "roadUser": {
                     "safety": {
                         "level": "Moderate",
-                        "rationale": "Hijacking the registry can redirect service calls to a malicious endpoint, but a further step — that malicious service actually issuing harmful commands to a safety-critical function — is required before any physical effect occurs."
+                        "rationale": "Hijacking the registry can redirect service calls to a malicious endpoint, but a further step - that malicious service actually issuing harmful commands to a safety-critical function - is required before any physical effect occurs."
                     },
                     "financial": {
                         "level": "None",
@@ -1727,7 +1727,7 @@
                 "roadUser": {
                     "safety": {
                         "level": "Moderate",
-                        "rationale": "Compromise of the root trust anchor could allow a forged certificate chain to make unauthorized firmware appear OEM-signed, but a further step — crafting, signing, and successfully delivering a malicious payload to a specific ECU — is required before any physical effect occurs."
+                        "rationale": "Compromise of the root trust anchor could allow a forged certificate chain to make unauthorized firmware appear OEM-signed, but a further step - crafting, signing, and successfully delivering a malicious payload to a specific ECU - is required before any physical effect occurs."
                     },
                     "financial": {
                         "level": "None",
@@ -2173,7 +2173,7 @@
                 "roadUser": {
                     "safety": {
                         "level": "Severe",
-                        "rationale": "As the consolidated/central compute platform, this asset directly hosts the braking, steering, and perception control loops as co-located processes rather than merely routing to them elsewhere — unlike a zone-specific hub or generic edge ECU whose function assignment is unspecified, compromising this platform is a direct failure of the safety software itself, not a further exploitation chain."
+                        "rationale": "As the consolidated/central compute platform, this asset directly hosts the braking, steering, and perception control loops as co-located processes rather than merely routing to them elsewhere - unlike a zone-specific hub or generic edge ECU whose function assignment is unspecified, compromising this platform is a direct failure of the safety software itself, not a further exploitation chain."
                     },
                     "financial": {
                         "level": "None",
@@ -2568,7 +2568,7 @@
                 "roadUser": {
                     "safety": {
                         "level": "Moderate",
-                        "rationale": "This hub concentrates sensor/actuator traffic for one physical zone of the vehicle; disabling it drops that zone’s I/O, but whether the affected zone carries safety-critical (vs. body/comfort) signals is architecture-dependent — this is not uniformly a direct actuation path."
+                        "rationale": "This hub concentrates sensor/actuator traffic for one physical zone of the vehicle; disabling it drops that zone’s I/O, but whether the affected zone carries safety-critical (vs. body/comfort) signals is architecture-dependent - this is not uniformly a direct actuation path."
                     },
                     "financial": {
                         "level": "None",
@@ -2847,7 +2847,7 @@
                 "roadUser": {
                     "safety": {
                         "level": "Moderate",
-                        "rationale": "These tokens unlock a physical debug interface; reaching a safety-relevant outcome requires a further, separate exploitation step through that now-open interface — the token itself does not actuate any function."
+                        "rationale": "These tokens unlock a physical debug interface; reaching a safety-relevant outcome requires a further, separate exploitation step through that now-open interface - the token itself does not actuate any function."
                     },
                     "financial": {
                         "level": "None",
@@ -3587,7 +3587,7 @@
                 "roadUser": {
                     "safety": {
                         "level": "Moderate",
-                        "rationale": "This is a physical access point; reaching a safety-relevant outcome (disabling a safety system, injecting malicious commands) requires a further exploitation step through the exposed protocols (UDS/JTAG/CAN) once physical access is obtained — the port itself does not actuate any function."
+                        "rationale": "This is a physical access point; reaching a safety-relevant outcome (disabling a safety system, injecting malicious commands) requires a further exploitation step through the exposed protocols (UDS/JTAG/CAN) once physical access is obtained - the port itself does not actuate any function."
                     },
                     "financial": {
                         "level": "Severe",
@@ -3749,7 +3749,7 @@
                     },
                     "financial": {
                         "level": "Severe",
-                        "rationale": "Extraction of the bitstream constitutes direct IP theft of proprietary hardware logic — the synthesized netlist cannot be re-derived without the original RTL source."
+                        "rationale": "Extraction of the bitstream constitutes direct IP theft of proprietary hardware logic - the synthesized netlist cannot be re-derived without the original RTL source."
                     },
                     "operational": {
                         "level": "Severe",
@@ -3784,7 +3784,7 @@
         {
             "id": "A.068",
             "name": "Event Data Recorder (EDR) / Crash Data Recorder",
-            "description": "Dedicated, tamper-evident non-volatile storage module that captures a fixed pre-crash and post-crash data snapshot — vehicle speed, throttle/brake application, seatbelt status, airbag/restraint deployment, and steering angle — triggered once a crash-severity threshold is met (e.g., a longitudinal or lateral velocity change exceeding 8 km/h within 150 ms, or non-reversible restraint deployment). Once a locking event is recorded, the snapshot is protected against overwrite for the legally mandated retention window, supporting post-incident forensic reconstruction and liability determination — and is consequently a frequent target for tampering to conceal fault evidence.",
+            "description": "Dedicated, tamper-evident non-volatile storage module that captures a fixed pre-crash and post-crash data snapshot - vehicle speed, throttle/brake application, seatbelt status, airbag/restraint deployment, and steering angle - triggered once a crash-severity threshold is met (e.g., a longitudinal or lateral velocity change exceeding 8 km/h within 150 ms, or non-reversible restraint deployment). Once a locking event is recorded, the snapshot is protected against overwrite for the legally mandated retention window, supporting post-incident forensic reconstruction and liability determination - and is consequently a frequent target for tampering to conceal fault evidence.",
             "class": "Memory",
             "domain": "*",
             "metadata": [
@@ -3833,7 +3833,7 @@
                     },
                     "privacy": {
                         "level": "Moderate",
-                        "rationale": "Crash-triggered snapshots reveal driving behavior (speed, braking, belt use) at the time of an incident — sensitive, but limited in scope and duration compared to continuously captured telemetry."
+                        "rationale": "Crash-triggered snapshots reveal driving behavior (speed, braking, belt use) at the time of an incident - sensitive, but limited in scope and duration compared to continuously captured telemetry."
                     }
                 }
             },
@@ -3842,7 +3842,7 @@
         {
             "id": "A.069",
             "name": "EV Charging Communication Controller (EVCC)",
-            "description": "Vehicle-side compute module implementing the ISO 15118 communication stack: the SLAC (Signal Level Attenuation Characterization) matching procedure that pairs the vehicle to a specific charging outlet over HomePlug GreenPHY power-line communication, the TLS/PKI-secured session negotiation with the charging station's SECC (Supply Equipment Communication Controller), and the higher-layer V2G/ISO 15118-20 message exchange — charging-parameter negotiation, Plug & Charge authentication, and bidirectional V2G power scheduling. Relays negotiated charging commands and authorization state to the Battery Management System (BMS) and Vehicle Control Unit (VCU).",
+            "description": "Vehicle-side compute module implementing the ISO 15118 communication stack: the SLAC (Signal Level Attenuation Characterization) matching procedure that pairs the vehicle to a specific charging outlet over HomePlug GreenPHY power-line communication, the TLS/PKI-secured session negotiation with the charging station's SECC (Supply Equipment Communication Controller), and the higher-layer V2G/ISO 15118-20 message exchange - charging-parameter negotiation, Plug & Charge authentication, and bidirectional V2G power scheduling. Relays negotiated charging commands and authorization state to the Battery Management System (BMS) and Vehicle Control Unit (VCU).",
             "class": "Compute",
             "domain": "Powertrain",
             "metadata": [
@@ -3883,7 +3883,7 @@
                     },
                     "financial": {
                         "level": "Major",
-                        "rationale": "A compromised EVCC can be leveraged for charging-session or billing fraud, or a bricked EVCC leaves the owner unable to charge — both with direct cost to the owner."
+                        "rationale": "A compromised EVCC can be leveraged for charging-session or billing fraud, or a bricked EVCC leaves the owner unable to charge - both with direct cost to the owner."
                     },
                     "operational": {
                         "level": "Major",
@@ -3957,7 +3957,7 @@
         {
             "id": "A.071",
             "name": "V2X On-Board Unit (OBU)",
-            "description": "Dedicated V2X radio module — a DSRC (IEEE 802.11p) and/or C-V2X (3GPP PC5 sidelink) chipset, an application processor running the V2X message stack (BSM/CAM generation and validation), a positioning co-processor, an IEEE 1609.2/ETSI TS 103 097 security co-processor performing pseudonym-certificate signing and verification, and a dedicated 5.9 GHz antenna — that transmits and receives V2X safety messages (collision warnings, intersection movement assist, road-hazard signaling) to and from other vehicles and roadside infrastructure.",
+            "description": "Dedicated V2X radio module - a DSRC (IEEE 802.11p) and/or C-V2X (3GPP PC5 sidelink) chipset, an application processor running the V2X message stack (BSM/CAM generation and validation), a positioning co-processor, an IEEE 1609.2/ETSI TS 103 097 security co-processor performing pseudonym-certificate signing and verification, and a dedicated 5.9 GHz antenna - that transmits and receives V2X safety messages (collision warnings, intersection movement assist, road-hazard signaling) to and from other vehicles and roadside infrastructure.",
             "class": "Compute",
             "domain": "Telematics",
             "metadata": [
@@ -4072,7 +4072,7 @@
         {
             "id": "A.073",
             "name": "In-Cabin Conversational AI / LLM Copilot Interface",
-            "description": "An in-cabin, large-language-model-based voice/chat assistant integrated with vehicle functions (climate control, navigation, messaging, remote-start) via tool-calling/function-calling access that lets it invoke real vehicle commands based on natural-language user intent. Ingests external context — web search results it retrieves on the user's behalf, calendar entries, navigation POI descriptions, and received messages — as part of forming its responses. Distinct from the perception/ADAS machine-learning models hosted on A.040 (tagged `ML Model / Weights`): this is an agentic, tool-calling conversational system that reasons over natural language and unstructured external content to decide which vehicle functions to invoke, not a passive inference model operating on sensor tensors.",
+            "description": "An in-cabin, large-language-model-based voice/chat assistant integrated with vehicle functions (climate control, navigation, messaging, remote-start) via tool-calling/function-calling access that lets it invoke real vehicle commands based on natural-language user intent. Ingests external context - web search results it retrieves on the user's behalf, calendar entries, navigation POI descriptions, and received messages - as part of forming its responses. Distinct from the perception/ADAS machine-learning models hosted on A.040 (tagged `ML Model / Weights`): this is an agentic, tool-calling conversational system that reasons over natural language and unstructured external content to decide which vehicle functions to invoke, not a passive inference model operating on sensor tensors.",
             "class": "Executable",
             "domain": "Infotainment",
             "partOf": "A.041",
@@ -4092,7 +4092,7 @@
                 "oem": {
                     "safety": {
                         "level": "None",
-                        "rationale": "Per the catalog's OEM-safety methodology, whatever safety-adjacent exposure the OEM carries from a compromised copilot is a consequence of road-user harm, expressed monetarily below (financial/operational) — the OEM itself has no direct physical safety state a compromise can affect."
+                        "rationale": "Per the catalog's OEM-safety methodology, whatever safety-adjacent exposure the OEM carries from a compromised copilot is a consequence of road-user harm, expressed monetarily below (financial/operational) - the OEM itself has no direct physical safety state a compromise can affect."
                     },
                     "financial": {
                         "level": "Major",
@@ -4110,7 +4110,7 @@
                 "roadUser": {
                     "safety": {
                         "level": "Moderate",
-                        "rationale": "The assistant's tool-calling can directly actuate door-unlock, climate, and messaging functions without a further exploitation chain, which is a real safety-adjacent risk (e.g. unexpected unlock or distraction while driving). It is rated Moderate rather than Severe because none of its exposed functions reach braking, steering, or powertrain control loops — consistent with how this catalog calibrates other indirect/non-control-loop actuation risks."
+                        "rationale": "The assistant's tool-calling can directly actuate door-unlock, climate, and messaging functions without a further exploitation chain, which is a real safety-adjacent risk (e.g. unexpected unlock or distraction while driving). It is rated Moderate rather than Severe because none of its exposed functions reach braking, steering, or powertrain control loops - consistent with how this catalog calibrates other indirect/non-control-loop actuation risks."
                     },
                     "financial": {
                         "level": "Major",
@@ -4122,11 +4122,11 @@
                     },
                     "privacy": {
                         "level": "Severe",
-                        "rationale": "The assistant's conversation history routinely reflects highly personal content — calendar entries, message contents, location intent, and habits inferred from natural-language requests — whose exfiltration is a severe, direct privacy exposure to the individual user."
+                        "rationale": "The assistant's conversation history routinely reflects highly personal content - calendar entries, message contents, location intent, and habits inferred from natural-language requests - whose exfiltration is a severe, direct privacy exposure to the individual user."
                     }
                 }
             },
-            "notes": "Hosted on A.041 (Cockpit / Infotainment Domain Controller). Relies on A.062 (In-Cabin Microphones) for voice input and A.029 (Third-Party API Keys & Service Credentials) for the outbound calls it makes to external services (web search, navigation POI lookups). Deliberately excludes the `ML Model / Weights` metadata tag to keep this asset distinct from A.040's perception/ADAS inference models — see T.01.14 (LLM/Conversational AI Prompt Injection) for the primary threat this asset introduces."
+            "notes": "Hosted on A.041 (Cockpit / Infotainment Domain Controller). Relies on A.062 (In-Cabin Microphones) for voice input and A.029 (Third-Party API Keys & Service Credentials) for the outbound calls it makes to external services (web search, navigation POI lookups). Deliberately excludes the `ML Model / Weights` metadata tag to keep this asset distinct from A.040's perception/ADAS inference models - see T.01.14 (LLM/Conversational AI Prompt Injection) for the primary threat this asset introduces."
         }
     ]
 }
