@@ -5706,7 +5706,8 @@
                 "V2X",
                 "PKI / Certificates",
                 "GNSS",
-                "IDS / IPS"
+                "IDS / IPS",
+                "LiDAR / Radar / Camera"
             ],
             "refines": "C.21",
             "attackFeasibilityReduction": {

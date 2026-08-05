@@ -627,7 +627,8 @@
             "metadata": [
                 "Sensor / Actuator",
                 "ML Model / Weights",
-                "GPU / NPU"
+                "GPU / NPU",
+                "LiDAR / Radar / Camera"
             ],
             "unitedNationsRegulation155": [
                 "16.3"
@@ -1348,7 +1349,6 @@
             "metadata": [
                 "Flash / RAM / EEPROM",
                 "Config / Calibration File",
-                "Flash / RAM / EEPROM",
                 "XCP / CCP"
             ],
             "unitedNationsRegulation155": [
@@ -1680,15 +1680,6 @@
                 "Integrity"
             ],
             "refines": "T.02",
-            "requires": {
-                "AND": [
-                    {
-                        "action": "Elevate",
-                        "assetClass": "Compute",
-                        "domain": "*"
-                    }
-                ]
-            },
             "grants": [
                 {
                     "action": "Modify",
@@ -1708,7 +1699,8 @@
             ],
             "unitedNationsRegulation155": [
                 "32.1"
-            ]
+            ],
+            "notes": "Requires physical possession of the target hardware (see T.06.6, Physical ECU / Vehicle Access) - modeled as an independent Root Attack Step rather than a formal capability prerequisite, since no capability in this taxonomy exclusively represents physical possession without being reachable through this catalog's dense software-privilege capability graph as well."
         },
         {
             "id": "T.02.8",
@@ -1748,15 +1740,6 @@
                 "Integrity"
             ],
             "refines": "T.02",
-            "requires": {
-                "AND": [
-                    {
-                        "action": "Elevate",
-                        "assetClass": "Compute",
-                        "domain": "*"
-                    }
-                ]
-            },
             "grants": [
                 {
                     "action": "Modify",
@@ -1776,7 +1759,8 @@
             ],
             "unitedNationsRegulation155": [
                 "32.1"
-            ]
+            ],
+            "notes": "Requires physical possession of the target hardware (see T.06.6, Physical ECU / Vehicle Access) - modeled as an independent Root Attack Step rather than a formal capability prerequisite, since no capability in this taxonomy exclusively represents physical possession without being reachable through this catalog's dense software-privilege capability graph as well."
         },
         {
             "id": "T.02.9",
@@ -2051,7 +2035,6 @@
                 }
             ],
             "metadata": [
-                "Flash / RAM / EEPROM",
                 "Flash / RAM / EEPROM",
                 "UDS"
             ],
@@ -2525,7 +2508,7 @@
             "requires": {
                 "OR": [
                     {
-                        "action": "Intercept",
+                        "action": "Fault",
                         "assetClass": "Compute",
                         "domain": "*"
                     }
@@ -2588,15 +2571,6 @@
             "compromises": [
                 "Confidentiality"
             ],
-            "requires": {
-                "AND": [
-                    {
-                        "action": "Elevate",
-                        "assetClass": "Compute",
-                        "domain": "*"
-                    }
-                ]
-            },
             "grants": [
                 {
                     "action": "Extract",
@@ -2618,7 +2592,8 @@
                 "19.1",
                 "19.3",
                 "32.1"
-            ]
+            ],
+            "notes": "Requires physical possession of the target hardware (see T.06.6, Physical ECU / Vehicle Access) - modeled as an independent Root Attack Step rather than a formal capability prerequisite, since no capability in this taxonomy exclusively represents physical possession without being reachable through this catalog's dense software-privilege capability graph as well."
         },
         {
             "id": "T.04.7",
@@ -2658,15 +2633,6 @@
             "compromises": [
                 "Confidentiality"
             ],
-            "requires": {
-                "AND": [
-                    {
-                        "action": "Elevate",
-                        "assetClass": "Compute",
-                        "domain": "*"
-                    }
-                ]
-            },
             "grants": [
                 {
                     "action": "Extract",
@@ -2687,7 +2653,8 @@
                 "19.1",
                 "19.3",
                 "32.1"
-            ]
+            ],
+            "notes": "Requires physical possession of the target hardware (see T.06.6, Physical ECU / Vehicle Access) - modeled as an independent Root Attack Step rather than a formal capability prerequisite, since no capability in this taxonomy exclusively represents physical possession without being reachable through this catalog's dense software-privilege capability graph as well."
         },
         {
             "id": "T.04.8",
@@ -3240,7 +3207,6 @@
             "metadata": [
                 "Flash / RAM / EEPROM",
                 "Bootloader",
-                "Flash / RAM / EEPROM",
                 "Config / Calibration File"
             ],
             "unitedNationsRegulation155": [
@@ -3776,15 +3742,6 @@
                 "Integrity",
                 "Authenticity"
             ],
-            "requires": {
-                "AND": [
-                    {
-                        "action": "Elevate",
-                        "assetClass": "Compute",
-                        "domain": "*"
-                    }
-                ]
-            },
             "grants": [
                 {
                     "action": "Execute",
@@ -3810,7 +3767,8 @@
             ],
             "unitedNationsRegulation155": [
                 "28.2"
-            ]
+            ],
+            "notes": "Requires physical possession of the target hardware (see T.06.6, Physical ECU / Vehicle Access) - modeled as an independent Root Attack Step rather than a formal capability prerequisite, since no capability in this taxonomy exclusively represents physical possession without being reachable through this catalog's dense software-privilege capability graph as well."
         },
         {
             "id": "T.06.5",
@@ -4508,7 +4466,8 @@
                 }
             ],
             "metadata": [
-                "Sensor / Actuator"
+                "Sensor / Actuator",
+                "LiDAR / Radar / Camera"
             ],
             "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0004) as T.20.2 (Affect Vehicle Function), modeled independently here under the Manipulate Environment tactic with its own capability and feasibility profile.",
             "unitedNationsRegulation155": [
@@ -4778,7 +4737,8 @@
                 "LF / RF",
                 "Bluetooth / BLE",
                 "UWB",
-                "NFC / RFID"
+                "NFC / RFID",
+                "RKE / PEPS (Keyless Entry)"
             ],
             "unitedNationsRegulation155": [
                 "16.1"
@@ -5477,15 +5437,6 @@
                 "Integrity",
                 "Authenticity"
             ],
-            "requires": {
-                "AND": [
-                    {
-                        "action": "Elevate",
-                        "assetClass": "Compute",
-                        "domain": "*"
-                    }
-                ]
-            },
             "grants": [
                 {
                     "action": "Fault",
@@ -5510,7 +5461,8 @@
             ],
             "unitedNationsRegulation155": [
                 "32.1"
-            ]
+            ],
+            "notes": "Requires physical possession of the target hardware (see T.06.6, Physical ECU / Vehicle Access) - modeled as an independent Root Attack Step rather than a formal capability prerequisite, since no capability in this taxonomy exclusively represents physical possession without being reachable through this catalog's dense software-privilege capability graph as well."
         },
         {
             "id": "T.09.8",
@@ -8021,7 +7973,6 @@
             ],
             "metadata": [
                 "Flash / RAM / EEPROM",
-                "Flash / RAM / EEPROM",
                 "Passwords / PINs",
                 "Hashes"
             ],
@@ -9829,7 +9780,8 @@
             "metadata": [
                 "Sensor / Actuator",
                 "Audio Jacks / A2B",
-                "HDMI / DisplayPort"
+                "HDMI / DisplayPort",
+                "LiDAR / Radar / Camera"
             ],
             "unitedNationsRegulation155": [
                 "19.2"
@@ -9893,7 +9845,6 @@
                 }
             ],
             "metadata": [
-                "Flash / RAM / EEPROM",
                 "Flash / RAM / EEPROM"
             ],
             "unitedNationsRegulation155": [
@@ -10400,6 +10351,11 @@
                 {
                     "action": "Execute",
                     "assetClass": "Executable",
+                    "domain": "*"
+                },
+                {
+                    "action": "Disrupt",
+                    "assetClass": "Network",
                     "domain": "*"
                 }
             ],
@@ -11109,15 +11065,6 @@
             "compromises": [
                 "Confidentiality"
             ],
-            "requires": {
-                "AND": [
-                    {
-                        "action": "Elevate",
-                        "assetClass": "Compute",
-                        "domain": "*"
-                    }
-                ]
-            },
             "grants": [
                 {
                     "action": "Extract",
@@ -11139,7 +11086,8 @@
                 "19.1",
                 "19.3",
                 "28.2"
-            ]
+            ],
+            "notes": "Requires physical possession of the target hardware (see T.06.6, Physical ECU / Vehicle Access) - modeled as an independent Root Attack Step rather than a formal capability prerequisite, since no capability in this taxonomy exclusively represents physical possession without being reachable through this catalog's dense software-privilege capability graph as well."
         },
         {
             "id": "T.20",
@@ -11340,7 +11288,8 @@
                 }
             ],
             "metadata": [
-                "Sensor / Actuator"
+                "Sensor / Actuator",
+                "LiDAR / Radar / Camera"
             ],
             "notes": "Same underlying Auto-ISAC ATM technique (ATM-T0004) as T.08.2 (Manipulate Environment), modeled independently here under the Affect Vehicle Function tactic with its own capability and feasibility profile.",
             "unitedNationsRegulation155": [
